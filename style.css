@@ -1,0 +1,226 @@
+
+/* ------------- tipografia  --------------------- */
+
+@font-face {
+    font-family: 'Nunito'; /* Nombre de la fuente personalizada */
+    src: url('fuentes/static/Nunito-Black.ttf') format('truetype'); /* Ruta a la fuente personalizada */
+    /* Puedes agregar más formatos y rutas aquí si es necesario */
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* ------------- Propiedades tipicas de todo el proyecto  --------------------- */
+
+body {
+    font-family: 'Nunito'; /* Utiliza la fuente personalizada Nunito */
+    background-image: url("assets/fondo.jpeg");
+    background-position: center;
+    overflow: hidden;
+}
+
+
+/* ------------- Membrete  --------------------- */
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgba(red, green, blue, alpha);
+    padding: 5em;
+    height: 2em;
+}
+.menu-button {
+    border: none;
+    background: none;
+    position: relative;
+    top: -50%;
+    font-size: 4em;
+    opacity: 0.9;
+    color: white;
+}
+
+.text-titulo {
+    text-align: center;
+    font-weight: bold;
+    font-size: 4em;
+    color: white;
+    opacity: 0.9;
+}
+
+/* ---------------- formulario de incio ------------- */
+
+.login-form {
+    /*background-color: white;*/
+
+    margin-top: 5em;
+    margin-right: 15em;
+
+    float: right;
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Configuracion de imputs */
+.login-form input {
+    font-family: 'Nunito' "Ligth";
+
+    margin: 1em;
+    padding: 1em;
+
+    width: 20em;
+    height: 1.5em;
+
+    border-radius: 40px;
+    background-color: rgba(255, 255, 255, 0.7); /* Fondo transparente con transparencia de 0.2 */
+    border: none; /* Elimina el borde */
+
+    font-size: 20px;
+    color: rgb(255, 255, 255); /* Texto opaco con transparencia de 0.8 */
+}
+
+/* Configuracion de imputs */
+.login-form button {
+    margin: 1%;
+    margin-top: 5%;
+
+    width: 90%;
+    height: 50px;
+
+    border-radius: 40px;
+    background-color: rgba(60, 37, 81, 0.8);
+    border: none; /* Elimina el borde */
+    
+    font-size: 20px;
+    color: white;
+
+    cursor: pointer;
+}
+
+/* Configuracion de Botones de ayuda */
+.ayuda {
+    margin-top: 0.5em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+}
+
+.ayuda a{
+    color: white;
+    opacity: 0.8;
+    text-decoration: none; 
+}
+
+/* ---------------- el mundo ------------- */
+
+.foto-globo{
+    position: absolute;
+    bottom: 0;
+    right: 100%;
+    transform: translateX(50%);
+    scale: 2.5;
+    opacity: 0.5;
+    
+}
+
+
+/* ------------------------ Estilos para pantallas PC, fue diseñado para 1920px --------------------------- */
+@media (min-width: 1023px) and (max-width: 1800px) {
+    /* Estilos para esta resolución */
+
+    header {
+    }
+
+    .login-form {
+        display: flex;
+        flex-direction: column;
+        align-items: center; /* Centra horizontalmente */
+        margin-top: 1em;
+        margin-right: 10em;
+    }
+
+    .foto-globo{
+        position: absolute;
+        right: 100%;
+        transform: translateX(50%);
+        scale: 1.5;
+    }
+
+}
+
+/* Estilos para pantallas medianas (Tablet) */
+@media (max-width: 1023px) {
+    body {
+        background-size: cover;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+        margin: 0; /* Resetear el margen predeterminado */
+    }
+
+    header {
+        padding: 1em;
+        height: 3em;
+    }
+
+    .menu-button {
+        display: none;
+    }
+    
+    .login-form {
+        display: flex;
+        flex-direction: column;
+        align-items: center; /* Centra horizontalmente */
+        margin-top: 2em;
+        margin-right: 2em;
+    }
+
+    .foto-globo {
+        display: none; /* Oculta la imagen en Tablet */
+    }
+
+}
+
+/* Estilos para pantallas pequeñas (Celular) */
+@media (max-width: 768px) {
+    body {
+        background-size: cover;
+        margin: 0; /* Resetear el margen predeterminado */
+    }
+
+    /* Mantén los estilos actuales para el header */
+
+    .menu-button {
+        display: none; /* Oculta el botón de menú en dispositivos móviles */
+    }
+
+    .text-titulo {
+        font-size: 4em;
+    }
+
+    .login-form {
+        margin-top: 2em;
+        margin-right: 0em; /* Reduce el margen derecho */
+        align-items: center;
+        padding: 0.5em;
+    }
+
+    .login-form input {
+        width: 90%; /* Ancho completo para los inputs */
+    }
+
+    .login-form button {
+        width: 100%; /* Ancho completo para el botón */
+    }
+
+    /* Mantén los estilos actuales para los botones de ayuda */
+
+    /* Oculta la imagen foto-globo en dispositivos móviles */
+    .foto-globo {
+        display: none;
+    }
+}
