@@ -1,10 +1,21 @@
 
+/*----------------- Para ocultar formulario de inicio o creacion de cuenta ---------------------*/
+
+#login-form {
+    /* display: none; */
+}
+
+#create-account-form {
+    display: none; 
+}
+
+
+
 /* ------------- tipografia  --------------------- */
 
 @font-face {
-    font-family: 'Nunito'; /* Nombre de la fuente personalizada */
-    src: url('fuentes/static/Nunito-Black.ttf') format('truetype'); /* Ruta a la fuente personalizada */
-    /* Puedes agregar más formatos y rutas aquí si es necesario */
+    font-family: 'Nunito';
+    src: url('fuentes/static/Nunito-Black.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
@@ -50,8 +61,6 @@ header {
 /* ---------------- formulario de incio ------------- */
 
 .login-form {
-    /*background-color: white;*/
-
     margin-top: 5em;
     margin-right: 15em;
 
@@ -113,6 +122,49 @@ header {
     text-decoration: none; 
 }
 
+
+/*----------------- Configuracion de Crear Cuenta ---------------------*/
+
+#create-account-form{
+    margin-top: -1em;
+}
+
+#create-account-form h1 {
+    color: white;
+}
+
+#create-account-form label{
+    color: white;
+}
+
+#Recordar{
+    width: initial;
+    height: initial;
+
+    margin: initial;
+    padding: initial;
+    color: white;
+}
+
+#create-account-form span{
+    margin: initial;
+    width: 75%;
+    align-items: center;
+}
+
+#sugerencia {
+    white-space: nowrap; /* Evita el salto de línea */
+    text-align: center;
+}
+
+#sugerencia h4,
+#sugerencia a {
+    display: inline-block; 
+    margin-top: 0; 
+    color: white;
+}
+
+
 /* ---------------- el mundo ------------- */
 
 .foto-globo{
@@ -128,7 +180,6 @@ header {
 
 /* ------------------------ Estilos para pantallas PC, fue diseñado para 1920px --------------------------- */
 @media (min-width: 1023px) and (max-width: 1800px) {
-    /* Estilos para esta resolución */
 
     .login-form {
         display: flex;
