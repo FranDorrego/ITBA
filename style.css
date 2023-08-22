@@ -15,7 +15,7 @@ body {
     font-family: 'Nunito'; /* Utiliza la fuente personalizada Nunito */
     background-image: url("assets/fondo.jpeg");
     background-position: center;
-    overflow: hidden;
+    /*overflow: hidden;*/
 }
 
 
@@ -118,10 +118,10 @@ header {
 .foto-globo{
     position: absolute;
     bottom: 0;
-    right: 100%;
-    transform: translateX(50%);
-    scale: 2.5;
+    right: 70%;
+    scale: 2;
     opacity: 0.5;
+    transform: scaleX(-1)
     
 }
 
@@ -129,9 +129,6 @@ header {
 /* ------------------------ Estilos para pantallas PC, fue diseñado para 1920px --------------------------- */
 @media (min-width: 1023px) and (max-width: 1800px) {
     /* Estilos para esta resolución */
-
-    header {
-    }
 
     .login-form {
         display: flex;
@@ -143,9 +140,10 @@ header {
 
     .foto-globo{
         position: absolute;
-        right: 100%;
-        transform: translateX(50%);
-        scale: 1.5;
+        margin-bottom: -5%;
+        right: 65%;
+        transform: scaleX(-1);
+        scale: 1.1;
     }
 
 }
@@ -180,7 +178,7 @@ header {
     }
 
     .foto-globo {
-        display: none; /* Oculta la imagen en Tablet */
+        display: none;
     }
 
 }
@@ -216,8 +214,6 @@ header {
     .login-form button {
         width: 100%; /* Ancho completo para el botón */
     }
-
-    /* Mantén los estilos actuales para los botones de ayuda */
 
     /* Oculta la imagen foto-globo en dispositivos móviles */
     .foto-globo {
