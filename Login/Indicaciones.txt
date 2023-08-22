@@ -1,0 +1,27 @@
+
+Para ejecutar el login, solo tenes que abrrir "Index.html"
+
+----------------- Logeo -------------------------------
+
+El forulario de logeo tiene como ID: "login-form" Es un DIV
+
+Los botones no apuntan a ningun lado
+
+--------------- Crear Cuenta --------------------------
+
+El forulario de crear cuenta tiene como ID: "create-account-form" Es un DIV
+
+Los botones no apuntan a ninugn lado
+
+--------------- Mostrar uno o el otro ----------------
+
+Si queres que te muestre el formulario de logeo, te tenes que ir a
+style.css y modificar la linea 6:
+
+- Si la comentas, se muestra
+- Si no la comentas NO se muestra 
+
+Lo mismo con el formulario de Crear cuenta. 
+
+
+DOC: Franco - comit 2 main 22/08

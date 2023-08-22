@@ -2,11 +2,11 @@
 /*----------------- Para ocultar formulario de inicio o creacion de cuenta ---------------------*/
 
 #login-form {
-    /* display: none; */
+    display: none;
 }
 
 #create-account-form {
-    display: none; 
+    /* display:  none; */
 }
 
 
@@ -15,7 +15,7 @@
 
 @font-face {
     font-family: 'Nunito';
-    src: url('fuentes/static/Nunito-Black.ttf') format('truetype');
+    src: url('../Fuentes/static/Nunito-Black.ttf') format('truetype'); /* Los dos ../ es para elevar la dirrecion y que lo busque en el directorio principal*/
     font-weight: normal;
     font-style: normal;
 }
