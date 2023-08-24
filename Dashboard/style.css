@@ -24,6 +24,7 @@ body {
     height: 100vh;
     display: flex;
 
+    overflow: hidden;
 }
 
 /*-------------- Propiedades del menu --------------*/
@@ -455,7 +456,6 @@ body {
     display: flex;
     flex-direction: column;
     
-    overflow: hidden;
     position: relative;
 }
 
@@ -699,13 +699,22 @@ body {
 
 /* Para pantallas comunes */
 
-@media (max-width: 1459px) {
+@media (max-width: 1460px) {
     .menu{
         font-size: 10em;
         width: 80rem;
     }
 
+    .menu{
+        width: 15rem;
+    }
+
+    .menu-logo img{
+        padding-right: 0;
+    }
+
     .botones{
+        width: 5rem;
         margin-left: 0;
         padding-left: 1em;
     }
@@ -714,9 +723,52 @@ body {
         margin-left: 0;
         padding-left: 0.5em;
     }
+
+    .div-saludo{
+        margin-top: 0.5rem;
+        margin-left: 2rem;
+        margin-right: 2rem;
+    }
+
+    .tarjetas-dashboard{
+        height: 10rem;
+    }
+
+    .movimientos-titulo{
+        margin-left: 2rem;
+        margin-left: 2rem;
+    }
+
+    .div-movimientos{
+        margin-left: 2rem;
+        margin-left: 2rem;
+    }
+
+    .gris{
+        height: 6.5rem;
+    }
+
+    .menu-derecho{
+        padding-left: 1rem;
+        width: 20rem;
+
+        overflow: hidden;
+        overflow-y: auto;
+    }
+
+    .titulo-tarjeta .titulo{
+        margin-top: 1rem;
+        height: 1rem;
+    }
+
+    .derecho-botones{
+        width: 19rem;
+    }
+
 }
 
 @media (max-width: 1023px) {
+    
 }
 
 @media (max-width: 768px) {
