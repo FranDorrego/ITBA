@@ -1,66 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="style.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HomeBanking  Login</title>
-</head>
-
-<body>
-
-    <!--- Es el mebrete -->
-    <header>
-        <h1 class="text-titulo">ITBANK</h1>
-        <button class="menu-button">☰</button>
-    </header>
-
-    <!--- Inicio de sesion -->
-    <div class="login-form" id="login-form">
-
-        <input type="text" id="username" class="input-with-icon" placeholder="Usuario">
-        <input type="password" id="password" class="input-with-icon" placeholder="Contraseña">
-        <button id="login-button">Login</button><br>
-
-        <span class="ayuda">
-            <a href="#">Crear cuenta</a>
-            <a href="#">¿Necesitas ayuda?</a>
-        </span>
-        
-    </div>
-
-    <!--- Crear Cuenta  -->
-
-    <div class="login-form" id="create-account-form">
-
-        <h1>Crea tu cuenta</h1>
-
-        <input type="text" id="username_new" class="input-with-icon" placeholder="Usuario">
-        <input type="email" id="mail_new" class="input-with-icon" placeholder="Mail">
-        <input type="password" id="password_new" class="input-with-icon" placeholder="Contraseña">
-        <input type="password" id="password_new_2" class="input-with-icon" placeholder="Repite Contraseña">
-
-        <span class="checkbox">
-            <input type="checkbox" id="Recordar">
-            <label>Recordar Contraseña</label>
-        </span>
-        
-        <button id="login-button">Crear Cuenta</button><br>
-        
-        <span id="sugerencia">
-            <h4>¿Ya tiene una cuenta?</h4>
-            <a href="#">Inicie Sesión</a>
-        </span>
-        
-    </div>
-
-    <!--- la imagen del globo  -->
-    <div>
-        <img src="assets\s.svg" alt="" class="foto-globo">
-    </div>
-
-
-</body>
-
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>ITBANK</title>
+        <link rel="stylesheet" href="styles.css">
+    </head>
+    <body>
+        <div class="grid">
+            
+            <div class="contenido">
+                <img src="./assets/Logo_ITBANK.png" alt="logo_ITBANK" class="titulo">
+                <form action="" class="formulario">
+                    <h2 class="subtitulo">¡Te damos la bienvenida!</h2>
+                    <input class="input" type="text" name="usuario" id="usuario" placeholder="👤 Usuario">           
+                    <input class="input" type="password" name="password" id="password" placeholder="🔒 Contraseña">  
+                    <input class="input boton" type="submit" value="Iniciar sesión">                                       
+                    <a href="#" class="link">Olvide mi contraseña</a>
+                </form>
+                <p class="parrafo">¿No tiene cuenta? <a href="#" class="link">Crear cuenta</a></p>
+            </div>
+        </div>
+    </body>
 </html>
