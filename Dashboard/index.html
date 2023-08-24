@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+</head>
+
+<body>
+
+    <!-- Esta parte es solo del menu lateral -->
+
+    <div class="menu">
+
+        <!-- Titulo -->
+        <span class="menu-arriba">
+            <button class="menu-button">☰</button>
+            <img class="menu-logo" src="/Dashboard/assets/logo.svg" alt=""> 
+        </span>
+
+        <!--  <br> Separo -->
+
+        <!-- Botones -->
+        <button class="botones"> 
+            <img class="boton-image" src="/Dashboard/assets/home.svg" alt=""> 
+            <h1 class="boton-letra">Inicio</h1>  
+        </button> 
+
+        <button class="botones"> 
+            <img class="boton-image" src="/Dashboard/assets/circle-dollar.svg" alt=""> 
+            <h1 class="boton-letra">Actividad</h1>  
+        </button> 
+
+        <button class="botones"> 
+            <img class="boton-image" src="/Dashboard/assets/bank.svg" alt=""> 
+            <h1 class="boton-letra">Cuentas</h1>  
+        </button> 
+
+        <button class="botones"> 
+            <img class="boton-image" src="/Dashboard/assets/tarjeta.svg" alt=""> 
+            <h1 class="boton-letra">Tarjetas</h1>  
+        </button> 
+
+        <!-- Botones al final -->
+        <span class="menu-footer">
+
+            <button class="botones"> 
+                <img class="boton-image" src="/Dashboard/assets/ayuda.svg" alt=""> 
+                <h1 class="boton-letra">Ayuda</h1>  
+            </button> 
+
+            <button class="botones"> 
+                <img class="boton-image" src="/Dashboard/assets/cerrar_sesion.svg" alt=""> 
+                <h1 class="boton-letra">Cerrar sesión</h1>  
+            </button> 
+
+        </span>
+
+    </div>
+
+    <!-- Este es un div general para agrupar lo que esta al lado del menu lateral -->
+    <div class="general">
+
+        <!-- Esta parte del buscador y perfil -->
+        <div class="membrete">
+
+            <!-- buscador -->
+            <div class="buscador">
+                <img src="/Dashboard/assets/search.svg" alt=""> 
+                <input type="text" placeholder="Buscar">
+            </div>
+            
+
+            <!-- notificaciones y/o usuario -->
+            <span class="user">
+                <button>
+                    <img src="/Dashboard/assets/notifica.svg" alt=""> 
+                </button>
+                <img class="user-foto" src="/Dashboard/assets/Avatar.svg" alt="user">
+            </span>
+
+        </div>
+
+        <!-- Esta parte del centro, el saludo y las tarjetas -->
+        <div class="div-saludo">
+
+            <!-- saludo -->
+            <h1 class="saludo">Hola, luis</h1>
+
+            <!-- tarjetas -->
+            <div class="tarjetas-dashboard">
+
+                <span class="tarjetas saldo">
+                    <h1>Total en cuenta</h1>
+                    <h2>$304.450</h2>
+                </span>
+
+                <span class="tarjetas ingreso-tarjeta">
+                    <h1>Ingresos</h1>
+                    <h2>+ 2.25%</h2>
+                </span>
+
+                <span class="tarjetas retiro-tarjeta">
+                    <h1>Retiros</h1>
+                    <h2>- $ 10.750</h2>
+                </span>
+
+            </div>
+
+        </div>
+
+        <!-- Esta parte de los movimientos -->
+
+        <!-- titulo -->
+        <span class="movimientos-titulo">
+            <h1>Ultimos movimientos</h1>
+            <h1>></h1>
+        </span>
+
+        <!-- tarjetas -->
+        <div class="div-movimientos">
+
+            <!-- tarjeta -->
+            <div class="moviminetos-tarjeta">
+
+                <!-- numeros y fechas -->
+                <span class="movimiento-texto">
+                    <h1>$1.350</h1>
+                    <h2>04/08/2023</h2>
+                </span>
+                
+                <!-- motivo -->
+                <span class="motivo">
+                    <h1 class="ingreso">Ingreso</h1>
+                    <img src="/Dashboard/assets/circle-arrow-down.svg" alt="">
+                </span>
+                
+            </div>
+            
+            <!-- esto es solo de demo, se copia con JS-->
+
+            <div class="moviminetos-tarjeta">
+                <span class="movimiento-texto">
+                    <h1>$300.350</h1>
+                    <h2>04/08/2023</h2>
+                </span>
+                <span class="motivo">
+                    <h1 class="ingreso">Ingreso</h1>
+                    <img src="/Dashboard/assets/circle-arrow-down.svg" alt="">
+                </span>
+            </div>
+
+            <div class="moviminetos-tarjeta">
+                <span class="movimiento-texto">
+                    <h1>$20</h1>
+                    <h2>04/08/2023</h2>
+                </span>
+                <span class="motivo">
+                    <h1 class="retiro">retiro</h1>
+                    <img src="/Dashboard/assets/circle-arrow-up.svg" alt="">
+                </span>
+            </div>
+            
+            <div class="moviminetos-tarjeta">
+                <span class="movimiento-texto">
+                    <h1>$20</h1>
+                    <h2>04/08/2023</h2>
+                </span>
+                <span class="motivo">
+                    <h1 class="retiro">retiro</h1>
+                    <img src="/Dashboard/assets/circle-arrow-up.svg" alt="">
+                </span>
+            </div>
+
+            <div class="moviminetos-tarjeta">
+                <span class="movimiento-texto">
+                    <h1>$20</h1>
+                    <h2>04/08/2023</h2>
+                </span>
+                <span class="motivo">
+                    <h1 class="retiro">retiro</h1>
+                    <img src="/Dashboard/assets/circle-arrow-up.svg" alt="">
+                </span>
+            </div>
+            
+
+        </div>
+
+    </div>
+
+    <!-- Esta parte del rectangulo gris -->
+    <div class="menu-derecho">
+
+        <!-- fondo gris -->
+        <div class="gris"></div>
+
+        <!-- acciones rapidas -->
+        <div>
+            
+            <!-- Titulo -->
+            <h1 class="titulo">Acciones rápidas</h1>
+
+            <!-- Botones -->
+
+            <button class="derecho-botones"> 
+                <img class="acciones-botones-image" src="/Dashboard/assets/CIRCLE-INFO.svg" alt=""> 
+                <h1 class="acciones-botones-letra">Mi CBU</h1>  
+            </button> 
+
+            <button class="derecho-botones"> 
+                <img class="acciones-botones-image" src="/Dashboard/assets/circle-arrow-down-deposito.svg" alt=""> 
+                <h1 class="acciones-botones-letra">Depósitos</h1>  
+            </button> 
+
+            <button class="derecho-botones"> 
+                <img class="acciones-botones-image" src="/Dashboard/assets/transferencias.svg" alt=""> 
+                <h1 class="acciones-botones-letra">Transferencias</h1>  
+            </button> 
+
+        </div>
+
+        <!-- tarjeta -->
+        <div>
+            
+            <!-- Titulo -->
+            <span class="titulo-tarjeta">
+                <h1 class="titulo">Tarjetas</h1>
+                <h1 class="titulo">></h1>
+            </span>
+
+            <!-- tarjeta -->
+            <span class="tarjeta"> 
+                
+                <div class="tarjeta-image">
+                    <img class="fondo" src="/Dashboard/assets/fondo-tarjeta.svg" alt=""> 
+                    <img class="degrade" src="/Dashboard/assets/degrade-tarjeta.svg" alt=""> 
+                    <img class="visa" src="/Dashboard/assets/visa.svg" alt=""> 
+                </div>
+
+                <h1 class="tarjeta-texto credito">Credito</h1>
+
+                <span class="numeros num">
+                    <h1>4802  2215  1183  4289</h1>
+                </span>
+            
+                <h1 class="tarjeta-texto nombre">MELLISSA MCCARTHY</h1>
+
+            </span> 
+
+        </div>
+    
+    </div>
+
+    </div>
+</body>
+
+</html>
