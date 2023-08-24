@@ -21,10 +21,9 @@ body {
     margin: 0;
     padding: 0;
 
-    height: 100vh;
+    height: 100%;
+    width: 100%;
     display: flex;
-
-    overflow: hidden;
 }
 
 /*-------------- Propiedades del menu --------------*/
@@ -768,7 +767,65 @@ body {
 }
 
 @media (max-width: 1023px) {
+    .boton-letra{
+        display: none;
+    }
+
+    .menu{
+        width: 5rem;
+    }
+
+    .menu-logo{
+        display: none;
+    }
+
+    .menu-arriba{
+        margin: 0;
+        margin-top: 1rem;
+    }
+
+    .menu-button{
+        padding: 0;
+        width: 4rem;
+        margin-left: 0.8rem;
+        margin-top: 1rem;
+    }  
+
+    .menu-derecho{
+        padding-left: 1rem;
+        margin: 0;
+    }
+
+    .boton-image{
+        padding: 0;
+        width: 4rem;
+        margin: 1rem;
+    }
+
+    .general{
+        margin-left: 0;
+        width: 39rem;
+    }
+
+    .saludo{
+        width: 100%;
+    }
+    .tarjetas{
+        height: 4.45rem;
+    }
     
+    .tarjetas .saldo{
+        padding-bottom:0 ;
+        height: 1rem;
+    }
+    .tarjetas h1{
+        font-size: 0.8rem;
+    }
+
+    .tarjetas h2{
+        font-size: 1.5rem;
+        height: 0.5rem;
+    }
 }
 
 @media (max-width: 768px) {
