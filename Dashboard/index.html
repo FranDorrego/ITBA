@@ -12,7 +12,7 @@
 
     <!-- Esta parte es solo del menu lateral -->
 
-    <aside class="menu">
+    <div class="menu">
 
         <!-- Titulo -->
         <span class="menu-arriba">
@@ -58,35 +58,139 @@
 
         </span>
 
-    </aside>
+    </div>
 
     <!-- Este es un div general para agrupar lo que esta al lado del menu lateral -->
-
     <div class="general">
 
-    <!-- Esta parte del buscador y perfil -->
+        <!-- Esta parte del buscador y perfil -->
+        <div class="membrete">
 
-    <div class="membrete">
+            <!-- buscador -->
+            <div class="buscador">
+                <img src="/Dashboard/assets/search.svg" alt=""> 
+                <input type="text" placeholder="Buscar">
+            </div>
+            
 
-        <!-- buscador -->
-        <div class="buscador">
-            <img src="/Dashboard/assets/search.svg" alt=""> 
-            <input type="text" placeholder="Buscar">
+            <!-- notificaciones y/o usuario -->
+            <span class="user">
+                <button>
+                    <img src="/Dashboard/assets/notifica.svg" alt=""> 
+                </button>
+                <img class="user-foto" src="/Dashboard/assets/Avatar.svg" alt="user">
+            </span>
+
         </div>
-        
 
-        <!-- notificaciones y/o usuario -->
-        <span class="user">
-            <button>
-                <img src="/Dashboard/assets/notifica.svg" alt=""> 
-            </button>
-            <img class="user-foto" src="/Dashboard/assets/Avatar.svg" alt="user">
+        <!-- Esta parte del centro, el saludo y las tarjetas -->
+        <div class="div-saludo">
+
+            <!-- saludo -->
+            <h1 class="saludo">Hola, luis</h1>
+
+            <!-- tarjetas -->
+            <div class="tarjetas-dashboard">
+
+                <span class="tarjetas saldo">
+                    <h1>Total en cuenta</h1>
+                    <h2>$304.450</h2>
+                </span>
+
+                <span class="tarjetas ingreso-tarjeta">
+                    <h1>Ingresos</h1>
+                    <h2>+ 2.25%</h2>
+                </span>
+
+                <span class="tarjetas retiro-tarjeta">
+                    <h1>Retiros</h1>
+                    <h2>- $ 10.750</h2>
+                </span>
+
+            </div>
+
+        </div>
+
+        <!-- Esta parte de los movimientos -->
+
+        <!-- titulo -->
+        <span class="movimientos-titulo">
+            <h1>Ultimos movimientos</h1>
+            <h1>></h1>
         </span>
+
+        <!-- tarjetas -->
+        <div class="div-movimientos">
+
+            <!-- tarjeta -->
+            <div class="moviminetos-tarjeta">
+
+                <!-- numeros y fechas -->
+                <span class="movimiento-texto">
+                    <h1>$1.350</h1>
+                    <h2>04/08/2023</h2>
+                </span>
+                
+                <!-- motivo -->
+                <span class="motivo">
+                    <h1 class="ingreso">Ingreso</h1>
+                    <img src="/Dashboard/assets/circle-arrow-down.svg" alt="">
+                </span>
+                
+            </div>
+            
+            <!-- esto es solo de demo, se copia con JS-->
+
+            <div class="moviminetos-tarjeta">
+                <span class="movimiento-texto">
+                    <h1>$300.350</h1>
+                    <h2>04/08/2023</h2>
+                </span>
+                <span class="motivo">
+                    <h1 class="ingreso">Ingreso</h1>
+                    <img src="/Dashboard/assets/circle-arrow-down.svg" alt="">
+                </span>
+            </div>
+
+            <div class="moviminetos-tarjeta">
+                <span class="movimiento-texto">
+                    <h1>$20</h1>
+                    <h2>04/08/2023</h2>
+                </span>
+                <span class="motivo">
+                    <h1 class="retiro">retiro</h1>
+                    <img src="/Dashboard/assets/circle-arrow-up.svg" alt="">
+                </span>
+            </div>
+            
+            <div class="moviminetos-tarjeta">
+                <span class="movimiento-texto">
+                    <h1>$20</h1>
+                    <h2>04/08/2023</h2>
+                </span>
+                <span class="motivo">
+                    <h1 class="retiro">retiro</h1>
+                    <img src="/Dashboard/assets/circle-arrow-up.svg" alt="">
+                </span>
+            </div>
+
+            <div class="moviminetos-tarjeta">
+                <span class="movimiento-texto">
+                    <h1>$20</h1>
+                    <h2>04/08/2023</h2>
+                </span>
+                <span class="motivo">
+                    <h1 class="retiro">retiro</h1>
+                    <img src="/Dashboard/assets/circle-arrow-up.svg" alt="">
+                </span>
+            </div>
+            
+
+        </div>
 
     </div>
 
     <!-- Esta parte del rectangulo gris -->
-
     <div class="menu-derecho">
 
         <!-- fondo gris -->
@@ -101,17 +205,17 @@
             <!-- Botones -->
 
             <button class="derecho-botones"> 
-                <img class="acciones-botones-image" src="/Dashboard/assets/tarjeta.svg" alt=""> 
+                <img class="acciones-botones-image" src="/Dashboard/assets/CIRCLE-INFO.svg" alt=""> 
                 <h1 class="acciones-botones-letra">Mi CBU</h1>  
             </button> 
 
             <button class="derecho-botones"> 
-                <img class="acciones-botones-image" src="/Dashboard/assets/tarjeta.svg" alt=""> 
+                <img class="acciones-botones-image" src="/Dashboard/assets/circle-arrow-down-deposito.svg" alt=""> 
                 <h1 class="acciones-botones-letra">Depósitos</h1>  
             </button> 
 
             <button class="derecho-botones"> 
-                <img class="acciones-botones-image" src="/Dashboard/assets/tarjeta.svg" alt=""> 
+                <img class="acciones-botones-image" src="/Dashboard/assets/transferencias.svg" alt=""> 
                 <h1 class="acciones-botones-letra">Transferencias</h1>  
             </button> 
 
@@ -148,93 +252,8 @@
         </div>
     
     </div>
-    
-    <!-- Esta parte del centro, el saludo y las tarjetas -->
-
-    <div class="div-saludo">
-
-        <!-- saludo -->
-        <h1 class="saludo">Hola, luis</h1>
-
-        <!-- tarjetas -->
-        <div class="tarjetas-dashboard">
-
-            <span class="tarjetas saldo">
-                <h1>Total en cuenta</h1>
-                <h2>$304.450</h2>
-            </span>
-
-            <span class="tarjetas ingreso-tarjeta">
-                <h1>Ingresos</h1>
-                <h2>+ 2.25%</h2>
-            </span>
-
-            <span class="tarjetas retiro-tarjeta">
-                <h1>Retiros</h1>
-                <h2>- $ 10.750</h2>
-            </span>
-
-        </div>
 
     </div>
-
-    <!-- Esta parte de los movimientos -->
-
-    <!-- titulo -->
-    <span class="movimientos-titulo">
-        <h1>Ultimos movimientos</h1>
-        <h1>></h1>
-    </span>
-
-    <!-- tarjetas -->
-    <div class="div-movimientos">
-
-        <!-- tarjeta -->
-        <div class="moviminetos-tarjeta">
-
-            <!-- numeros y fechas -->
-            <span class="movimiento-texto">
-                <h1>$1.350</h1>
-                <h2>04/08/2023</h2>
-            </span>
-            
-            <!-- motivo -->
-            <span class="motivo">
-                <h1 class="ingreso">Ingreso</h1>
-                <img src="/Dashboard/assets/circle-arrow-down.svg" alt="">
-            </span>
-            
-        </div>
-        
-        <!-- esto es solo de demo, se copia con JS-->
-
-        <div class="moviminetos-tarjeta">
-            <span class="movimiento-texto">
-                <h1>$300.350</h1>
-                <h2>04/08/2023</h2>
-            </span>
-            <span class="motivo">
-                <h1 class="ingreso">Ingreso</h1>
-                <img src="/Dashboard/assets/circle-arrow-down.svg" alt="">
-            </span>
-        </div>
-
-        <div class="moviminetos-tarjeta">
-            <span class="movimiento-texto">
-                <h1>$20</h1>
-                <h2>04/08/2023</h2>
-            </span>
-            <span class="motivo">
-                <h1 class="retiro">retiro</h1>
-                <img src="/Dashboard/assets/circle-arrow-up.svg" alt="">
-            </span>
-        </div>
-        
-
-    </div>
-
-    </div>
-
 </body>
 
 </html>

@@ -21,22 +21,19 @@ body {
     margin: 0;
     padding: 0;
 
-    display: flex;
     height: 100vh;
-    width: 100%;
+    display: flex;
 
-    overflow-x: hidden;
 }
-
 
 /*-------------- Propiedades del menu --------------*/
 .menu{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-
+    
     width: 18.81rem;
-    height: 100vb;
+
     padding: 0;
     margin: 0;
 
@@ -140,14 +137,16 @@ body {
 
 /*-------------- Propiedades del div general --------------*/
 .general{
-    width: 100%;
-    height: 100%;
+
+    flex: 1;
+
+    display: flex;
+    flex-direction: column;
 }
 
 /*-------------- Propiedades del membrete --------------*/
 .membrete{
     display: flex;
-    justify-content: center;
     align-items: center;
 
     background-color: transparent;
@@ -158,7 +157,7 @@ body {
 
 /*- buscador -*/
 .buscador{
-    width: 41.9375rem;
+    flex: 1;
     height: 2.25rem;
     
     padding: 0.375rem 0.75rem;
@@ -214,8 +213,9 @@ body {
     justify-content: center;
     align-items: center;
 
-    align-self: flex-end;
-    margin: auto;
+    position: fixed;
+    right: 0;
+    
     margin-right: 2.87rem;
     z-index: 2;
 }
@@ -244,13 +244,10 @@ body {
     display: flex;
     flex-direction: column; /* Alinea los elementos verticalmente */
 
-    position: absolute;
-    right: 0;
-    top: 0;
+    width: 22.5rem;
+
     padding-left: 1.75rem;
 
-    width: 20.85rem;
-    height: 100%;
     flex-shrink: 0;
     z-index: 1;
 
@@ -447,7 +444,12 @@ body {
 
 /*-------------- Propiedades del centro - saludo y resumen --------------*/
 .div-saludo{
-    width: 100%;
+    
+    margin-top: 1.87rem;
+    margin-left: 3.37rem;
+    margin-right: 3.38rem;
+    margin-bottom: 0rem;
+
     height: 14.56rem;
 
     display: flex;
@@ -459,10 +461,6 @@ body {
 
 /*------ Saludo -----*/
 .saludo{
-    position: relative;
-
-    top: 1.5rem;
-    left: 3.37rem;
 
     width: 41.9375rem;
 
@@ -476,12 +474,9 @@ body {
 
 /*------ tarjetas dashboard -----*/
 .tarjetas-dashboard{
-    position: relative;
-    top: 1.44rem;
-    left: 3.38rem;
+    flex: 1;
 
     display: flex;
-    width: 41.9375rem;
     align-items: flex-start;
     gap: 1.6875rem;
 
@@ -550,21 +545,40 @@ body {
 
 /*-------------- Propiedades del centro - movimientos --------------*/
 .div-movimientos{
+
+    margin-left: 3.37rem;
+    margin-right: 1em;
+
+    flex: 1;
+    flex-grow: 1;
     display: flex;
+
     align-items: flex-start;
     flex-direction: column;
-    overflow: auto;
-    
-    flex-grow: 1;
+
+    overflow: hidden; /* Oculta todas las barras de desplazamiento */
+    overflow-y: auto; /* Permite el desplazamiento vertical si el contenido excede el espacio */
+}
+
+.div-movimientos::-webkit-scrollbar {
+    width: 10px; /* Ancho de la barra de desplazamiento */
+}
+
+.div-movimientos::-webkit-scrollbar-thumb {
+    background-color: #222222; /* Cambia el color del pulgar de la barra */
+    border-radius: 5px; /* Bordes redondeados para el pulgar */
+}
+
+.div-movimientos::-webkit-scrollbar-track {
+    background-color: rgba(255, 255, 255, 0.1); /* Cambia el color de la pista de la barra */
 }
 
 /*------ Saludo -----*/
 .movimientos-titulo{
+    margin-left: 3.37rem;
     display: flex;
     align-items: flex-start;
 
-    margin-top: 2.75rem;
-    margin-left: 3.37rem;
 }
 
 .movimientos-titulo h1{
@@ -582,23 +596,32 @@ body {
 
 .moviminetos-tarjeta{
 
-    margin-top: 1.75rem;
-    margin-left: 3.37rem;
-
     display: flex;
-    width: 41.9375rem;
+    justify-content: space-between;
+    align-items: flex-start;
+
     height: 6.25rem;
+    width: 92%;
+
     padding: 0.75rem 1.5rem;
+
     align-items: flex-start;
     gap: 0.0625rem;
 
     border-radius: 0.75rem;
     border: 2px solid rgba(255, 255, 255, 0.20);
     background: rgba(255, 255, 255, 0.05);
+
+    margin-bottom: 0.75rem;
+
 }
 
 .movimiento-texto h1{
-    margin-top: 0.75rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    margin-top: 0;
     margin-bottom: 0;
 
     color: #FFF;
@@ -610,7 +633,7 @@ body {
 }
 
 .movimiento-texto h2{
-    margin-top: 0.75rem;
+    margin-top: 0;
     margin-bottom: 0;
 
     align-self: stretch;
@@ -624,23 +647,18 @@ body {
 
 /*------ tarjetas motivo -----*/
 .motivo{
-    align-self: self-end;
-    margin: auto;
-    margin-right: 1.5rem;
-    margin-top: 0.75rem;
-    display: flex;
-    align-items: center;
-    flex-direction: row;
-    gap: 0.75rem;
-}
-
-.motivo{
+    color: #7ED957;
     text-align: right;
     font-family: Poppins;
     font-size: 0.875rem;
     font-style: normal;
     font-weight: 500;
     line-height: normal;
+    border: none;
+    margin-left: auto; /* Empuja el elemento hacia la derecha */
+    align-self: flex-start; 
+    display: flex;
+    gap: 0.75rem;
 }
 
 .motivo img{
@@ -676,3 +694,30 @@ body {
 }
 
 
+
+/*----------------------------------------  PARTE RESPOSIVE  Fue diseñado para 1900 px---------------------------------------------- */
+
+/* Para pantallas comunes */
+
+@media (max-width: 1459px) {
+    .menu{
+        font-size: 10em;
+        width: 80rem;
+    }
+
+    .botones{
+        margin-left: 0;
+        padding-left: 1em;
+    }
+
+    .menu-button{
+        margin-left: 0;
+        padding-left: 0.5em;
+    }
+}
+
+@media (max-width: 1023px) {
+}
+
+@media (max-width: 768px) {
+}
