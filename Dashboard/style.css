@@ -1,0 +1,119 @@
+/*-------------- Tipografias --------------*/
+@font-face {
+    font-family: 'Poppins';
+    src: url('/Dashboard/fuentes/Poppins/Poppins-Light.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/*-------------- Propiedades del body --------------*/
+body {
+    background-color: black;
+    color: white;
+
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+
+/*-------------- Propiedades del menu --------------*/
+
+.menu{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    width: 18.81rem;
+    height: 100vb;
+    padding: 0;
+    margin: 0;
+
+    background-color: rgb(0, 0, 0);
+
+    border-right: 0.0625rem solid rgba(255, 255, 255, 0.20) ;
+}
+
+/*- Encabezado -*/
+.menu-arriba{
+    margin-top: 3.31rem;
+    margin-bottom: 3.75rem;
+    margin-left: 2.70rem;
+}
+
+.menu-logo{
+    width: 8.88281rem;
+    height: 1.87006rem;
+    flex-shrink: 0;
+}
+
+.menu-button{
+    color: #FFF;
+    text-align: center;
+
+    font-family: Font Awesome 6 Pro;
+    font-size: 1.75rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+
+    margin-right: 2.06rem;
+    background-color: transparent;
+    border: 0px;
+
+    cursor: pointer;
+}
+
+/*- Menu -*/
+.botones{
+    display: flex;
+    width: 17.1875rem;
+    margin-bottom: 1.75rem;
+    padding: 0.375rem 0.375rem 0.375rem 3rem;
+    gap: 1.75rem;
+
+    align-items: center;
+    
+    border-radius: 0rem 0.375rem 0.375rem 0rem;
+    border: 0px;
+    background-color: transparent;
+
+    cursor: pointer;
+}
+
+.boton-image{
+    color: #FFF;
+    text-align: center;
+
+    font-family: Font Awesome 6 Pro;
+    font-size: 1.5rem;
+    font-style: normal;
+
+    font-weight: 400;
+    line-height: normal;
+}
+
+.boton-letra{
+    color: #FFF;
+
+    font-family: Poppins;
+    font-size: 1.25rem;
+    font-style: normal;
+    font-weight: 500;
+
+    line-height: normal;
+}
+
+/*- Pie de pagina -*/
+.menu-footer{
+    align-self: flex-end;
+
+    margin: auto;
+    margin-bottom: 0;
+    margin-left: 0;
+}
+
+.menu .botones{
+    margin-bottom: 0;
+}
+
