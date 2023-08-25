@@ -210,14 +210,12 @@ body {
 /*- notificaciones y/o usuario -*/
 .user{
     display: flex;
-    justify-content: center;
+    justify-content: end;
     align-items: center;
-
-    position: fixed;
-    right: 0;
     
+    margin-top: 2.38rem;
     margin-right: 2.87rem;
-    z-index: 2;
+    margin-bottom: 1.12rem;
 }
 
 .user-foto{
@@ -243,25 +241,15 @@ body {
 .menu-derecho{
     display: flex;
     flex-direction: column; /* Alinea los elementos verticalmente */
-
+   
     width: 22.5rem;
-
-    padding-left: 1.75rem;
-
-    flex-shrink: 0;
-    z-index: 1;
-
     background: rgba(255, 255, 255, 0.10);
 }
 
-/*- barra gris -*/
-.gris{
-    top: 0;
-
-    width: 5rem;
-    height: 7.25rem;
-    background: transparent;
-    z-index: -1;
+.menu-derecho-elementos{
+    padding-left: 1rem;
+    padding-right: 1rem;
+    border-top: 0.0625rem solid rgba(255, 255, 255, 0.10);
 }
 
 /*- Titulo -*/
@@ -281,12 +269,13 @@ body {
 
 /*- Botones -*/
 .derecho-botones{
-    width: 19.625rem;
+    width: 90%;
     height: 3.375rem;
+
     margin-bottom: 0.75rem;
+    padding: 0.75rem 1.5rem;
 
     display: flex;
-    padding: 0.75rem 1.5rem;
     align-items: center;
     gap: 0.75rem;
     align-self: stretch;
@@ -325,7 +314,7 @@ body {
     align-items: center;
 }
 
-.titulo-tarjeta .titulo{
+.titulo-tarjeta h1{
     margin-top: 2.12rem;
     margin-bottom: 1.17rem;
     width: 4.375rem;
@@ -339,35 +328,25 @@ body {
 
 /*------ Render de tarjeta-----*/
 .tarjeta {
-    width: 19.625rem;
+    display: flex;
+
+    width: 100%;
     height: 11.97181rem;
+
     border-radius: 1.148rem;
     overflow: hidden;
     position: relative;
+
 }
 
 .fondo{
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
+
     object-fit: cover;
 
-    width: 19.625rem;
-    height: 11.97181rem;
-    flex-shrink: 0;
-}
-
-.degrade{
-    position: absolute;
-    top: 0;
-    left: 0;
     width: 100%;
-    height: 100%;
-    object-fit: cover;
-
-    width: 19.625rem;
     height: 11.97181rem;
     flex-shrink: 0;
 }
@@ -376,8 +355,7 @@ body {
     position: absolute;
     top: 1.91rem;
     left: 13.99rem;
-    width: 100%;
-    height: 100%;
+    
     object-fit: cover;
 
     width: 3.55325rem;
@@ -387,12 +365,12 @@ body {
 
 .tarjeta-texto{
     position: absolute;
-    width: 100%;
-    height: 100%;
+    width: auto;
+    height: auto;
     object-fit: cover;
 
     display: flex;
-    align-items: center;
+    align-items: top;
 
     color: #FFF;
     font-family: Space Grotesk;
@@ -404,11 +382,17 @@ body {
     text-transform: uppercase;
 }
 
+.credito{
+    top: 1.91rem;
+    left: 2.24rem;
+}
+
 .numeros{
     position: absolute;
-    width: 100%;
-    height: 100%;
     object-fit: cover;
+
+    top: 7.19rem;
+    left: 2.13rem;
 
     display: flex;
     align-items: center;
@@ -425,21 +409,9 @@ body {
     letter-spacing: 0.04919rem;
 }
 
-.credito{
-    top: 1.91rem;
-    left: 2.13rem;
-}
-
-.num{
-    top: 7.19rem;
-    left: 2.13rem;
-}
-
 .nombre{
     top: 9.43rem;
     left: 2.13rem;
-
-    width: 14.33844rem;
 }
 
 /*-------------- Propiedades del centro - saludo y resumen --------------*/
@@ -646,28 +618,10 @@ body {
 
 /*------ tarjetas motivo -----*/
 .motivo{
-    color: #7ED957;
-    text-align: right;
-    font-family: Poppins;
-    font-size: 0.875rem;
-    font-style: normal;
-    font-weight: 500;
-    line-height: normal;
-    border: none;
+    display: flex;
     margin-left: auto; /* Empuja el elemento hacia la derecha */
     align-self: flex-start; 
-    display: flex;
     gap: 0.75rem;
-}
-
-.motivo img{
-    color: #7ED957;
-    text-align: center;
-    font-family: Font Awesome 6 Pro;
-    font-size: 0.875rem;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
 }
 
 .ingreso{
@@ -748,9 +702,7 @@ body {
     }
 
     .menu-derecho{
-        padding-left: 1rem;
         width: 20rem;
-
         overflow: hidden;
         overflow-y: auto;
     }
