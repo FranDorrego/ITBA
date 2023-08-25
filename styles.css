@@ -13,10 +13,6 @@ body{
 
 ::placeholder { color: white; }
 
-.grid{
-    display: grid;
-    justify-content: end;
-}
 
 .formulario{
     display: flex;
@@ -26,7 +22,14 @@ body{
     align-self: stretch;
 }
 
+.grid{
+    display: grid;
+    justify-content: end;
+    margin: 3%;
+}
+
 .input{
+    font-size: 14px;
     border-radius: 1.5em;
     background: rgba(255, 255, 255, 0.40);
     backdrop-filter: blur(0.188em);
@@ -40,20 +43,22 @@ body{
 }
 
 .contenido{
+    font-size: 20px;
     display: flex;
     width: 45em;
-    height: 60em;
+    height: 50em;
     padding: 1.5em;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     gap: 8.75em;
     flex-shrink: 0;
+    font-size: 14px;
 }
 
 .titulo{
-    width: 13.891em/*222.25px*/;
-    height: 2.924em/*46.789px*/;
+    width: 13.891em /*222.25px*/;
+    height: 2.924em /*46.789px*/;
     flex-shrink: 0;
 }
 
@@ -61,7 +66,7 @@ body{
     color: #FFF;
     text-align: center;
     font-family: Poppins;
-    font-size: 32px;
+    font-size: 30px;
     font-style: normal;
     font-weight: 700;
     line-height: normal; 
@@ -72,7 +77,7 @@ body{
     color: #C59BFA;
     text-align: center;
     font-family: Poppins;
-    font-size: 16px;
+    font-size: 14px;
     font-style: normal;
     font-weight: 600;
     line-height: normal;
@@ -83,7 +88,7 @@ body{
     color: #FFF;
     text-align: center;
     font-family: Poppins;
-    font-size: 16px;
+    font-size: 14px;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
@@ -96,10 +101,100 @@ body{
     text-align: center;
 }
 
+/* LAPTOPS */
 @media (max-width: 1024px){
+    body{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .grid{
+        display: flex;
+        margin: 0 auto 0 auto;
+    }
+
+    .contenido{
+        font-size: 14px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0 auto 0 auto;
+        width: 35em;
+    }
+
+    .input,
+    .parrafo,
+    .link{
+        font-size: 15px;
+    }
+}
+
+/* CELULARES */
+@media (max-width: 480px){
+
+    .contenido{
+        font-size: 14px;
+        height: auto;
+        width: 21rem;
+        /* margin-left: 1em; */
+    }
+
+    .formulario{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1em;
+    }
+
+    .input{
+        font-size: 13px;
+        height: auto;
+        padding: 0.462em 0.923em;
+    }
+
+    .parrafo,
+    .link{
+        font-size: 13px;
+    }
+
+    .subtitulo{
+
+        font-size: 21px;
+    }
+}
+
+/* Celulares  con pantalla mas chica que a la promedio*/
+@media (max-width: 350px){
+    .contenido{
+        width: 18em;
+    }
+
+    .input,
+    .parrafo,
+    .link{
+        font-size: 12px;
+    }
+
+    .subtitulo{
+        font-size: 20px;
+    }
     
 }
 
-@media (max-width: 768px){
-    
+/* Monitores de una resolucion mayor a la promedio*/
+@media (min-width: 3840px){
+    .contenido{
+        font-size: 32px;
+    }
+
+    .subtitulo{
+        font-size: 60px;
+    }
+
+    .input,
+    .parrafo,
+    .link{
+        font-size: 35px;
+    }
 }
