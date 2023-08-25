@@ -40,13 +40,14 @@ body{
     justify-content: space-between;
     align-items: stretch;
     align-self: stretch;
+    color: white;
 }
 
 .contenido{
     font-size: 20px;
     display: flex;
     width: 45em;
-    height: 50em;
+    /* height: 50em; */
     padding: 1.5em;
     flex-direction: column;
     justify-content: center;
@@ -82,6 +83,7 @@ body{
     font-weight: 600;
     line-height: normal;
     text-decoration-line: underline; 
+    cursor: pointer;
 }
 
 .parrafo{
@@ -99,8 +101,32 @@ body{
     background: #8933F5;
     color: white;
     text-align: center;
+    cursor: pointer;
 }
 
+.dialog{
+    background-color: black;
+    cursor: pointer;
+    border-radius: 2%;
+    width: 50%;
+}
+
+.btn-abrir{
+    background-color: transparent;
+    border: none;
+}
+
+.btn-cerrar{
+    border-radius: 1.5em;
+    background: #8933F5;
+    color: white;
+    text-align: center;
+    cursor: pointer;
+}
+
+option {
+    color: black;
+}
 /* LAPTOPS */
 @media (max-width: 1024px){
     body{
