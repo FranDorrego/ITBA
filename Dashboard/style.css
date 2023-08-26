@@ -39,6 +39,12 @@
     cursor: pointer;
 }
 
+.derecho-botones:hover{
+    border-radius: 0.75rem;
+    border: 2px solid white;
+    background: rgba(255, 255, 255, 0.20);
+}
+
 .acciones-botones-image{
     color: #C59BFA;
     text-align: center;

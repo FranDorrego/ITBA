@@ -35,3 +35,7 @@ form.addEventListener("submit", e=> {
   }
 })
 
+// Cambio de página
+function redireccion() {
+  location.href = "/Dashboard/index.html"
+}

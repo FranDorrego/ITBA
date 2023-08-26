@@ -26,7 +26,7 @@
         <div class="div-botones">
 
             <a href="../Dashboard/index.html">
-            <button class="botones boton-selecionado"> 
+            <button class="botones"> 
                 <img class="boton-image" src="/assets-globales/assets/home.svg" alt=""> 
                 <h1 class="boton-letra">Inicio</h1>  
             </button> 
@@ -46,8 +46,8 @@
             </button> 
             </a>
 
-            <a href="/Cambio-divisas/index.html">
-            <button class="botones"> 
+            <a href="/Dashboard/cambio-divisas.html">
+            <button class="botones boton-selecionado"> 
                 <img class="boton-image" src="/assets-globales/assets/tarjeta.svg" alt=""> 
                 <h1 class="boton-letra">Cambio de divisas</h1>  
             </button> 
@@ -94,14 +94,14 @@
 
             <a href="">
             <button class="botones"> 
-                <img class="boton-image" src="/assets-globales/assets/ayuda.svg" alt=""> 
+                <img class="boton-image" src="/assets-globales/assets/ayuda.svg" alt="ayuda"> 
                 <h1 class="boton-letra">Ayuda</h1>  
             </button> 
             </a>
 
-            <a href="">
+            <a href="/Login/login.html">
             <button class="botones"> 
-                <img class="boton-image" src="/assets-globales/assets/cerrar_sesion.svg" alt=""> 
+                <img class="boton-image" src="/assets-globales/assets/cerrar_sesion.svg" alt="cerrar-sesion"> 
                 <h1 class="boton-letra">Cerrar sesión</h1>  
             </button> 
             </a>
@@ -131,29 +131,29 @@
             
 
             <h1>Pago con</h1>
-            <input type="text" placeholder="$$XXXXXX">
+            <input type="number" placeholder="$$XXXXXX" id="pago" value=0>
 
-            <select name="" id="">
-                <option value="">ARS</option>
-                <option value="">USD</option>
-                <option value="">BTC</option>
-                <option value="">COP</option>
+            <select name="" id="opcion-pago">
+                <option value="ars">ARS</option>
+                <option value="usd">USD</option>
+                <option value="btc">BTC</option>
+                <option value="cop">COP</option>
             </select>
 
-            <h1>Recivo</h1>
-            <input type="text" placeholder="$$XXXXXX">
+            <h1>Recibo</h1>
+            <input type="number" placeholder="$$XXXXXX" id="recibo" value=0>
 
-            <select name="" id="">
-                <option value="">ARS</option>
-                <option value="">USD</option>
-                <option value="">BTC</option>
-                <option value="">COP</option>
+            <select name="" id="opcion-recibo">
+                <option value="ars">ARS</option>
+                <option value="usd"">USD</option>
+                <option value="btc">BTC</option>
+                <option value="cop">COP</option>
             </select>
 
-            <button>Realizar cambio</button>
+            <button onclick="convertir()" id="btn-cambiar">Realizar cambio</button>
 
             <h1>Precio de cambio</h1>
-            <input type="text" placeholder="El precio de cambio...">
+            <input type="number" placeholder="El precio de cambio..." id="cambio" readonly>
             
         </div>
 
@@ -211,7 +211,7 @@
 
     </footer>
     
-
+    <script src="/Dashboard/scripts/cambio-divisas.js"></script>
 </body>
 
 </html>
