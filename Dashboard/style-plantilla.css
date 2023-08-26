@@ -1,0 +1,402 @@
+/*-------------- Tipografias --------------*/
+@font-face {
+    font-family: 'Poppins';
+    src: url('/Dashboard/fuentes/Poppins/Poppins-Light.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Space Grotesk';
+    src: url('/Dashboard/fuentes/Space_Grotesk/static/SpaceGrotesk-Light.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/*-------------- Propiedades del body --------------*/
+body {
+    background-color: black;
+    color: white;
+
+    margin: 0;
+    padding: 0;
+
+    display: grid;
+    grid-template-columns: 20% 60% 20%;
+    grid-template-rows: 90vh 10vh;
+}
+
+/*-------------- Propiedades del menu --------------*/
+.menu{
+    display: flex;
+    flex-direction: column;
+    
+    height: 100vh;
+    background-color: rgb(0, 0, 0);
+
+    border-right: 0.0625rem solid rgba(255, 255, 255, 0.20) ;
+}
+
+/*- Encabezado -*/
+.menu-arriba{
+    height: 7.25rem;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10%;
+}
+
+.menu-logo{
+    width: 8.88281rem;
+    height: 1.87006rem;
+}
+
+.menu-button{
+    color: #FFF;
+    text-align: center;
+
+    font-size: 1.75rem;
+    font-weight: 400;
+
+    background-color: transparent;
+    border: 0px;
+    cursor: pointer;
+}
+
+/*- Menu -*/
+.div-botones{
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-top: 1.81rem;
+
+    width: 95%;
+}
+
+.botones{
+    display: flex;
+
+    padding: 0.375rem 0.375rem 0.375rem 10%;
+
+    align-items: center;
+    gap: 1.75rem;
+
+    height: 2.6rem;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.boton-image{
+    color: #FFF;
+    text-align: center;
+
+    font-size: 1.5rem;
+    font-style: normal;
+
+    font-weight: 400;
+    line-height: normal;
+}
+
+.boton-letra{
+    color: #FFF;
+
+    font-family: Poppins;
+    font-size: 1.25rem;
+    font-style: normal;
+    font-weight: 500;
+
+    line-height: normal;
+}
+
+.boton-selecionado{
+    border-radius: 0rem 0.375rem 0.375rem 0rem;
+    background: rgba(255, 255, 255, 0.20);
+}
+/*- Menu pie de pagina -*/
+.menu-footer{
+    display: flex;
+    flex-direction: column;
+
+    gap: 1.5rem;
+    width: 95%;
+
+    align-self: flex-end;
+    margin: auto;
+    margin-bottom: 0;
+    margin-left: 0;
+    padding-bottom: 3rem;
+}
+
+/*-------------- Propiedades del div general --------------*/
+.general{
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+/*-------------- Propiedades del membrete --------------*/
+.membrete{
+    display: flex;
+    align-items: center;
+
+    background-color: transparent;
+    width: 100%;
+    height: 7.25rem;
+    border-bottom: 0.0625rem solid rgba(255, 255, 255, 0.20);
+}
+
+/*- buscador -*/
+.buscador{
+    flex: 1;
+    height: 35%;
+    
+    margin-right: 5%;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+
+    border-radius: 1.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.50);
+    backdrop-filter: blur(3px);
+
+    margin-left: 3.37rem;
+}
+
+.buscador input{
+    color: #FFF;
+    text-align: left;
+    font-family: Poppins;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+
+    display: flex;
+    align-items: center;
+    gap: 0.5625rem;
+    height: 100%;
+    width: 100%;
+
+    background-color: transparent;
+    border: none;
+}
+
+.buscador img{
+    height: 50%;
+    align-self: flex-start;
+    margin: auto;
+    margin-left: 1%;
+    margin-right: 1%;
+}
+
+/*-------------- Propiedades del menu derecho --------------*/
+
+/*- notificaciones y/o usuario -*/
+.user{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    width: 100%;
+}
+
+.user-foto{
+    width: 3.75rem;
+    height: 3.75rem;
+    flex-shrink: 0;
+
+    margin-top: 2.37rem;
+    margin-bottom: 1.18rem;
+    margin-right: 2.28rem;
+
+    border-radius: 624.9375rem;
+    background: lightgray -27.5px 0px / 150% 100% no-repeat;
+
+    cursor: pointer;
+}
+
+.user button{
+    background-color: transparent;
+    border: none;
+
+    margin-top: 2.37rem;
+    margin-bottom: 1.18rem;
+    margin-right: 2.28rem;
+
+    cursor: pointer;
+}
+
+/*---------------------- Contenido derecho --------------*/
+.menu-derecho{
+    display: flex;
+    flex-direction: column; /* Alinea los elementos verticalmente */
+    align-items: flex-start;
+    height: 100vh;
+    background: rgba(255, 255, 255, 0.10);
+    white-space: nowrap;
+}
+
+/*---------------------- PROPIEDADES DEL CENTRO - ESTOS ESTILOS CAMBIAN SEGUN LA PAGINA --------------*/
+.div-contenedor-principal{
+    display: flex;
+    flex-direction: column;
+    padding: 2%;
+    padding-bottom: 0;
+    height: 80vh;
+}
+
+/*------------------- Pie de pagina --------------------*/
+.social-footer {
+    grid-row-start: 3;
+    grid-column-start: 1;
+    grid-column-end: 4;
+
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding-top: 1rem;
+}
+.social-footer a {
+    margin: 2rem;
+}
+.social-footer img {
+    width: 3rem;
+    height: auto;
+}
+  
+/*----------------------------------------  PARTE RESPOSIVE  Fue diseñado para 1440*900px---------------------------------------------- */
+
+/* Para tablet */
+@media (max-width: 1024px) {
+
+    body{
+        grid-template-columns: 10% 70% 20%;
+    }
+    /*-- Menu derecho ---*/
+    .menu{
+        height: 100vh;
+    }
+
+    .menu-arriba{
+        height: 10%;
+        gap: 0;
+    }
+
+    .botones{
+        justify-content: center;
+        padding: 0;
+        margin: 0;
+    }
+
+    .menu-logo {
+        display: none;
+    }
+
+    .boton-letra{
+        display: none;
+    }
+
+    /*-- buscador ---*/
+    .membrete{
+        height: 20vh;
+        padding-top: 1%;
+        padding-bottom: 1%;
+    }
+
+    .buscador{
+        height: 2.5rem;
+    }
+    
+    /*-- menu derecho - foto y notifiaciones ---*/
+    .user{
+        margin: 0;
+        height: 3.3rem;
+    }
+
+    .user-foto{
+        margin-top: 1.5rem;
+        margin-right: 2rem;
+        transform: scale(0.7);
+    }
+
+    .user button{
+        margin-top: 1.5rem;
+        margin-right: 0.5rem;
+        transform: scale(0.7);
+    }
+
+    /*-- general ---*/
+    .general{
+        height: 100vw;
+    }
+}
+
+/* Para celulares */
+@media (max-width: 767px) {
+    
+    /*-- Menu derecho ---*/
+    .menu{
+        height: 100vh;
+    }
+
+    .menu-arriba{
+        height: 10%;
+        gap: 0;
+    }
+
+    .botones{
+        justify-content: center;
+        padding: 0;
+        margin: 0;
+    }
+
+    .menu-logo {
+        display: none;
+    }
+
+    .boton-letra{
+        display: none;
+    }
+
+    /*-- buscador ---*/
+    .membrete{
+        justify-content: start;
+        height: 2.95rem;
+        padding-top: 1%;
+        padding-bottom: 1%;
+    }
+
+    .buscador{
+        margin-left: 1rem;
+        height: 2.5rem;
+    }
+    
+    /*-- menu derecho - foto y notifiaciones ---*/
+    .user{
+        justify-content: center;
+        height: 2.95rem;
+    }
+
+    .user-foto{
+        margin: 0;
+        transform: scale(0.5);
+    }
+
+    .user button{
+        margin: 0;
+        transform: scale(0.6);
+    }
+
+    /*-- general ---*/
+    .general{
+        height: 100vh;
+    }
+
+}
