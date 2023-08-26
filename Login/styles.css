@@ -2,21 +2,16 @@ body{
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
-    background-image: url("./assets/Background-color-globe.png");
+    background-image: url("/Login/assets/Background-color-globe.png");
 }
 
 @font-face {
     font-family: Poppins;
-    src: url('./assets/fonts/poppins/Poppins-Light.ttf');
+    src: url("/Login/assets/fonts/poppins/Poppins-Light.ttf");
 }
 
 
 ::placeholder { color: white; }
-
-.grid{
-    display: grid;
-    justify-content: end;
-}
 
 .formulario{
     display: flex;
@@ -26,7 +21,15 @@ body{
     align-self: stretch;
 }
 
+.grid{
+    display: grid;
+    justify-content: end;
+    margin: 3%;
+}
+
 .input{
+    font-size: 14px;
+
     border-radius: 1.5em;
     background: rgba(255, 255, 255, 0.40);
     backdrop-filter: blur(0.188em);
@@ -37,18 +40,22 @@ body{
     justify-content: space-between;
     align-items: stretch;
     align-self: stretch;
+    color: white;
 }
 
 .contenido{
+    font-size: 20px;
     display: flex;
     width: 45em;
-    height: 60em;
+    /* height: 50em; */
     padding: 1.5em;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     gap: 8.75em;
     flex-shrink: 0;
+    font-size: 14px;
+    margin-right: 7em;
 }
 
 .titulo{
@@ -61,7 +68,7 @@ body{
     color: #FFF;
     text-align: center;
     font-family: Poppins;
-    font-size: 32px;
+    font-size: 30px;
     font-style: normal;
     font-weight: 700;
     line-height: normal; 
@@ -72,17 +79,19 @@ body{
     color: #C59BFA;
     text-align: center;
     font-family: Poppins;
-    font-size: 16px;
+    font-size: 14px;
     font-style: normal;
     font-weight: 600;
     line-height: normal;
     text-decoration-line: underline; 
+    cursor: pointer;
 }
 
 .parrafo{
     color: #FFF;
     text-align: center;
     font-family: Poppins;
+    font-size: 14px;
     font-size: 16px;
     font-style: normal;
     font-weight: 400;
@@ -94,12 +103,134 @@ body{
     background: #8933F5;
     color: white;
     text-align: center;
+    cursor: pointer;
+    transition: 0.5s;
 }
 
+/*Animación*/
+.boton:hover{
+    background-color: #C59BFA;
+    color: black;
+}
+
+
+.dialog{
+    background-color: black;
+    cursor: pointer;
+    border-radius: 2%;
+    width: 50%;
+}
+
+.btn-abrir{
+    background-color: transparent;
+    border: none;
+}
+
+.btn-cerrar{
+    border-radius: 1.5em;
+    background: #8933F5;
+    color: white;
+    text-align: center;
+    cursor: pointer;
+}
+
+option {
+    color: black;
+}
+/* LAPTOPS */
 @media (max-width: 1024px){
+    body{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .grid{
+        display: flex;
+        margin: 0 auto 0 auto;
+    }
+
+    .contenido{
+        font-size: 14px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0 auto 0 auto;
+        width: 35em;
+    }
+
+    .input,
+    .parrafo,
+    .link{
+        font-size: 15px;
+    }
+}
+
+/* CELULARES */
+@media (max-width: 480px){
+
+    .contenido{
+        font-size: 14px;
+        height: auto;
+        width: 21rem;
+        /* margin-left: 1em; */
+    }
+
+    .formulario{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1em;
+    }
+
+    .input{
+        font-size: 13px;
+        height: auto;
+        padding: 0.462em 0.923em;
+    }
+
+    .parrafo,
+    .link{
+        font-size: 13px;
+    }
+
+    .subtitulo{
+
+        font-size: 21px;
+    }
+}
+
+/* Celulares  con pantalla mas chica que a la promedio*/
+@media (max-width: 350px){
+    .contenido{
+        width: 18em;
+    }
+
+    .input,
+    .parrafo,
+    .link{
+        font-size: 12px;
+    }
+
+    .subtitulo{
+        font-size: 20px;
+    }
     
 }
 
-@media (max-width: 768px){
-    
+/* Monitores de una resolucion mayor a la promedio*/
+@media (min-width: 3840px){
+    .contenido{
+        font-size: 32px;
+    }
+
+    .subtitulo{
+        font-size: 60px;
+    }
+
+    .input,
+    .parrafo,
+    .link{
+        font-size: 35px;
+    }
 }
