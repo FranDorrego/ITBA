@@ -424,6 +424,59 @@
     color: #FF3131;
 }
 
+
+/*------ CSS de Formulario de Prestamo -----*/
+
+.div-monto{}
+
+.resultado{}
+
+.resultado .derecho-botones{}
+
+.cuotas{}
+
+.cantidad-cuotas{}
+
+.interes{}
+
+.total-pagar{}
+
+
+
+/*------ CSS de Formulario de Transferencias -----*/
+.trans-botones-div{}
+
+.trans-botones{}
+
+.trans-formulario{}
+
+.trans-formulario-radio-div{}
+
+.trans-formulario-span{}
+
+.trans-formulario-radio{}
+
+
+.trans-inputs{}
+.trans-inputs-text{}
+.trans-inputs-div{}
+
+.trans-aclara{}
+
+.trans-select{}
+
+.trans-formulario-boton{}
+
+
+/* la tarjeta del costado */
+
+.trans-titulo{}
+
+.trans-recientes{}
+
+
+
+
 /*----------------------------------------  PARTE RESPOSIVE  Fue diseñado para 1440*900px---------------------------------------------- */
 
 /* Para tablet */
@@ -565,3 +618,5 @@
     }
     
 }
+
+

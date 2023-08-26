@@ -14,5 +14,5 @@ abrirModal.addEventListener('click', function() {
 
 // redireccion
 function redireccion() {
-    location.href = "/Dashboard/error.html"
+    location.href = "/Dashboard/formulario-prestamo.html"
 }

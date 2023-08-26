@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="../assets-globales/style-plantilla.css">
     <link rel="stylesheet" href="style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Transferencias</title>
+    <title>Prestamos - Solicitar</title>
 </head>
 
 <body>
@@ -26,7 +26,7 @@
         <div class="div-botones">
 
             <a href="../Dashboard/index.html">
-            <button class="botones"> 
+            <button class="botones boton-selecionado"> 
                 <img class="boton-image" src="/assets-globales/assets/home.svg" alt=""> 
                 <h1 class="boton-letra">Inicio</h1>  
             </button> 
@@ -67,8 +67,8 @@
             </button> 
             </a>
 
-            <a href="/Transferencias/index.html">
-            <button class="botones boton-selecionado" id="botoes-aux-izquierda"> 
+            <a href="/Dashboard/transferencias.html">
+            <button class="botones" id="botoes-aux-izquierda"> 
                 <img class="boton-image" src="/assets-globales/assets/transferencias.svg" alt=""> 
                 <h1 class="boton-letra">Transferencias</h1>  
             </button> 
@@ -92,16 +92,16 @@
         <!-- Botones al final -->
         <div class="menu-footer">
 
-            <a href="">
+            <a href="/404/404.html">
             <button class="botones"> 
-                <img class="boton-image" src="/assets-globales/assets/ayuda.svg" alt=""> 
+                <img class="boton-image" src="/assets-globales/assets/ayuda.svg" alt="ayuda"> 
                 <h1 class="boton-letra">Ayuda</h1>  
             </button> 
             </a>
 
-            <a href="">
+            <a href="/Login/login.html">
             <button class="botones"> 
-                <img class="boton-image" src="/assets-globales/assets/cerrar_sesion.svg" alt=""> 
+                <img class="boton-image" src="/assets-globales/assets/cerrar_sesion.svg" alt="cerrar-sesion"> 
                 <h1 class="boton-letra">Cerrar sesión</h1>  
             </button> 
             </a>
@@ -124,87 +124,55 @@
             
         </div>
 
+
         <!-- Contenido de la pagina que cambia  -->
         <div class="div-contenedor-principal">
             
-            <h1>Transferencias</h1>
+            <!-- El formulario de prestamo  -->
 
-            <!-- botones  -->
-            <div class="trans-botones-div">
+            <form action="" class="div-monto">
 
-                <a href="">
-                    <button class="trans-botones"> 
-                        <img src="/assets-globales/assets/cerrar_sesion.svg" alt=""> 
-                        <h1>Nueva transferencia</h1>  
-                    </button> 
-                </a>
+                <h1>Ingrese Monto</h1>
 
-                <a href="">
-                    <button class="trans-botones"> 
-                        <img src="/assets-globales/assets/cerrar_sesion.svg" alt=""> 
-                        <h1>Transferir a mis cuentas</h1>  
-                    </button> 
-                </a>
+                <input type="text" placeholder="Ingrese cuento $$">
 
-            </div>
-
-            <!-- Uso un formulario para enviar todo  -->
-            <form action="" class="trans-formulario">
-
-                <!-- seleciona cbu/alias  -->
-                <div class="trans-formulario-radio-div">
-
-                    <span class="trans-formulario-span">
-                        <input type="radio" id="CBU" class="trans-formulario-radio">
-                        <label> CBU / CVU </label>
-                    </span>
-
-                    <span class="trans-formulario-span">
-                        <input type="radio" id="alias" class="trans-formulario-radio">
-                        <label> alias </label>
-                    </span>
-
-                </div>
-
-                <!-- campo nombre  -->
-                <input type="text" placeholder="Ingrese..." class="trans-inputs">
-
-                <!-- campo importe  -->
-                <div class="trans-inputs-div">
-
-                    <h1 class="trans-inputs-text">Importe*</h1>
-                    <input type="text" placeholder="Ingrese..." class="trans-inputs">
-                    <h1 class="trans-aclara">*El importe mínimo a transferir es de $ 1 y el máximo es de de dos salarios mínimos vitales y móviles.</h1>
-
-                </div>
-
-                <!-- campo motivo  -->
-                <div>
-
-                    <h1 class="trans-inputs-text">Motivo</h1>
-
-                    <select name="motivo" id="motivo" class="trans-select">
-                        <option value="varios">Varios</option>
-                        <option value="compra">Compra</option>
-                        <option value="p2p">Comercio P2P</option>
-                        <option value="gasto">Division de gastos / Gastos grupales</option>
-                    </select>
-
-                </div>
-                
-                <!-- campo referencia  -->
-                <div>
-
-                    <h1 class="trans-inputs-text">Referencia</h1>
-                    <input type="text" placeholder="Ingrese..." class="trans-inputs">
-
-                </div>
-
-                <!-- Boton de envio  -->
-                <button type="submit" class="trans-formulario-boton">Transferir</button>
+                <button>Simular</button>
 
             </form>
 
+            <!-- resultado de la simulacion  -->
+            <div class="resultado">
+
+                <h1>Simulador</h1>
+
+                <!-- Ver DOCUMENTACION  -->
+                <span class="cuotas">
+                    <h1>Selecione Cuotas</h1>
+                    <button>3</button>
+                    <button>6</button>
+                    <button>12</button>
+                    <button>18</button>
+                </span>
+                
+                <div class="cantidad-cuotas">
+                    <h1>Cuotas de</h1>
+                    <input type="text" placeholder="$xxxxx">
+                    <button>%</button>
+                    <button>$</button>
+                </div>
+
+                <div class="interes">
+                    <h1>Interes a pagar</h1>
+                    <input type="text" placeholder="$xxxxx">
+                </div>
+
+                <div class="total-pagar">
+                    <h1>Total a pagar</h1>
+                    <input type="text" placeholder="$xxxxx">
+                </div>
+
+                <button class="derecho-botones">Solicitar el prestamo</button>
+            </div>
         </div>
 
         <!-- Contenido de la pagina que cambia  -->

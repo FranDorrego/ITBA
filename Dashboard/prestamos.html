@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="../assets-globales/style-plantilla.css">
     <link rel="stylesheet" href="style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard</title>
+    <title>Prestamos</title>
 </head>
 
 <body>
@@ -160,69 +160,28 @@
                         <img src="assets/circle-arrow-down.svg" alt="">
                     </span>
                     
-                </div>
-                
-                <!-- esto es solo de demo, se copia con JS-->
-
-                <div class="moviminetos-tarjeta">
-                    <span class="movimiento-texto">
-                        <h1>$300.350</h1>
-                        <h2>04/08/2023</h2>
-                    </span>
-                    <span class="motivo">
-                        <h1 class="ingreso">Ingreso</h1>
-                        <img src="assets/circle-arrow-down.svg" alt="">
-                    </span>
-                </div>
-
-                <div class="moviminetos-tarjeta">
-                    <span class="movimiento-texto">
-                        <h1>$20</h1>
-                        <h2>04/08/2023</h2>
-                    </span>
-                    <span class="motivo">
-                        <h1 class="retiro">retiro</h1>
-                        <img src="assets/circle-arrow-up.svg" alt="">
-                    </span>
-                </div>
-                
-                <div class="moviminetos-tarjeta">
-                    <span class="movimiento-texto">
-                        <h1>$300.350</h1>
-                        <h2>04/08/2023</h2>
-                    </span>
-                    <span class="motivo">
-                        <h1 class="ingreso">Ingreso</h1>
-                        <img src="assets/circle-arrow-down.svg" alt="">
-                    </span>
-                </div>
-
-                <div class="moviminetos-tarjeta">
-                    <span class="movimiento-texto">
-                        <h1>$20</h1>
-                        <h2>04/08/2023</h2>
-                    </span>
-                    <span class="motivo">
-                        <h1 class="retiro">retiro</h1>
-                        <img src="assets/circle-arrow-up.svg" alt="">
-                    </span>
-                </div>
-                    <button class="btn-abrir" type="button">Solicitar prestamo</button>          
-                    <dialog class="dialog">
-                        <div class="dialog-div">
-                            <h1 class="saludo-dialog">Bienvenido a préstamos</h1>
-                            <p class="movimientos-titulo-dialog">Analizá tu línea crediticia para acceder a un préstamo inmediato</p>
-                            <img src="/Dashboard/assets/Ilustración.png" alt="monedas" class="img-monedas">
-                            <div class="dialog-div-botones">
-                                <button class="btn-cerrar btn-dialog btn-dialog-cerrar" type="button">Cerrar</button>
-                                <button onclick="redireccion()" class="btn-dialog-analizar- btn-dialog" type="button">
-                                    Analizar
-                                    <img src="/Dashboard/assets/arrow-right.svg" alt="arrow" class="arrow">
-                                </button>
-                            </div>
-                        </div>
-                    </dialog>                    
+                </div>            
             </div>
+
+            <!-- Boton para solicitar prestamo -->
+            <button class="btn-abrir" type="button">Solicitar prestamo</button>     
+
+            <!-- Es el pop de Bienvenida -->
+            <dialog class="dialog">
+                <div class="dialog-div">
+                    <h1 class="saludo-dialog">Bienvenido a préstamos</h1>
+                    <p class="movimientos-titulo-dialog">Analizá tu línea crediticia para acceder a un préstamo inmediato</p>
+                    <img src="/Dashboard/assets/Ilustración.png" alt="monedas" class="img-monedas">
+                    <div class="dialog-div-botones">
+                        <button class="btn-cerrar btn-dialog btn-dialog-cerrar" type="button">Cerrar</button>
+                        <button onclick="redireccion()" class="btn-dialog-analizar- btn-dialog" type="button">
+                            Analizar
+                            <img src="/Dashboard/assets/arrow-right.svg" alt="arrow" class="arrow">
+                        </button>
+                    </div>
+                </div>
+            </dialog>  
+
         </div>
     </div>
 
