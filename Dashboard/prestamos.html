@@ -17,7 +17,7 @@
         <!-- Titulo -->
         <a href="../Dashboard/index.html">
         <div class="menu-arriba">
-            <button class="menu-button">☰</button>
+            <button class="menu-button">☰</button>d
             <img class="menu-logo" src="/assets-globales/assets/logo.svg" alt=""> 
         </div>
         </a>
@@ -133,27 +133,7 @@
             <div class="div-saludo">
 
                 <!-- saludo -->
-                <h1 class="saludo">Hola, luis</h1>
-
-                <!-- tarjetas -->
-                <div class="tarjetas-dashboard">
-
-                    <span class="tarjetas saldo">
-                        <h1>Total en cuenta</h1>
-                        <h2>$304.450</h2>
-                    </span>
-
-                    <span class="tarjetas ingreso-tarjeta">
-                        <h1>Ingresos</h1>
-                        <h2>+ 2.25%</h2>
-                    </span>
-
-                    <span class="tarjetas retiro-tarjeta">
-                        <h1>Retiros</h1>
-                        <h2>- $ 10.750</h2>
-                    </span>
-
-                </div>
+                <h1 class="saludo">Préstamos</h1>
 
             </div>
 
@@ -227,46 +207,23 @@
                         <img src="assets/circle-arrow-up.svg" alt="">
                     </span>
                 </div>
-                
-                <div class="moviminetos-tarjeta">
-                    <span class="movimiento-texto">
-                        <h1>$20</h1>
-                        <h2>04/08/2023</h2>
-                    </span>
-                    <span class="motivo">
-                        <h1 class="retiro">retiro</h1>
-                        <img src="assets/circle-arrow-up.svg" alt="">
-                    </span>
-                </div>
-                
-                <div class="moviminetos-tarjeta">
-                    <span class="movimiento-texto">
-                        <h1>$300.350</h1>
-                        <h2>04/08/2023</h2>
-                    </span>
-                    <span class="motivo">
-                        <h1 class="ingreso">Ingreso</h1>
-                        <img src="assets/circle-arrow-down.svg" alt="">
-                    </span>
-                </div>
-
-                <div class="moviminetos-tarjeta">
-                    <span class="movimiento-texto">
-                        <h1>$20</h1>
-                        <h2>04/08/2023</h2>
-                    </span>
-                    <span class="motivo">
-                        <h1 class="retiro">retiro</h1>
-                        <img src="assets/circle-arrow-up.svg" alt="">
-                    </span>
-                </div>
-
+                    <button class="btn-abrir" type="button">Solicitar prestamo</button>          
+                    <dialog class="dialog">
+                        <div class="dialog-div">
+                            <h1 class="saludo-dialog">Bienvenido a préstamos</h1>
+                            <p class="movimientos-titulo-dialog">Analizá tu línea crediticia para acceder a un préstamo inmediato</p>
+                            <img src="/Dashboard/assets/Ilustración.png" alt="monedas" class="img-monedas">
+                            <div class="dialog-div-botones">
+                                <button class="btn-cerrar btn-dialog btn-dialog-cerrar" type="button">Cerrar</button>
+                                <button onclick="redireccion()" class="btn-dialog-analizar- btn-dialog" type="button">
+                                    Analizar
+                                    <img src="/Dashboard/assets/arrow-right.svg" alt="arrow" class="arrow">
+                                </button>
+                            </div>
+                        </div>
+                    </dialog>                    
             </div>
-
         </div>
-
-        <!-- Contenido de la pagina que cambia  -->
-
     </div>
 
     <!-- Esta parte del menu lateral -->
@@ -382,7 +339,7 @@
 
     </footer>
     
-
+    <script src="/Dashboard/scripts/prestamos.js"></script>
 </body>
 
 </html>

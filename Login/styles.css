@@ -116,7 +116,6 @@ body{
 
 .dialog{
     background-color: black;
-    cursor: pointer;
     border-radius: 2%;
     width: 50%;
 }
