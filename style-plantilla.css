@@ -1,19 +1,19 @@
-/*-------------- Tipografias --------------*/
+/*- Tipografias -*/
 @font-face {
     font-family: 'Poppins';
-    src: url('/Dashboard/fuentes/Poppins/Poppins-Light.ttf') format('truetype');
+    src: url('/fuentes/Poppins/Poppins-Light.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'Space Grotesk';
-    src: url('/Dashboard/fuentes/Space_Grotesk/static/SpaceGrotesk-Light.ttf') format('truetype');
+    src: url('/fuentes/Space_Grotesk/static/SpaceGrotesk-Light.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
 
-/*-------------- Propiedades del body --------------*/
+/*- Propiedades del body -*/
 body {
     background-color: black;
     color: white;
@@ -26,7 +26,7 @@ body {
     grid-template-rows: 90vh 10vh;
 }
 
-/*-------------- Propiedades del menu --------------*/
+/*- Propiedades del menu -*/
 .menu{
     display: flex;
     flex-direction: column;
@@ -130,14 +130,14 @@ body {
     padding-bottom: 3rem;
 }
 
-/*-------------- Propiedades del div general --------------*/
+/*- Propiedades del div general -*/
 .general{
     display: flex;
     flex-direction: column;
     height: 100vh;
 }
 
-/*-------------- Propiedades del membrete --------------*/
+/*- Propiedades del membrete -*/
 .membrete{
     display: flex;
     align-items: center;
@@ -197,7 +197,7 @@ body {
     margin-right: 1%;
 }
 
-/*-------------- Propiedades del menu derecho --------------*/
+/*- Propiedades del menu derecho -*/
 
 /*- notificaciones y/o usuario -*/
 .user{
@@ -233,7 +233,7 @@ body {
     cursor: pointer;
 }
 
-/*---------------------- Contenido derecho --------------*/
+/*- Contenido derecho -*/
 .menu-derecho{
     display: flex;
     flex-direction: column; /* Alinea los elementos verticalmente */
@@ -243,7 +243,7 @@ body {
     white-space: nowrap;
 }
 
-/*---------------------- PROPIEDADES DEL CENTRO - ESTOS ESTILOS CAMBIAN SEGUN LA PAGINA --------------*/
+/*- Propiedades del centro -*/
 .div-contenedor-principal{
     display: flex;
     flex-direction: column;
@@ -252,7 +252,7 @@ body {
     height: 80vh;
 }
 
-/*------------------- Pie de pagina --------------------*/
+/*- Pie de pagina -*/
 .social-footer {
     grid-row-start: 3;
     grid-column-start: 1;
