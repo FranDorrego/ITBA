@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../assets-globales/style-plantilla.css">
+    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+</head>
+
+<body>
+
+    <!-- Esta parte es solo del menu lateral -->
+    <div class="menu">
+
+        <!-- Titulo -->
+        <a href="../Dashboard/index.html">
+        <div class="menu-arriba">
+            <button class="menu-button">☰</button>
+            <img class="menu-logo" src="/assets-globales/assets/logo.svg" alt=""> 
+        </div>
+        </a>
+
+        <!-- Botones -->
+        <div class="div-botones">
+
+            <a href="../Dashboard/index.html">
+            <button class="botones boton-selecionado"> 
+                <img class="boton-image" src="/assets-globales/assets/home.svg" alt=""> 
+                <h1 class="boton-letra">Inicio</h1>  
+            </button> 
+            </a>
+
+            <a href="">
+            <button class="botones"> 
+                <img class="boton-image" src="/assets-globales/assets/circle-dollar.svg" alt=""> 
+                <h1 class="boton-letra">Actividad</h1>  
+            </button> 
+            </a>
+
+            <a href="">
+            <button class="botones"> 
+                <img class="boton-image" src="/assets-globales/assets/bank.svg" alt=""> 
+                <h1 class="boton-letra">Cuentas</h1>  
+            </button> 
+            </a>
+
+            <a href="/Cambio-divisas/index.html">
+            <button class="botones"> 
+                <img class="boton-image" src="/assets-globales/assets/tarjeta.svg" alt=""> 
+                <h1 class="boton-letra">Cambio de divisas</h1>  
+            </button> 
+            </a>
+
+            <a href="">
+            <button class="botones" id="botoes-aux-izquierda"> 
+                <img class="boton-image" src="/assets-globales/assets/CIRCLE-INFO.svg" alt=""> 
+                <h1 class="boton-letra">Mi CBU</h1>  
+            </button> 
+            </a>
+
+            <a href="/Prestamos/index.html">
+            <button class="botones" id="botoes-aux-izquierda"> 
+                <img class="boton-image" src="/assets-globales/assets/circle-arrow-down-deposito.svg" alt=""> 
+                <h1 class="boton-letra">Prestamos</h1>  
+            </button> 
+            </a>
+
+            <a href="/Transferencias/index.html">
+            <button class="botones" id="botoes-aux-izquierda"> 
+                <img class="boton-image" src="/assets-globales/assets/transferencias.svg" alt=""> 
+                <h1 class="boton-letra">Transferencias</h1>  
+            </button> 
+            </a>
+
+            <!-- notificaciones y/o usuario -->
+            <a href="">
+                <button class="botones" id="botoes-aux-izquierda">
+                    <img src="/assets-globales/assets/notifica.svg" alt=""> 
+                </button>
+            </a>
+
+            <a href="">
+                <button class="botones" id="botoes-aux-izquierda">
+                    <img src="/assets-globales/assets/Avatar.svg" alt="user">
+                </button>
+            </a>
+
+        </div>
+
+        <!-- Botones al final -->
+        <div class="menu-footer">
+
+            <a href="">
+            <button class="botones"> 
+                <img class="boton-image" src="/assets-globales/assets/ayuda.svg" alt=""> 
+                <h1 class="boton-letra">Ayuda</h1>  
+            </button> 
+            </a>
+
+            <a href="">
+            <button class="botones"> 
+                <img class="boton-image" src="/assets-globales/assets/cerrar_sesion.svg" alt=""> 
+                <h1 class="boton-letra">Cerrar sesión</h1>  
+            </button> 
+            </a>
+
+        </div>
+
+    </div>
+
+    <!-- Este es un div general para agrupar el CONTENIDO DE LA PAGINA -->
+    <div class="general">
+
+        <!-- Esta parte del buscador -->
+        <div class="membrete">
+
+            <!-- buscador -->
+            <div class="buscador">
+                <img src="/assets-globales/assets/search.svg" alt=""> 
+                <input type="text" placeholder="Buscar">
+            </div>
+            
+        </div>
+
+
+        <!-- Contenido de la pagina que cambia  -->
+
+        <div class="div-contenedor-principal">
+            
+
+            <h1>Pago con</h1>
+            <input type="text" placeholder="$$XXXXXX">
+
+            <select name="" id="">
+                <option value="">ARS</option>
+                <option value="">USD</option>
+                <option value="">BTC</option>
+                <option value="">COP</option>
+            </select>
+
+            <h1>Recivo</h1>
+            <input type="text" placeholder="$$XXXXXX">
+
+            <select name="" id="">
+                <option value="">ARS</option>
+                <option value="">USD</option>
+                <option value="">BTC</option>
+                <option value="">COP</option>
+            </select>
+
+            <button>Realizar cambio</button>
+
+            <h1>Precio de cambio</h1>
+            <input type="text" placeholder="El precio de cambio...">
+            
+        </div>
+
+        <!-- Contenido de la pagina que cambia  -->
+
+    </div>
+
+    <!-- Esta parte del menu lateral -->
+    <div class="menu-derecho">
+
+        <!-- notificaciones y/o usuario -->
+        <span class="user">
+            <button>
+                <img src="/assets-globales/assets/notifica.svg" alt=""> 
+            </button>
+            <img class="user-foto" src="/assets-globales/assets/Avatar.svg" alt="user">
+        </span>
+
+        <!-- Contenido del borde derecho - esto cambia segun la pagina -->
+        <div class="menu-derecho-elementos">
+
+            
+        
+        </div>
+
+    </div>
+
+    <!-- Pie de pagina -->
+    <footer>
+
+        <div class="footer-primer-div">
+            <a class="footer-texto" href=""> Sucursales </a>
+            <a class="footer-texto" href=""> Acerca de ITBANK </a>
+        </div>
+
+        <div class="footer-segundo-div">
+            <a class="footer-texto" href=""> © ITBAN Argentina S.A </a>
+            <a class="footer-texto" href=""> Centro de Atención al Cliente 0810-777-4444 </a>
+        </div>
+
+        <div class="footer-tercer-div">
+            <h3>Seguinos en :</h3>
+            <a class="social-footer" href="https://www.facebook.com/" target="_blank">
+            <img src="/assets-globales/assets/facebook.png" alt="Facebook">
+            </a>
+
+            <a class="social-footer" href="https://www.twitter.com/" target="_blank">
+            <img src="/assets-globales/assets/x.png" alt="Twitter">
+            </a>
+
+            <a class="social-footer" href="https://www.instagram.com/" target="_blank">
+            <img src="/assets-globales/assets/instagram.png" alt="Instagram">
+            </a>
+        </div>
+
+    </footer>
+    
+
+</body>
+
+</html>

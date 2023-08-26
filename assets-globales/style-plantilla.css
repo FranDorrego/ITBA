@@ -1,0 +1,481 @@
+/*- Tipografias -*/
+@font-face {
+    font-family: 'Poppins';
+    src: url('/assets-globales/fuentes/Poppins/Poppins-Light.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Space Grotesk';
+    src: url('/assets-globales/fuentes/Space_Grotesk/static/SpaceGrotesk-Light.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/*- Propiedades del body -*/
+body {
+    background-color: black;
+    color: white;
+
+    margin: 0;
+    padding: 0;
+
+    min-width: 100%;
+    min-height: 100%;
+
+    display: grid;
+    grid-template-columns: 15% 65% 20%;
+    grid-template-rows: 90vh 10vh;
+}
+
+a {
+    text-decoration: none;  /* Elimina el subrayado */
+    color: inherit;  /* Hereda el color del texto del elemento padre */
+    background-color: transparent;  /* Fondo transparente */
+    cursor: pointer;  /* Cambia el cursor a "mano" al pasar el ratón por encima */
+    outline: none;  /* Elimina el contorno que se muestra al hacer clic en el enlace */
+    border: none;  /* Elimina cualquier borde */
+    padding: 0;  /* Elimina el relleno */
+    margin: 0;  /* Elimina los márgenes */
+    font-size: inherit;  /* Hereda el tamaño de fuente del elemento padre */
+    font-family: inherit;  /* Hereda la familia de fuentes del elemento padre */
+}
+
+/*- Propiedades del menu -*/
+.menu{
+    display: grid;
+    grid-template-rows: 15% 65% 20% ;
+    align-items: center;
+
+    gap: 1%;
+    height: 100vh;
+    background-color: rgb(0, 0, 0);
+
+    border-right: 0.0625rem solid rgba(255, 255, 255, 0.20) ;
+}
+
+/*- Encabezado -*/
+.menu-arriba{
+    grid-row: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10%;
+}
+
+.menu-logo{
+    width: 8.88281rem;
+    height: 1.87006rem;
+}
+
+.menu-button{
+    color: #FFF;
+    text-align: center;
+
+    font-size: 1.75rem;
+    font-weight: 400;
+
+    background-color: transparent;
+    border: 0px;
+    cursor: pointer;
+}
+
+/*- Menu -*/
+.div-botones{
+    grid-row: 2;
+    align-self: self-start;
+
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-top: 1.81rem;
+    margin-bottom: 5rem;
+
+    overflow-y: scroll;
+    height: 95%;
+}
+
+#botoes-aux-izquierda{
+    display: none;
+}
+
+.div-botones::-webkit-scrollbar {
+    width: 3px; /* Ancho de la barra de desplazamiento */
+    height: 0px;
+}
+
+.div-botones::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 255, 255, 0.1); /* Cambia el color del pulgar de la barra */
+    border-radius: 5px; /* Bordes redondeados para el pulgar */
+}
+
+.div-botones::-webkit-scrollbar-track {
+    background-color: rgba(255, 255, 255, 0.05); /* Cambia el color de la pista de la barra */
+}
+
+.botones{
+    display: flex;
+
+    padding: 0.375rem 0.375rem 0.375rem 10%;
+
+    align-items: center;
+    gap: 1.75rem;
+
+    width: 95%;
+    height: 2.6rem;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.boton-image{
+    color: #FFF;
+    text-align: center;
+
+    font-size: 1.5rem;
+    font-style: normal;
+
+    font-weight: 400;
+    line-height: normal;
+}
+
+.boton-letra{
+    color: #FFF;
+
+    font-family: Poppins;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 500;
+
+    line-height: normal;
+}
+
+.boton-selecionado{
+    border-radius: 0rem 0.375rem 0.375rem 0rem;
+    background: rgba(255, 255, 255, 0.20);
+}
+/*- Menu pie de pagina -*/
+.menu-footer{
+    grid-row: 3;
+    align-self: self-start;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 1.5rem;
+    width: 95%;
+
+    margin: auto;
+    margin-bottom: 0;
+    margin-left: 0;
+    padding-bottom: 3rem;
+}
+
+/*- Propiedades del div general -*/
+.general{
+    display: grid;
+    grid-template-rows: 15% 85%;
+    height: 100%;
+    overflow: auto;
+}
+
+.general::-webkit-scrollbar {
+    width: 3px; /* Ancho de la barra de desplazamiento */
+    height: 0px;
+}
+
+.general::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 255, 255, 0.1); /* Cambia el color del pulgar de la barra */
+    border-radius: 5px; /* Bordes redondeados para el pulgar */
+}
+
+.general::-webkit-scrollbar-track {
+    background-color: rgba(255, 255, 255, 0.05); /* Cambia el color de la pista de la barra */
+}
+
+/*- Propiedades del membrete -*/
+.membrete{
+    display: flex;
+    align-items: center;
+    grid-row: 1;
+
+    background-color: transparent;
+    width: 100%;
+    height: 100%;
+    border-bottom: 0.0625rem solid rgba(255, 255, 255, 0.20);
+}
+
+/*- buscador -*/
+.buscador{
+    flex: 1;
+    height: 35%;
+    
+    margin-right: 5%;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+
+    border-radius: 1.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.50);
+    backdrop-filter: blur(3px);
+
+    margin-left: 3.37rem;
+}
+
+.buscador input{
+    color: #FFF;
+    text-align: left;
+    font-family: Poppins;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+
+    display: flex;
+    align-items: center;
+    gap: 0.5625rem;
+    height: 100%;
+    width: 100%;
+
+    background-color: transparent;
+    border: none;
+}
+
+.buscador img{
+    height: 50%;
+    align-self: flex-start;
+    margin: auto;
+    margin-left: 1%;
+    margin-right: 1%;
+}
+
+/*- Propiedades del menu derecho -*/
+
+/*- Contenido derecho -*/
+.menu-derecho{
+    display: grid;
+    grid-template-rows: 15% 85%;
+    height: 100vh;
+
+    background: rgba(255, 255, 255, 0.10);
+    white-space: nowrap;
+}
+
+/*- notificaciones y/o usuario -*/
+.user{
+    grid-row: 1;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    width: 100%;
+    border-bottom: 0.0625rem solid rgba(255, 255, 255, 0.20);
+}
+
+.user-foto{
+    width: 3.75rem;
+    height: 3.65rem;
+    flex-shrink: 0;
+
+    margin-top: 2.37rem;
+    margin-bottom: 1.18rem;
+    margin-right: 2.28rem;
+
+    border-radius: 624.9375rem;
+    background: lightgray -27.5px 0px / 150% 100% no-repeat;
+
+    cursor: pointer;
+}
+
+.user button{
+    background-color: transparent;
+    border: none;
+
+    margin-top: 2.37rem;
+    margin-bottom: 1.18rem;
+    margin-right: 2.28rem;
+
+    cursor: pointer;
+}
+
+/*- Propiedades del centro -*/
+.div-contenedor-principal{
+    grid-row: 2;
+    display: flex;
+    flex-direction: column;
+    padding: 2%;
+    padding-bottom: 0;
+}
+
+/*- Pie de pagina -*/
+footer{
+    grid-row-start: 3;
+    grid-column-start: 1;
+    grid-column-end: 4;
+
+    border-top: 0.0625rem solid rgba(255, 255, 255, 0.20);
+
+    margin-top: 0rem;
+
+    display: grid;
+    grid-template-columns: 33% 33% 34%;
+    align-items: center;
+}
+
+.footer-texto{
+    margin-left: 2.06rem;
+    margin-bottom: 0.81rem;
+    font-family: Poppins;
+    justify-content: center;
+    align-items: center;
+    justify-items: center;
+}
+
+.footer-primer-div{
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    margin-top: 1rem;
+    gap: 1rem;
+}
+
+.footer-segundo-div{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    justify-items: center;
+    grid-column: 2;
+    margin-top: 1rem;
+    gap: 1rem;
+}
+
+.footer-tercer-div{
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    align-items: center;
+    justify-items: center;
+    gap: 1rem;
+    grid-column: 3;
+
+    color: #FFF;
+    text-align: center;
+    font-family: Poppins;
+    font-size: 0.9375rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.social-footer {
+    grid-column: 3;
+    background-color: rgba(255, 255, 255, 0.20);
+    color: white;
+    text-align: center;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 100%;
+}
+
+.social-footer img {
+    width: 2rem;
+    height: 2rem;
+}
+  
+/*----------------------------------------  PARTE RESPOSIVE  Fue diseñado para 1440*900px---------------------------------------------- */
+
+/* Para tablet */
+@media (max-width: 1024px) {
+
+    body{
+        grid-template-columns: 10% 90% 0%;
+    }
+    /*-- Menu derecho ---*/
+    .menu{
+        grid-template-rows: 5% 80% 15%;
+    }
+
+    #botoes-aux-izquierda{
+        display: flex;
+    }
+
+    .menu-arriba{
+        height: 10%;
+        gap: 0;
+    }
+
+    .botones{
+        justify-content: center;
+        padding: 0;
+        margin: 0;
+    }
+
+    .menu-derecho,
+    .boton-letra,
+    .menu-logo {
+        display: none;
+    }
+
+    /*-- buscador ---*/
+    .membrete{
+        padding-top: 1%;
+        padding-bottom: 1%;
+    }
+
+    .buscador{
+        height: 2.5rem;
+    }
+    
+    /*-- general ---*/
+    .general{
+        grid-template-rows: 5% 95%;
+    }
+
+    .footer-tercer-div{
+        flex-direction: column;
+        font-size: 10px;
+        gap: 10px;
+    }
+}
+
+/* Para celulares */
+@media (max-width: 767px) {
+    
+    /*-- Menu derecho ---*/
+    .menu-derecho,
+    .user,
+    .membrete,
+    .boton-letra,
+    .menu-logo {
+        display: none;
+    }
+
+    body{
+        grid-template-columns: 20% 80% 0%;
+    }
+
+    .general{
+        grid-template-rows: 0% 100%;
+    }
+
+    /*-- footer ---*/
+    .footer-tercer-div{
+        flex-direction: column;
+        font-size: 10px;
+    }
+    .social-footer{
+        width: 1rem;
+        height: 1rem;
+    }
+    .footer-texto{
+        margin: 0;
+        margin-left: 1rem;
+    }
+}

@@ -3,6 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="../assets-globales/style-plantilla.css">
     <link rel="stylesheet" href="style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
@@ -11,249 +12,377 @@
 <body>
 
     <!-- Esta parte es solo del menu lateral -->
-
     <div class="menu">
 
         <!-- Titulo -->
-        <span class="menu-arriba">
+        <a href="../Dashboard/index.html">
+        <div class="menu-arriba">
             <button class="menu-button">☰</button>
-            <img class="menu-logo" src="/Dashboard/assets/logo.svg" alt=""> 
-        </span>
-
-        <!--  <br> Separo -->
+            <img class="menu-logo" src="/assets-globales/assets/logo.svg" alt=""> 
+        </div>
+        </a>
 
         <!-- Botones -->
-        <button class="botones"> 
-            <img class="boton-image" src="/Dashboard/assets/home.svg" alt=""> 
-            <h1 class="boton-letra">Inicio</h1>  
-        </button> 
+        <div class="div-botones">
 
-        <button class="botones"> 
-            <img class="boton-image" src="/Dashboard/assets/circle-dollar.svg" alt=""> 
-            <h1 class="boton-letra">Actividad</h1>  
-        </button> 
+            <a href="../Dashboard/index.html">
+            <button class="botones boton-selecionado"> 
+                <img class="boton-image" src="/assets-globales/assets/home.svg" alt=""> 
+                <h1 class="boton-letra">Inicio</h1>  
+            </button> 
+            </a>
 
-        <button class="botones"> 
-            <img class="boton-image" src="/Dashboard/assets/bank.svg" alt=""> 
-            <h1 class="boton-letra">Cuentas</h1>  
-        </button> 
+            <a href="">
+            <button class="botones"> 
+                <img class="boton-image" src="/assets-globales/assets/circle-dollar.svg" alt=""> 
+                <h1 class="boton-letra">Actividad</h1>  
+            </button> 
+            </a>
 
-        <button class="botones"> 
-            <img class="boton-image" src="/Dashboard/assets/tarjeta.svg" alt=""> 
-            <h1 class="boton-letra">Tarjetas</h1>  
-        </button> 
+            <a href="">
+            <button class="botones"> 
+                <img class="boton-image" src="/assets-globales/assets/bank.svg" alt=""> 
+                <h1 class="boton-letra">Cuentas</h1>  
+            </button> 
+            </a>
+
+            <a href="/Cambio-divisas/index.html">
+            <button class="botones"> 
+                <img class="boton-image" src="/assets-globales/assets/tarjeta.svg" alt=""> 
+                <h1 class="boton-letra">Cambio de divisas</h1>  
+            </button> 
+            </a>
+
+            <a href="">
+            <button class="botones" id="botoes-aux-izquierda"> 
+                <img class="boton-image" src="/assets-globales/assets/CIRCLE-INFO.svg" alt=""> 
+                <h1 class="boton-letra">Mi CBU</h1>  
+            </button> 
+            </a>
+
+            <a href="/Prestamos/index.html">
+            <button class="botones" id="botoes-aux-izquierda"> 
+                <img class="boton-image" src="/assets-globales/assets/circle-arrow-down-deposito.svg" alt=""> 
+                <h1 class="boton-letra">Prestamos</h1>  
+            </button> 
+            </a>
+
+            <a href="/Transferencias/index.html">
+            <button class="botones" id="botoes-aux-izquierda"> 
+                <img class="boton-image" src="/assets-globales/assets/transferencias.svg" alt=""> 
+                <h1 class="boton-letra">Transferencias</h1>  
+            </button> 
+            </a>
+
+            <!-- notificaciones y/o usuario -->
+            <a href="">
+                <button class="botones" id="botoes-aux-izquierda">
+                    <img src="/assets-globales/assets/notifica.svg" alt=""> 
+                </button>
+            </a>
+
+            <a href="">
+                <button class="botones" id="botoes-aux-izquierda">
+                    <img src="/assets-globales/assets/Avatar.svg" alt="user">
+                </button>
+            </a>
+
+        </div>
 
         <!-- Botones al final -->
-        <span class="menu-footer">
+        <div class="menu-footer">
 
+            <a href="">
             <button class="botones"> 
-                <img class="boton-image" src="/Dashboard/assets/ayuda.svg" alt=""> 
+                <img class="boton-image" src="/assets-globales/assets/ayuda.svg" alt=""> 
                 <h1 class="boton-letra">Ayuda</h1>  
             </button> 
+            </a>
 
+            <a href="">
             <button class="botones"> 
-                <img class="boton-image" src="/Dashboard/assets/cerrar_sesion.svg" alt=""> 
+                <img class="boton-image" src="/assets-globales/assets/cerrar_sesion.svg" alt=""> 
                 <h1 class="boton-letra">Cerrar sesión</h1>  
             </button> 
+            </a>
 
-        </span>
+        </div>
 
     </div>
 
-    <!-- Este es un div general para agrupar lo que esta al lado del menu lateral -->
+    <!-- Este es un div general para agrupar el CONTENIDO DE LA PAGINA -->
     <div class="general">
 
-        <!-- Esta parte del buscador y perfil -->
+        <!-- Esta parte del buscador -->
         <div class="membrete">
 
             <!-- buscador -->
             <div class="buscador">
-                <img src="/Dashboard/assets/search.svg" alt=""> 
+                <img src="/assets-globales/assets/search.svg" alt=""> 
                 <input type="text" placeholder="Buscar">
             </div>
             
-
-            <!-- notificaciones y/o usuario -->
-            <span class="user">
-                <button>
-                    <img src="/Dashboard/assets/notifica.svg" alt=""> 
-                </button>
-                <img class="user-foto" src="/Dashboard/assets/Avatar.svg" alt="user">
-            </span>
-
         </div>
 
-        <!-- Esta parte del centro, el saludo y las tarjetas -->
-        <div class="div-saludo">
 
-            <!-- saludo -->
-            <h1 class="saludo">Hola, luis</h1>
+        <!-- Contenido de la pagina que cambia  -->
 
-            <!-- tarjetas -->
-            <div class="tarjetas-dashboard">
-
-                <span class="tarjetas saldo">
-                    <h1>Total en cuenta</h1>
-                    <h2>$304.450</h2>
-                </span>
-
-                <span class="tarjetas ingreso-tarjeta">
-                    <h1>Ingresos</h1>
-                    <h2>+ 2.25%</h2>
-                </span>
-
-                <span class="tarjetas retiro-tarjeta">
-                    <h1>Retiros</h1>
-                    <h2>- $ 10.750</h2>
-                </span>
-
-            </div>
-
-        </div>
-
-        <!-- Esta parte de los movimientos -->
-
-        <!-- titulo -->
-        <span class="movimientos-titulo">
-            <h1>Ultimos movimientos</h1>
-            <h1>></h1>
-        </span>
-
-        <!-- tarjetas -->
-        <div class="div-movimientos">
-
-            <!-- tarjeta -->
-            <div class="moviminetos-tarjeta">
-
-                <!-- numeros y fechas -->
-                <span class="movimiento-texto">
-                    <h1>$1.350</h1>
-                    <h2>04/08/2023</h2>
-                </span>
-                
-                <!-- motivo -->
-                <span class="motivo">
-                    <h1 class="ingreso">Ingreso</h1>
-                    <img src="/Dashboard/assets/circle-arrow-down.svg" alt="">
-                </span>
-                
-            </div>
+        <div class="div-contenedor-principal">
             
-            <!-- esto es solo de demo, se copia con JS-->
+            <!-- Esta parte del centro, el saludo y las tarjetas -->
+            <div class="div-saludo">
 
-            <div class="moviminetos-tarjeta">
-                <span class="movimiento-texto">
-                    <h1>$300.350</h1>
-                    <h2>04/08/2023</h2>
-                </span>
-                <span class="motivo">
-                    <h1 class="ingreso">Ingreso</h1>
-                    <img src="/Dashboard/assets/circle-arrow-down.svg" alt="">
-                </span>
-            </div>
+                <!-- saludo -->
+                <h1 class="saludo">Hola, luis</h1>
 
-            <div class="moviminetos-tarjeta">
-                <span class="movimiento-texto">
-                    <h1>$20</h1>
-                    <h2>04/08/2023</h2>
-                </span>
-                <span class="motivo">
-                    <h1 class="retiro">retiro</h1>
-                    <img src="/Dashboard/assets/circle-arrow-up.svg" alt="">
-                </span>
-            </div>
-            
-            <div class="moviminetos-tarjeta">
-                <span class="movimiento-texto">
-                    <h1>$20</h1>
-                    <h2>04/08/2023</h2>
-                </span>
-                <span class="motivo">
-                    <h1 class="retiro">retiro</h1>
-                    <img src="/Dashboard/assets/circle-arrow-up.svg" alt="">
-                </span>
-            </div>
+                <!-- tarjetas -->
+                <div class="tarjetas-dashboard">
 
-            <div class="moviminetos-tarjeta">
-                <span class="movimiento-texto">
-                    <h1>$20</h1>
-                    <h2>04/08/2023</h2>
-                </span>
-                <span class="motivo">
-                    <h1 class="retiro">retiro</h1>
-                    <img src="/Dashboard/assets/circle-arrow-up.svg" alt="">
-                </span>
-            </div>
-            
+                    <span class="tarjetas saldo">
+                        <h1>Total en cuenta</h1>
+                        <h2>$304.450</h2>
+                    </span>
 
-        </div>
+                    <span class="tarjetas ingreso-tarjeta">
+                        <h1>Ingresos</h1>
+                        <h2>+ 2.25%</h2>
+                    </span>
 
-    </div>
+                    <span class="tarjetas retiro-tarjeta">
+                        <h1>Retiros</h1>
+                        <h2>- $ 10.750</h2>
+                    </span>
 
-    <!-- Esta parte del rectangulo gris -->
-    <div class="menu-derecho">
-
-        <!-- fondo gris -->
-        <div class="gris"></div>
-
-        <!-- acciones rapidas -->
-        <div>
-            
-            <!-- Titulo -->
-            <h1 class="titulo">Acciones rápidas</h1>
-
-            <!-- Botones -->
-
-            <button class="derecho-botones"> 
-                <img class="acciones-botones-image" src="/Dashboard/assets/CIRCLE-INFO.svg" alt=""> 
-                <h1 class="acciones-botones-letra">Mi CBU</h1>  
-            </button> 
-
-            <button class="derecho-botones"> 
-                <img class="acciones-botones-image" src="/Dashboard/assets/circle-arrow-down-deposito.svg" alt=""> 
-                <h1 class="acciones-botones-letra">Depósitos</h1>  
-            </button> 
-
-            <button class="derecho-botones"> 
-                <img class="acciones-botones-image" src="/Dashboard/assets/transferencias.svg" alt=""> 
-                <h1 class="acciones-botones-letra">Transferencias</h1>  
-            </button> 
-
-        </div>
-
-        <!-- tarjeta -->
-        <div>
-            
-            <!-- Titulo -->
-            <span class="titulo-tarjeta">
-                <h1 class="titulo">Tarjetas</h1>
-                <h1 class="titulo">></h1>
-            </span>
-
-            <!-- tarjeta -->
-            <span class="tarjeta"> 
-                
-                <div class="tarjeta-image">
-                    <img class="fondo" src="/Dashboard/assets/fondo-tarjeta.svg" alt=""> 
-                    <img class="degrade" src="/Dashboard/assets/degrade-tarjeta.svg" alt=""> 
-                    <img class="visa" src="/Dashboard/assets/visa.svg" alt=""> 
                 </div>
 
-                <h1 class="tarjeta-texto credito">Credito</h1>
+            </div>
 
-                <span class="numeros num">
-                    <h1>4802  2215  1183  4289</h1>
-                </span>
-            
-                <h1 class="tarjeta-texto nombre">MELLISSA MCCARTHY</h1>
+            <!-- Esta parte de los movimientos -->
 
-            </span> 
+            <!-- titulo -->
+            <h1 class="movimientos-titulo">Ultimos movimientos ></h1>
+
+            <!-- tarjetas -->
+            <div class="div-movimientos">
+
+                <!-- tarjeta -->
+                <div class="moviminetos-tarjeta">
+
+                    <!-- numeros y fechas -->
+                    <span class="movimiento-texto">
+                        <h1>$1.350</h1>
+                        <h2>04/08/2023</h2>
+                    </span>
+                    
+                    <!-- motivo -->
+                    <span class="motivo">
+                        <h1 class="ingreso">Ingreso</h1>
+                        <img src="assets/circle-arrow-down.svg" alt="">
+                    </span>
+                    
+                </div>
+                
+                <!-- esto es solo de demo, se copia con JS-->
+
+                <div class="moviminetos-tarjeta">
+                    <span class="movimiento-texto">
+                        <h1>$300.350</h1>
+                        <h2>04/08/2023</h2>
+                    </span>
+                    <span class="motivo">
+                        <h1 class="ingreso">Ingreso</h1>
+                        <img src="assets/circle-arrow-down.svg" alt="">
+                    </span>
+                </div>
+
+                <div class="moviminetos-tarjeta">
+                    <span class="movimiento-texto">
+                        <h1>$20</h1>
+                        <h2>04/08/2023</h2>
+                    </span>
+                    <span class="motivo">
+                        <h1 class="retiro">retiro</h1>
+                        <img src="assets/circle-arrow-up.svg" alt="">
+                    </span>
+                </div>
+                
+                <div class="moviminetos-tarjeta">
+                    <span class="movimiento-texto">
+                        <h1>$300.350</h1>
+                        <h2>04/08/2023</h2>
+                    </span>
+                    <span class="motivo">
+                        <h1 class="ingreso">Ingreso</h1>
+                        <img src="assets/circle-arrow-down.svg" alt="">
+                    </span>
+                </div>
+
+                <div class="moviminetos-tarjeta">
+                    <span class="movimiento-texto">
+                        <h1>$20</h1>
+                        <h2>04/08/2023</h2>
+                    </span>
+                    <span class="motivo">
+                        <h1 class="retiro">retiro</h1>
+                        <img src="assets/circle-arrow-up.svg" alt="">
+                    </span>
+                </div>
+                
+                <div class="moviminetos-tarjeta">
+                    <span class="movimiento-texto">
+                        <h1>$20</h1>
+                        <h2>04/08/2023</h2>
+                    </span>
+                    <span class="motivo">
+                        <h1 class="retiro">retiro</h1>
+                        <img src="assets/circle-arrow-up.svg" alt="">
+                    </span>
+                </div>
+                
+                <div class="moviminetos-tarjeta">
+                    <span class="movimiento-texto">
+                        <h1>$300.350</h1>
+                        <h2>04/08/2023</h2>
+                    </span>
+                    <span class="motivo">
+                        <h1 class="ingreso">Ingreso</h1>
+                        <img src="assets/circle-arrow-down.svg" alt="">
+                    </span>
+                </div>
+
+                <div class="moviminetos-tarjeta">
+                    <span class="movimiento-texto">
+                        <h1>$20</h1>
+                        <h2>04/08/2023</h2>
+                    </span>
+                    <span class="motivo">
+                        <h1 class="retiro">retiro</h1>
+                        <img src="assets/circle-arrow-up.svg" alt="">
+                    </span>
+                </div>
+
+            </div>
 
         </div>
-    
-    </div>
+
+        <!-- Contenido de la pagina que cambia  -->
 
     </div>
+
+    <!-- Esta parte del menu lateral -->
+    <div class="menu-derecho">
+
+        <!-- notificaciones y/o usuario -->
+        <span class="user">
+            <button>
+                <img src="/assets-globales/assets/notifica.svg" alt=""> 
+            </button>
+            <img class="user-foto" src="/assets-globales/assets/Avatar.svg" alt="user">
+        </span>
+
+        <!-- Contenido del borde derecho - esto cambia segun la pagina -->
+        <div class="menu-derecho-elementos">
+
+            <!-- acciones rapidas -->
+            <div id="contenedor-botones-derecho">
+                
+                <!-- Titulo -->
+                <h1 class="titulo">Acciones rápidas</h1>
+
+                <!-- Botones -->
+
+                <a href="">
+                <button class="derecho-botones"> 
+                    <img class="acciones-botones-image" src="/assets-globales/assets/CIRCLE-INFO.svg" alt=""> 
+                    <h1 class="acciones-botones-letra">Mi CBU</h1>  
+                </button> 
+                </a>
+
+                <a href="/Prestamos/index.html">
+                <button class="derecho-botones"> 
+                    <img class="acciones-botones-image" src="/assets-globales/assets/circle-arrow-down-deposito.svg" alt=""> 
+                    <h1 class="acciones-botones-letra">Prestamos</h1>  
+                </button> 
+                </a>
+
+                <a href="/Transferencias/index.html">
+                <button class="derecho-botones"> 
+                    <img class="acciones-botones-image" src="/assets-globales/assets/transferencias.svg" alt=""> 
+                    <h1 class="acciones-botones-letra">Transferencias</h1>  
+                </button> 
+                </a>
+
+            </div>
+
+            <!-- tarjeta -->
+            <div>
+                
+                <!-- Titulo -->
+                <span class="titulo-tarjeta">
+                    <h1>Tarjetas</h1>
+                    <h1>></h1>
+                </span>
+
+                <!-- tarjeta -->
+                <span class="tarjeta"> 
+                    
+                    <div class="tarjeta-image">
+                        <img class="fondo" src="assets/tarjeta-completa.svg" alt="">
+                        <!--
+                        <img class="fondo" src="assets/fondo-tarjeta.svg" alt=""> 
+                        <img class="fondo" src="assets/degrade-tarjeta.svg" alt=""> 
+                        <img class="visa" src="assets/visa.svg" alt=""> 
+                        -->
+                    </div>
+
+                    <!--
+                    <h1 class="tarjeta-texto credito">Credito</h1>
+
+                    <span class="numeros">
+                        <h1>4802  2215  1183  4289</h1>
+                    </span>
+                
+                    <h1 class="tarjeta-texto nombre">MELLISSA MCCARTHY</h1>
+                     -->
+                </span> 
+
+            </div>
+        
+        </div>
+
+    </div>
+
+    <!-- Pie de pagina -->
+    <footer>
+
+        <div class="footer-primer-div">
+            <a class="footer-texto" href=""> Sucursales </a>
+            <a class="footer-texto" href=""> Acerca de ITBANK </a>
+        </div>
+
+        <div class="footer-segundo-div">
+            <a class="footer-texto" href=""> © ITBAN Argentina S.A </a>
+            <a class="footer-texto" href=""> Centro de Atención al Cliente 0810-777-4444 </a>
+        </div>
+
+        <div class="footer-tercer-div">
+            <h3>Seguinos en :</h3>
+            <a class="social-footer" href="https://www.facebook.com/" target="_blank">
+            <img src="/assets-globales/assets/facebook.png" alt="Facebook">
+            </a>
+
+            <a class="social-footer" href="https://www.twitter.com/" target="_blank">
+            <img src="/assets-globales/assets/x.png" alt="Twitter">
+            </a>
+
+            <a class="social-footer" href="https://www.instagram.com/" target="_blank">
+            <img src="/assets-globales/assets/instagram.png" alt="Instagram">
+            </a>
+        </div>
+
+    </footer>
+    
+
 </body>
 
 </html>

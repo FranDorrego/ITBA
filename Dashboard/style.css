@@ -1,272 +1,13 @@
-/*-------------- Tipografias --------------*/
-@font-face {
-    font-family: 'Poppins';
-    src: url('/Dashboard/fuentes/Poppins/Poppins-Light.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-}
 
-@font-face {
-    font-family: 'Space Grotesk';
-    src: url('/Dashboard/fuentes/Space_Grotesk/static/SpaceGrotesk-Light.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-}
-
-/*-------------- Propiedades del body --------------*/
-body {
-    background-color: black;
-    color: white;
-
-    margin: 0;
-    padding: 0;
-
-    height: 100%;
-    width: 100%;
-    display: flex;
-}
-
-/*-------------- Propiedades del menu --------------*/
-.menu{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    
-    width: 18.81rem;
-
-    padding: 0;
-    margin: 0;
-
-    background-color: rgb(0, 0, 0);
-
-    border-right: 0.0625rem solid rgba(255, 255, 255, 0.20) ;
-}
-
-/*- Encabezado -*/
-.menu-arriba{
-    margin-top: 3.31rem;
-    margin-bottom: 3.75rem;
-
-    display: flex;
-    justify-content: left;
-    align-items: center;
-}
-
-.menu-logo{
-    width: 8.88281rem;
-    height: 1.87006rem;
-    flex-shrink: 0;
-
-    padding: 0;
-    padding-left: 2.06rem;
-    padding-right: 3.37rem;
-}
-
-.menu-button{
-    color: #FFF;
-    text-align: center;
-
-    font-family: Font Awesome 6 Pro;
-    font-size: 1.75rem;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-
-    padding: 0;
-    padding-left: 2.94rem;
-
-    background-color: transparent;
-    border: 0px;
-
-    cursor: pointer;
-}
-
-/*- Menu -*/
-.botones{
-    display: flex;
-
-    width: 17.1875rem;
-    margin-bottom: 1.75rem;
-
-    padding: 0.375rem 0.375rem 0.375rem 3rem;
-    gap: 1.75rem;
-
-    align-items: center;
-    
-    border-radius: 0rem 0.375rem 0.375rem 0rem;
-    border: 0px;
-    background-color: transparent;
-
-    cursor: pointer;
-}
-
-.boton-image{
-    color: #FFF;
-    text-align: center;
-
-    font-size: 1.5rem;
-    font-style: normal;
-
-    font-weight: 400;
-    line-height: normal;
-}
-
-.boton-letra{
-    color: #FFF;
-
-    font-family: Poppins;
-    font-size: 1.25rem;
-    font-style: normal;
-    font-weight: 500;
-
-    line-height: normal;
-}
-
-/*- Pie de pagina -*/
-.menu-footer{
-    align-self: flex-end;
-
-    margin: auto;
-    margin-bottom: 0;
-    margin-left: 0;
-}
-
-.menu .botones{
-    margin-bottom: 0;
-}
-
-/*-------------- Propiedades del div general --------------*/
-.general{
-
-    flex: 1;
-
-    display: flex;
-    flex-direction: column;
-}
-
-/*-------------- Propiedades del membrete --------------*/
-.membrete{
-    display: flex;
-    align-items: center;
-
-    background-color: transparent;
-    width: 100%;
-    height: 7.25rem;
-    border-bottom: 0.0625rem solid rgba(255, 255, 255, 0.20);
-}
-
-/*- buscador -*/
-.buscador{
-    flex: 1;
-    height: 2.25rem;
-    
-    padding: 0.375rem 0.75rem;
-    margin-left: 3.37rem;
-    margin-right: 3.38rem;
-
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: flex-start;
-    justify-content: center;
-    align-items: center;
-    flex-shrink: 0;
-
-    border-radius: 1.5rem;
-    border: 1px solid rgba(255, 255, 255, 0.50);
-    backdrop-filter: blur(3px);
-
-    margin-left: 3.37rem;
-}
-
-.buscador input{
-    color: #FFF;
-    text-align: left;
-    font-family: Poppins;
-    font-size: 1rem;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-
-    display: flex;
-    align-items: center;
-    gap: 0.5625rem;
-    height: 100%;
-    width: 100%;
-
-    background-color: transparent;
-    border: none;
-}
-
-.buscador img{
-    width: 1rem;
-    height: 1rem;
-    align-self: flex-start;
-    margin: auto;
-    margin-left: 0rem;
-    margin-right: 0.56rem;
-}
-
-/*- notificaciones y/o usuario -*/
-.user{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    position: fixed;
-    right: 0;
-    
-    margin-right: 2.87rem;
-    z-index: 2;
-}
-
-.user-foto{
-    width: 3.75rem;
-    height: 3.75rem;
-    flex-shrink: 0;
-
-    border-radius: 624.9375rem;
-    background: url("/Dashboard/assets/Avatar.svg"), lightgray -27.5px 0px / 150% 100% no-repeat;
-
-    cursor: pointer;
-}
-
-.user button{
-    background-color: transparent;
-    border: none;
-
-    margin-right: 1.94rem;
-    cursor: pointer;
-}
-
-/*-------------- Propiedades del menu derecho --------------*/
-.menu-derecho{
-    display: flex;
-    flex-direction: column; /* Alinea los elementos verticalmente */
-
-    width: 22.5rem;
-
-    padding-left: 1.75rem;
-
-    flex-shrink: 0;
-    z-index: 1;
-
-    background: rgba(255, 255, 255, 0.10);
-}
-
-/*- barra gris -*/
-.gris{
-    top: 0;
-
-    width: 5rem;
-    height: 7.25rem;
-    background: transparent;
-    z-index: -1;
+/*---------------------- CONTENIDO DEL MENU DERECHO - ESTOS ESTILOS CAMBIAN SEGUN LA PAGINA --------------*/
+.menu-derecho-elementos{
+    padding-left: 1rem;
+    padding-right: 1rem;
 }
 
 /*- Titulo -*/
 .titulo{
-    width: 17.0625rem;
+    width: auto;
 
     color: #FFF;
     font-family: Poppins;
@@ -281,12 +22,13 @@ body {
 
 /*- Botones -*/
 .derecho-botones{
-    width: 19.625rem;
+    width: 100%;
     height: 3.375rem;
+
     margin-bottom: 0.75rem;
+    padding: 0.75rem 1.5rem;
 
     display: flex;
-    padding: 0.75rem 1.5rem;
     align-items: center;
     gap: 0.75rem;
     align-self: stretch;
@@ -310,7 +52,7 @@ body {
 .acciones-botones-letra{
     color: #C59BFA;
     font-family: Poppins;
-    font-size: 1.25rem;
+    font-size: 1rem;
     font-style: normal;
     font-weight: 500;
     line-height: normal;
@@ -325,7 +67,7 @@ body {
     align-items: center;
 }
 
-.titulo-tarjeta .titulo{
+.titulo-tarjeta h1{
     margin-top: 2.12rem;
     margin-bottom: 1.17rem;
     width: 4.375rem;
@@ -339,61 +81,42 @@ body {
 
 /*------ Render de tarjeta-----*/
 .tarjeta {
-    width: 19.625rem;
-    height: 11.97181rem;
+    display: flex;
+
+    width: 15vw;
+    height: 8rem;
+
     border-radius: 1.148rem;
     overflow: hidden;
     position: relative;
+
 }
 
-.fondo{
+.fondo,
+.degrade,
+.visa {
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
     object-fit: cover;
-
-    width: 19.625rem;
-    height: 11.97181rem;
+    width: 100%;
     flex-shrink: 0;
 }
 
-.degrade{
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-
-    width: 19.625rem;
-    height: 11.97181rem;
-    flex-shrink: 0;
+.visa {
+    top: 8%; 
+    left: 80%; 
+    width: 8vw; 
+    height: auto; 
+    transform: translate(-50%, -50%) scale(0.3);
 }
 
-.visa{
+.tarjeta-texto,
+.numeros,
+.nombre {
     position: absolute;
-    top: 1.91rem;
-    left: 13.99rem;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-
-    width: 3.55325rem;
-    height: 1.148rem;
-    flex-shrink: 0;
-}
-
-.tarjeta-texto{
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-
     display: flex;
-    align-items: center;
-
+    align-items: flex-start;
     color: #FFF;
     font-family: Space Grotesk;
     font-size: 0.76531rem;
@@ -404,65 +127,40 @@ body {
     text-transform: uppercase;
 }
 
-.numeros{
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-
-    display: flex;
-    align-items: center;
-
-    width: 13.33844rem;
-    height: 0.92931rem;
-
-    color: #FFF;
-    font-family: Space Grotesk;
-    font-size: 0.6rem;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-    letter-spacing: 0.04919rem;
+.credito {
+    top: 6%; 
+    left: 25%; 
+    transform: translate(-50%, -50%) scale(0.7);
 }
 
-.credito{
-    top: 1.91rem;
-    left: 2.13rem;
+.numeros {
+    top: 20%; 
+    left: 45%; 
+    width: auto; 
+    height: auto; 
+    white-space: nowrap;
+    transform: translate(-50%, -50%) scale(0.5);
 }
 
-.num{
-    top: 7.19rem;
-    left: 2.13rem;
+.nombre {
+    top: 25%; 
+    left: 45%; 
+    white-space: nowrap;
+    transform: translate(-50%, -50%) scale(0.9);
 }
 
-.nombre{
-    top: 9.43rem;
-    left: 2.13rem;
+/*---------------------- PROPIEDADES DEL CENTRO - ESTOS ESTILOS CAMBIAN SEGUN LA PAGINA --------------*/
 
-    width: 14.33844rem;
-}
 
-/*-------------- Propiedades del centro - saludo y resumen --------------*/
+/*------ saludo y resumen -----*/
 .div-saludo{
-    
-    margin-top: 1.87rem;
-    margin-left: 3.37rem;
-    margin-right: 3.38rem;
-    margin-bottom: 0rem;
-
-    height: 14.56rem;
-
     display: flex;
     flex-direction: column;
-    
     position: relative;
 }
 
 /*------ Saludo -----*/
 .saludo{
-
-    width: 41.9375rem;
-
     color: #FFF;
     font-family: Poppins;
     font-size: 1.5rem;
@@ -473,13 +171,9 @@ body {
 
 /*------ tarjetas dashboard -----*/
 .tarjetas-dashboard{
-    flex: 1;
-
     display: flex;
     align-items: flex-start;
     gap: 1.6875rem;
-
-    height: 6.25rem;
 }
 
 .tarjetas{
@@ -542,17 +236,23 @@ body {
     background: rgba(255, 255, 255, 0.05);
 }
 
+/*------ Tiulo de ultimos movimientos -----*/
+.movimientos-titulo{
+    width: 11.38rem;
+    
+    color: #FFF;
+    font-family: Poppins;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
 /*-------------- Propiedades del centro - movimientos --------------*/
 .div-movimientos{
-
-    margin-left: 3.37rem;
-    margin-right: 1em;
-
-    flex: 1;
-    flex-grow: 1;
     display: flex;
 
-    align-items: flex-start;
+    align-items: center;
     flex-direction: column;
 
     overflow: hidden; /* Oculta todas las barras de desplazamiento */
@@ -572,25 +272,6 @@ body {
     background-color: rgba(255, 255, 255, 0.1); /* Cambia el color de la pista de la barra */
 }
 
-/*------ Saludo -----*/
-.movimientos-titulo{
-    margin-left: 3.37rem;
-    display: flex;
-    align-items: flex-start;
-
-}
-
-.movimientos-titulo h1{
-    width: 11.38rem;
-    
-    color: #FFF;
-    font-family: Poppins;
-    font-size: 1rem;
-    font-style: normal;
-    font-weight: 500;
-    line-height: normal;
-}
-
 /*------ tarjetas monto y fecha -----*/
 
 .moviminetos-tarjeta{
@@ -599,9 +280,8 @@ body {
     justify-content: space-between;
     align-items: flex-start;
 
-    height: 6.25rem;
-    width: 92%;
-
+    height: 4.25rem;
+    width: 90%;
     padding: 0.75rem 1.5rem;
 
     align-items: flex-start;
@@ -646,187 +326,158 @@ body {
 
 /*------ tarjetas motivo -----*/
 .motivo{
-    color: #7ED957;
+    display: flex;
+    margin-left: auto; /* Empuja el elemento hacia la derecha */
+    align-self: flex-start; 
+    gap: 0.75rem;
     text-align: right;
     font-family: Poppins;
-    font-size: 0.875rem;
+    font-size: 0.4rem;
     font-style: normal;
     font-weight: 500;
     line-height: normal;
     border: none;
-    margin-left: auto; /* Empuja el elemento hacia la derecha */
-    align-self: flex-start; 
-    display: flex;
-    gap: 0.75rem;
-}
-
-.motivo img{
-    color: #7ED957;
-    text-align: center;
-    font-family: Font Awesome 6 Pro;
-    font-size: 0.875rem;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
 }
 
 .ingreso{
     color: #7ED957;
-    text-align: right;
-    font-family: Poppins;
-    font-size: 0.875rem;
-    font-style: normal;
-    font-weight: 500;
-    line-height: normal;
-    border: none;
+    
 }
 
 .retiro{
     color: #FF3131;
-    text-align: right;
-    font-family: Poppins;
-    font-size: 0.875rem;
-    font-style: normal;
-    font-weight: 500;
-    line-height: normal;
-    border: none;
 }
 
+/*----------------------------------------  PARTE RESPOSIVE  Fue diseñado para 1440*900px---------------------------------------------- */
 
+/* Para tablet */
+@media (max-width: 1024px) {
 
-/*----------------------------------------  PARTE RESPOSIVE  Fue diseñado para 1900 px---------------------------------------------- */
-
-/* Para pantallas comunes */
-
-@media (max-width: 1460px) {
-    .menu{
-        font-size: 10em;
-        width: 80rem;
+    /*-- menu derecho - elementos internos - Cambia segun la pagina ---*/
+    .tarjeta{
+        border-radius: 0;
     }
 
-    .menu{
-        width: 15rem;
-    }
-
-    .menu-logo img{
-        padding-right: 0;
-    }
-
-    .botones{
-        width: 5rem;
-        margin-left: 0;
-        padding-left: 1em;
-    }
-
-    .menu-button{
-        margin-left: 0;
-        padding-left: 0.5em;
-    }
-
-    .div-saludo{
-        margin-top: 0.5rem;
-        margin-left: 2rem;
-        margin-right: 2rem;
-    }
-
-    .tarjetas-dashboard{
-        height: 10rem;
-    }
-
-    .movimientos-titulo{
-        margin-left: 2rem;
-        margin-left: 2rem;
-    }
-
-    .div-movimientos{
-        margin-left: 2rem;
-        margin-left: 2rem;
-    }
-
-    .gris{
-        height: 6.5rem;
-    }
-
-    .menu-derecho{
-        padding-left: 1rem;
-        width: 20rem;
-
-        overflow: hidden;
-        overflow-y: auto;
-    }
-
-    .titulo-tarjeta .titulo{
-        margin-top: 1rem;
-        height: 1rem;
+    .menu-derecho-elementos{
+        padding-left: 0.5rem;
     }
 
     .derecho-botones{
-        width: 19rem;
-    }
-
-}
-
-@media (max-width: 1023px) {
-    .boton-letra{
-        display: none;
-    }
-
-    .menu{
-        width: 5rem;
-    }
-
-    .menu-logo{
-        display: none;
-    }
-
-    .menu-arriba{
-        margin: 0;
-        margin-top: 1rem;
-    }
-
-    .menu-button{
         padding: 0;
-        width: 4rem;
-        margin-left: 0.8rem;
-        margin-top: 1rem;
-    }  
-
-    .menu-derecho{
-        padding-left: 1rem;
-        margin: 0;
+        padding-left: 5px;
     }
 
-    .boton-image{
-        padding: 0;
-        width: 4rem;
-        margin: 1rem;
-    }
-
-    .general{
-        margin-left: 0;
-        width: 39rem;
-    }
-
-    .saludo{
-        width: 100%;
-    }
-    .tarjetas{
-        height: 4.45rem;
+    .acciones-botones-letra{
+        font-size: 12px;
     }
     
-    .tarjetas .saldo{
-        padding-bottom:0 ;
-        height: 1rem;
+    /*-- tarjetas ---*/
+    .tarjetas-dashboard{
+        gap: 0.5vw;
     }
-    .tarjetas h1{
-        font-size: 0.8rem;
+
+    .tarjetas-dashboard h1{
+        font-size: 15px;
+    }
+
+    .tarjetas{
+        padding: 0;
+        padding-left: 10px;
     }
 
     .tarjetas h2{
-        font-size: 1.5rem;
-        height: 0.5rem;
+        font-size: 25px;
+        padding: 0;
+        padding-left: 10px;
+    }
+
+    /*-- movimientos ---*/
+    .div-movimientos{
+        padding-left: 5%;
+        padding-right: 5%;
     }
 }
 
-@media (max-width: 768px) {
+/* Para celulares */
+@media (max-width: 767px) {
+
+    /*-- menu derecho - elementos internos - Cambia segun la pagina ---*/
+    .titulo-tarjeta,
+    .titulo,
+    .tarjeta{
+        display: none;
+    }
+
+    #contenedor-botones-derecho{
+        grid-column-start: 3;
+        gap: 6em;
+        display: flex;
+        justify-content: end;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    .menu-derecho{
+        align-items: center;
+    }
+
+    .menu-derecho-elementos{
+        padding: 0;
+        justify-self: center;
+    }
+
+    .derecho-botones{
+       width: 8rem;
+       height: 3rem;
+       padding: 0.3rem;
+       margin: 0;
+       display: flex;
+    justify-content: center;
+    align-items: center;
+
+       transform-origin: center center;
+       transform: rotate(270deg);
+    }
+
+    .acciones-botones-letra{
+        font-size: 12px;
+    }
+
+    /*-- tarjetas ---*/
+    .div-saludo{
+        padding-bottom: 1rem;
+    }
+    .tarjetas-dashboard{
+        gap: 3vw;
+        overflow-x: auto;
+        height: 4rem;
+    }
+
+    .tarjetas{
+        white-space: nowrap;
+        padding: 0.1rem;
+        height: 80%;
+        margin: 0;
+    }
+
+    .tarjetas h1{
+        margin: 0;
+        font-size: 12px;
+    }
+
+    .tarjetas h2{
+        font-size: 19px;
+    }
+
+    /*-- movimientos ---*/
+    .div-movimientos{
+        padding-left: 5%;
+        padding-right: 5%;
+        height: 100%;
+    }
+
+    .movimiento-texto h2,
+    .movimiento-texto h1{
+        font-size: 1rem;
+    }
 }
