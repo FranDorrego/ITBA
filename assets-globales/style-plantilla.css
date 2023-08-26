@@ -178,6 +178,21 @@ a {
     display: grid;
     grid-template-rows: 15% 85%;
     height: 100%;
+    overflow: auto;
+}
+
+.general::-webkit-scrollbar {
+    width: 3px; /* Ancho de la barra de desplazamiento */
+    height: 0px;
+}
+
+.general::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 255, 255, 0.1); /* Cambia el color del pulgar de la barra */
+    border-radius: 5px; /* Bordes redondeados para el pulgar */
+}
+
+.general::-webkit-scrollbar-track {
+    background-color: rgba(255, 255, 255, 0.05); /* Cambia el color de la pista de la barra */
 }
 
 /*- Propiedades del membrete -*/
