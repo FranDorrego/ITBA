@@ -3,7 +3,6 @@
 .menu-derecho-elementos{
     padding-left: 1rem;
     padding-right: 1rem;
-    border-top: 0.0625rem solid rgba(255, 255, 255, 0.10);
 }
 
 /*- Titulo -*/
@@ -86,7 +85,7 @@
     display: flex;
 
     width: 15vw;
-    height: 30vw;
+    height: 8rem;
 
     border-radius: 1.148rem;
     overflow: hidden;
@@ -260,7 +259,6 @@
     overflow: hidden; /* Oculta todas las barras de desplazamiento */
     overflow-y: auto; /* Permite el desplazamiento vertical si el contenido excede el espacio */
 
-    height: 100%;
 }
 
 .div-movimientos::-webkit-scrollbar {
@@ -416,13 +414,10 @@
     #contenedor-botones-derecho{
         grid-column-start: 3;
         gap: 6em;
-
         display: flex;
-        justify-content: center;
+        justify-content: end;
         align-items: center;
         flex-direction: column;
-
-        height: 100vh;
     }
 
     .menu-derecho{
@@ -440,8 +435,8 @@
        padding: 0.3rem;
        margin: 0;
        display: flex;
-        justify-content: center;
-        align-items: center;
+    justify-content: center;
+    align-items: center;
 
        transform-origin: center center;
        transform: rotate(270deg);

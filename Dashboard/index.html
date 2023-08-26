@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="../style-plantilla.css">
+    <link rel="stylesheet" href="../assets-globales/style-plantilla.css">
     <link rel="stylesheet" href="style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
@@ -15,48 +15,96 @@
     <div class="menu">
 
         <!-- Titulo -->
+        <a href="../Dashboard/index.html">
         <div class="menu-arriba">
             <button class="menu-button">☰</button>
-            <img class="menu-logo" src="/Dashboard/assets/logo.svg" alt=""> 
+            <img class="menu-logo" src="/assets-globales/assets/logo.svg" alt=""> 
         </div>
+        </a>
 
         <!-- Botones -->
         <div class="div-botones">
 
+            <a href="../Dashboard/index.html">
             <button class="botones boton-selecionado"> 
-                <img class="boton-image" src="/Dashboard/assets/home.svg" alt=""> 
+                <img class="boton-image" src="/assets-globales/assets/home.svg" alt=""> 
                 <h1 class="boton-letra">Inicio</h1>  
             </button> 
+            </a>
 
+            <a href="">
             <button class="botones"> 
-                <img class="boton-image" src="/Dashboard/assets/circle-dollar.svg" alt=""> 
+                <img class="boton-image" src="/assets-globales/assets/circle-dollar.svg" alt=""> 
                 <h1 class="boton-letra">Actividad</h1>  
             </button> 
+            </a>
 
+            <a href="">
             <button class="botones"> 
-                <img class="boton-image" src="/Dashboard/assets/bank.svg" alt=""> 
+                <img class="boton-image" src="/assets-globales/assets/bank.svg" alt=""> 
                 <h1 class="boton-letra">Cuentas</h1>  
             </button> 
+            </a>
 
+            <a href="">
             <button class="botones"> 
-                <img class="boton-image" src="/Dashboard/assets/tarjeta.svg" alt=""> 
+                <img class="boton-image" src="/assets-globales/assets/tarjeta.svg" alt=""> 
                 <h1 class="boton-letra">Tarjetas</h1>  
             </button> 
+            </a>
+
+            <a href="">
+            <button class="botones" id="botoes-aux-izquierda"> 
+                <img class="boton-image" src="/assets-globales/assets/CIRCLE-INFO.svg" alt=""> 
+                <h1 class="boton-letra">Mi CBU</h1>  
+            </button> 
+            </a>
+
+            <a href="">
+            <button class="botones" id="botoes-aux-izquierda"> 
+                <img class="boton-image" src="/assets-globales/assets/circle-arrow-down-deposito.svg" alt=""> 
+                <h1 class="boton-letra">Depósitos</h1>  
+            </button> 
+            </a>
+
+            <a href="/Transferencias/index.html">
+            <button class="botones" id="botoes-aux-izquierda"> 
+                <img class="boton-image" src="/assets-globales/assets/transferencias.svg" alt=""> 
+                <h1 class="boton-letra">Transferencias</h1>  
+            </button> 
+            </a>
+
+            <!-- notificaciones y/o usuario -->
+            <a href="">
+                <button class="botones" id="botoes-aux-izquierda">
+                    <img src="/assets-globales/assets/notifica.svg" alt=""> 
+                </button>
+            </a>
+
+            <a href="">
+                <button class="botones" id="botoes-aux-izquierda">
+                    <img src="/assets-globales/assets/Avatar.svg" alt="user">
+                </button>
+            </a>
 
         </div>
 
         <!-- Botones al final -->
         <div class="menu-footer">
 
+            <a href="">
             <button class="botones"> 
-                <img class="boton-image" src="/Dashboard/assets/ayuda.svg" alt=""> 
+                <img class="boton-image" src="/assets-globales/assets/ayuda.svg" alt=""> 
                 <h1 class="boton-letra">Ayuda</h1>  
             </button> 
+            </a>
 
+            <a href="">
             <button class="botones"> 
-                <img class="boton-image" src="/Dashboard/assets/cerrar_sesion.svg" alt=""> 
+                <img class="boton-image" src="/assets-globales/assets/cerrar_sesion.svg" alt=""> 
                 <h1 class="boton-letra">Cerrar sesión</h1>  
             </button> 
+            </a>
 
         </div>
 
@@ -70,7 +118,7 @@
 
             <!-- buscador -->
             <div class="buscador">
-                <img src="/Dashboard/assets/search.svg" alt=""> 
+                <img src="/assets-globales/assets/search.svg" alt=""> 
                 <input type="text" placeholder="Buscar">
             </div>
             
@@ -129,7 +177,7 @@
                     <!-- motivo -->
                     <span class="motivo">
                         <h1 class="ingreso">Ingreso</h1>
-                        <img src="/Dashboard/assets/circle-arrow-down.svg" alt="">
+                        <img src="assets/circle-arrow-down.svg" alt="">
                     </span>
                     
                 </div>
@@ -143,7 +191,7 @@
                     </span>
                     <span class="motivo">
                         <h1 class="ingreso">Ingreso</h1>
-                        <img src="/Dashboard/assets/circle-arrow-down.svg" alt="">
+                        <img src="assets/circle-arrow-down.svg" alt="">
                     </span>
                 </div>
 
@@ -154,7 +202,7 @@
                     </span>
                     <span class="motivo">
                         <h1 class="retiro">retiro</h1>
-                        <img src="/Dashboard/assets/circle-arrow-up.svg" alt="">
+                        <img src="assets/circle-arrow-up.svg" alt="">
                     </span>
                 </div>
                 
@@ -165,7 +213,7 @@
                     </span>
                     <span class="motivo">
                         <h1 class="ingreso">Ingreso</h1>
-                        <img src="/Dashboard/assets/circle-arrow-down.svg" alt="">
+                        <img src="assets/circle-arrow-down.svg" alt="">
                     </span>
                 </div>
 
@@ -176,7 +224,7 @@
                     </span>
                     <span class="motivo">
                         <h1 class="retiro">retiro</h1>
-                        <img src="/Dashboard/assets/circle-arrow-up.svg" alt="">
+                        <img src="assets/circle-arrow-up.svg" alt="">
                     </span>
                 </div>
                 
@@ -187,7 +235,7 @@
                     </span>
                     <span class="motivo">
                         <h1 class="retiro">retiro</h1>
-                        <img src="/Dashboard/assets/circle-arrow-up.svg" alt="">
+                        <img src="assets/circle-arrow-up.svg" alt="">
                     </span>
                 </div>
                 
@@ -198,7 +246,7 @@
                     </span>
                     <span class="motivo">
                         <h1 class="ingreso">Ingreso</h1>
-                        <img src="/Dashboard/assets/circle-arrow-down.svg" alt="">
+                        <img src="assets/circle-arrow-down.svg" alt="">
                     </span>
                 </div>
 
@@ -209,7 +257,7 @@
                     </span>
                     <span class="motivo">
                         <h1 class="retiro">retiro</h1>
-                        <img src="/Dashboard/assets/circle-arrow-up.svg" alt="">
+                        <img src="assets/circle-arrow-up.svg" alt="">
                     </span>
                 </div>
 
@@ -227,9 +275,9 @@
         <!-- notificaciones y/o usuario -->
         <span class="user">
             <button>
-                <img src="/Dashboard/assets/notifica.svg" alt=""> 
+                <img src="/assets-globales/assets/notifica.svg" alt=""> 
             </button>
-            <img class="user-foto" src="/Dashboard/assets/Avatar.svg" alt="user">
+            <img class="user-foto" src="/assets-globales/assets/Avatar.svg" alt="user">
         </span>
 
         <!-- Contenido del borde derecho - esto cambia segun la pagina -->
@@ -243,20 +291,26 @@
 
                 <!-- Botones -->
 
+                <a href="">
                 <button class="derecho-botones"> 
-                    <img class="acciones-botones-image" src="/Dashboard/assets/CIRCLE-INFO.svg" alt=""> 
+                    <img class="acciones-botones-image" src="/assets-globales/assets/CIRCLE-INFO.svg" alt=""> 
                     <h1 class="acciones-botones-letra">Mi CBU</h1>  
                 </button> 
+                </a>
 
+                <a href="">
                 <button class="derecho-botones"> 
-                    <img class="acciones-botones-image" src="/Dashboard/assets/circle-arrow-down-deposito.svg" alt=""> 
+                    <img class="acciones-botones-image" src="/assets-globales/assets/circle-arrow-down-deposito.svg" alt=""> 
                     <h1 class="acciones-botones-letra">Depósitos</h1>  
                 </button> 
+                </a>
 
+                <a href="/Transferencias/index.html">
                 <button class="derecho-botones"> 
-                    <img class="acciones-botones-image" src="/Dashboard/assets/transferencias.svg" alt=""> 
+                    <img class="acciones-botones-image" src="/assets-globales/assets/transferencias.svg" alt=""> 
                     <h1 class="acciones-botones-letra">Transferencias</h1>  
                 </button> 
+                </a>
 
             </div>
 
@@ -273,11 +327,11 @@
                 <span class="tarjeta"> 
                     
                     <div class="tarjeta-image">
-                        <img class="fondo" src="/Dashboard/assets/tarjeta-completa.svg" alt="">
+                        <img class="fondo" src="assets/tarjeta-completa.svg" alt="">
                         <!--
-                        <img class="fondo" src="/Dashboard/assets/fondo-tarjeta.svg" alt=""> 
-                        <img class="fondo" src="/Dashboard/assets/degrade-tarjeta.svg" alt=""> 
-                        <img class="visa" src="/Dashboard/assets/visa.svg" alt=""> 
+                        <img class="fondo" src="assets/fondo-tarjeta.svg" alt=""> 
+                        <img class="fondo" src="assets/degrade-tarjeta.svg" alt=""> 
+                        <img class="visa" src="assets/visa.svg" alt=""> 
                         -->
                     </div>
 
@@ -299,19 +353,32 @@
     </div>
 
     <!-- Pie de pagina -->
-    <footer class="social-footer">
+    <footer>
 
-        <a href="https://www.facebook.com/" target="_blank">
-        <img src="/Dashboard/assets/facebook.png" alt="Facebook">
-        </a>
+        <div class="footer-primer-div">
+            <a class="footer-texto" href=""> Sucursales </a>
+            <a class="footer-texto" href=""> Acerca de ITBANK </a>
+        </div>
 
-        <a href="https://www.twitter.com/" target="_blank">
-        <img src="/Dashboard/assets/x.png" alt="Twitter">
-        </a>
+        <div class="footer-segundo-div">
+            <a class="footer-texto" href=""> © ITBAN Argentina S.A </a>
+            <a class="footer-texto" href=""> Centro de Atención al Cliente 0810-777-4444 </a>
+        </div>
 
-        <a href="https://www.instagram.com/" target="_blank">
-        <img src="/Dashboard/assets/instagram.png" alt="Instagram">
-        </a>
+        <div class="footer-tercer-div">
+            <h3>Seguinos en :</h3>
+            <a class="social-footer" href="https://www.facebook.com/" target="_blank">
+            <img src="/assets-globales/assets/facebook.png" alt="Facebook">
+            </a>
+
+            <a class="social-footer" href="https://www.twitter.com/" target="_blank">
+            <img src="/assets-globales/assets/x.png" alt="Twitter">
+            </a>
+
+            <a class="social-footer" href="https://www.instagram.com/" target="_blank">
+            <img src="/assets-globales/assets/instagram.png" alt="Instagram">
+            </a>
+        </div>
 
     </footer>
     
