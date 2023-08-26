@@ -47,27 +47,27 @@
             </a>
 
             <a href="/Dashboard/cambio-divisas.html">
-            <button class="botones boton-selecionado"> 
+            <button class="botones  boton-selecionado"> 
                 <img class="boton-image" src="/assets-globales/assets/tarjeta.svg" alt=""> 
                 <h1 class="boton-letra">Cambio de divisas</h1>  
             </button> 
             </a>
 
-            <a href="">
+            <a href="#">
             <button class="botones" id="botoes-aux-izquierda"> 
                 <img class="boton-image" src="/assets-globales/assets/CIRCLE-INFO.svg" alt=""> 
                 <h1 class="boton-letra">Mi CBU</h1>  
             </button> 
             </a>
 
-            <a href="/Prestamos/index.html">
+            <a href="/Dashboard/prestamos.html">
             <button class="botones" id="botoes-aux-izquierda"> 
                 <img class="boton-image" src="/assets-globales/assets/circle-arrow-down-deposito.svg" alt=""> 
                 <h1 class="boton-letra">Prestamos</h1>  
             </button> 
             </a>
 
-            <a href="/Transferencias/index.html">
+            <a href="/Dashboard/transferencias.html">
             <button class="botones" id="botoes-aux-izquierda"> 
                 <img class="boton-image" src="/assets-globales/assets/transferencias.svg" alt=""> 
                 <h1 class="boton-letra">Transferencias</h1>  
@@ -129,36 +129,67 @@
 
         <div class="div-contenedor-principal">
             
+            <!-- Esta parte del centro, el saludo y las tarjetas -->
+            <div class="div-saludo">
 
-            <h1>Pago con</h1>
-            <input type="number" placeholder="$$XXXXXX" id="pago" value=0>
+                <!-- saludo -->
+                <h1 class="saludo">Cambio de divisas</h1>
 
-            <select name="" id="opcion-pago">
-                <option value="ars">ARS</option>
-                <option value="usd">USD</option>
-                <option value="btc">BTC</option>
-                <option value="cop">COP</option>
-            </select>
+            </div>
 
-            <h1>Recibo</h1>
-            <input type="number" placeholder="$$XXXXXX" id="recibo" value=0>
+            <!-- Esta parte de los movimientos -->
 
-            <select name="" id="opcion-recibo">
-                <option value="ars">ARS</option>
-                <option value="usd"">USD</option>
-                <option value="btc">BTC</option>
-                <option value="cop">COP</option>
-            </select>
+            <!-- titulo -->
+            <h1 class="movimientos-titulo">Ultimos movimientos ></h1>
 
-            <button onclick="convertir()" id="btn-cambiar">Realizar cambio</button>
+            <!-- tarjetas -->
+            <div class="div-movimientos">
 
-            <h1>Precio de cambio</h1>
-            <input type="number" placeholder="El precio de cambio..." id="cambio" readonly>
-            
+                <!-- tarjeta -->
+                <div class="moviminetos-tarjeta">
+
+                    <span class="movimiento-texto">
+                        <h2>Monto de origen</h2>
+                        <input type="number" name="origen" id="origen" placeholder="Origen">
+                    </span>
+                    
+                    <span class="motivo">
+                        <img src="/Dashboard/assets/ARS.png" alt="bandera-arg" width="75px" id="imagen1">
+                    </span>
+                    <span>
+                        <select name="" id="option1" onchange="cambiarImagen1()"> 
+                            <option value="arg">ARS</option>
+                            <option value="usa">USD</option>
+                            <option value="euro" id="euro">EUR</option>
+                            <option value="br" id="br">BRL</option>
+                            <option value="gb" id="gb">GBP</option>
+                            <option value="yuan" id="yuan">CNY</option>
+                        </select>
+                    </span>
+                </div>
+                <div class="moviminetos-tarjeta">
+                    <span class="movimiento-texto">
+                        <h2>Monto convertido</h2>
+                        <input type="number" name="convertido" id="convertido" placeholder="Convertido">
+                    </span>
+                    <span class="motivo">
+                        <img src="/Dashboard/assets/USD.png" alt="bandera-usa" width="75px" id="imagen2">
+                    </span>
+                    <span>
+                        <select name="" id="option2" onchange="cambiarImagen2()">
+                            <option value="usa" id="usa">USD</option>
+                            <option value="arg" id="arg">ARS</option>
+                            <option value="euro" id="euro">EUR</option>
+                            <option value="br" id="br">BRL</option>
+                            <option value="gb" id="gb">GBP</option>
+                            <option value="yuan" id="yuan">CNY</option>
+                        </select>
+                    </span>
+                </div>     
+            </div>
+            <h2>PARRAFO</h2>
+            <button onclick="convertir()">CONVERTIR</button>               
         </div>
-
-        <!-- Contenido de la pagina que cambia  -->
-
     </div>
 
     <!-- Esta parte del menu lateral -->
@@ -175,7 +206,70 @@
         <!-- Contenido del borde derecho - esto cambia segun la pagina -->
         <div class="menu-derecho-elementos">
 
-            
+            <!-- acciones rapidas -->
+            <div id="contenedor-botones-derecho">
+                
+                <!-- Titulo -->
+                <h1 class="titulo">Acciones rápidas</h1>
+
+                <!-- Botones -->
+
+                <a href="">
+                <button class="derecho-botones"> 
+                    <img class="acciones-botones-image" src="/assets-globales/assets/CIRCLE-INFO.svg" alt=""> 
+                    <h1 class="acciones-botones-letra">Mi CBU</h1>  
+                </button> 
+                </a>
+
+                <a href="/Dashboard/prestamos.html">
+                <button class="derecho-botones"> 
+                    <img class="acciones-botones-image" src="/assets-globales/assets/circle-arrow-down-deposito.svg" alt=""> 
+                    <h1 class="acciones-botones-letra">Prestamos</h1>  
+                </button> 
+                </a>
+
+                <a href="/Dashboard/transferencias.html">
+                <button class="derecho-botones"> 
+                    <img class="acciones-botones-image" src="/assets-globales/assets/transferencias.svg" alt=""> 
+                    <h1 class="acciones-botones-letra">Transferencias</h1>  
+                </button> 
+                </a>
+
+            </div>
+
+            <!-- tarjeta -->
+            <div>
+                
+                <!-- Titulo -->
+                <span class="titulo-tarjeta">
+                    <h1>Tarjetas</h1>
+                    <h1>></h1>
+                </span>
+
+                <!-- tarjeta -->
+                <span class="tarjeta"> 
+                    
+                    <div class="tarjeta-image">
+                        <img class="fondo" src="assets/tarjeta-completa.svg" alt="">
+                        <!--
+                        <img class="fondo" src="assets/fondo-tarjeta.svg" alt=""> 
+                        <img class="fondo" src="assets/degrade-tarjeta.svg" alt=""> 
+                        <img class="visa" src="assets/visa.svg" alt=""> 
+                        -->
+                    </div>
+
+                    <!--
+                    <h1 class="tarjeta-texto credito">Credito</h1>
+
+                    <span class="numeros">
+                        <h1>4802  2215  1183  4289</h1>
+                    </span>
+                
+                    <h1 class="tarjeta-texto nombre">MELLISSA MCCARTHY</h1>
+                     -->
+                </span> 
+
+            </div>
         
         </div>
 
