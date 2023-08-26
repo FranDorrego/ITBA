@@ -2,17 +2,16 @@ body{
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
-    background-image: url("/assets/Background-color-globe.png");
+    background-image: url("/Login/assets/Background-color-globe.png");
 }
 
 @font-face {
     font-family: Poppins;
-    src: url(/assets/fonts/poppins/Poppins-Light.ttf);
+    src: url("/Login/assets/fonts/poppins/Poppins-Light.ttf");
 }
 
 
 ::placeholder { color: white; }
-
 
 .formulario{
     display: flex;
@@ -30,6 +29,7 @@ body{
 
 .input{
     font-size: 14px;
+
     border-radius: 1.5em;
     background: rgba(255, 255, 255, 0.40);
     backdrop-filter: blur(0.188em);
@@ -55,11 +55,12 @@ body{
     gap: 8.75em;
     flex-shrink: 0;
     font-size: 14px;
+    margin-right: 7em;
 }
 
 .titulo{
-    width: 13.891em /*222.25px*/;
-    height: 2.924em /*46.789px*/;
+    width: 13.891em/*222.25px*/;
+    height: 2.924em/*46.789px*/;
     flex-shrink: 0;
 }
 
@@ -91,6 +92,7 @@ body{
     text-align: center;
     font-family: Poppins;
     font-size: 14px;
+    font-size: 16px;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
