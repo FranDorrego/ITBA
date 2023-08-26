@@ -102,7 +102,15 @@ body{
     color: white;
     text-align: center;
     cursor: pointer;
+    transition: 0.5s;
 }
+
+/*Animación*/
+.boton:hover{
+    background-color: #C59BFA;
+    color: black;
+}
+
 
 .dialog{
     background-color: black;

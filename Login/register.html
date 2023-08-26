@@ -9,29 +9,30 @@
     <body>
         <div class="grid">
             <div class="contenido">
-                <a href="/login.html"><img src="/assets/Logo_ITBANK.png" alt="logo_ITBANK" class="titulo"></a>
-                <form action="" class="formulario">
+                <a href="/Login/login.html"><img src="/assets/Logo_ITBANK.png" alt="logo_ITBANK" class="titulo"></a>
+                <form action="" class="formulario" id="form">
                     <h2 class="subtitulo">!Cuenta nueva!</h2>
-                    <input class="input" type="text" name="nombre" id="nombre" placeholder="👤 Nombre">           
-                    <input class="input" type="text" name="apellido" id="apellido" placeholder="👤 Apellido">           
-                    <input class="input" type="number" name="apellido" id="apellido" placeholder="👤 DNI">           
-                    <input class="input" type="email" name="email" id="email" placeholder="📧 Email">           
-                    <input class="input" type="number" name="email" id="email" placeholder="📞 Teléfono">           
-                    <input class="input" type="text" name="email" id="email" placeholder="🌍 Ubicación">           
-                    <select name="select" class="input">
+                    <input class="input" type="text" name="nombre" id="nombre" placeholder="👤 Nombre" required>           
+                    <input class="input" type="text" name="apellido" id="apellido" placeholder="👤 Apellido" required>           
+                    <input class="input" type="text" name="usuario" id="usuario" placeholder="👤 Usuario" required>           
+                    <input class="input" type="number" name="dni" id="dni" placeholder="👤 DNI" required>           
+                    <input class="input" type="email" name="email" id="email" placeholder="📧 Email" required>           
+                    <input class="input" type="number" name="telefono" id="telefono" placeholder="📞 Teléfono" required>           
+                    <input class="input" type="text" name="ubicacion" id="ubicacion" placeholder="🌍 Ubicación" required>           
+                    <select name="select" class="input" required>
                         <option value="" selected>❓ Seleccione una pregunta de seguridad</option>
                         <option value="value1">¿Cúal fue el nombre de mi primera mascota?</option>
-                        <option value="value2">¿¿Cuál es tu comida favorita?</option>
+                        <option value="value2">¿Cuál es tu comida favorita?</option>
                         <option value="value3">¿Cuál es el segundo nombre de tu madre?</option>
                         <option value="value4">¿Cuál es tu color favorito?</option>
                     </select> 
-                    <input class="input" type="text" name="email" id="email" placeholder="❓ Pregunta de seguridad">
-                    <input class="input" type="password" name="password1" id="password1" placeholder="🔒 Contraseña">  
-                    <input class="input" type="password" name="password2" id="password2" placeholder="🔒 Repite la contraseña">
+                    <input class="input" type="text" name="pregunta" id="pregunta" placeholder="❓ Pregunta de seguridad" required>
+                    <input class="input" type="password" name="password1" id="password1" placeholder="🔒 Contraseña" required>  
+                    <input class="input" type="password" name="password2" id="password2" placeholder="🔒 Repite la contraseña" required>
                     <label class="parrafo">
                         <input type="checkbox" id="cbox" value="cbox"> <label for="" class="parrafo">Aceptar
                             <button class="link btn-abrir" onclick="openModal()" type="button">Términos, Condiciones y Póliticas de privacidad</button>  
-                        </label> 
+                        </label>
                     </label>          
                     <dialog class="dialog">
                         <h1 class="subtitulo">Terminos y condiciones</h1>
@@ -66,10 +67,12 @@
                         <button onclick="closeModal()" class="link btn-cerrar" type="button">Cerrar</button>
                     </dialog>                     
                     <input class="input boton" type="submit" value="Crear cuenta">
+                    <p id="warnings" class="parrafo"></p>
                 </form>
-                <p class="parrafo">¿Ya tiene cuenta?<a href="/login.html" class="link"> Iniciar Sesion</a></p>
+                <p class="parrafo">¿Ya tiene cuenta?<a href="/Login/login.html" class="link"> Iniciar Sesion</a></p>
             </div>
           </div>
-          <script src="/script.js"></script>
+          <i class="fa-solid fa-user parrafo"></i>
+          <script src="/Login/scripts/register.js"></script>
     </body>
 </html>
