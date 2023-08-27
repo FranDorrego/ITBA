@@ -1,27 +1,26 @@
-body{
+body {
     background-color: black;
-
     display: grid;
-    grid-template-columns: 30% 70%;
-
+    grid-template-columns: 1fr 2fr; /* Divide en dos columnas, 1fr y 2fr */
     border: 0;
     padding: 0;
     width: 100vw;
     height: 100vh;
-
-    align-items: center;
-    justify-content: center;
-    
     overflow: hidden;
 }
 
-.texto{
+.texto {
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
-    flex-direction: column;
-    height: 30%;
-    margin-top: 20%;
+    color: #FFF;
+    font-family: Poppins;
+    font-size: 1rem;
+    font-weight: 500;
+    height: 100%;
+    padding: 1rem; /* Añade espacio interior */
+    box-sizing: border-box; /* Incluye el padding en el tamaño total */
 }
 
 .texto h1{
@@ -64,4 +63,27 @@ body{
     left: 0;
     opacity: 0.7;
     z-index: -1;
+}
+
+/*----------------------------------------  PARTE RESPOSIVE  Fue diseñado para 1440*900px---------------------------------------------- */
+
+
+/* Para celulares */
+@media (max-width: 767px) {
+    body {
+        grid-template-columns: 1fr; 
+        grid-template-rows: 1fr 1fr; 
+    }
+
+    .texto {
+        order: 0; 
+    }
+
+    .foto {
+        order: 1; 
+        background-size: contain; 
+        padding: 20px;
+    }
+
+    
 }

@@ -132,20 +132,13 @@
 
             <form class="div-monto">
 
-                <h1>Ingrese Monto</h1>
+                <h1>Solicita un prestamo</h1>
 
-                <input type="number" placeholder="Ingrese cuento $$" id="monto">
+                <span class="cuotas">
+                    <h1>Ingrese Monto</h1>
+                    <input type="number" placeholder="Ingrese monto a solicitar" id="monto">
+                </span>
 
-                <button  id="boton_simular">Simular</button>
-
-            </form>
-
-            <!-- resultado de la simulacion  -->
-            <div class="div-monto">
-
-                <h1>Simulador</h1>
-
-                <!-- Ver DOCUMENTACION  -->
                 <span class="cuotas">
                     <h1>Selecione Cuotas</h1>
                     <select name="cuotas" id="cuotas">
@@ -156,25 +149,41 @@
                         <option value="18">18</option>
                     </select>
                 </span>
-                
+
+                <button  id="boton_simular">Simular</button>
+
+            </form>
+
+            <!-- resultado de la simulacion  -->
+            <div class="div-monto">
+
+                <h1>Simulador</h1>
+
                 <div class="cantidad-cuotas">
                     <h1>Cuotas de</h1>
                     <input type="number" placeholder="$xxxxx" id="cuotas_de" readonly>
                 </div>
 
-                <div class="interes">
-                    <h1>Interes a pagar</h1>
-                    <input type="text" placeholder="$xxxxx" id="intereses_a_pagar">
+                <div class="cantidad-cuotas">
 
-                    <button id="btn_porcentaje">%</button>
-                    <button id="btn_plata">$</button>
+                    <span class="cantidad-cuotas">
+                        <h1>Interes a pagar</h1>
+                        <input type="text" placeholder="$xxxxx" id="intereses_a_pagar">
+                    </span>
+
+                    <span class="botones-simulador">
+                        <button id="btn_porcentaje">%</button>
+                        <button id="btn_plata">$</button>
+                    </span>
+
                 </div>
 
-                <div class="total-pagar">
+                <div class="cantidad-cuotas">
                     <h1>Total a pagar</h1>
                     <input type="text" placeholder="$xxxxx" id="total_a_pagar">
                 </div>
-
+                
+                
                 <button class="derecho-botones" id="solicitar-prestamo">Solicitar el prestamo</button>
             </div>
         </div>
@@ -295,7 +304,7 @@
         </div>
 
     </footer>
-    <script src="/Dashboard/scripts/formulario-prestamos.js"></script>
+    <script type="module" src="/Dashboard/scripts/formulario-prestamos.js"></script>
 
 </body>
 

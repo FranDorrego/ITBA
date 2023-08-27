@@ -26,7 +26,7 @@ body {
 
     display: grid;
     grid-template-columns: 15% 65% 20%;
-    grid-template-rows: 90vh 10vh;
+    grid-template-rows: 90vh 10;
 }
 
 a {
@@ -181,9 +181,9 @@ a {
 
 /*- Propiedades del div general -*/
 .general{
+    flex: 1;
     display: grid;
     grid-template-rows: 15% 85%;
-    height: 100%;
     overflow: auto;
 }
 
