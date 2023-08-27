@@ -141,17 +141,20 @@
             </form>
 
             <!-- resultado de la simulacion  -->
-            <div class="resultado">
+            <div class="div-monto">
 
                 <h1>Simulador</h1>
 
                 <!-- Ver DOCUMENTACION  -->
                 <span class="cuotas">
                     <h1>Selecione Cuotas</h1>
-                    <button>3</button>
-                    <button>6</button>
-                    <button>12</button>
-                    <button>18</button>
+                    <select name="cuotas" id="cuotas">
+                        <option value="">Cuotas</option>
+                        <option value="3">3</option>
+                        <option value="6">6</option>
+                        <option value="12">12</option>
+                        <option value="18">18</option>
+                    </select>
                 </span>
                 
                 <div class="cantidad-cuotas">
@@ -171,7 +174,7 @@
                     <input type="text" placeholder="$xxxxx">
                 </div>
 
-                <button class="derecho-botones">Solicitar el prestamo</button>
+                <button>Solicitar el prestamo</button>
             </div>
         </div>
 
