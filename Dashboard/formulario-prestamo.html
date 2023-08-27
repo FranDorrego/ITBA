@@ -130,13 +130,13 @@
             
             <!-- El formulario de prestamo  -->
 
-            <form action="" class="div-monto">
+            <form class="div-monto">
 
                 <h1>Ingrese Monto</h1>
 
-                <input type="text" placeholder="Ingrese cuento $$">
+                <input type="number" placeholder="Ingrese cuento $$" id="monto">
 
-                <button>Simular</button>
+                <button  id="boton_simular">Simular</button>
 
             </form>
 
@@ -148,30 +148,34 @@
                 <!-- Ver DOCUMENTACION  -->
                 <span class="cuotas">
                     <h1>Selecione Cuotas</h1>
-                    <button>3</button>
-                    <button>6</button>
-                    <button>12</button>
-                    <button>18</button>
+                    <select name="cuotas" id="cuotas">
+                        <option value="">Cuotas</option>
+                        <option value="3">3</option>
+                        <option value="6">6</option>
+                        <option value="12">12</option>
+                        <option value="18">18</option>
+                    </select>
                 </span>
                 
                 <div class="cantidad-cuotas">
                     <h1>Cuotas de</h1>
-                    <input type="text" placeholder="$xxxxx">
+                    <input type="number" placeholder="$xxxxx" id="cuotas_de" readonly>
                 </div>
 
                 <div class="interes">
                     <h1>Interes a pagar</h1>
-                    <input type="text" placeholder="$xxxxx">
-                    <button>%</button>
-                    <button>$</button>
+                    <input type="text" placeholder="$xxxxx" id="intereses_a_pagar">
+
+                    <button id="btn_porcentaje">%</button>
+                    <button id="btn_plata">$</button>
                 </div>
 
                 <div class="total-pagar">
                     <h1>Total a pagar</h1>
-                    <input type="text" placeholder="$xxxxx">
+                    <input type="text" placeholder="$xxxxx" id="total_a_pagar">
                 </div>
 
-                <button class="derecho-botones">Solicitar el prestamo</button>
+                <button class="derecho-botones" id="solicitar-prestamo"">Solicitar el prestamo</button>
             </div>
         </div>
 
@@ -291,7 +295,7 @@
         </div>
 
     </footer>
-    
+    <script src="/Dashboard/scripts/formulario-prestamos.js"></script>
 
 </body>
 
