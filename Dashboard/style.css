@@ -700,19 +700,16 @@
     gap: 1rem;
 }
 
-
-
 .divisa-text input{
     align-items: center;
-    gap: 0.75rem;
-
+    height: 2.5rem;
     border-radius: 0.75rem;
     border: 2px solid #8933F5;
     background-color: rgba(137, 51, 245, 0.05);
 
     color: #FFF;
     font-family: Poppins;
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     font-style: normal;
     line-height: normal;
 }
