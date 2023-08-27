@@ -7,7 +7,7 @@ Para testearlo simplemente ingresa a la carpeta **Login/login.htm**.
 Este es el inicio de toda la APP, El usuario admitido es:
 
  **USUARIO:** usuario@itbank.com
- **CLAVE:** 123456
+ **CLAVE:** 12345678
  **DNI :** 12345678
  
 
