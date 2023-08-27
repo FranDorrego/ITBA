@@ -32,46 +32,28 @@ const parrafo = document.getElementById("warnings")
 
 form.addEventListener("submit", e=> {
   e.preventDefault()
-  let entrar = false
-  let warnings = ""
   let regexEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/
-  parrafo.innerHTML = ""
 
   if(usuario.value.length < 4){
-    warnings += `Usuario no valido, debe ser mayor a 4 caracteres (3er item) <br>`
-    entrar = true
+    alert("Usuario no valido, debe ser mayor a 4 caracteres (3er item)")
   }
-
-  if(dni.value.length < 4){
-    warnings += `DNI no valido (4to item) <br>`
-    entrar = true
+  else if(dni.value.length < 4){
+    alert("DNI no valido (4to item)")
   }
-
-  if(!regexEmail.test(email.value)){
-    warnings += `Email no valido (5to item) <br>`
-    entrar = true
+  else if(!regexEmail.test(email.value)){
+    alert("Email no valido (5to item)")
   }
-
-  if(telefono.value.length < 7){
-    warnings += `Teléfono no valido (6to item) <br>`
-    entrar = true
+  else if(telefono.value.length < 7){
+    alert("Teléfono no valido (6to item)")
   }
-
-  if(password1.value != password2.value || password1.value.length < 8 || password2.value.length < 8){
-    warnings += `Las contraseñas no coinciden o no son validas, debe tener mas de 8 caracteres<br>`
-    entrar = true
+  else if(password1.value != password2.value || password1.value.length < 8 || password2.value.length < 8){
+    alert("Las contraseñas no coinciden o no son validas, debe tener mas de 8 caracteres")
   }
-
-  if(!cbox.checked){
-    warnings += `Debe aceptar los términos y condiciones para seguir <br>`
-    entrar = true
+  else if(!cbox.checked){
+    alert("Debe aceptar los términos y condiciones para seguir")
   }
-
-  if(entrar){
-    parrafo.innerHTML = warnings
-  } 
   else{
-    parrafo.innerHTML = "Enviado con éxito"
+    alert("Enviado con éxito")
   }
 })
 

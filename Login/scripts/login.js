@@ -5,37 +5,30 @@ const password = document.getElementById('password');
 const form = document.getElementById("form")
 const parrafo = document.getElementById("warnings")
 
+function redireccion() {
+  location.href = "/Dashboard/index.html"
+}
+
 form.addEventListener("submit", e=> {
   e.preventDefault()
-  let entrar = false
-  let warnings = ""
-  parrafo.innerHTML = ""
+
 
 
   if(usuario.value.length < 4){
-    warnings += `Usuario no valido <br>`
+    alert("Usuario no valido, debe tener mas de 4 caracteres")
     entrar = true
   }
-
-  if(dni.value.length < 4){
-    warnings += `DNI no valido <br>`
+  else if(dni.value.length < 4){
+    alert("DNI no valido")
     entrar = true
   }
-
-  if(password.value.length < 8){
-    warnings += `Contraseña no valida <br>`
+  else if(password.value.length < 8){
+    alert("Contraseña no valida, debe tener mas de 8 caracteres")
     entrar = true
-  }
-
-  if(entrar){
-    parrafo.innerHTML = warnings
-  } 
-  else{
-    parrafo.innerHTML = "Enviado con éxito"
+  } else {
+    alert("Datos validos, iniciando sesion")
+    redireccion()
   }
 })
 
 // Cambio de página
-function redireccion() {
-  location.href = "/Dashboard/index.html"
-}

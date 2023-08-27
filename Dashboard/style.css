@@ -484,7 +484,15 @@
     font-style: normal;
     font-weight: 500;
     line-height: normal;
+    /* Para la animacion */
+    transition: 0.5s;
+    cursor: pointer;
+}
 
+/* Para la animacion */
+.trans-botones:hover,
+.trans-seleccionado{
+    background: #C59BFA;
 }
 
 .trans-formulario-radio-div{
