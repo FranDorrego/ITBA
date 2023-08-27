@@ -2,9 +2,9 @@
 
 Para realizar el JS decidimos juntar todos los archivos en una misma carpeta llamada scripts y de esta manera tener todos agrupados en un mismo lugar, para que a la hora de buscarlos sea más cómodo y rápido. A su vez, los nombres de los archivos están asociados a su HTML correspondiente, por ejemplo, prestamos.js está relacionado con el prestamos.html, esto lo realizamos tanto para el Dashboard como para el Login. 
 
-![](Aspose.Words.55b1e1a9-e81e-40c7-9718-7f355dcab846.001.png)![](Aspose.Words.55b1e1a9-e81e-40c7-9718-7f355dcab846.002.png)
+![](/docs//archivos.png)
 
-El archivo llamado CONSTATES.js lo utilizamos para guardar variables y funciones globales como, por ejemplo, para actualizar el saldo, que si realizamos un préstamo en otra página que esto se vea reflejado y la misma funcionalidad para las transferencias.
+El archivo llamado **CONSTATES.js** lo utilizamos para guardar variables y funciones globales como, por ejemplo, para actualizar el saldo, que si realizamos un préstamo en otra página que esto se vea reflejado y la misma funcionalidad para las transferencias.
 
 Para la parte de **cambio-divisas.js**:
 
@@ -12,7 +12,9 @@ Para la parte de **cambio-divisas.js**:
 
 -dos funciones que cambian la imagen, una para la moneda de origen y la otra el monto convertido. Acá cada vez que se selecciona otra opción de moneda realiza el cambio de imagen correspondiente.
 
-![](Aspose.Words.55b1e1a9-e81e-40c7-9718-7f355dcab846.003.png)![](Aspose.Words.55b1e1a9-e81e-40c7-9718-7f355dcab846.004.png)![](Aspose.Words.55b1e1a9-e81e-40c7-9718-7f355dcab846.005.png)
+![](/docs/Aspose.Words.55b1e1a9-e81e-40c7-9718-7f355dcab846.003.png)
+![](/docs/Aspose.Words.55b1e1a9-e81e-40c7-9718-7f355dcab846.004.png)
+![](/docs/Aspose.Words.55b1e1a9-e81e-40c7-9718-7f355dcab846.005.png)
 
 
 
@@ -31,9 +33,9 @@ Por último **transferencias.js**:
 
 -2 eventos que se encargan de cambiar el efecto visual de seleccionado para los botones de “nueva transferencia” y “transferir a mis cuentas”.
 
-![](Aspose.Words.55b1e1a9-e81e-40c7-9718-7f355dcab846.006.png)
+![](/docs/nuevo_select.png)
 
-![](Aspose.Words.55b1e1a9-e81e-40c7-9718-7f355dcab846.007.png)
+![](/docs/transfer_select.png)
 
 -también otro evento que se encarga de atrapar las excepciones y comunicar al usuario el problema hallado.
 
