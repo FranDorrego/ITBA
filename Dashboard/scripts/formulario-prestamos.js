@@ -1,3 +1,5 @@
+import { actualizarSaldo } from './CONSTANTES.js';
+
 const boton_simular = document.getElementById("boton_simular");
 
 boton_simular.addEventListener("click", (event)=>{
@@ -33,12 +35,13 @@ boton_simular.addEventListener("click", (event)=>{
     
         intereses_a_pagar.value = interes*100 + "%";
     
-        resultado = monto*(1 + interes)
+        let resultado = monto*(1 + interes)
     
         total_a_pagar.value = resultado
     
         solicitar_prestamo.addEventListener("click", ()=>{
                 alert("Su prestamo fue procesado con exito")
+                actualizarSaldo(monto)
         })
     }
     

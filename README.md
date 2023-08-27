@@ -61,6 +61,7 @@ Solo se adaptó a desktop, tablet y celular. Para ello se ocultan algunos elemen
 Además de ello, algunos div se vuelven scrol:
 ![](https://lh6.googleusercontent.com/GvIgtLWlAjdsWKpz6O9j7Va0FgSrXXG0tYdlXXyU_3wgK3VvLxJuFuwvmaXGWDCIjUc_JDAIUrY1-JlYWaIEIHDKMjCQVw0M0q4438U4pcvTlu_sKzX1kvXRPVCzHmTdmAlD5eHqJ8PDOq-brKeNAVE)
 
+<<<<<<< HEAD
 ##  <h1>JavaScript</h1>
 
 Para realizar el JS decidimos juntar todos los archivos en una misma carpeta llamada scripts y de esta manera tener todos agrupados en un mismo lugar, para que a la hora de buscarlos sea más cómodo y rápido. A su vez, los nombres de los archivos están asociados a su HTML correspondiente, por ejemplo, prestamos.js está relacionado con el prestamos.html, esto lo realizamos tanto para el Dashboard como para el Login. 

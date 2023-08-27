@@ -1,3 +1,5 @@
+import { actualizarSaldo } from './CONSTANTES.js';
+
 const transferir_mis_cuentas = document.getElementById("transferir_mis_cuentas");
 const transferir_nueva = document.getElementById("transferir_nueva");
 const boton_transferir = document.getElementById("boton-transferir");
@@ -38,6 +40,7 @@ boton_transferir.addEventListener("click", () =>{
     }
     else{
         alert("Se envio la transeferencia")
+        actualizarSaldo(-importe_value)
     }
 });
 
