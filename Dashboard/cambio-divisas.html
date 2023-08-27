@@ -138,57 +138,66 @@
             </div>
 
             <!-- Esta parte de los movimientos -->
-
-            <!-- titulo -->
-            <h1 class="movimientos-titulo">Ultimos movimientos ></h1>
-
             <!-- tarjetas -->
             <div class="div-movimientos">
 
                 <!-- tarjeta -->
                 <div class="moviminetos-tarjeta">
 
-                    <span class="movimiento-texto">
+                    <span class="movimiento-texto divisa-text">
                         <h2>Monto de origen</h2>
                         <input type="number" name="origen" id="origen" placeholder="Origen">
                     </span>
                     
-                    <span class="motivo">
-                        <img src="/Dashboard/assets/ARS.png" alt="bandera-arg" width="75px" id="imagen1">
-                    </span>
-                    <span>
-                        <select name="" id="option1" onchange="cambiarImagen1()"> 
-                            <option value="arg">ARS</option>
-                            <option value="usa">USD</option>
-                            <option value="euro" id="euro">EUR</option>
-                            <option value="br" id="br">BRL</option>
-                            <option value="gb" id="gb">GBP</option>
-                            <option value="yuan" id="yuan">CNY</option>
-                        </select>
-                    </span>
+                    <div class="divisas">
+                        <span class="motivo">
+                            <img src="/Dashboard/assets/ARS.png" alt="bandera-arg" width="75px" id="imagen1">
+                        </span>
+                        <span>
+                            <select name="" id="option1" onchange="cambiarImagen1()"> 
+                                <option value="arg">ARS</option>
+                                <option value="usa">USD</option>
+                                <option value="euro" id="euro">EUR</option>
+                                <option value="br" id="br">BRL</option>
+                                <option value="gb" id="gb">GBP</option>
+                                <option value="yuan" id="yuan">CNY</option>
+                            </select>
+                        </span>
+                    </div>
                 </div>
+
                 <div class="moviminetos-tarjeta">
-                    <span class="movimiento-texto">
+
+                    <span class="movimiento-texto divisa-text">
                         <h2>Monto convertido</h2>
                         <input type="number" name="convertido" id="convertido" placeholder="Convertido">
                     </span>
-                    <span class="motivo">
-                        <img src="/Dashboard/assets/USD.png" alt="bandera-usa" width="75px" id="imagen2">
-                    </span>
-                    <span>
-                        <select name="" id="option2" onchange="cambiarImagen2()">
-                            <option value="usa" id="usa">USD</option>
-                            <option value="arg" id="arg">ARS</option>
-                            <option value="euro" id="euro">EUR</option>
-                            <option value="br" id="br">BRL</option>
-                            <option value="gb" id="gb">GBP</option>
-                            <option value="yuan" id="yuan">CNY</option>
-                        </select>
-                    </span>
-                </div>     
+
+                    <div class="divisas">
+                        <span class="motivo">
+                            <img src="/Dashboard/assets/USD.png" alt="bandera-usa" id="imagen2">
+                        </span>
+
+                        <span>
+                            <select name="" id="option2" onchange="cambiarImagen2()">
+                                <option value="usa" id="usa">USD</option>
+                                <option value="arg" id="arg">ARS</option>
+                                <option value="euro" id="euro">EUR</option>
+                                <option value="br" id="br">BRL</option>
+                                <option value="gb" id="gb">GBP</option>
+                                <option value="yuan" id="yuan">CNY</option>
+                            </select>
+                        </span>
+                    </div>
+                </div>
+
             </div>
-            <h2>PARRAFO</h2>
-            <button onclick="convertir()">CONVERTIR</button>               
+
+            <span class="confirma-divisas">
+                <h2>Al continuar acepta que el monto final puede variar debido a las regulaciones impositivas establecidas por el BCRA.</h2>
+                <button onclick="convertir()" class="boton-divisas">CONVERTIR</button> 
+            </span>
+
         </div>
     </div>
 
