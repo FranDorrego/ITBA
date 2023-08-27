@@ -76,12 +76,14 @@ La etiqueta "a" Fue sobre escrita en el CSS principal en estilos ya que se utili
 
 El resto de componentes están orientados en FLEX están alineados ya sea con -center o con los márgenes del componente.
 
-RESPONSIVE:
+## RESPONSIVE
+
 Solo se adaptó a desktop, tablet y celular. Para ello se ocultan algunos elementos y se trasladan a otro lado. (Se habla de este tema en HTML)
 
 ![](/docs/responsive.png)
 
 Además de ello, algunos div se vuelven scrol:
+
 ![](/docs/scrol.png)
 
 
