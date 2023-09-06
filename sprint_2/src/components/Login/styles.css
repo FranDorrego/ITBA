@@ -2,12 +2,12 @@ body{
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
-    background-image: url("./assets/Background-color-globe.png");
+    background-image: url("./assets-login/Background-color-globe.png");
   }
   
   @font-face {
     font-family: Poppins;
-    src: url("./assets/fonts/poppins/Poppins-Light.ttf");
+    src: url("./assets-login/fonts/poppins/Poppins-Light.ttf");
   }
   
   

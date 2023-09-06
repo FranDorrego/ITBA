@@ -1,16 +1,16 @@
 import './styles.css';
 import { Contenido } from './components_login/Contenido';
 import { Logo } from './components_login/Logo.js';
-import { FormLogin } from './components_login/FormLogin';
+import { FormRegister } from './components_login/FormRegister';
 import { Link } from './components_login/Link';
 
-function Login() {
+function Register() {
   return (
     <Contenido>
       <Logo/>
-      <FormLogin/>
-      <Link textoParrafo="¿No tiene cuenta?" textoLink="Crear cuenta" />
+      <FormRegister/>
+      <Link textoParrafo="¿Ya tiene cuenta?" textoLink="Iniciar Sesión" />
     </Contenido>
   );
 }
-export default Login;
+export default Register;

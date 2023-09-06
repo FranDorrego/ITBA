@@ -1,12 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import reportWebVitals from './reportWebVitals';
-import Login from './components/Login/login';
+import Login from './components/Login/Login';
+import Password from './components/Login/Password';
+import Register from './components/Login/Register';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <Login />
+    <Password />
   </React.StrictMode>
 );
 
