@@ -1,0 +1,89 @@
+body {
+    background-color: black;
+    display: grid;
+    grid-template-columns: 1fr 2fr; /* Divide en dos columnas, 1fr y 2fr */
+    border: 0;
+    padding: 0;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.texto {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #FFF;
+    font-family: Poppins;
+    font-size: 1rem;
+    font-weight: 500;
+    height: 100%;
+    padding: 1rem; /* Añade espacio interior */
+    box-sizing: border-box; /* Incluye el padding en el tamaño total */
+}
+
+.texto h1{
+    color: #FFF;
+    font-family: Poppins;
+    font-size: 1.5rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    margin-left: 10%;
+}
+
+.botones{
+    display: flex;
+    width: 20.59375rem;
+    height: 3.375rem;
+    padding: 0.75rem 1.5rem;
+    align-items: center;
+    gap: 0.75rem;
+    flex-shrink: 0;
+    border-radius: 0.75rem;
+    border: 2px solid #8933F5;
+    background: rgba(137, 51, 245, 0.80);
+    color: #FFF;
+    font-family: Poppins;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.foto-404{
+    margin: auto;
+    width: 60%;
+}
+
+.degrade{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    opacity: 0.7;
+    z-index: -1;
+}
+
+/*----------------------------------------  PARTE RESPOSIVE  Fue diseñado para 1440*900px---------------------------------------------- */
+
+
+/* Para celulares */
+@media (max-width: 767px) {
+    body {
+        grid-template-columns: 1fr; 
+        grid-template-rows: 1fr 1fr; 
+    }
+
+    .texto {
+        order: 0; 
+    }
+
+    .foto {
+        order: 1; 
+        background-size: contain; 
+        padding: 20px;
+    }
+
+    
+}
