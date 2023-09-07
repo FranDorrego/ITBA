@@ -1,7 +1,6 @@
-import { Boton, validarDatos } from "./Boton"
+import { Boton } from "./Boton"
 import { Input } from "./Input"
 import { Label } from "./Label"
-import { Link } from "./Link"
 import { Subtitulo } from "./Subtitulo"
 import { Dialog, abrirModal} from "./Dialog"
 
@@ -83,7 +82,7 @@ export function FormRegister(){
                 expedita dolorum earum qui accusamus eos possimus esse quia necessitatibus dicta, quas error. Velit aliquid quam rem. Sit cumque inventore quaerat corrupti 
                 nostrum assumenda deleniti, voluptatum, quibusdam quis laudantium eos aspernatur debitis ipsum harum odio alias excepturi, molestias recusandae dolorum 
                 doloribus esse facilis."/> 
-                <Boton value="Enviar" id="boton_registro" validarDatos={validarDatos}></Boton>         
+                <Boton value="Enviar" id="boton_registro"></Boton>         
             </form>
     )
 }

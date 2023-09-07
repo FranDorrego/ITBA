@@ -1,7 +1,8 @@
 import logo from "../assets-login/Logo_ITBANK.png"
+import { Link } from "react-router-dom"
 
 export function Logo(){
     return(
-        <a href="/Login/login.html"> <img src={logo} alt="logo_ITBANK" className="titulo"/> </a>
+        <Link to="/login"> <img src={logo} alt="logo_ITBANK" className="titulo"/> </Link>
     )
 }

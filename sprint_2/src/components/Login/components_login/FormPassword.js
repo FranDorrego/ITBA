@@ -1,7 +1,6 @@
-import { Boton, validarDatos } from "./Boton"
+import { Boton } from "./Boton"
 import { Input } from "./Input"
 import { Label } from "./Label"
-import { Link } from "./Link"
 import { Subtitulo } from "./Subtitulo"
 
 export function FormPassword(){
@@ -18,7 +17,7 @@ export function FormPassword(){
                 <Input type="password" name="password1" id="password1" placeholder="**********" required/>  
                 <Label>🔒 Repita la contraseña</Label>
                 <Input type="password" name="password2" id="password2" placeholder="**********" required/>  
-                <Boton value="Enviar" id="boton_password" validarDatos={validarDatos}></Boton>
+                <Boton value="Enviar" id="boton_password" ></Boton>
             </form>
     )
 }
