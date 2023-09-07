@@ -1,6 +1,6 @@
-import { Subtitulo } from "./Subtitulo";
-import { Parrafo } from "./Parrafo";
-import { Boton } from "./Boton";
+import { Parrafo } from "../Generales/Parrafo";
+import { Boton } from "../Generales/Boton";
+import { Subtitulo } from "../Generales/Subtitulo";
 
 // Términos y condiciones
 

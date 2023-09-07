@@ -1,8 +1,8 @@
 import '../styles_login.css';
-import { Contenido } from '../components_login/Contenido';
-import { Logo } from '../components_login/Logo.js';
-import { FormLogin } from '../components_login/FormLogin';
-import { LinkCompuesto } from '../components_login/LinkCompuesto';
+import { Contenido } from '../components_login/Generales/Contenido';
+import { Logo } from '../components_login/Generales/Logo.js';
+import { FormLogin } from '../components_login/Login/FormLogin';
+import { LinkCompuesto } from '../components_login/Generales/LinkCompuesto';
 
 function Login() {
   return (
@@ -13,4 +13,5 @@ function Login() {
     </Contenido>
   );
 }
+
 export default Login;

@@ -1,8 +1,8 @@
-import { Boton } from "./Boton"
-import { Input } from "./Input"
-import { Label } from "./Label"
-import { Subtitulo } from "./Subtitulo"
-import { LinkCompuesto } from "./LinkCompuesto"
+import { Boton } from "../Generales/Boton"
+import { Input } from "../Generales/Input"
+import { Label } from "../Generales/Label"
+import { Subtitulo } from "../Generales/Subtitulo"
+import { LinkCompuesto } from "../Generales/LinkCompuesto"
 
 export function FormLogin(){
     return (
