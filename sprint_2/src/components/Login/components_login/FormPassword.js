@@ -5,7 +5,7 @@ import { Subtitulo } from "./Subtitulo"
 
 export function FormPassword(){
     return (
-            <form action="" className="formulario" id="form">
+            <form action="" className="formulario_login" id="form">
                 <Subtitulo>Recupero de contraseña</Subtitulo>
                 <Label>📧 Email</Label>
                 <Input type="email" name="email" id="email" placeholder="Ej: alguien@example.com" required/> 

@@ -1,14 +1,14 @@
 /*- Tipografias -*/
 @font-face {
     font-family: 'Poppins';
-    src: url('/assets-globales/fuentes/Poppins/Poppins-Light.ttf') format('truetype');
+    src: url('../assets-globales/fuentes/Poppins/Poppins-Light.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'Space Grotesk';
-    src: url('/assets-globales/fuentes/Space_Grotesk/static/SpaceGrotesk-Light.ttf') format('truetype');
+    src: url('../assets-globales/fuentes/Space_Grotesk/static/SpaceGrotesk-Light.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }

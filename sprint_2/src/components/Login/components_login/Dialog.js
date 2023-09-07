@@ -19,10 +19,10 @@ export function Dialog({ titulo, contenido, id}){
 
 
     return(
-        <dialog className="dialog" id={id}>
+        <dialog className="dialog_login" id={id}>
             <Subtitulo>{titulo}</Subtitulo>
             <Parrafo>{contenido}</Parrafo>
-            <button className="link btn-cerrar" id="btn-cerrar" type="button" onClick={cerraModal}>Cerrar</button>
+            <button className="link_login btn-cerrar_login" id="btn-cerrar" type="button" onClick={cerraModal}>Cerrar</button>
         </dialog>                    
     )
 }

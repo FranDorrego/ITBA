@@ -7,7 +7,7 @@ export function Boton({value, id}){
     const navigate = useNavigate();
 
     function validarDatos(){
-        const boton = document.querySelector(".boton");
+        const boton = document.getElementById(id);
         if (boton.id === "boton_inicio_sesion"){
             validarDatosLogin();
         }
@@ -41,7 +41,7 @@ export function Boton({value, id}){
             alert("Contraseña no valida, debe tener mas de 8 caracteres")
         } else {
             alert("Datos validos, iniciando sesion")
-            navigate("/password")
+            navigate("/dashboard")
         }
     }
     
@@ -125,12 +125,8 @@ export function Boton({value, id}){
     }
     
     
-    
-    
-
-
     return(
-            <input className="boton input" type="submit" value={value} id={id} onClick={validarDatos}/>
+            <input className="boton_login input_login" type="submit" value={value} id={id} onClick={validarDatos}/>
         )
 }
 

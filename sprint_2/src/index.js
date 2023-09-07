@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { Component } from 'react';
 import ReactDOM from 'react-dom/client';
 import reportWebVitals from './reportWebVitals';
 import Login from './components/Login/routes/Login';
 import Password from './components/Login/routes/Password';
 import Register from './components/Login/routes/Register';
+import Index from './components/Dashboard/routes/Index';
 import {createBrowserRouter, RouterProvider} from 'react-router-dom'
 
 const router = createBrowserRouter([
@@ -23,6 +24,10 @@ const router = createBrowserRouter([
   {
     path:"/register",
     element: <Register/>
+  },
+  {
+    path:"/dashboard",
+    element: <Index />
   }
 ])
 

@@ -6,7 +6,7 @@ import { Dialog, abrirModal} from "./Dialog"
 
 export function FormRegister(){
     return (
-            <form action="" className="formulario" id="form">
+            <form action="" className="formulario_login" id="form">
                 <Subtitulo>!Cuenta nueva!</Subtitulo>
                 <Label>👤 Nombre</Label>
                 <Input type="text" name="nombre" id="nombre" placeholder="Ej: Carlos" required />      
@@ -23,7 +23,7 @@ export function FormRegister(){
                 <Label>🌍 Ubicación</Label>        
                 <Input type="text" name="ubicacion" id="ubicacion" placeholder="Ej: Capital Federal" required />    
                 <Label>❓ Seleccione una pregunta de seguridad</Label>        
-                <select name="select" className="input" required> {/*TODO, mejorar a futuro*/}
+                <select name="select" className="input_login" required> {/*TODO, mejorar a futuro*/}
                     <option value="" >❓ Seleccione una pregunta de seguridad</option>
                     <option value="value1">¿Cúal fue el nombre de mi primera mascota?</option>
                     <option value="value2">¿Cuál es tu comida favorita?</option>
@@ -36,11 +36,11 @@ export function FormRegister(){
                 <Input type="password" name="password1" id="password1" placeholder="********" required />  
                 <Label>🔒 Repite la contraseña</Label>        
                 <Input type="password" name="password2" id="password2" placeholder="********" required />
-                <label className="parrafo">
+                <label className="parrafo_login">
                     <input type="checkbox" id="cbox" value="cbox"/> <label className="parrafo" >Aceptar
-                        <button className="link btn-abrir" type="button" onClick={() => abrirModal("terminos_condiciones")} >Términos, Condiciones</button>
+                        <button className="link_login btn-abrir_login" type="button" onClick={() => abrirModal("terminos_condiciones")} >Términos, Condiciones</button>
                         y
-                        <button className="link btn-abrir" type="button" onClick={() => abrirModal("politicas_de_privacidad")} >Póliticas de privacidad</button>   
+                        <button className="link_login btn-abrir_login" type="button" onClick={() => abrirModal("politicas_de_privacidad")} >Póliticas de privacidad</button>   
                     </label>
                 </label>
                 <Dialog titulo="Terminos y condiciones" id="terminos_condiciones"

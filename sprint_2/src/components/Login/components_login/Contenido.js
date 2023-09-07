@@ -1,8 +1,8 @@
 
 export function Contenido({children}){
     return(
-        <div className="grid">
-            <div className="contenido">
+        <div className="grid_login">
+            <div className="contenido_login">
                 {children}
             </div>
         </div>
