@@ -108,7 +108,7 @@
     font-weight: bold;
 }
 
-.movimientos-titulo-dialog{
+.movimientosTitulo-dialog{
     width: 85%;
     
     color: black;
@@ -313,7 +313,7 @@
 }
 
 /*------ Tiulo de ultimos movimientos -----*/
-.movimientos-titulo{
+.movimientosTitulo{
     width: 11.38rem;
     
     color: #FFF;

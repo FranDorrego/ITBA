@@ -5,18 +5,18 @@ import estilosLogin from '../../stylesLogin.module.css'
 export function Boton({value, id}){  
     const navigate = useNavigate();
 
-    function validarDatos(){
-        const boton = document.getElementById(id);
-        if (boton.id === "boton_inicio_sesion"){
-            validarDatosLogin();
-        }
-        else if (boton.id === "boton_password"){
-            validarDatosPassword();
-        }
-        else {
-            validarDatosRegistro();
-        }
-    }
+    // function validarDatos(){
+    //     const boton = document.getElementById(id);
+    //     if (boton.id === "boton_inicio_sesion"){
+    //         validarDatosLogin();
+    //     }
+    //     else if (boton.id === "boton_password"){
+    //         validarDatosPassword();
+    //     }
+    //     else {
+    //         validarDatosRegistro();
+    //     }
+    // }
     
     function validarDatosLogin(){
         const boton = document.getElementById('boton_inicio_sesion'); 
@@ -125,7 +125,7 @@ export function Boton({value, id}){
     
     
     return(
-            <input className={`${estilosLogin.boton_login}  ${estilosLogin.input_login}`}  type="submit" value={value} id={id} onClick={validarDatos}/>
+            <input className={`${estilosLogin.boton_login}  ${estilosLogin.input_login}`}  type="submit" value={value} id={id} />
         )
 }
 

@@ -1,4 +1,5 @@
 import estilosPlantilla from '../../../assets-globales/stylePlantilla.module.css'
+import estilosDashboard from '../../styleDashboard.module.css'
 import { Buscador } from './Buscador';
 import { ContenedorPrincipal } from './ContenedorPrincipal';
 import { Saludo } from './Saludo';
@@ -12,7 +13,7 @@ export function General(){
             <Buscador />
             <ContenedorPrincipal>
                 <Saludo usuario="User de prueba"/>
-                <h1 className="movimientos-titulo">Ultimos movimientos </h1>
+                <h1 className={estilosDashboard.movimientosTitulo}>Ultimos movimientos {">"} </h1>
                 <Movimientos>
                     <TarjetaMovimientoIngreso monto="123" fecha="1/1/2000"/>
                     <TarjetaMovimientoRetiro monto="123" fecha="1/1/2000"/>
