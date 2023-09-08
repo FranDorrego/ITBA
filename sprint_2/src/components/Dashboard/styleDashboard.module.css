@@ -1,6 +1,6 @@
 
 /*---------------------- CONTENIDO DEL MENU DERECHO - ESTOS ESTILOS CAMBIAN SEGUN LA PAGINA --------------*/
-.menu-derecho-elementos{
+.menuDerechoElementos{
     padding-left: 1rem;
     padding-right: 1rem;
 }
@@ -20,7 +20,7 @@
 }
 
 /*- Botones -*/
-.derecho-botones{
+.derechoBoton{
     width: 100%;
     height: 3.375rem;
 
@@ -38,13 +38,13 @@
     cursor: pointer;
 }
 
-.derecho-botones:hover{
+.derechoBoton:hover{
     border-radius: 0.75rem;
     border: 2px solid white;
     background: rgba(255, 255, 255, 0.20);
 }
 
-.acciones-botones-image{
+.accionesBotonesImage{
     color: #C59BFA;
     text-align: center;
     font-size: 1.125rem;
@@ -54,7 +54,7 @@
     cursor: pointer;
 }
 
-.acciones-botones-letra{
+.accionesBotonesLetra{
     color: #C59BFA;
     font-family: Poppins;
     font-size: 1rem;
@@ -108,7 +108,7 @@
     font-weight: bold;
 }
 
-.movimientos-titulo-dialog{
+.movimientosTitulo-dialog{
     width: 85%;
     
     color: black;
@@ -127,7 +127,7 @@
     display: flex;
 }
 
-.dialog-div-botones{
+.dialog-divBotones{
     width: 100%;
     display: flex;
     flex-direction: row;
@@ -136,13 +136,13 @@
 
 /*------ Tarjeta -----*/
 
-.titulo-tarjeta{
+.tituloTarjeta{
     display: flex;
     justify-content: flex-start;
     align-items: center;
 }
 
-.titulo-tarjeta h1{
+.tituloTarjeta h1{
     margin-top: 2.12rem;
     margin-bottom: 1.17rem;
     width: 4.375rem;
@@ -228,7 +228,7 @@
 
 
 /*------ saludo y resumen -----*/
-.div-saludo{
+.divSaludo{
     display: flex;
     flex-direction: column;
     position: relative;
@@ -246,7 +246,7 @@
 }
 
 /*------ tarjetas dashboard -----*/
-.tarjetas-dashboard{
+.tarjetasDashboard{
     display: flex;
     align-items: flex-start;
     gap: 1.6875rem;
@@ -292,14 +292,14 @@
     line-height: normal;
 }
 
-.retiro-tarjeta{
+.retiroTarjeta{
     color: rgba(255, 49, 49, 1);
     border-radius: 0.75rem;
     border: 2px solid rgba(255, 49, 49, 0.20);
     background: rgba(255, 49, 49, 0.05);
 }
 
-.ingreso-tarjeta{
+.ingresoTarjeta{
     color: rgba(126, 217, 87, 1);
     border: 2px solid rgba(126, 217, 87, 0.20);
     background: rgba(126, 217, 87, 0.05);
@@ -313,7 +313,7 @@
 }
 
 /*------ Tiulo de ultimos movimientos -----*/
-.movimientos-titulo{
+.movimientosTitulo{
     width: 11.38rem;
     
     color: #FFF;
@@ -325,7 +325,7 @@
 }
 
 /*-------------- Propiedades del centro - movimientos --------------*/
-.div-movimientos{
+.divMovimientos{
     display: flex;
 
     align-items: center;
@@ -335,22 +335,22 @@
     overflow-y: auto; /* Permite el desplazamiento vertical si el contenido excede el espacio */
 }
 
-.div-movimientos::-webkit-scrollbar {
+.divMovimientos::-webkit-scrollbar {
     width: 10px; /* Ancho de la barra de desplazamiento */
 }
 
-.div-movimientos::-webkit-scrollbar-thumb {
+.divMovimientos::-webkit-scrollbar-thumb {
     background-color: #222222; /* Cambia el color del pulgar de la barra */
     border-radius: 5px; /* Bordes redondeados para el pulgar */
 }
 
-.div-movimientos::-webkit-scrollbar-track {
+.divMovimientos::-webkit-scrollbar-track {
     background-color: rgba(255, 255, 255, 0.1); /* Cambia el color de la pista de la barra */
 }
 
 /*------ tarjetas monto y fecha -----*/
 
-.moviminetos-tarjeta{
+.movimientosTarjeta{
 
     display: flex;
     justify-content: space-between;
@@ -371,7 +371,7 @@
 
 }
 
-.movimiento-texto h1{
+.movimientoTexto h1{
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -387,7 +387,7 @@
     line-height: normal;
 }
 
-.movimiento-texto h2{
+.movimientoTexto h2{
     margin-top: 0;
     margin-bottom: 0;
 
@@ -557,7 +557,7 @@
 
 /*------ CSS de Formulario de Transferencias -----*/
 
-.div-contenedor-principal{
+.divContenedorPrincipal{
     display: flex;
     flex-direction: column;
     gap: 1rem;
@@ -772,25 +772,25 @@
         border-radius: 0;
     }
 
-    .menu-derecho-elementos{
+    .menuDerechoElementos{
         padding-left: 0.5rem;
     }
 
-    .derecho-botones{
+    .derechoBoton{
         padding: 0;
         padding-left: 5px;
     }
 
-    .acciones-botones-letra{
+    .accionesBotonesLetra{
         font-size: 12px;
     }
     
     /*-- tarjetas ---*/
-    .tarjetas-dashboard{
+    .tarjetasDashboard{
         gap: 0.5vw;
     }
 
-    .tarjetas-dashboard h1{
+    .tarjetasDashboard h1{
         font-size: 15px;
     }
 
@@ -806,7 +806,7 @@
     }
 
     /*-- movimientos ---*/
-    .div-movimientos{
+    .divMovimientos{
         padding-left: 5%;
         padding-right: 5%;
     }
@@ -816,13 +816,13 @@
 @media (max-width: 767px) {
 
     /*-- menu derecho - elementos internos - Cambia segun la pagina ---*/
-    .titulo-tarjeta,
+    .tituloTarjeta,
     .titulo,
     .tarjeta{
         display: none;
     }
 
-    #contenedor-botones-derecho{
+    #contenedorBotonesDerecho{
         grid-column-start: 3;
         gap: 6em;
         display: flex;
@@ -831,16 +831,16 @@
         flex-direction: column;
     }
 
-    .menu-derecho{
+    .menuDerecho{
         align-items: center;
     }
 
-    .menu-derecho-elementos{
+    .menuDerechoElementos{
         padding: 0;
         justify-self: center;
     }
 
-    .derecho-botones{
+    .derechoBoton{
        width: 8rem;
        height: 3rem;
        padding: 0.3rem;
@@ -860,15 +860,15 @@
         transform: initial;
         height: 10%;
     }
-    .acciones-botones-letra{
+    .accionesBotonesLetra{
         font-size: 12px;
     }
 
     /*-- tarjetas ---*/
-    .div-saludo{
+    .divSaludo{
         padding-bottom: 1rem;
     }
-    .tarjetas-dashboard{
+    .tarjetasDashboard{
         gap: 3vw;
         overflow-x: auto;
         height: 4rem;
@@ -891,18 +891,18 @@
     }
 
     /*-- movimientos ---*/
-    .div-movimientos{
+    .divMovimientos{
         padding-left: 5%;
         padding-right: 5%;
         height: 100%;
     }
 
-    .movimiento-texto h2,
-    .movimiento-texto h1{
+    .movimientoTexto h2,
+    .movimientoTexto h1{
         font-size: 1rem;
     }
 
-    .dialog-div-botones{
+    .dialog-divBotones{
         width: 30%;
         display: flex;
         flex-direction: column;

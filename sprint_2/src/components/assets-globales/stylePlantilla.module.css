@@ -1,33 +1,36 @@
 /*- Tipografias -*/
 @font-face {
     font-family: 'Poppins';
-    src: url('/assets-globales/fuentes/Poppins/Poppins-Light.ttf') format('truetype');
+    src: url('../assets-globales/fuentes/Poppins/Poppins-Light.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'Space Grotesk';
-    src: url('/assets-globales/fuentes/Space_Grotesk/static/SpaceGrotesk-Light.ttf') format('truetype');
+    src: url('../assets-globales/fuentes/Space_Grotesk/static/SpaceGrotesk-Light.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
 
 /*- Propiedades del body -*/
-body {
+
+/* ESTAS SON LAS PROPIEDADES QUE ESTABAN EN EL BODY*/
+.gridDashboard{
     background-color: black;
     color: white;
 
     margin: 0;
     padding: 0;
 
-    min-width: 100%;
-    min-height: 100%;
+    width: 100%; /* Ancho al 100% del cuerpo */
+    height: 100vh;
 
     display: grid;
     grid-template-columns: 15% 65% 20%;
     grid-template-rows: 90vh 10;
 }
+
 
 a {
     text-decoration: none;  /* Elimina el subrayado */
@@ -56,7 +59,7 @@ a {
 }
 
 /*- Encabezado -*/
-.menu-arriba{
+.menuArriba{
     grid-row: 1;
     display: flex;
     justify-content: center;
@@ -64,12 +67,12 @@ a {
     gap: 10%;
 }
 
-.menu-logo{
+.menuLogo{
     width: 8.88281rem;
     height: 1.87006rem;
 }
 
-.menu-button{
+.menuButton{
     color: #FFF;
     text-align: center;
 
@@ -82,7 +85,7 @@ a {
 }
 
 /*- Menu -*/
-.div-botones{
+.divBotones{
     grid-row: 2;
     align-self: self-start;
 
@@ -100,17 +103,17 @@ a {
     display: none;
 }
 
-.div-botones::-webkit-scrollbar {
+.divBotones::-webkit-scrollbar {
     width: 3px; /* Ancho de la barra de desplazamiento */
     height: 0px;
 }
 
-.div-botones::-webkit-scrollbar-thumb {
+.divBotones::-webkit-scrollbar-thumb {
     background-color: rgba(255, 255, 255, 0.1); /* Cambia el color del pulgar de la barra */
     border-radius: 5px; /* Bordes redondeados para el pulgar */
 }
 
-.div-botones::-webkit-scrollbar-track {
+.divBotones::-webkit-scrollbar-track {
     background-color: rgba(255, 255, 255, 0.05); /* Cambia el color de la pista de la barra */
 }
 
@@ -136,7 +139,7 @@ a {
     background: rgba(255, 255, 255, 0.20);
 }
 
-.boton-image{
+.botonImage{
     color: #FFF;
     text-align: center;
 
@@ -147,7 +150,7 @@ a {
     line-height: normal;
 }
 
-.boton-letra{
+.botonLetra{
     color: #FFF;
 
     font-family: Poppins;
@@ -158,12 +161,12 @@ a {
     line-height: normal;
 }
 
-.boton-selecionado{
+.botonSelecionado{
     border-radius: 0rem 0.375rem 0.375rem 0rem;
     background: rgba(255, 255, 255, 0.20);
 }
 /*- Menu pie de pagina -*/
-.menu-footer{
+.menuFooter{
     grid-row: 3;
     align-self: self-start;
 
@@ -265,7 +268,7 @@ a {
 /*- Propiedades del menu derecho -*/
 
 /*- Contenido derecho -*/
-.menu-derecho{
+.menuDerecho{
     display: grid;
     grid-template-rows: 15% 85%;
     height: 100vh;
@@ -284,7 +287,7 @@ a {
     border-bottom: 0.0625rem solid rgba(255, 255, 255, 0.20);
 }
 
-.user-foto{
+.userFoto{
     width: 3.75rem;
     height: 3.65rem;
     flex-shrink: 0;
@@ -311,7 +314,7 @@ a {
 }
 
 /*- Propiedades del centro -*/
-.div-contenedor-principal{
+.divContenedorPrincipal{
     grid-row: 2;
     display: flex;
     flex-direction: column;
@@ -334,7 +337,7 @@ footer{
     align-items: center;
 }
 
-.footer-texto{
+.footerText{
     margin-left: 2.06rem;
     margin-bottom: 0.81rem;
     font-family: Poppins;
@@ -343,7 +346,7 @@ footer{
     justify-items: center;
 }
 
-.footer-primer-div{
+.footerPrimerDiv{
     display: flex;
     flex-direction: column;
     justify-items: center;
@@ -351,7 +354,7 @@ footer{
     gap: 1rem;
 }
 
-.footer-segundo-div{
+.footerSegundoDiv{
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -362,7 +365,7 @@ footer{
     gap: 1rem;
 }
 
-.footer-tercer-div{
+.footerTercerDiv{
     display: flex;
     flex-direction: row;
     justify-content: end;
@@ -380,7 +383,7 @@ footer{
     line-height: normal;
 }
 
-.social-footer {
+.socialFooter {
     grid-column: 3;
     background-color: rgba(255, 255, 255, 0.20);
     color: white;
@@ -390,7 +393,7 @@ footer{
     border-radius: 100%;
 }
 
-.social-footer img {
+.socialFooter img {
     width: 2rem;
     height: 2rem;
 }
@@ -412,7 +415,7 @@ footer{
         display: flex;
     }
 
-    .menu-arriba{
+    .menuArriba{
         height: 10%;
         gap: 0;
     }
@@ -423,9 +426,9 @@ footer{
         margin: 0;
     }
 
-    .menu-derecho,
-    .boton-letra,
-    .menu-logo {
+    .menuDerecho,
+    .botonLetra,
+    .menuLogo {
         display: none;
     }
 
@@ -444,7 +447,7 @@ footer{
         grid-template-rows: 5% 95%;
     }
 
-    .footer-tercer-div{
+    .FooterTercerDiv{
         flex-direction: column;
         font-size: 10px;
         gap: 10px;
@@ -455,11 +458,11 @@ footer{
 @media (max-width: 767px) {
     
     /*-- Menu derecho ---*/
-    .menu-derecho,
+    .menuDerecho,
     .user,
     .membrete,
-    .boton-letra,
-    .menu-logo {
+    .botonLetra,
+    .menuLogo {
         display: none;
     }
 
@@ -472,15 +475,15 @@ footer{
     }
 
     /*-- footer ---*/
-    .footer-tercer-div{
+    .footerTercerDiv{
         flex-direction: column;
         font-size: 10px;
     }
-    .social-footer{
+    .socialFooter{
         width: 1rem;
         height: 1rem;
     }
-    .footer-texto{
+    .footerText{
         margin: 0;
         margin-left: 1rem;
     }

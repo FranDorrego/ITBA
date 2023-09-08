@@ -1,8 +1,8 @@
-import '../styles.css';
-import { Contenido } from '../components_login/Contenido';
-import { Logo } from '../components_login/Logo.js';
-import { FormPassword } from '../components_login/FormPassword';
-import { LinkCompuesto } from '../components_login/LinkCompuesto';
+
+import { Contenido } from '../components_login/Generales/Contenido';
+import { Logo } from '../components_login/Generales/Logo.js';
+import { FormPassword } from '../components_login/Password/FormPassword';
+import { LinkCompuesto } from '../components_login/Generales/LinkCompuesto';
 
 function Password() {
   return (

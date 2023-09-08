@@ -1,8 +1,7 @@
-import '../styles.css';
-import { Contenido } from '../components_login/Contenido';
-import { Logo } from '../components_login/Logo.js';
-import { FormRegister } from '../components_login/FormRegister';
-import { LinkCompuesto } from '../components_login/LinkCompuesto';
+import { Contenido } from '../components_login/Generales/Contenido';
+import { Logo } from '../components_login/Generales/Logo.js';
+import { FormRegister } from '../components_login/Register/FormRegister';
+import { LinkCompuesto } from '../components_login/Generales/LinkCompuesto';
 
 function Register() {
   return (

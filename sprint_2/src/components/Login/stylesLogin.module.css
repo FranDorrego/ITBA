@@ -1,9 +1,16 @@
+
+/*ELEMENTOS DEL BODY*/
 body{
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
     background-image: url("./assets-login/Background-color-globe.png");
-  }
+    
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    pad: 0;
+} 
   
   @font-face {
     font-family: Poppins;
@@ -13,7 +20,7 @@ body{
   
   ::placeholder { color: white; }
   
-  .formulario{
+  .formulario_login{
     display: flex;
     flex-direction: column;
     align-items: stretch;
@@ -21,13 +28,13 @@ body{
     align-self: stretch;
   }
   
-  .grid{
+  .grid_login{
     display: grid;
     justify-content: end;
     margin: 3%;
   }
   
-  .input{
+  .input_login{
     font-size: 14px;
   
     border-radius: 1.5em;
@@ -43,7 +50,7 @@ body{
     color: white;
   }
   
-  .contenido{
+  .contenido_login{
     font-size: 20px;
     display: flex;
     width: 45em;
@@ -58,13 +65,13 @@ body{
     margin-right: 7em;
   }
   
-  .titulo{
+  .titulo_login{
     width: 13.891em/*222.25px*/;
     height: 2.924em/*46.789px*/;
     flex-shrink: 0;
   }
   
-  .subtitulo{
+  .subtitulo_login{
     color: #FFF;
     text-align: center;
     font-family: Poppins;
@@ -74,7 +81,7 @@ body{
     line-height: normal; 
   }
   
-  .link{
+  .link_login{
     align-self: stretch;
     color: #C59BFA;
     text-align: center;
@@ -87,7 +94,7 @@ body{
     cursor: pointer;
   }
   
-  .parrafo{
+  .parrafo_login{
     color: #FFF;
     text-align: center;
     font-family: Poppins;
@@ -98,6 +105,8 @@ body{
     line-height: normal;
   }
   
+
+
   .label_login{
     color: #FFF;
     text-align: left;
@@ -108,8 +117,19 @@ body{
     font-weight: 400;
     line-height: normal;
   }
+
+  .labelErrorLogin{
+    color: #fc3535;
+    text-align: left;
+    font-family: Poppins;
+    font-size: 14px;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+  }
   
-  .boton{
+  .boton_login{
     border-radius: 1.5em;
     background: #8933F5;
     color: white;
@@ -119,24 +139,24 @@ body{
   }
   
   /*Animación*/
-  .boton:hover{
+  .boton_login:hover{
     background-color: #C59BFA;
     color: black;
   }
   
   
-  .dialog{
+  .dialog_login{
     background-color: black;
     border-radius: 2%;
     width: 50%;
   }
   
-  .btn-abrir{
+  .btn_abrir{
     background-color: transparent;
     border: none;
   }
   
-  .btn-cerrar{
+  .btn_cerrar{
     border-radius: 1.5em;
     background: #8933F5;
     color: white;
@@ -155,12 +175,12 @@ body{
         align-items: center;
     }
   
-    .grid{
+    .grid_login{
         display: flex;
         margin: 0 auto 0 auto;
     }
   
-    .contenido{
+    .contenido_login{
         font-size: 14px;
         display: flex;
         justify-content: center;
@@ -169,9 +189,9 @@ body{
         width: 35em;
     }
   
-    .input,
-    .parrafo,
-    .link{
+    .input_login,
+    .parrafo_login,
+    .link_login{
         font-size: 15px;
     }
   }
@@ -179,32 +199,32 @@ body{
   /* CELULARES */
   @media (max-width: 480px){
   
-    .contenido{
+    .contenido_login{
         font-size: 14px;
         height: auto;
         width: 21rem;
         /* margin-left: 1em; */
     }
   
-    .formulario{
+    .formulario_login{
         display: flex;
         flex-direction: column;
         align-items: center;
         gap: 1em;
     }
   
-    .input{
+    .input_login{
         font-size: 13px;
         height: auto;
         padding: 0.462em 0.923em;
     }
   
-    .parrafo,
-    .link{
+    .parrafo_login,
+    .link_login{
         font-size: 13px;
     }
   
-    .subtitulo{
+    .subtitulo_login{
   
         font-size: 21px;
     }
@@ -212,17 +232,17 @@ body{
   
   /* Celulares  con pantalla mas chica que a la promedio*/
   @media (max-width: 350px){
-    .contenido{
+    .contenido_login{
         width: 18em;
     }
   
-    .input,
-    .parrafo,
-    .link{
+    .input_login,
+    .parrafo_login,
+    .link_login{
         font-size: 12px;
     }
   
-    .subtitulo{
+    .subtitulo_login{
         font-size: 20px;
     }
     
@@ -230,17 +250,17 @@ body{
   
   /* Monitores de una resolucion mayor a la promedio*/
   @media (min-width: 3840px){
-    .contenido{
+    .contenido_login{
         font-size: 32px;
     }
   
-    .subtitulo{
+    .subtitulo_login{
         font-size: 60px;
     }
   
-    .input,
-    .parrafo,
-    .link{
+    .input_login,
+    .parrafo_login,
+    .link_login{
         font-size: 35px;
     }
   }
