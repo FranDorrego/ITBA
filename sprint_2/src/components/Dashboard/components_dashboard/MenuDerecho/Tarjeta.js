@@ -1,14 +1,15 @@
 import tarjetaCompleta from '../../assets/tarjeta-completa.svg'
+import estilosDashboard from '../../styleDashboard.module.css'
 
 export function Tarjeta(){
     return(
             <div>    
-                <span className="titulo-tarjeta">
+                <span className={estilosDashboard.tituloTarjeta}>
                     <h1>Tarjetas</h1>
                 </span>
-                <span className="tarjeta"> 
-                    <div className="tarjeta-image">
-                        <img className="fondo" src={tarjetaCompleta} alt="tarjeta" />
+                <span className={estilosDashboard.tarjeta}> 
+                    <div>
+                        <img className={estilosDashboard.fondo} src={tarjetaCompleta} alt="tarjeta" />
                     </div>
                 </span> 
             </div>

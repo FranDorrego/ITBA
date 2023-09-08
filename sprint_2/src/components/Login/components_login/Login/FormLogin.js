@@ -1,3 +1,5 @@
+import estilosLogin from '../../stylesLogin.module.css'
+
 import { Boton } from "../Generales/Boton"
 import { Input } from "../Generales/Input"
 import { Label } from "../Generales/Label"
@@ -6,7 +8,7 @@ import { LinkCompuesto } from "../Generales/LinkCompuesto"
 
 export function FormLogin(){
     return (
-            <form action="" className="formulario_login" id="form">
+            <form action="" className={estilosLogin.formulario_login} id="form">
                 <Subtitulo>¡Te damos la bienvenida!</Subtitulo>
                 <Label>👤 Usuario</Label>
                 <Input type="text" name="usuario" id="usuario" text="Usuario" placeholder="Ej: UserName123"/>

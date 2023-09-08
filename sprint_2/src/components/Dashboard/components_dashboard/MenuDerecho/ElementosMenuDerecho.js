@@ -1,7 +1,10 @@
+import estilosDashboard from '../../styleDashboard.module.css'
+
+
 export function ElementosMenuDercho({children}){
     return(
-    <div classNameName="menu-derecho-elementos">
-        <div id="contenedor-botones-derecho">
+    <div className={estilosDashboard.menuDerechoElementos}>
+        <div id={estilosDashboard.contenedorBotonesDerecho}>
             {children}
         </div>
     </div>

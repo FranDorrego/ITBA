@@ -1,6 +1,5 @@
-
 import { useNavigate } from 'react-router-dom';
-
+import estilosLogin from '../../stylesLogin.module.css'
 
 
 export function Boton({value, id}){  
@@ -126,7 +125,7 @@ export function Boton({value, id}){
     
     
     return(
-            <input className="boton_login input_login" type="submit" value={value} id={id} onClick={validarDatos}/>
+            <input className={`${estilosLogin.boton_login}  ${estilosLogin.input_login}`}  type="submit" value={value} id={id} onClick={validarDatos}/>
         )
 }
 

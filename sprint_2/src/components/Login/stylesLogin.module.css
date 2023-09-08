@@ -1,9 +1,16 @@
+
+/*ELEMENTOS DEL BODY*/
 body{
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
     background-image: url("./assets-login/Background-color-globe.png");
-  }
+    
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    pad: 0;
+} 
   
   @font-face {
     font-family: Poppins;
@@ -131,12 +138,12 @@ body{
     width: 50%;
   }
   
-  .btn-abrir_login{
+  .btn_abrir{
     background-color: transparent;
     border: none;
   }
   
-  .btn-cerrar_login{
+  .btn_cerrar{
     border-radius: 1.5em;
     background: #8933F5;
     color: white;

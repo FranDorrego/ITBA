@@ -1,4 +1,4 @@
-import '../styles_login.css';
+
 import { Contenido } from '../components_login/Generales/Contenido';
 import { Logo } from '../components_login/Generales/Logo.js';
 import { FormPassword } from '../components_login/Password/FormPassword';

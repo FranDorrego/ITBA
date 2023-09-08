@@ -1,10 +1,10 @@
-
 import estilosPlantilla from '../../../assets-globales/stylePlantilla.module.css'
 
-export function BotonesIzquierdos({children}){
+export function ContenedorPrincipal({children}){
     return(
-        <div className={estilosPlantilla.divBotones}>
+        <div className={estilosPlantilla.divContenedorPrincipal}>
             {children}
         </div>
+
     )
 }

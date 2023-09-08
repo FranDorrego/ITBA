@@ -2,10 +2,12 @@ import { Boton } from "../Generales/Boton"
 import { Input } from "../Generales/Input"
 import { Label } from "../Generales/Label"
 import { Subtitulo } from "../Generales/Subtitulo"
+import estilosLogin from '../../stylesLogin.module.css'
+
 
 export function FormPassword(){
     return (
-            <form action="" className="formulario_login" id="form">
+            <form action="" className={estilosLogin.formulario_login} id="form">
                 <Subtitulo>Recupero de contraseña</Subtitulo>
                 <Label>📧 Email</Label>
                 <Input type="email" name="email" id="email" placeholder="Ej: alguien@example.com" required/> 
