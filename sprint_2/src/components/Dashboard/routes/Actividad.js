@@ -1,24 +1,15 @@
-import React from 'react';
-
 import { MenuIzquierdo } from '../components_dashboard/MenuIzquierdo/MenuIzquierdo';
-
 import { MenuDerecho } from '../components_dashboard/MenuDerecho/MenuDerecho';
-
 import { Footer } from '../components_dashboard/Footer/Footer';
-
-import { General } from '../components_dashboard/Principal/General';
-
-import DivContenedorPrincipal  from '../components_dashboard/PrincipalTransferencias/GeneralTransferencias';
-
-
 import estilosPantilla from '../../assets-globales/stylePlantilla.module.css'
+import { ContenidoActividad } from '../components_dashboard/PrincipalActividad/ContenidoActividad';
 
 
-function Transferencias(){
+function Actividad(){
     return(
         <div className={ estilosPantilla.gridDashboard }> 
             <MenuIzquierdo />
-            <DivContenedorPrincipal/>
+            <ContenidoActividad />
             <MenuDerecho />
             <Footer />
 
@@ -27,4 +18,4 @@ function Transferencias(){
     )
 }
 
-export default Transferencias;
+export default Actividad;

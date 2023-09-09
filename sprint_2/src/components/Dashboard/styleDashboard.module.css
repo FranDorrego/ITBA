@@ -565,7 +565,7 @@
     margin-bottom: 1rem;
 }
 
-.trans-botones-div{
+.transBotonesDiv{
     display: grid;
     grid-template-columns: 50% 50%;
     align-items: center;
@@ -577,7 +577,7 @@
     width: 95%;
 }
 
-.trans-botones{
+.transBotones{
     display: flex;
     align-items: center;
     justify-content: center;
@@ -605,12 +605,12 @@
 }
 
 /* Para la animacion */
-.trans-botones:hover,
+.transBotones:hover,
 .trans-seleccionado{
     background: #C59BFA;
 }
 
-.trans-formulario{
+.transFormulario{
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -618,12 +618,12 @@
     width: 100%;
 }
 /*- radio -*/
-.trans-formulario-radio-div{
+.transFormularioRadioDiv{
     margin-top: 1rem;
     margin-bottom: 1rem;
 }
 
-.trans-formulario-span label{
+.transFormularioSpan label{
     color: #FFF;
     font-family: Poppins;
     font-size: 1.25rem;
@@ -632,7 +632,7 @@
     line-height: normal;
 }
 
-.trans-formulario-radio{
+.transFormularioRadio{
     fill: #8933F5;
     stroke-width: 1px;
     stroke: #C59BFA;
@@ -640,7 +640,7 @@
 }
 
 /*- inputs -*/
-.trans-inputs{
+.transInputs{
     display: flex;
     width: 90%;
     padding: 0.75rem 1.5rem;
@@ -659,11 +659,11 @@
     line-height: normal;
 }
 
-.achica-letra{
+.AchicaLetra{
     font-size: 0.9rem;
 }
 
-.trans-formulario select{
+.transFormulario select{
     background-color: rgba(137, 51, 245);
 }
 

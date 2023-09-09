@@ -8,17 +8,17 @@ import { Footer } from '../components_dashboard/Footer/Footer';
 
 import { General } from '../components_dashboard/Principal/General';
 
-import DivContenedorPrincipal  from '../components_dashboard/PrincipalTransferencias/GeneralTransferencias';
+import CuentasPrincipal  from '../components_dashboard/PrincipalCuentas/GeneralCuentas';
 
 
 import estilosPantilla from '../../assets-globales/stylePlantilla.module.css'
 
 
-function Transferencias(){
+function Cuentas(){
     return(
         <div className={ estilosPantilla.gridDashboard }> 
             <MenuIzquierdo />
-            <DivContenedorPrincipal/>
+            <CuentasPrincipal/>
             <MenuDerecho />
             <Footer />
 
@@ -27,4 +27,4 @@ function Transferencias(){
     )
 }
 
-export default Transferencias;
+export default Cuentas;

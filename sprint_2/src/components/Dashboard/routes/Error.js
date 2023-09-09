@@ -7,16 +7,11 @@ import { Footer } from '../components_dashboard/Footer/Footer';
 
 import estilosPantilla from '../../assets-globales/stylePlantilla.module.css'
 
+import Error404Page from '../../404/404.js'
 
 function Transferencias(){
     return(
-        <div className={ estilosPantilla.gridDashboard }> 
-            <MenuIzquierdo />
-            
-                <h1>ERROR 404 (FALTA HACER)</h1>
-            <MenuDerecho />
-            <Footer />
-        </div>
+        <Error404Page />
     )
 }
 
