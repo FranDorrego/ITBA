@@ -8,7 +8,7 @@ import { Footer } from '../components_dashboard/Footer/Footer';
 
 import { General } from '../components_dashboard/Principal/General';
 
-import CuentasPrincipal  from '../components_dashboard/Cuentas/Contenido';
+import CuentasPrincipal  from '../components_dashboard/PrincipalCuentas/GeneralCuentas';
 
 
 import estilosPantilla from '../../assets-globales/stylePlantilla.module.css'

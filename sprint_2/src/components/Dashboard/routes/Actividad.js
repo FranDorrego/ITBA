@@ -2,7 +2,7 @@ import { MenuIzquierdo } from '../components_dashboard/MenuIzquierdo/MenuIzquier
 import { MenuDerecho } from '../components_dashboard/MenuDerecho/MenuDerecho';
 import { Footer } from '../components_dashboard/Footer/Footer';
 import estilosPantilla from '../../assets-globales/stylePlantilla.module.css'
-import { ContenidoActividad } from '../components_dashboard/Actividad/ContenidoActividad';
+import { ContenidoActividad } from '../components_dashboard/PrincipalActividad/ContenidoActividad';
 
 
 function Actividad(){

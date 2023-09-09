@@ -8,7 +8,7 @@ import { Footer } from '../components_dashboard/Footer/Footer';
 
 import { General } from '../components_dashboard/Principal/General';
 
-import DivContenedorPrincipal  from '../components_dashboard/PrincipalTransferencias/contenido';
+import DivContenedorPrincipal  from '../components_dashboard/PrincipalTransferencias/GeneralTransferencias';
 
 
 import estilosPantilla from '../../assets-globales/stylePlantilla.module.css'
