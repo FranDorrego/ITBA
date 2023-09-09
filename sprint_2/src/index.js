@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom/client';
 import reportWebVitals from './reportWebVitals';
 import Login from './components/Login/routes/Login';
@@ -6,6 +6,11 @@ import Password from './components/Login/routes/Password';
 import Register from './components/Login/routes/Register';
 import Index from './components/Dashboard/routes/Index';
 import {createBrowserRouter, RouterProvider} from 'react-router-dom'
+import Prestamos from './components/Dashboard/routes/Prestamos';
+import CambioDivisas from './components/Dashboard/routes/CambioDivisas';
+import FormularioPrestamos from './components/Dashboard/routes/FormularioPrestamos';
+import Transferencias from './components/Dashboard/routes/Transferencias';
+import Error from './components/Dashboard/routes/Error'
 
 const router = createBrowserRouter([
   { /* CONSULLTAR SI ESTO ESTA BIEN, ESTA HECHO PQ CUANDO ARRANCA LA APP SE VA AL "/", PERO QUIERO Q EL MAIN SEA EL LOGIN
@@ -28,6 +33,27 @@ const router = createBrowserRouter([
   {
     path:"/dashboard",
     element: <Index />
+  },
+  {
+    path:"/prestamos",
+    element: <Prestamos />,
+  },
+  {
+    path:"/formularioPrestamos",
+    element: <FormularioPrestamos />
+    
+  },
+  {
+    path:"/cambioDivisas",
+    element: <CambioDivisas />
+  },
+  {
+    path:"/transferencias",
+    element: <Transferencias />
+  },
+  {
+    path: "/error",
+    element: <Error />
   }
 ])
 

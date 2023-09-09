@@ -4,13 +4,13 @@ import estilosPlantilla from '../../../assets-globales/stylePlantilla.module.css
 
 
 
-export function SpanDerecho(){
+export function SpanDerecho({id}){
     return(
-        <span className={estilosPlantilla.user}>
+        <span className={estilosPlantilla.user} >
             <button>
                 <img src={notificacion} alt="" /> 
             </button>
-            <img className={estilosPlantilla.userFoto} src={avatar} alt="user" />
+            <img className={estilosPlantilla.userFoto} src={avatar} alt="user" id={id}/>
         </span>
 
     )
