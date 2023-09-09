@@ -1,17 +1,19 @@
 import React from 'react';
 import estilosDashboard from '../../styleDashboard.module.css'
+import estilosPlantilla from '../../../assets-globales/stylePlantilla.module.css'
 import { Buscador } from '../Principal/Buscador';
 import { ContenedorPrincipal } from '../Principal/ContenedorPrincipal';
 
 // Componente principal
 const DivContenedorPrincipal = () => {
   return (
-    <div className={estilosDashboard.general}>
-            <div>
-            <Saludo titulo="Transferencias" />
-            <TransBotones />
-            <TransFormulario />
-            </div>
+    <div className={estilosPlantilla.general}>
+      <Buscador />
+      <ContenedorPrincipal>
+        <Saludo titulo="Transferencias" />
+        <TransBotones />
+        <TransFormulario />
+      </ContenedorPrincipal>
     </div>
   );
 };
