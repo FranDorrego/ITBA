@@ -99,7 +99,7 @@ a {
     height: 95%;
 }
 
-#botoes-aux-izquierda{
+.botonesAuxIzquierda{
     display: none;
 }
 
@@ -403,7 +403,7 @@ footer{
 /* Para tablet */
 @media (max-width: 1024px) {
 
-    body{
+    .gridDashboard{
         grid-template-columns: 10% 90% 0%;
     }
     /*-- Menu derecho ---*/
@@ -411,7 +411,7 @@ footer{
         grid-template-rows: 5% 80% 15%;
     }
 
-    #botoes-aux-izquierda{
+    .botonesAuxIzquierda{
         display: flex;
     }
 
@@ -466,7 +466,7 @@ footer{
         display: none;
     }
 
-    body{
+    .gridDashboard{
         grid-template-columns: 20% 80% 0%;
     }
 

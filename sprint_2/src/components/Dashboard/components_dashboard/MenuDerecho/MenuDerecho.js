@@ -6,6 +6,7 @@ import cbu from '../../../assets-globales/assets/CIRCLE-INFO.svg'
 import prestamos from '../../../assets-globales/assets/circle-arrow-down-deposito.svg'
 import transferencias from '../../../assets-globales/assets/transferencias.svg'
 import { Tarjeta } from '../../components_dashboard/MenuDerecho/Tarjeta';
+import { BotonesDerechos } from './BotonesDerechos';
 
 export function MenuDerecho(){
     return(
@@ -14,7 +15,7 @@ export function MenuDerecho(){
             <ElementosMenuDercho>
                 <h1 className='titulo'>Acciones rápidas</h1>
                 <BotonDerecho text="Mi CBU" imagen={cbu}/>
-                <BotonDerecho text="Prestamos" imagen={prestamos}/>
+                <BotonDerecho text="Prestamos" imagen={prestamos} link="/prestamos"/>
                 <BotonDerecho text="Transferencias" imagen={transferencias}/>
                 <Tarjeta />
             </ElementosMenuDercho>

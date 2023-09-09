@@ -11,12 +11,16 @@ import { useNavigate } from 'react-router-dom'
 import { useForm } from 'react-hook-form'
 
 export function FormLogin(){
-    const {register, formState: { errors }, handleSubmit} = useForm();
+    const {register, formState: { errors }, handleSubmit, watch} = useForm();
     const navigate = useNavigate();
     const onSubmit = (data) =>{
         swal("Datos validos, ", `Bienvenido ${data.usuario}`)
         navigate("/dashboard")
+
+        return data.usuario
     }
+
+    
 
 
     return (

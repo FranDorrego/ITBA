@@ -128,7 +128,7 @@ export function FormRegister(){
                 {...register('password2',{
                     required: true,
                     validate: (val) =>{
-                        if (watch('password1') != val) {
+                        if (watch('password1') !== val) {
                             return "Your passwords do no match";
                           }
                     }
