@@ -1,3 +1,4 @@
+import React from 'react';
 
 import { MenuIzquierdo } from '../components_dashboard/MenuIzquierdo/MenuIzquierdo';
 
@@ -7,6 +8,7 @@ import { Footer } from '../components_dashboard/Footer/Footer';
 
 import { General } from '../components_dashboard/Principal/General';
 
+import DivContenedorPrincipal  from '../components_dashboard/PrincipalTransferencias/contenido';
 
 
 import estilosPantilla from '../../assets-globales/stylePlantilla.module.css'
@@ -16,7 +18,7 @@ function Transferencias(){
     return(
         <div className={ estilosPantilla.gridDashboard }> 
             <MenuIzquierdo />
-            
+            <DivContenedorPrincipal/>
             <MenuDerecho />
             <Footer />
 

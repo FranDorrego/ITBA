@@ -17,7 +17,7 @@ export function GeneralCambioDivisa(){
             <ContenedorPrincipal>
                 <Saludo texto="Cambio de divisas"/>
                 <ContenedorMonto textPrincipal="Monto de origen" placeholder="Origen" banderaDefault={arg}/>
-                <SpanCambioDivisas texto="HOLA"/>
+                <SpanCambioDivisas texto="A"/>
                 <ContenedorMonto textPrincipal="Monto de convertido" placeholder="Convertido" banderaDefault={usd}/>
                 <ConfirmarDivisas />
             </ContenedorPrincipal>
