@@ -10,12 +10,12 @@ El grupo que esta creando ITBANK es **iKnowHow** Conformado por:
 
 # Forma de tester
 
-Para testearlo simplemente ingresa a la carpeta **Sprint_2** y ejecuta npm start.
+Para testearlo simplemente ingresa al archivo **Login/login.htm**.
 Este es el inicio de toda la APP, El usuario admitido es:
 
- - **USUARIO:** Cualquiera mayor a 6 letras.
- - **CLAVE:** Cualquiera mayor a 8 Numeros.
- - **DNI :** Cualquiera mayor a 6 letras.
+ - **USUARIO:** usuario@itbank.com  
+ - **CLAVE:** Por el momento es libre de colocar cualquier clave.   
+ - **DNI :** Por el momento es libre de colocar cualquier DNI.
 
 ## <h1>Diseño</h1>
 
