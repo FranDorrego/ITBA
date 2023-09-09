@@ -11,6 +11,7 @@ import CambioDivisas from './components/Dashboard/routes/CambioDivisas';
 import FormularioPrestamos from './components/Dashboard/routes/FormularioPrestamos';
 import Transferencias from './components/Dashboard/routes/Transferencias';
 import Error from './components/Dashboard/routes/Error'
+import Cuentas from './components/Dashboard/routes/Cuentas'
 
 const router = createBrowserRouter([
   { /* CONSULLTAR SI ESTO ESTA BIEN, ESTA HECHO PQ CUANDO ARRANCA LA APP SE VA AL "/", PERO QUIERO Q EL MAIN SEA EL LOGIN
@@ -50,6 +51,10 @@ const router = createBrowserRouter([
   {
     path:"/transferencias",
     element: <Transferencias />
+  },
+  {
+    path:"/cuentas",
+    element: <Cuentas />
   },
   {
     path: "/error",

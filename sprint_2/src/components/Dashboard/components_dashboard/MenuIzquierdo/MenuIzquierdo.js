@@ -48,7 +48,7 @@ export function MenuIzquierdo(customClass){
                     onClick={() => cambiarBotonActivo('/actividad')}
                     />
                     <BotonIzquierdo text="Cuentas" imagen={banco} alt="cuentas" 
-                    link="/error"
+                    link="/cuentas"
                     isActive={botonActivo === '/cuentas'}
                     onClick={() => cambiarBotonActivo('/cuentas')}
                     />

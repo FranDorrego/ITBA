@@ -14,7 +14,7 @@ export function MenuDerecho(){
             <SpanDerecho/>
             <ElementosMenuDercho>
                 <h1 className='titulo'>Acciones rápidas</h1>
-                <BotonDerecho text="Mi CBU" imagen={cbu} link="/error"/>
+                <BotonDerecho text="Mi CBU" imagen={cbu} link="/cuentas"/>
                 <BotonDerecho text="Prestamos" imagen={prestamos} link="/prestamos"/>
                 <BotonDerecho text="Transferencias" imagen={transferencias} link="/transferencias"/>
                 <Tarjeta />
