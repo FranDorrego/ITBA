@@ -13,14 +13,14 @@ import { SpanCambioDivisas } from './SpanCambioDivisas';
 export function GeneralCambioDivisa(){
     return(
         <div className={estilosPlantilla.general}>
-        <Buscador />
-        <ContenedorPrincipal>
-            <Saludo texto="Cambio de divisas"/>
-            <ContenedorMonto textPrincipal="Monto de origen" placeholder="Origen" banderaDefault={arg}/>
-            <SpanCambioDivisas texto="HOLA"/>
-            <ContenedorMonto textPrincipal="Monto de convertido" placeholder="Convertido" banderaDefault={usd}/>
-            <ConfirmarDivisas />
-        </ContenedorPrincipal>
-    </div>
+            <Buscador />
+            <ContenedorPrincipal>
+                <Saludo texto="Cambio de divisas"/>
+                <ContenedorMonto textPrincipal="Monto de origen" placeholder="Origen" banderaDefault={arg}/>
+                <SpanCambioDivisas texto="HOLA"/>
+                <ContenedorMonto textPrincipal="Monto de convertido" placeholder="Convertido" banderaDefault={usd}/>
+                <ConfirmarDivisas />
+            </ContenedorPrincipal>
+        </div>
     )
 }

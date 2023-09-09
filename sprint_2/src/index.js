@@ -48,7 +48,7 @@ const router = createBrowserRouter([
     element: <CambioDivisas />
   },
   {
-    path:"transferencias",
+    path:"/transferencias",
     element: <Transferencias />
   },
   {

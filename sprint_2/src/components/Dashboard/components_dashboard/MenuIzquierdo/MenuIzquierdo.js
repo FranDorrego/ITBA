@@ -15,6 +15,12 @@ import cerrarSesion from '../../../assets-globales/assets/cerrar_sesion.svg'
 import { useState } from 'react';
 import { useLocation } from 'react-router-dom';
 
+import cbu from '../../../assets-globales/assets/CIRCLE-INFO.svg'
+import prestamos from '../../../assets-globales/assets/circle-arrow-down-deposito.svg'
+import transferencias from '../../../assets-globales/assets/transferencias.svg'
+import avatar from '../../../assets-globales/assets/Avatar.svg'
+
+
 // estilosPlantilla.botonSelecionado
 
 export function MenuIzquierdo(customClass){
@@ -52,6 +58,23 @@ export function MenuIzquierdo(customClass){
                     onClick={() => cambiarBotonActivo('/cambioDivisas')} 
 
                     />
+                    <BotonIzquierdo text="Mi CBU" imagen={cbu} id={estilosPlantilla.botonesAuxIzquierda} 
+                    link="/error"
+                    isActive={botonActivo === '/cbu'}
+                    onClick={() => cambiarBotonActivo('/cbu')} 
+                    />
+                    <BotonIzquierdo text="Prestamos" imagen={prestamos}  id={estilosPlantilla.botonesAuxIzquierda} 
+                    link="/prestamos"
+                    isActive={botonActivo === '/prestamos'}
+                    onClick={() => cambiarBotonActivo('/prestamos')} 
+                    />
+                    <BotonIzquierdo text="Transferencias" imagen={transferencias} id={estilosPlantilla.botonesAuxIzquierda} 
+                    link="/transferencias"
+                    isActive={botonActivo === '/transferencias'}
+                    onClick={() => cambiarBotonActivo('/transferencias')} 
+                    />
+                    <BotonIzquierdo id={estilosPlantilla.botonesAuxIzquierda} imagen={avatar}
+                    link="/error" />
                 </BotonesIzquierdos>
                 <BotonesFinalMenuIzquierdo>
                     <BotonIzquierdo text="Ayuda" imagen={ayuda} alt="ayuda"/>
