@@ -1,4 +1,4 @@
-body {
+.body404 {
     background-color: black;
     display: grid;
     grid-template-columns: 1fr 2fr; /* Divide en dos columnas, 1fr y 2fr */
@@ -9,7 +9,7 @@ body {
     overflow: hidden;
 }
 
-.texto {
+.texto404 {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -23,7 +23,7 @@ body {
     box-sizing: border-box; /* Incluye el padding en el tamaño total */
 }
 
-.texto h1{
+.textoH1404{
     color: #FFF;
     font-family: Poppins;
     font-size: 1.5rem;
@@ -33,7 +33,7 @@ body {
     margin-left: 10%;
 }
 
-.botones{
+.botones404{
     display: flex;
     width: 20.59375rem;
     height: 3.375rem;
@@ -52,18 +52,11 @@ body {
     line-height: normal;
 }
 
-.foto-404{
+.foto404{
     margin: auto;
     width: 60%;
 }
 
-.degrade{
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    opacity: 0.7;
-    z-index: -1;
-}
 
 /*----------------------------------------  PARTE RESPOSIVE  Fue diseñado para 1440*900px---------------------------------------------- */
 
