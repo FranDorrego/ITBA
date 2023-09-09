@@ -43,7 +43,7 @@ export function MenuIzquierdo(customClass){
                     onClick={() => cambiarBotonActivo('/dashboard')}
                     />
                     <BotonIzquierdo text="Actividad" imagen={actividad} alt="actividad" 
-                    link="/error"
+                    link="/actividad"
                     isActive={botonActivo === '/actividad' }
                     onClick={() => cambiarBotonActivo('/actividad')}
                     />
