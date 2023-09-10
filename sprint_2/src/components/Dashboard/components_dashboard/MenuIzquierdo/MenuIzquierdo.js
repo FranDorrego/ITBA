@@ -59,7 +59,7 @@ export function MenuIzquierdo(customClass){
 
                     />
                     <BotonIzquierdo text="Mi CBU" imagen={cbu} id={estilosPlantilla.botonesAuxIzquierda} 
-                    link="/error"
+                    link="/cuentas"
                     isActive={botonActivo === '/cbu'}
                     onClick={() => cambiarBotonActivo('/cbu')} 
                     />
@@ -74,7 +74,7 @@ export function MenuIzquierdo(customClass){
                     onClick={() => cambiarBotonActivo('/transferencias')} 
                     />
                     <BotonIzquierdo id={estilosPlantilla.botonesAuxIzquierda} imagen={avatar}
-                    link="/error" />
+                    link="/dashboard" />
                 </BotonesIzquierdos>
                 <BotonesFinalMenuIzquierdo>
                     <BotonIzquierdo text="Ayuda" imagen={ayuda} alt="ayuda"/>
