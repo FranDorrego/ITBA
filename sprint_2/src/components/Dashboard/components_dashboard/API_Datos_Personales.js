@@ -5,12 +5,6 @@ import { useEffect, useState } from 'react';
 const HistoricoMoviminetos=[ 
     {monto : 5500, motivo : "Prestamo" ,fecha : 1631213053000 , ingreso : true}, 
     {monto : 1560, motivo : "Transferencia" ,fecha : 1631213053000 , ingreso : false},
-    {monto : 1230, motivo : "Rendimientos" ,fecha : 1631213053000 , ingreso : true}, 
-    {monto : 1560, motivo : "Transferencia" ,fecha : 1631213053000 , ingreso : false},
-    {monto : 1230, motivo : "Prestamo" ,fecha : 1631213053000 , ingreso : true}, 
-    {monto : 1560, motivo : "Gasto" ,fecha : 1631213053000 , ingreso : false},
-    {monto : 1230, motivo : "Gasto" ,fecha : 1631213053000 , ingreso : true}, 
-    {monto : 1560, motivo : "Transferencia" ,fecha : 1631213053000 , ingreso : false},
 ];
 
 const NombreBase = "Juan Villaruel"

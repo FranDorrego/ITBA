@@ -7,7 +7,7 @@ export function Renglon ({ titulo, dato }){
       <div className="renglon">
         <h1 className="titulo">{titulo}</h1>
         <h1 className="titulo">{dato}</h1>
-        <BotonCopiar />
+        <BotonCopiar textoACopiar={dato} />
       </div>
     );
   };
