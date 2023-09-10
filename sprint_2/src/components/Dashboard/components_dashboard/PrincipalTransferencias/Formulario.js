@@ -10,7 +10,7 @@ export function TransFormulario (){
         <InputDiv placeholder="Ingrese..." id="cbu_alias" />
         <ImporteDiv />
         <MotivoDiv />
-        <button type="button" className={estilosDashboard.transBotones} id="boton-transferir">
+        <button type="button" className={estilosDashboard.transBotones} id="boton-transferir" >
           <h1>Transferir</h1>
         </button>
       </form>

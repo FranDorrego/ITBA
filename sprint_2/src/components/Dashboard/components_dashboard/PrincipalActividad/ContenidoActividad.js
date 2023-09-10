@@ -3,8 +3,8 @@ import estilosDashboard from '../../styleDashboard.module.css'
 import { Buscador } from '../Principal/Buscador';
 import { ContenedorPrincipal } from '../Principal/ContenedorPrincipal';
 import { Movimientos } from '../Principal/Movimientos';
-import { TarjetaMovimientoIngreso } from '../Principal/TarjetaMovimientoIngreso';
-import { TarjetaMovimientoRetiro } from '../Principal/TarjetaMovimientoRetiro';
+import { HistorialTarjetas } from './HistorialTarjetas.js'
+
 
 export function ContenidoActividad(){
     return(
@@ -13,13 +13,14 @@ export function ContenidoActividad(){
             <ContenedorPrincipal>
                 <h1 className={estilosDashboard.movimientosTitulo}>Ultimos movimientos {">"} </h1>
                 <Movimientos>
-                    <TarjetaMovimientoIngreso monto="123" fecha="1/1/2000"/>
-                    <TarjetaMovimientoRetiro monto="123" fecha="1/1/2000"/>
+                <HistorialTarjetas />
                 </Movimientos>
             </ContenedorPrincipal>
         </div>
     )
 }
+
+
 
 
 

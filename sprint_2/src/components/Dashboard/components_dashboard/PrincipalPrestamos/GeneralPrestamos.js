@@ -8,6 +8,7 @@ import { TarjetaMovimientoIngreso } from '../Principal/TarjetaMovimientoIngreso'
 import { TarjetaMovimientoRetiro } from '../Principal/TarjetaMovimientoRetiro';
 import { BotonPrestamo } from './BotonPrestamo';
 import { DialogPrestamo } from './DialogPrestamo';
+import { HistorialTarjetas } from '../PrincipalActividad/HistorialTarjetas.js'
 
 export function GeneralPrestamos(){
     return(
@@ -17,8 +18,7 @@ export function GeneralPrestamos(){
                 <Saludo texto="Prestamos"/>
                 <h1 className={estilosDashboard.movimientosTitulo}>Ultimos movimientos {">"} </h1>
                 <Movimientos>
-                    <TarjetaMovimientoIngreso monto="123" fecha="1/1/2000"/>
-                    <TarjetaMovimientoRetiro monto="123" fecha="1/1/2000"/>
+                <HistorialTarjetas motivo="Prestamo" />
                 </Movimientos>
                 <BotonPrestamo>Solicitar prestamo</BotonPrestamo>
                 <DialogPrestamo />

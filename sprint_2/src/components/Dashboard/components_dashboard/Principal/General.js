@@ -4,23 +4,24 @@ import { Buscador } from './Buscador';
 import { ContenedorPrincipal } from './ContenedorPrincipal';
 import { Saludo } from './Saludo';
 import { Movimientos } from './Movimientos';
-import { TarjetaMovimientoIngreso } from './TarjetaMovimientoIngreso';
-import { TarjetaMovimientoRetiro } from './TarjetaMovimientoRetiro';
 import { TrajetasSaludo } from './TarjetasSaludo';
+import { Nombre } from '../API_Datos_Personales.js'
+import { HistorialTarjetas } from '../PrincipalActividad/HistorialTarjetas.js'
 
 export function General(){
+    let Datos = Nombre();
     return(
         <div className={estilosPlantilla.general}>
             <Buscador />
             <ContenedorPrincipal>
-                <Saludo usuario="User de prueba" texto="Hola, "/>
+                <Saludo usuario={Datos.NombreBase} texto="Hola, "/>
                 <TrajetasSaludo />
                 <h1 className={estilosDashboard.movimientosTitulo}>Ultimos movimientos {">"} </h1>
                 <Movimientos>
-                    <TarjetaMovimientoIngreso monto="123" fecha="1/1/2000"/>
-                    <TarjetaMovimientoRetiro monto="123" fecha="1/1/2000"/>
+                <HistorialTarjetas />
                 </Movimientos>
             </ContenedorPrincipal>
         </div>
     )
 }
+
