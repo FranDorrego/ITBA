@@ -19,6 +19,7 @@ import cbu from '../../../assets-globales/assets/CIRCLE-INFO.svg'
 import prestamos from '../../../assets-globales/assets/circle-arrow-down-deposito.svg'
 import transferencias from '../../../assets-globales/assets/transferencias.svg'
 import avatar from '../../../assets-globales/assets/Avatar.svg'
+import cambio from '../../../assets-globales/assets/cambio.svg'
 
 
 // estilosPlantilla.botonSelecionado
@@ -52,7 +53,7 @@ export function MenuIzquierdo(customClass){
                     isActive={botonActivo === '/cuentas'}
                     onClick={() => cambiarBotonActivo('/cuentas')}
                     />
-                    <BotonIzquierdo text="Cambio de divisas" imagen={tarjetaDivisas} alt="cambio_divisas"
+                    <BotonIzquierdo text="Cambio de divisas" imagen={cambio} alt="cambio_divisas"
                     link="/cambioDivisas"
                     isActive={botonActivo === '/cambioDivisas'}
                     onClick={() => cambiarBotonActivo('/cambioDivisas')} 
