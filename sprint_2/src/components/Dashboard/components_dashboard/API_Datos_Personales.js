@@ -31,8 +31,6 @@ export function Historial() {
         .catch((error) => console.error('Hubo un error:', error));
     }, []); 
 
-    console.log(datos);
-
     return datos ? datos : HistoricoMoviminetos;
 }
 
@@ -70,7 +68,26 @@ export function TotalDineroCuenta() {
         });
     }
     
-    return {"total": total, "ingresos": ingresos, "retiros": retiros};
+    // Formatear los valores con 2 decimales y formato de miles
+    const formattedTotal = total.toLocaleString(undefined, {
+        minimumFractionDigits: 2,
+        maximumFractionDigits: 2,
+        useGrouping: true,
+    });
+
+    const formattedIngresos = ingresos.toLocaleString(undefined, {
+        minimumFractionDigits: 2,
+        maximumFractionDigits: 2,
+        useGrouping: true,
+    });
+
+    const formattedRetiros = retiros.toLocaleString(undefined, {
+        minimumFractionDigits: 2,
+        maximumFractionDigits: 2,
+        useGrouping: true,
+    });
+    
+    return {"total": formattedTotal, "ingresos": formattedIngresos, "retiros": formattedRetiros};
 }
 
 // Devuelvo el nombre y daots del usuario
@@ -87,32 +104,77 @@ export function Nombre() {
     return nombre ? nombre : BaseDatosPersonales ;
 }
 
-// Pide un prestamo, si da false es porque no se dio el pretamo
-export function PidePrestamo({Monto}) {
-    const [pide, setNombre] = useState(null);
-    const fecha = new Date().getTime();
+// Setea El nombre en la API
+export function setNombre({NuevoNombre}){
 
-    useEffect(() => {
-        fetch(`https://itbank.pythonanywhere.com/prestamo/${Monto}/${fecha}`)
-        .then((response) => response.json())
-        .then((data) => setNombre(data.datos))
-        .catch((error) => console.error('Error:', error));
-    }, []); 
-  
-    return pide ? pide : false ;
+    return fetch(`https://itbank.pythonanywhere.com/setNombre/${NuevoNombre}`)
+    .then((response) => {
+        if (!response.ok) {
+          return false;
+        }
+        return true;
+      })
+    .catch((error) => {
+        console.error('Error:', error);
+        return false;
+      });
+
 }
 
-// Pide un prestamo, si da false es porque no se dio el pretamo
-export function EnviaTransferencia({Monto}) {
-    const [envia, setNombre] = useState(null);
-    const fecha = new Date().getTime();
 
-    useEffect(() => {
-        fetch(`https://itbank.pythonanywhere.com/transfiere/${Monto}/${fecha}`)
-        .then((response) => response.json())
-        .then((data) => setNombre(data.datos))
-        .catch((error) => console.error('Error:', error));
-    }, []); 
-  
-    return envia ? envia : false ;
-}
+// Pide un prestamo, si da false es porque no se dio el pretamo
+export function pidePrestamo({ Monto }) {
+    const fecha = new Date().getTime();
+    
+    console.log(Monto)
+
+    if (Monto == ""){
+        return false
+    }
+
+    return fetch(`https://itbank.pythonanywhere.com/prestamo/${Monto}/${fecha}`)
+
+      .then((response) => {
+        if (!response.ok) {
+          return false;
+        }
+        return response.json();
+      })
+
+      .then((data) => {
+        return data.datos || false;
+      })
+
+      .catch((error) => {
+        console.error('Error:', error);
+        return false;
+      });
+  }
+
+
+// Pide un prestamo, si da false es porque no se dio el pretamo
+export function enviaTransferencia({Monto}) {
+    const fecha = new Date().getTime();
+    
+    if (Monto == ""){
+        return false
+    }
+
+    return fetch(`https://itbank.pythonanywhere.com/transfiere/${Monto}/${fecha}`)
+
+      .then((response) => {
+        if (!response.ok) {
+          return false;
+        }
+        return response.json();
+      })
+
+      .then((data) => {
+        return data.datos || false;
+      })
+
+      .catch((error) => {
+        console.error('Error:', error);
+        return false;
+      });
+  }

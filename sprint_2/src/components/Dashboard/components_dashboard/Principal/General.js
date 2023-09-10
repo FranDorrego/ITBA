@@ -10,11 +10,10 @@ import { HistorialTarjetas } from '../PrincipalActividad/HistorialTarjetas.js'
 import { useContext } from 'react';
 import { contextUser } from '../../../context/contextUser';
 
+
 export function General(){
     const { user } = useContext(contextUser)
 
-
-    let Datos = Nombre();
     return(
         <div className={estilosPlantilla.general}>
             <Buscador />

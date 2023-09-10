@@ -5,7 +5,7 @@ import swal from 'sweetalert'
 import { useForm } from 'react-hook-form'
 import { LabelErrorLogin } from '../../../Login/components_login/Generales/LabelErrorLogin';
 import { validarImporte } from './validate/validarImporte';
-import { EnviaTransferencia } from '../API_Datos_Personales';
+import { enviaTransferencia } from '../API_Datos_Personales';
 // import { validarCBU } from './validate/validarCBU';
 
 // Componente para el formulario de transferencia
@@ -14,9 +14,16 @@ export function TransFormulario (){
     const {register, formState: { errors }, handleSubmit} = useForm();
 
     const onSubmit = (data) =>{
-      swal("Transferencia realizada", "Monto: " + (data.importe))
-      console.log(parseFloat(data.importe)) // ESTO ES PARA QUE VEAS EL VALOR QUE TIRA 
-      // EnviaTransferencia(parseFloat(data.importe)) // ACA SE LLAMA A LA FUNCION
+
+        if (data.importe == "") {
+          swal("Por favor rellena los datos solicitados", "");
+        }
+        else if (enviaTransferencia( { Monto: parseFloat(data.importe) })) {
+          swal("Transferencia realizada", "Monto: " + data.importe);
+        } else {
+          swal("Ocurrio un error, por favor vuelve a intentar", "");
+        }
+        
     }
 
     return (

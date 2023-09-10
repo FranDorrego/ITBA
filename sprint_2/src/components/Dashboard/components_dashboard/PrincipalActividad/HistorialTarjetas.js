@@ -4,7 +4,7 @@ import { TarjetaMovimientoRetiro } from '../Principal/TarjetaMovimientoRetiro';
 import { Historial } from '../API_Datos_Personales.js'
 
 export function HistorialTarjetas({motivo = null}){
-    let historial = Historial();
+    let historial = Historial()
 
     return historial
         .filter((movimiento) => motivo === null || motivo === movimiento.motivo)    
