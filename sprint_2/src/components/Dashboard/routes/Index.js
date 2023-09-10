@@ -7,21 +7,17 @@ import { Footer } from '../components_dashboard/Footer/Footer';
 
 import { General } from '../components_dashboard/Principal/General';
 
-
-
 import estilosPantilla from '../../assets-globales/stylePlantilla.module.css'
 
 
 function Index(){
     return(
-        <div className={ estilosPantilla.gridDashboard }> 
-            <MenuIzquierdo />
-            <General />
-            <MenuDerecho />
-            <Footer />
-
-
-        </div>
+            <div className={ estilosPantilla.gridDashboard }> 
+                <MenuIzquierdo />
+                <General />
+                <MenuDerecho />
+                <Footer />
+            </div>
     )
 }
 

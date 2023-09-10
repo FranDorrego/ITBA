@@ -11,7 +11,6 @@ export function GeneralFormPrestamos(){
             <Buscador />
             <ContenedorPrincipal>
                 <FormPrestamos />
-                <SimuladorPrestamo />
             </ContenedorPrincipal>
         </div>
     )

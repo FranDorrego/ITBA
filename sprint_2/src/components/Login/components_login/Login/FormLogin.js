@@ -4,20 +4,23 @@ import { Label } from "../Generales/Label"
 import { Subtitulo } from "../Generales/Subtitulo"
 import { LinkCompuesto } from "../Generales/LinkCompuesto"
 import { LabelErrorLogin } from '../Generales/LabelErrorLogin'
-
 import { validarDni, validarUsuario } from '../validadores'
 import swal from 'sweetalert'
 import { useNavigate } from 'react-router-dom'
 import { useForm } from 'react-hook-form'
+import { useContext } from 'react'
+import { contextUser } from '../../../context/contextUser'
 
 export function FormLogin(){
-    const {register, formState: { errors }, handleSubmit, watch} = useForm();
+    const {register, formState: { errors }, handleSubmit} = useForm();
     const navigate = useNavigate();
+
+    const { aplicarNombre } = useContext(contextUser)
+
     const onSubmit = (data) =>{
         swal("Datos validos, ", `Bienvenido ${data.usuario}`)
         navigate("/dashboard")
-
-        return data.usuario
+        aplicarNombre(data.usuario)
     }
 
     
