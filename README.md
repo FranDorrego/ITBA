@@ -26,11 +26,11 @@ La información se da en formato JSON y se compone de dos partes:
 **![](/docs/API.png)**
 
  1. "Datos" Son los datos de nombre y CBU, Se pueden SET con solo   
-    ingresar a https://itbank.pythonanywhere.com/setCBU/{Nuevo CBU} || https://itbank.pythonanywhere.com/setNombre/{Nuevo Nombre}, Los datos quedan registrados y la próxima vez que se pidan van a ser los que se setearon por esas llamadas.
+    ingresar a https://itbank.pythonanywhere.com/setCBU/{NuevoCBU} || https://itbank.pythonanywhere.com/setNombre/{NuevoNombre}, Los datos quedan registrados y la próxima vez que se pidan van a ser los que se setearon por esas llamadas.
     
  2. "Historial" Es un JSON el cual contiene el Histórico de la cuenta, se guardan las transferencias, prestamos y gastos. Se puede agregar una transferencia/préstamo por estas llamadas.  
-https://itbank.pythonanywhere.com/prestamo/{Monto de prestamo}/{Fecha en MS}
-https://itbank.pythonanywhere.com/transfiere/{Monto de Transferencia}/{Fecha en MS}
+https://itbank.pythonanywhere.com/prestamo/{MontoPrestamo}/{FechaMS}
+https://itbank.pythonanywhere.com/transfiere/{MontoTransferencia}/{FechaMS}
 
 Si por alguna razón se necesita eliminar el historial y restablecer todo al inicio, con tan solo llamar a https://itbank.pythonanywhere.com/reset se resetea todo el historial.
 
