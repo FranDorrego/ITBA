@@ -10,137 +10,84 @@ El grupo que esta creando ITBANK es **iKnowHow** Conformado por:
 
 # Forma de tester
 
-Para testearlo simplemente ingresa a la carpeta **Sprint_2** y ejecuta npm start.
+Para testearlo simplemente ingresa a la carpeta **Sprint_2** y ejecuta **npm start**.
 Este es el inicio de toda la APP, El usuario admitido es:
 
  - **USUARIO:** Cualquiera mayor a 6 letras.
  - **CLAVE:** Cualquiera mayor a 8 Numeros.
- - **DNI :** Cualquiera mayor a 6 letras.
+ - **DNI :** Cualquiera igual a 8 letras.
 
-## <h1>Diseño</h1>
+## <h1>API - ITBANK</h1>
 
-El diseño ha sido concebido con una clara intención, **proyectar una imagen visual que combine modernidad, atractivo, coherencia y una sensación cautivadora.** 
+Para este sprint se creo una API que toma el registro de actividades y las almacena, cuando el código las necesita solo hace una llamada a "https://itbank.pythonanywhere.com/" y recibe toda la información que recaudo a lo largo del tiempo. 
 
-El objetivo es impactar al usuario desde el primer momento y motivar un prolongado compromiso con la página o aplicación. Para lograr esto, se ha dado relevancia en crear un entorno estético que sea capaz de **sorprender al usuario y mantener su interés.**
+La información se da en formato JSON y se compone de dos partes: 
 
-Se ha puesto un énfasis significativo en asegurar que la **experiencia del usuario sea tan fluida** como sea posible, evitando cualquier barrera que pueda generar confusión o dificultad en su interacción con la plataforma. 
+ 1. "Datos" Son los datos de nombre y CBU, Se pueden SET con solo   
+    ingresar a https://itbank.pythonanywhere.com/setCBU/{Nuevo CBU} || https://itbank.pythonanywhere.com/setNombre/{Nuevo Nombre}, Los datos quedan registrados y la próxima vez que se pidan van a ser los que se setearon por esas llamadas.
+    
+ 2. "Historial" Es un JSON el cual contiene el Histórico de la cuenta, se guardan las transferencias, prestamos y gastos. Se puede agregar una transferencia/préstamo por estas llamadas.  
+https://itbank.pythonanywhere.com/prestamo/{Monto de prestamo}/{Fecha en MS}
+https://itbank.pythonanywhere.com/transfiere/{Monto de Transferencia}/{Fecha en MS}
 
-Para conseguirlo se han incorporado **herramientas de manera estratégica** con una **disposición lógica y comprensible** para que estén al alcance del **usuario en todo momento** permitiendo que realicen sus acciones de manera instintiva y sin esfuerzo.
+Si por alguna razón se necesita eliminar el historial y restablecer todo al inicio, con tan solo llamar a https://itbank.pythonanywhere.com/reset se resetea todo el historial.
 
-Este enfoque holístico hacia la arquitectura de la información y la adaptación subraya el compromiso de crear un entorno donde los usuarios no solo **encuentren lo que buscan**, sino que también **disfruten del proceso.**
+## Manejo de API en JS
 
+Para el manejo de las llamas a la API se creo el archivo "Dashboard\components_dashboard\API_Datos_Personales.js". Este archivo tiene 3 Partes claves:
 
+ - Historial() Es el encargado de pedir el historial de la cuenta, si no lo encuentra devuelve el JSON por defecto. Siempre para manejar el historial se lo llama, ya que convierte la fecha de Números a dd/mm/aaaa hh:mm 
+
+ - TotalDineroCuenta() Devuelve un objeto que resume cuanto tiene la cuenta dentro en TOTAL, INGRESO, EGRESO. Solo recorre el objeto que devuelve historial, suma y resta dependiendo el caso. 
+
+ -  PidePrestamo() y EnviaTransferencia() Son dos funciones las cuales toman por paramento un Monto, este tiene que ser un numero positivo siempre. La marca de tiempo se le coloca cuando se llama a la función. Estas devuelve un TRUE o FALSE si se concreto la operación. 
+
+	    
 ## <h1>Distribución de archivos</h1>
 
-El proyecto tiene 3 carpetas principales **Login, Dashboard, assets-globales**. Login es todo el inicio de sesión y registro. Luego Dashboard contiene toda la parte interna del usuario, como paginas de transferencias, prestamos, resúmenes, entre otras paginas. Para ello se utilizo una plantilla en todos los HTML.
+La carpeta principal es **sprint_2\src\components** Dentro de ella se pueden ver 4 Carpetas, 404,  assets-globales, Dashboard, Login que almacenan toda la Aplicación en si.
 
-**assets-globales** contiene los archivos que mas se repiten en todo el proyecto como así también la tipografía. 
+**![](/docs/archivos.png)**
 
-## Plantilla de HTML
+La carpeta principal y mas compleja es **Dashboard**
 
-Esta plantilla se repite en todas las paginas internas del Dashboard, esta contiene un formato de HTML separado de la siguiente forma:
+**![](/docs/modular.png)**
 
-**![](/docs/html.png)**
+En esta imagen se puede ver como es la organización, comenzando por los componentes, cada componente esta separado en una carpeta en particular según su función o su complejidad. 
 
-Menu derecho:  
--   Un div para logo y boton (Es la parte de arriba)
--   Luego son todos "a" que contienen botones.
--   Hay botones con una etiqueta especial “botoes-aux-izquierda” Están ocultos al principio ya que están del lado derecho en la versión desktop pero en versiones de tablet o celulares aparecen.
+A su vez dentro de esta carpeta tenemos un sistema de archivos modularizado en donde cada archivo contiene un elemento en particular, solo en algunos casos en donde dividir era ambiguo o no era conveniente se dejo todo junto en un solo archivo. 
 
-Parte media / General:
--   Hay un div que es el buscador con un input dentro.
--   Luego tenes el div contenedor del contenido de la pagina.
+Gracias a este sistema la reutilización del código fue muy fácil y se puede ver en todas partes. Un ejemplo claro de esto, fue lo que antes era la "plantilla principal" de Footer, menú Izquierdo y derecho en cada HTML, Paso a componentes y luego solo se llama en en componente principal de cada pagina. 
 
-Menú Izquierdo:
--   Tenes un Span el cual contiene la foto del usuario y boton de notificaciones.
--   Tenes otro DIV el cual cambia según la pagina. Este es el centro de la pagina y por lo general es el que mas cambia.
+Un dato no menor a nombrar es que dentro de cada componente hay una jerarquía, En donde el General Agrupa, ordena y es el encargado de pasar las etiquetas a sus hijos para que estos se lo pasen a sus nietos y asi sucesivamente.  
 
-Foder:
--   Este tiene 2 DIV, en cada uno hay un "a" con texto. No dirigen a nada.
--   Hay un 3er div el cual contiene las fotos de redes sociales. También dentro de un `<a>`.
+ - **General**  **![](/docs/general.png)**
+ -  **Hijo**  **![](/docs/hijo.png)**
+ - **Nieto** **![](/docs/nieto.png)**
 
-## Plantilla de CSS
+Y con esta simple estructura que se puede seguir expandiendo para arriba y abajo, se forma este render: 
+	
+**![](/docs/Render.png)**
 
-Esta plantilla es exclusiva de todos los elementos que se repiten. Esta en "assets-globales". Además de ello tiene fotos y tipografías utilizadas en la plantilla. Para ordenar todo utilizamos GRID y FLEX en la mayoría de los elementos. Se compone de la siguiente forma:
+Decimos que se expande para arriba ya que se tomo como General el componente que cambia, pero este a su vez esta dentro de otros componentes que forman toda la pagina. Como los manu laterales, footer y buscadores.
 
-**Body**: Use GRID con 3 columnas a lo ancho y 2 filas a lo alto
-
-![](/docs/css.png)
-
-Dentro de ese GRID principal, cada elemento usa GRID nuevamente para organizarse. Internamente de cada elemento vuelve a dividirse según lo que tenga. Pero en este último caso, se maneja con flex.
-![](/docs/grid.png)
-
-La etiqueta "a" Fue sobre escrita en el CSS principal en estilos ya que se utilizaba muy seguido en todo el proyecto.
-
-![](/docs/a-etiqueta.png)
-
-El resto de componentes están orientados en FLEX están alineados ya sea con -center o con los márgenes del componente.
-
-## RESPONSIVE
-
-Solo se adaptó a desktop, tablet y celular. Para ello se ocultan algunos elementos y se trasladan a otro lado. (Se habla de este tema en HTML)
-
-![](/docs/responsive.png)
-
-Además de ello, algunos div se vuelven scrol:
-
-![](/docs/scrol.png)
+**![](/docs/Render-Global.png)**
 
 
-##  <h1>JavaScript</h1>
+## <h1>Router || SPA</h1>
 
-Para realizar el JS decidimos juntar todos los archivos en una misma carpeta llamada scripts y de esta manera tener todos agrupados en un mismo lugar, para que a la hora de buscarlos sea más cómodo y rápido. A su vez, los nombres de los archivos están asociados a su HTML correspondiente, por ejemplo, prestamos.js está relacionado con el prestamos.html, esto lo realizamos tanto para el Dashboard como para el Login. 
+Para poder navegar utilizamos Router para que solo cambie el centro (Contenedor principal) y los demás componentes no recargarían de nuevo.
 
-![](/docs//archivos.png)
+Gran parte de la navegación lo manejan los Menú Laterales con Link 
 
-El archivo llamado **CONSTATES.js** lo utilizamos para guardar variables y funciones globales como, por ejemplo, para actualizar el saldo, que si realizamos un préstamo en otra página que esto se vea reflejado y la misma funcionalidad para las transferencias.
+**![](/docs/router.png)**
 
-Para la parte de **cambio-divisas.js**:
+## <h1>CSS modules</h1>
 
-- Convertir, la cual toma el valor ingresado para la moneda de origen, cuando se presiona el botón para convertir realiza el cálculo correspondiente a las divisas seleccionadas y lo refleja en el input de monto convertido.
-- Dos funciones que cambian la imagen, una para la moneda de origen y la otra el monto convertido. Acá cada vez que se selecciona otra opción de moneda realiza el cambio de imagen correspondiente.
-<div>
-
-1) Estado Base
-
-![](/docs/arg_dolares.png) 
-
-2) Busco la opción
-
-![](/docs/menu.png) 
-
-3) Selecciono y se cambia la bandera
-
-![](/docs/arg_brasil.png)
-
-</div>
+Elegimos utilizar CSS Modules en vez de una librería ya que gran parte de nuestros estilos son específicos de nuestra pagina, por lo tanto vimos que era mas practico modularizar el CSS que ya teníamos antes de agregar una librería nueva y tener que customizar desde cero. 
 
 
 
-Luego para el **prestamos.js** tiene 3 funciones:
- 
- - Hay dos eventos asociados al pop-up, uno para abrirlo y otro para cerrarlo.
- - Una función de re-direccionamiento a la sección de formulario para el préstamo.
+## <h1>Documentación del sprint Anterior</h1>
 
-Después el formulario-prestamos.js:
-
- - Tiene una única función la cual se encarga de simular el préstamo
-   solicitado para que el cliente vea con detalle cómo se realizara, el
-   ingresa el monto que quiere y en cuantas cuotas, se calcula con los
-   intereses como quedarían las cuotas, los intereses a pagar y el
-   total. En la misma función se encarga de evaluar las excepciones
-   posibles a la hora de realizar el formulario.
-
-Por último **transferencias.js**:
-
- - 2 eventos que se encargan de cambiar el efecto visual de seleccionado
-   para los botones de “nueva transferencia” y “transferir a mis
-   cuentas”.
-
-![](/docs/nuevo_select.png)
-
-![](/docs/transfer_select.png)
-
- - También otro evento que se encarga de atrapar las excepciones y
-   comunicar al usuario el problema hallado.
-
+**![](./sprint_1/README.md)**
