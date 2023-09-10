@@ -9,7 +9,7 @@ export function TrajetasSaludo(){
         <div className={estilosDashboard.tarjetasDashboard}>
             <span className={`${estilosDashboard.tarjetas} ${estilosDashboard.saldo}`}>
                 <h1>Total en cuenta</h1>
-                <h2 id="saldo-cuenta-valor">{datosBase.total}</h2>
+                <h2 id="saldo-cuenta-valor">$ {datosBase.total}</h2>
             </span>
 
             <span className={`${estilosDashboard.tarjetas} ${ estilosDashboard.ingresoTarjeta}`}>
