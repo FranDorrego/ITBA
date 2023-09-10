@@ -435,8 +435,16 @@ footer{
 
     .menuDerecho,
     .botonLetra,
-    .menuLogo {
+    .menuButton {
         display: none;
+    }
+
+    .menuLogo{
+        width: 60px;
+        align-items: center;
+        padding-top: 2rem;
+        padding-bottom: 1rem;
+        border-bottom: 2px solid #FFF;
     }
 
     /*-- buscador ---*/
@@ -469,8 +477,16 @@ footer{
     .user,
     .membrete,
     .botonLetra,
-    .menuLogo {
+    .menuButton {
         display: none;
+    }
+
+    .menuLogo{
+        width: 60px;
+        align-items: center;
+        padding-top: 3rem;
+        padding-bottom: 1rem;
+        border-bottom: 2px solid #FFF;
     }
 
     .gridDashboard{
