@@ -415,6 +415,20 @@
     border: none;
 }
 
+.motivoTexto{
+    display: flex;
+    margin-left: auto; /* Empuja el elemento hacia la derecha */
+    margin-bottom: 0;
+    align-self: flex-end; 
+    font-family: Poppins;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    border: none;
+    color: #555555;
+}
+
 .ingreso{
     color: #7ED957;
     

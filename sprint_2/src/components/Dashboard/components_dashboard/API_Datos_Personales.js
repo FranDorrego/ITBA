@@ -2,14 +2,15 @@
 import { useEffect, useState } from 'react';
 
 // Es mi variable de base por si falla la llamada a la API
-const DatosApi=[ 
-                {monto : 5500, fecha : 123456 , ingreso : true}, 
-                {monto : 1560, fecha : 123456 , ingreso : false},
-                {monto : 1230, fecha : 123456 , ingreso : true}, 
-                {monto : 8850, fecha : 123456 , ingreso : true},
-            ];
+const HistoricoMoviminetos=[ 
+    {monto : 5500, motivo : "Prestamo" ,fecha : 123456 , ingreso : true}, 
+    {monto : 1560, motivo : "Transferencia" ,fecha : 123456 , ingreso : false},
+    {monto : 1230, motivo : "Prestamo" ,fecha : 123456 , ingreso : true}, 
+    {monto : 8850, motivo : "Prestamo" ,fecha : 123456 , ingreso : true},
+];
 
-const NombreBase = "Juan"
+
+const NombreBase = "Juan Villaruel"
 const CBUBase = "0000065134214875642"
 const CuentaBase = "CA$ 61058478692"
 const BaseDatosPersonales = {"NombreBase" : NombreBase, "CBUBase" : CBUBase ,"CuentaBase" : CuentaBase }
@@ -24,9 +25,9 @@ export function Historial() {
         .then((response) => response.json())
         .then((data) => setDatos(data))
         .catch((error) => console.error('Error:', error));
-    }, DatosApi); 
+    }, HistoricoMoviminetos); 
   
-    return DatosApi ;
+    return HistoricoMoviminetos ;
 }
 
 // Con esta funcion devuelvo el dinero que tiene la cuenta dentro
