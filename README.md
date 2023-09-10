@@ -23,6 +23,8 @@ Para este sprint se creo una API que toma el registro de actividades y las almac
 
 La información se da en formato JSON y se compone de dos partes: 
 
+**![](/docs/API.png)**
+
  1. "Datos" Son los datos de nombre y CBU, Se pueden SET con solo   
     ingresar a https://itbank.pythonanywhere.com/setCBU/{Nuevo CBU} || https://itbank.pythonanywhere.com/setNombre/{Nuevo Nombre}, Los datos quedan registrados y la próxima vez que se pidan van a ser los que se setearon por esas llamadas.
     
