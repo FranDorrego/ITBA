@@ -61,9 +61,12 @@ Gracias a este sistema la reutilización del código fue muy fácil y se puede v
 
 Un dato no menor a nombrar es que dentro de cada componente hay una jerarquía, En donde el General Agrupa, ordena y es el encargado de pasar las etiquetas a sus hijos para que estos se lo pasen a sus nietos y asi sucesivamente.  
 
- - **General**  **![](/docs/general.png)**
- -  **Hijo**  **![](/docs/hijo.png)**
- - **Nieto** **![](/docs/nieto.png)**
+ - **General**  
+    **![](/docs/general.png)**
+ -  **Hijo**    
+    **![](/docs/hijo.png)**
+ - **Nieto**    
+    **![](/docs/nieto.png)**
 
 Y con esta simple estructura que se puede seguir expandiendo para arriba y abajo, se forma este render: 
 	
@@ -90,4 +93,4 @@ Elegimos utilizar CSS Modules en vez de una librería ya que gran parte de nuest
 
 ## <h1>Documentación del sprint Anterior</h1>
 
-**![](./sprint_1/README.md)**
+**![Documentación](./sprint_1/README.md)**
