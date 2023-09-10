@@ -47,3 +47,15 @@
     line-height: normal;
     cursor: pointer;
 }
+
+/* Para tablet */
+@media (max-width: 1024px) {
+    .tarjeta{
+        margin: 0;
+    }
+    .copiar,
+    .titulo{
+        font-size: 0.8rem;
+    }
+
+}
