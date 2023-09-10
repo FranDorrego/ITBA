@@ -2,8 +2,18 @@
 import { useEffect, useState } from 'react';
 
 // Es mi variable de base por si falla la llamada a la API
-const DatosApi=[ {monto : 150, fecha : 123456 , ingreso : true}, {monto : 150, fecha : 123456 , ingreso : false} ];
+const DatosApi=[ 
+                {monto : 5500, fecha : 123456 , ingreso : true}, 
+                {monto : 1560, fecha : 123456 , ingreso : false},
+                {monto : 1230, fecha : 123456 , ingreso : true}, 
+                {monto : 8850, fecha : 123456 , ingreso : true},
+            ];
+
 const NombreBase = "Juan"
+const CBUBase = "0000065134214875642"
+const CuentaBase = "CA$ 61058478692"
+const BaseDatosPersonales = {"NombreBase" : NombreBase, "CBUBase" : CBUBase ,"CuentaBase" : CuentaBase }
+
 
 // Con esta funcion actualizo los datos de los pedidos
 export function Historial() {
@@ -42,7 +52,7 @@ export function TotalDineroCuenta() {
     return {"total": total, "ingresos": ingresos, "retiros": retiros};
 }
 
-// Devuelvo el nombre del usuario
+// Devuelvo el nombre y daots del usuario
 export function Nombre() {
     const [nombre, setNombre] = useState(null);
   
@@ -51,7 +61,7 @@ export function Nombre() {
         .then((response) => response.json())
         .then((data) => setNombre(data))
         .catch((error) => console.error('Error:', error));
-    }, NombreBase); 
+    }, [BaseDatosPersonales]); 
   
-    return NombreBase ;
+    return BaseDatosPersonales ;
 }

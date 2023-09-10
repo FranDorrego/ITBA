@@ -3,9 +3,7 @@ import estilosDashboard from '../../styleDashboard.module.css'
 import { Buscador } from '../Principal/Buscador';
 import { ContenedorPrincipal } from '../Principal/ContenedorPrincipal';
 import { Movimientos } from '../Principal/Movimientos';
-import { TarjetaMovimientoIngreso } from '../Principal/TarjetaMovimientoIngreso';
-import { TarjetaMovimientoRetiro } from '../Principal/TarjetaMovimientoRetiro';
-import { Historial } from '../API.js'
+import { HistorialTarjetas } from './HistorialTarjetas.js'
 
 
 export function ContenidoActividad(){
@@ -15,22 +13,14 @@ export function ContenidoActividad(){
             <ContenedorPrincipal>
                 <h1 className={estilosDashboard.movimientosTitulo}>Ultimos movimientos {">"} </h1>
                 <Movimientos>
-                <ExaminaDatos />
+                <HistorialTarjetas />
                 </Movimientos>
             </ContenedorPrincipal>
         </div>
     )
 }
 
-function ExaminaDatos(){
-    return Historial().map((movimiento, index) => {
-        if (movimiento.ingreso){
-            return ( <TarjetaMovimientoIngreso key={index} monto={movimiento.monto} fecha={movimiento.fecha}/> );
-        }else{
-            return ( <TarjetaMovimientoRetiro key={index} monto={movimiento.monto} fecha={movimiento.fecha}/> );
-        }
-    })
-}
+
 
 
 

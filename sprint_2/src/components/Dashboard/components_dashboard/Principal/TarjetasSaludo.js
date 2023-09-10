@@ -1,5 +1,5 @@
 import estilosDashboard from '../../styleDashboard.module.css'
-import { TotalDineroCuenta } from '../API.js'
+import { TotalDineroCuenta } from '../API_Datos_Personales.js'
 
 export function TrajetasSaludo(){
 

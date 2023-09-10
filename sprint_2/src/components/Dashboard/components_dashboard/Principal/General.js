@@ -4,34 +4,24 @@ import { Buscador } from './Buscador';
 import { ContenedorPrincipal } from './ContenedorPrincipal';
 import { Saludo } from './Saludo';
 import { Movimientos } from './Movimientos';
-import { TarjetaMovimientoIngreso } from './TarjetaMovimientoIngreso';
-import { TarjetaMovimientoRetiro } from './TarjetaMovimientoRetiro';
 import { TrajetasSaludo } from './TarjetasSaludo';
-import { Historial, Nombre } from '../API.js'
+import { Nombre } from '../API_Datos_Personales.js'
+import { HistorialTarjetas } from '../PrincipalActividad/HistorialTarjetas.js'
 
 export function General(){
+    let Datos = Nombre();
     return(
         <div className={estilosPlantilla.general}>
             <Buscador />
             <ContenedorPrincipal>
-                <Saludo usuario={Nombre()} texto="Hola, "/>
+                <Saludo usuario={Datos.NombreBase} texto="Hola, "/>
                 <TrajetasSaludo />
                 <h1 className={estilosDashboard.movimientosTitulo}>Ultimos movimientos {">"} </h1>
                 <Movimientos>
-                <ExaminaDatos />
+                <HistorialTarjetas />
                 </Movimientos>
             </ContenedorPrincipal>
         </div>
     )
 }
 
-function ExaminaDatos(){
-    let historial = Historial();
-    return historial.map((movimiento, index) => {
-        if (movimiento.ingreso){
-            return ( <TarjetaMovimientoIngreso key={index} monto={movimiento.monto} fecha={movimiento.fecha}/> );
-        }else{
-            return ( <TarjetaMovimientoRetiro key={index} monto={movimiento.monto} fecha={movimiento.fecha}/> );
-        }
-    })
-}
