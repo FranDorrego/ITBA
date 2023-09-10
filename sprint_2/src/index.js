@@ -13,7 +13,7 @@ import Transferencias from './components/Dashboard/routes/Transferencias';
 import Error from './components/Dashboard/routes/Error'
 import Cuentas from './components/Dashboard/routes/Cuentas'
 import Actividad from './components/Dashboard/routes/Actividad'
-
+import State from './components/context/State';
 const router = createBrowserRouter([
   { /* CONSULLTAR SI ESTO ESTA BIEN, ESTA HECHO PQ CUANDO ARRANCA LA APP SE VA AL "/", PERO QUIERO Q EL MAIN SEA EL LOGIN
     LA OTRA ES CAMBIAR DONDE SIEMPRE DIGA "/login" POR "/" Y SACAR EL DE ABAJO*/
@@ -69,9 +69,12 @@ const router = createBrowserRouter([
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
-    <RouterProvider router={router} />
-  </React.StrictMode>
+  <State >
+    <React.StrictMode>
+      <RouterProvider router={router} />
+    </React.StrictMode>
+  </State>
+
 );
 
 // If you want to start measuring performance in your app, pass a function

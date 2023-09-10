@@ -1,16 +1,69 @@
 import React from 'react';
 import estilosDashboard from '../../styleDashboard.module.css'
 import { Saludo } from '../Principal/Saludo';
+import swal from 'sweetalert'
+import { useForm } from 'react-hook-form'
+import { LabelErrorLogin } from '../../../Login/components_login/Generales/LabelErrorLogin';
+import { validarImporte } from './validate/validarImporte';
+import { EnviaTransferencia } from '../API_Datos_Personales';
+// import { validarCBU } from './validate/validarCBU';
 
 // Componente para el formulario de transferencia
 export function TransFormulario (){
+
+    const {register, formState: { errors }, handleSubmit} = useForm();
+
+    const onSubmit = (data) =>{
+      swal("Transferencia realizada", "Monto: " + (data.importe))
+      console.log(parseFloat(data.importe)) // ESTO ES PARA QUE VEAS EL VALOR QUE TIRA 
+      // EnviaTransferencia(parseFloat(data.importe)) // ACA SE LLAMA A LA FUNCION
+    }
+
     return (
-      <form action="" className={estilosDashboard.transFormulario}>
-        <RadioDiv />
-        <InputDiv placeholder="Ingrese..." id="cbu_alias" />
-        <ImporteDiv />
+      <form action="" className={estilosDashboard.transFormulario} onSubmit={handleSubmit(onSubmit)}>
+        <RadioDiv>
+          <span className={estilosDashboard.transFormularioSpan}>
+            <input type="radio" id="cbu" className={estilosDashboard.transFormularioRadio} name="opcion-radio" 
+            {...register("cbuAliasRadio", {
+              required:true
+            })}
+            
+            />
+            <label>CBU / CVU</label>
+          </span>
+          <span className={estilosDashboard.transFormularioSpan}>
+            <input type="radio" id="alias" className={estilosDashboard.transFormularioRadio} name="opcion-radio" 
+            {...register("cbuAliasRadio", {
+              required:true,
+            })}/>
+            <label>ALIAS</label>
+          </span>
+        </RadioDiv>
+        { errors.cbuAliasRadio?.type === 'required' &&  <LabelErrorLogin>CBU/CVU/ALIAS/ requerido</LabelErrorLogin>}
+
+        <input placeholder="Ingrese..." id="cbu_alias" type="text" className={estilosDashboard.transInputs}
+        {...register('cbuAlias', {
+                    required:true,
+                    // validate: validarCBU
+                })}/>
+        { errors.cbuAlias?.type === 'required'  && <LabelErrorLogin>CBU/CVU/ALIAS/ requerido</LabelErrorLogin> }
+        {/* { errors.cbuAlias && <LabelErrorLogin>CBU/CVU no valido</LabelErrorLogin> } */}
+
+        <ImporteDiv>
+                        
+          <input placeholder="Ingrese..." id="importe"  type="number" className={estilosDashboard.transInputs}
+          {...register('importe', 
+          {
+            required:true,
+            validate: validarImporte
+          })}
+          />
+        </ImporteDiv>
+
+        { errors.importe?.type === 'required'  && <LabelErrorLogin>Importe requerido</LabelErrorLogin> }
+        { errors.importe && <LabelErrorLogin>Importe no valido</LabelErrorLogin> }
         <MotivoDiv />
-        <button type="button" className={estilosDashboard.transBotones} id="boton-transferir" >
+        <button type="submit" className={estilosDashboard.transBotones} id="boton-transferir" >
           <h1>Transferir</h1>
         </button>
       </form>
@@ -18,35 +71,21 @@ export function TransFormulario (){
   };
   
 // Componente para las opciones de radio
-const RadioDiv = () => {
+const RadioDiv = ({children}) => {
 return (
     <div className={estilosDashboard.transFormularioRadioDiv}>
-    <RadioOpcion id="CBU" name="opcion-radio" label="CBU / CVU" />
-    <RadioOpcion id="alias" name="opcion-radio" label="ALIAS" />
+      {children}
     </div>
 );
 };
 
-const RadioOpcion = ({ id, name, label }) => {
-return (
-    <span className={estilosDashboard.transFormularioSpan}>
-    <input type="radio" id={id} className={estilosDashboard.transFormularioRadio} name={name} />
-    <label>{label}</label>
-    </span>
-);
-};
-
-// Componente para los campos de input
-const InputDiv = ({ placeholder, id }) => {
-return <input type="text" placeholder={placeholder} className={estilosDashboard.transInputs} id={id} />;
-};
 
 // Componente para el importe
-const ImporteDiv = () => {
+const ImporteDiv = ({children}) => {
 return (
     <div className={estilosDashboard.transFormulario}>
     <Saludo texto="Importe*" />
-    <InputDiv placeholder="Ingrese..." id="importe" />
+    {children}
     <h1 className={estilosDashboard.AchicaLetra}>
         *El importe mínimo a transferir es de $ 1 y el máximo es de de dos salarios mínimos vitales y
         móviles.

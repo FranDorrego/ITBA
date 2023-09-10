@@ -7,14 +7,19 @@ import { Movimientos } from './Movimientos';
 import { TrajetasSaludo } from './TarjetasSaludo';
 import { Nombre } from '../API_Datos_Personales.js'
 import { HistorialTarjetas } from '../PrincipalActividad/HistorialTarjetas.js'
+import { useContext } from 'react';
+import { contextUser } from '../../../context/contextUser';
 
 export function General(){
+    const { user } = useContext(contextUser)
+
+
     let Datos = Nombre();
     return(
         <div className={estilosPlantilla.general}>
             <Buscador />
             <ContenedorPrincipal>
-                <Saludo usuario={Datos.NombreBase} texto="Hola, "/>
+                <Saludo usuario={user} texto="Hola, "/>
                 <TrajetasSaludo />
                 <h1 className={estilosDashboard.movimientosTitulo}>Ultimos movimientos {">"} </h1>
                 <Movimientos>
@@ -22,6 +27,8 @@ export function General(){
                 </Movimientos>
             </ContenedorPrincipal>
         </div>
+
+
     )
 }
 
