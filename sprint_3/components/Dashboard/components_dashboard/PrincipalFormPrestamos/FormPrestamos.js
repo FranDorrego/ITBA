@@ -1,7 +1,7 @@
 import estilosDashboard from '../../styleDashboard.module.css'
 import { useForm } from 'react-hook-form';
 import swal from 'sweetalert';
-import { LabelErrorLogin } from '../../../Login/components_login/Generales/LabelErrorLogin';
+import { LabelErrorLogin } from '../../../Login/Generales/LabelErrorLogin';
 import { SimuladorPrestamo } from './SimuladorPrestamo';
 import { useState } from 'react';
 

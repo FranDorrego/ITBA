@@ -1,5 +1,5 @@
 import tarjetaCompleta from '../../assets/tarjeta-completa.svg'
-import estilosDashboard from '../../styleDashboard.module.css'
+import estilosDashboard from '@/styles/styleDashboard.module.css'
 
 export function Tarjeta(){
     return(

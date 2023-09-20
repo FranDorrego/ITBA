@@ -1,4 +1,5 @@
-import estilosDashbaord from '../../styleDashboard.module.css'
+import estilosDashboard from '@/styles/styleDashboard.module.css'
+
 
 export function ContenedorMonto(props){
     const{        
@@ -12,14 +13,14 @@ export function ContenedorMonto(props){
         onChangeAmount
     } = props;
     return(
-        <div className={estilosDashbaord.movimientosTarjeta}>
-            <span className={`${estilosDashbaord.movimientoTexto} ${estilosDashbaord.divisaText}`}>
+        <div className={estilosDashboard.movimientosTarjeta}>
+            <span className={`${estilosDashboard.movimientoTexto} ${estilosDashboard.divisaText}`}>
                 <h2>{textPrincipal}</h2>
                 <input type="number" name="origen" id="origen" placeholder={placeholder} value={amount} onChange={onChangeAmount}/>
             </span>
             
-            <div className={estilosDashbaord.divisas} onChange={onChangeCurrency}>
-                <span className={estilosDashbaord.motivo}>
+            <div className={estilosDashboard.divisas} onChange={onChangeCurrency}>
+                <span className={estilosDashboard.motivo}>
                 </span>
                 <span>
                     <select name="" id="option1" value={selectedCurrency}> 

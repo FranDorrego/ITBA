@@ -1,5 +1,4 @@
-import estilosPlantilla from '../../../assets-globales/stylePlantilla.module.css'
-import estilosDashboard from '../../styleDashboard.module.css'
+import estilosPlantilla from '@/styles/stylePlantilla.module.css'
 
 export function ContenedorPrincipal({children}){
     return(

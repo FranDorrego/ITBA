@@ -1,4 +1,4 @@
-import estilosPlantilla from '../../../assets-globales/stylePlantilla.module.css'
+import estilosPlantilla from '@/styles/stylePlantilla.module.css'
 import { Buscador } from '../Principal/Buscador';
 import { ContenedorPrincipal } from '../Principal/ContenedorPrincipal';
 import { Saludo } from '../Principal/Saludo';

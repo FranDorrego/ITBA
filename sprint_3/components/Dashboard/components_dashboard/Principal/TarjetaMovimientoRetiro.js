@@ -1,5 +1,5 @@
-import retiro from '../../assets/circle-arrow-up.svg'
-import estilosDashboard from '../../styleDashboard.module.css'
+import estilosDashboard from '@/styles/styleDashboard.module.css'
+
 
 
 export function TarjetaMovimientoRetiro({monto, fecha, motivo}){
@@ -14,7 +14,7 @@ export function TarjetaMovimientoRetiro({monto, fecha, motivo}){
 
             <span className={estilosDashboard.motivo}>
                 <h1 className={estilosDashboard.retiro}>retiro</h1>
-                <img src={retiro} alt="retiro" />
+                <img src='/circle-arrow-up.svg' alt="retiro" />
             </span>
         </div>
     )

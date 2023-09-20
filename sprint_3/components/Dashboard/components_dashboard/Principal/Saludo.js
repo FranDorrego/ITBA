@@ -1,7 +1,4 @@
-import { contextUser } from '../../../context/contextUser'
-import estilosDashboard from '../../styleDashboard.module.css'
-import { useContext } from 'react'
-
+import estilosDashboard from '@/styles/styleDashboard.module.css'
 
 export function Saludo({ usuario, texto, children}){
 

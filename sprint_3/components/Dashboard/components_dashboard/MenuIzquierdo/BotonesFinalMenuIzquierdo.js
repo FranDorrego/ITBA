@@ -1,8 +1,9 @@
-import estiloPlantilla from '../../../assets-globales/stylePlantilla.module.css'
+import estilosPlantilla from '@/styles/stylePlantilla.module.css'
+
 
 export function BotonesFinalMenuIzquierdo({children}){
     return(
-        <div className={estiloPlantilla.menuFooter}>
+        <div className={estilosPlantilla.menuFooter}>
             {children}
         </div>
     )

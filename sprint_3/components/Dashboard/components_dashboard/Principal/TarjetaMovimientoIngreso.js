@@ -1,5 +1,5 @@
-import ingreso from '../../assets/circle-arrow-down.svg'
-import estilosDashboard from '../../styleDashboard.module.css'
+import estilosDashboard from '@/styles/styleDashboard.module.css'
+
 
 export function TarjetaMovimientoIngreso({monto, fecha, motivo}){
     return(
@@ -13,7 +13,7 @@ export function TarjetaMovimientoIngreso({monto, fecha, motivo}){
 
             <span className={estilosDashboard.motivo}>
                 <h1 className={estilosDashboard.ingreso}>Ingreso</h1>
-                <img src={ingreso} alt="ingreso" />
+                <img src='/circle-arrow-down.svg' alt="ingreso" />
             </span>
             
         </div>

@@ -1,6 +1,5 @@
-import notificacion from '../../../assets-globales/assets/notifica.svg'
-import avatar from '../../../assets-globales/assets/Avatar.svg'
-import estilosPlantilla from '../../../assets-globales/stylePlantilla.module.css'
+import estilosPlantilla from '@/styles/stylePlantilla.module.css'
+
 
 
 
@@ -8,9 +7,9 @@ export function SpanDerecho({id}){
     return(
         <span className={estilosPlantilla.user} >
             <button>
-                <img src={notificacion} alt="" /> 
+                <img src='/notifica.svg' alt="" /> 
             </button>
-            <img className={estilosPlantilla.userFoto} src={avatar} alt="user" id={id}/>
+            <img className={estilosPlantilla.userFoto} src='/Avatar.svg' alt="user" id={id}/>
         </span>
 
     )

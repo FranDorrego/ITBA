@@ -1,4 +1,5 @@
-import estilosDashboard from '../../styleDashboard.module.css'
+import estilosDashboard from '@/styles/styleDashboard.module.css'
+
 
 
 export function ElementosMenuDercho({children}){

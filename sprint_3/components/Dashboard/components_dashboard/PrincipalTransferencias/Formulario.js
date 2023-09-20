@@ -3,7 +3,7 @@ import estilosDashboard from '../../styleDashboard.module.css'
 import { Saludo } from '../Principal/Saludo';
 import swal from 'sweetalert'
 import { useForm } from 'react-hook-form'
-import { LabelErrorLogin } from '../../../Login/components_login/Generales/LabelErrorLogin';
+import { LabelErrorLogin } from '../../../Login/Generales/LabelErrorLogin';
 import { validarImporte } from './validate/validarImporte';
 import { EnviaTransferencia } from '../API_Datos_Personales';
 // import { validarCBU } from './validate/validarCBU';

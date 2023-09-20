@@ -1,7 +1,7 @@
 import estilosDashboard from '../../styleDashboard.module.css'
 import logoMonedas from '../../assets/Ilustración.png'
 import arrow from '../../assets/arrow-right.svg'
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 
 export function DialogPrestamo(){
 
@@ -18,7 +18,7 @@ export function DialogPrestamo(){
                 <img src={logoMonedas} alt="monedas" className={estilosDashboard.imgMonedas} />
                 <div className={estilosDashboard.dialogDivBotones}>
                     <button className={`${estilosDashboard.btnCerrar} ${estilosDashboard.btnDialog}`} type="button" onClick={cerraModal}>Cerrar</button>
-                    <Link to={"/formularioPrestamos"}>
+                    <Link href={"/formularioPrestamos"}>
                         <button  className={`${estilosDashboard.btnDialog}`} type="button">
                             Analizar
                             <img src={arrow} alt="arrow" className="arrow" />

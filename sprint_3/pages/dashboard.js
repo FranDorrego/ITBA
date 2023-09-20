@@ -1,11 +1,25 @@
-import React from 'react'
-import { useSearchParams } from 'next/navigation'
 
-export default function dashboard() {
+import { MenuIzquierdo } from '../components/Dashboard/components_dashboard/MenuIzquierdo/MenuIzquierdo';
 
-    const user = useSearchParams();
-    const usuario = user.get('user')
-  return (
-    <h1>{usuario}</h1>
-  )
+import { MenuDerecho } from '../components/Dashboard/components_dashboard/MenuDerecho/MenuDerecho';
+
+import { Footer } from '../components/Dashboard/components_dashboard/Footer/Footer';
+
+import { General } from '../components/Dashboard/components_dashboard/Principal/General';
+
+import estilosPlantilla from '@/styles/stylePlantilla.module.css'
+
+
+
+function Index(){
+    return(
+            <div className={ estilosPlantilla.gridDashboard }> 
+                <MenuIzquierdo />
+                <General />
+                <MenuDerecho />
+                <Footer />
+            </div>
+    )
 }
+
+export default Index;

@@ -1,14 +1,14 @@
 /*- Tipografias -*/
 @font-face {
     font-family: 'Poppins';
-    src: url('../assets-globales/fuentes/Poppins/Poppins-Light.ttf') format('truetype');
+    src: url('/fonts/Poppins-Light.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'Space Grotesk';
-    src: url('../assets-globales/fuentes/Space_Grotesk/static/SpaceGrotesk-Light.ttf') format('truetype');
+    src: url('/fonts/SpaceGrotesk-Light.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
@@ -31,19 +31,6 @@
     grid-template-rows: 90vh 10;
 }
 
-
-a {
-    text-decoration: none;  /* Elimina el subrayado */
-    color: inherit;  /* Hereda el color del texto del elemento padre */
-    background-color: transparent;  /* Fondo transparente */
-    cursor: pointer;  /* Cambia el cursor a "mano" al pasar el ratón por encima */
-    outline: none;  /* Elimina el contorno que se muestra al hacer clic en el enlace */
-    border: none;  /* Elimina cualquier borde */
-    padding: 0;  /* Elimina el relleno */
-    margin: 0;  /* Elimina los márgenes */
-    font-size: inherit;  /* Hereda el tamaño de fuente del elemento padre */
-    font-family: inherit;  /* Hereda la familia de fuentes del elemento padre */
-}
 
 /*- Propiedades del menu -*/
 .menu{
@@ -323,19 +310,7 @@ a {
 }
 
 /*- Pie de pagina -*/
-footer{
-    grid-row-start: 3;
-    grid-column-start: 1;
-    grid-column-end: 4;
 
-    border-top: 0.0625rem solid rgba(255, 255, 255, 0.20);
-
-    margin-top: 0rem;
-
-    display: grid;
-    grid-template-columns: 33% 33% 34%;
-    align-items: center;
-}
 
 .footerText{
     margin-left: 2.06rem;

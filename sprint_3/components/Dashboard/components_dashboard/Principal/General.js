@@ -1,25 +1,22 @@
-import estilosPlantilla from '../../../assets-globales/stylePlantilla.module.css'
-import estilosDashboard from '../../styleDashboard.module.css'
+import estilosPlantilla from '@/styles/stylePlantilla.module.css'
+import estilosDashboard from '@/styles/styleDashboard.module.css'
 import { Buscador } from './Buscador';
 import { ContenedorPrincipal } from './ContenedorPrincipal';
 import { Saludo } from './Saludo';
 import { Movimientos } from './Movimientos';
 import { TrajetasSaludo } from './TarjetasSaludo';
-import { Nombre } from '../API_Datos_Personales.js'
 import { HistorialTarjetas } from '../PrincipalActividad/HistorialTarjetas.js'
-import { useContext } from 'react';
-import { contextUser } from '../../../context/contextUser';
+import { useSearchParams } from 'next/navigation'
 
 export function General(){
-    const { user } = useContext(contextUser)
+    const user = useSearchParams();
+    const usuario = user.get('user')
 
-
-    let Datos = Nombre();
     return(
         <div className={estilosPlantilla.general}>
             <Buscador />
             <ContenedorPrincipal>
-                <Saludo usuario={user} texto="Hola, "/>
+                <Saludo usuario={usuario} texto="Hola, "/>
                 <TrajetasSaludo />
                 <h1 className={estilosDashboard.movimientosTitulo}>Ultimos movimientos {">"} </h1>
                 <Movimientos>
