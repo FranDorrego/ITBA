@@ -1,0 +1,928 @@
+
+/*---------------------- CONTENIDO DEL MENU DERECHO - ESTOS ESTILOS CAMBIAN SEGUN LA PAGINA --------------*/
+.menuDerechoElementos{
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+/*- Titulo -*/
+.titulo{
+    width: auto;
+    color: #FFF;
+    font-family: Poppins;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+
+    margin-top: 2.31rem;
+    margin-bottom: 1.75rem;
+}
+
+/*- Botones -*/
+.derechoBoton{
+    width: 100%;
+    height: 3.375rem;
+
+    margin-bottom: 0.75rem;
+    padding: 0.75rem 1.5rem;
+
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    align-self: stretch;
+    
+    border-radius: 0.75rem;
+    border: 2px solid #8933F5;
+    background: rgba(137, 51, 245, 0.05);
+    cursor: pointer;
+}
+
+.derechoBoton:hover{
+    border-radius: 0.75rem;
+    border: 2px solid white;
+    background: rgba(255, 255, 255, 0.20);
+}
+
+.accionesBotonesImage{
+    color: #C59BFA;
+    text-align: center;
+    font-size: 1.125rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    cursor: pointer;
+}
+
+.accionesBotonesLetra{
+    color: #C59BFA;
+    font-family: Poppins;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    cursor: pointer;
+}
+
+.btnAbrir,
+.btnDialog{
+    font-size: 18px;
+    display: flex;
+    align-items: end;
+    border-radius: .5em;
+    background: #8933F5;
+    color: white;
+    text-align: center;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.btnAbrir:hover{
+        background-color: #C59BFA;
+        color: black;
+    }
+    
+    
+
+/*------ Dialog -----*/
+.dialogDiv{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.dialog{
+    color: black; 
+    border: solid 2px black;
+    background-color: white;
+    border-radius: 3%;
+}
+
+.saludoDialog{
+    color: black;
+    font-family: Poppins;
+    font-size: 1.5rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    font-weight: bold;
+}
+
+.movimientosTituloDialog{
+    width: 85%;
+    
+    color: black;
+    font-family: Poppins;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.imgMonedas{
+    height: 236.825px;
+    width: 236.825px;
+    max-width: 100%;
+    max-height: 100%;
+    display: flex;
+}
+
+.dialogDivBotones{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+/*------ Tarjeta -----*/
+
+.tituloTarjeta{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.tituloTarjeta h1{
+    margin-top: 2.12rem;
+    margin-bottom: 1.17rem;
+    width: 4.375rem;
+    color: #FFF;
+    font-family: Poppins;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+/*------ Render de tarjeta-----*/
+.tarjeta {
+    display: flex;
+
+    width: 15vw;
+    height: 8rem;
+
+    border-radius: 1.148rem;
+    overflow: hidden;
+    position: relative;
+
+}
+
+.fondo,
+.degrade,
+.visa {
+    position: absolute;
+    top: 0;
+    left: 0;
+    object-fit: cover;
+    width: 100%;
+    flex-shrink: 0;
+}
+
+.visa {
+    top: 8%; 
+    left: 80%; 
+    width: 8vw; 
+    height: auto; 
+    transform: translate(-50%, -50%) scale(0.3);
+}
+
+.tarjeta-texto,
+.numeros,
+.nombre {
+    position: absolute;
+    display: flex;
+    align-items: flex-start;
+    color: #FFF;
+    font-family: Space Grotesk;
+    font-size: 0.76531rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 0.06125rem;
+    text-transform: uppercase;
+}
+
+.credito {
+    top: 6%; 
+    left: 25%; 
+    transform: translate(-50%, -50%) scale(0.7);
+}
+
+.numeros {
+    top: 20%; 
+    left: 45%; 
+    width: auto; 
+    height: auto; 
+    white-space: nowrap;
+    transform: translate(-50%, -50%) scale(0.5);
+}
+
+.nombre {
+    top: 25%; 
+    left: 45%; 
+    white-space: nowrap;
+    transform: translate(-50%, -50%) scale(0.9);
+}
+
+/*---------------------- PROPIEDADES DEL CENTRO - ESTOS ESTILOS CAMBIAN SEGUN LA PAGINA --------------*/
+
+
+/*------ saludo y resumen -----*/
+.divSaludo{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    font-weight: bold;
+}
+
+/*------ Saludo -----*/
+.saludo{
+    color: #FFF;
+    font-family: Poppins;
+    font-size: 1.5rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+/*------ tarjetas dashboard -----*/
+.tarjetasDashboard{
+    display: flex;
+    align-items: flex-start;
+    gap: 1.6875rem;
+}
+
+.tarjetas{
+    height: 6.25rem;
+
+    display: flex;
+    padding: 0.75rem 1.5rem;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 0.0625rem;
+    flex: 1 0 0;
+
+    border-radius: 0.75rem;
+    border: 2px solid rgba(255, 255, 255, 0.20);
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.tarjetas h1{
+    align-self: stretch;
+    margin-top: 0.75rem;
+    margin-bottom: 0;
+
+    font-family: Poppins;
+    font-size: 1.20rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.tarjetas h2{
+    flex: 1 0 0;
+    margin: 0;
+
+    color: #FFF;
+    font-family: Poppins;
+    font-size: 1.875rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.retiroTarjeta{
+    color: rgba(255, 49, 49, 1);
+    border-radius: 0.75rem;
+    border: 2px solid rgba(255, 49, 49, 0.20);
+    background: rgba(255, 49, 49, 0.05);
+}
+
+.ingresoTarjeta{
+    color: rgba(126, 217, 87, 1);
+    border: 2px solid rgba(126, 217, 87, 0.20);
+    background: rgba(126, 217, 87, 0.05);
+}
+
+.saldo{
+    color: rgba(142, 142, 142, 1);
+    border-radius: 0.75rem;
+    border: 2px solid rgba(255, 255, 255, 0.20);
+    background: rgba(255, 255, 255, 0.05);
+}
+
+/*------ Tiulo de ultimos movimientos -----*/
+.movimientosTitulo{
+    width: 11.38rem;
+    
+    color: #FFF;
+    font-family: Poppins;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+/*-------------- Propiedades del centro - movimientos --------------*/
+.divMovimientos{
+    display: flex;
+
+    align-items: center;
+    flex-direction: column;
+
+    overflow: hidden; /* Oculta todas las barras de desplazamiento */
+    overflow-y: auto; /* Permite el desplazamiento vertical si el contenido excede el espacio */
+}
+
+.divMovimientos::-webkit-scrollbar {
+    width: 10px; /* Ancho de la barra de desplazamiento */
+}
+
+.divMovimientos::-webkit-scrollbar-thumb {
+    background-color: #222222; /* Cambia el color del pulgar de la barra */
+    border-radius: 5px; /* Bordes redondeados para el pulgar */
+}
+
+.divMovimientos::-webkit-scrollbar-track {
+    background-color: rgba(255, 255, 255, 0.1); /* Cambia el color de la pista de la barra */
+}
+
+/*------ tarjetas monto y fecha -----*/
+
+.movimientosTarjeta{
+
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+
+    height: 4.25rem;
+    width: 90%;
+    padding: 0.75rem 1.5rem;
+
+    align-items: flex-start;
+    gap: 0.0625rem;
+
+    border-radius: 0.75rem;
+    border: 2px solid rgba(255, 255, 255, 0.20);
+    background: rgba(255, 255, 255, 0.05);
+
+    margin-bottom: 0.75rem;
+
+}
+
+.movimientoTexto h1{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    margin-top: 0;
+    margin-bottom: 0;
+
+    color: #FFF;
+    font-family: Poppins;
+    font-size: 1.875rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.movimientoTexto h2{
+    margin-top: 0;
+    margin-bottom: 0;
+
+    align-self: stretch;
+    color: #8E8E8E;
+    font-family: Poppins;
+    font-size: 1.25rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+/*------ tarjetas motivo -----*/
+.motivo{
+    display: flex;
+    margin-left: auto; /* Empuja el elemento hacia la derecha */
+    align-self: flex-start; 
+    gap: 0.75rem;
+    text-align: right;
+    font-family: Poppins;
+    font-size: 0.4rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    border: none;
+}
+
+.motivoTexto{
+    display: flex;
+    margin-left: auto; /* Empuja el elemento hacia la derecha */
+    margin-bottom: 0;
+    align-self: flex-end; 
+    font-family: Poppins;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    border: none;
+    color: #555555;
+}
+
+.ingreso{
+    color: #7ED957;
+    
+}
+
+.retiro{
+    color: #FF3131;
+}
+
+
+/*------ CSS de Formulario de Prestamo -----*/
+
+.divMonto{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-items: center;
+    width: 95%;
+    padding: 1rem;
+    padding-top: 0;
+    border-radius: 0.75rem;
+    border: 2px solid rgba(255, 255, 255, 0.20);
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.divMonto h1{
+    color: #FFF;
+    font-family: Poppins;
+    font-size: 1.5rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.divMonto input{
+    display: flex;
+    width: 85%;
+    padding: 0.75rem 1.5rem;
+    align-items: center;
+    gap: 0.75rem;
+
+    border-radius: 0.75rem;
+    border: 2px solid #8933F5;
+    background-color: rgba(137, 51, 245, 0.05);
+
+    color: #FFF;
+    font-family: Poppins;
+    font-size: 1.25rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.divMonto button{
+    width: 100%;
+    height: 20%;
+
+    margin-top: 1rem;
+
+    padding: 0.75rem 1.5rem;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    flex-shrink: 0;
+    border-radius: 0.75rem;
+    border: 2px solid #8933F5;
+    background: rgba(137, 51, 245, 0.80);
+
+    color: #FFF;
+    font-family: Poppins;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    cursor: pointer;
+}
+
+.cuotas{
+    display: grid;
+    grid-template-columns: 50% 50%;
+    align-items: center;
+    justify-items: center;
+    width: 95%;
+}
+
+.cuotas select{
+    display: flex;
+    width: 90%;
+
+    padding: 0.75rem 1.5rem;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    flex-shrink: 0;
+    border-radius: 0.75rem;
+    border: 2px solid #8933F5;
+    background: rgba(137, 51, 245, 0.80);
+
+    color: #ffffff;
+    font-family: Poppins;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+/*- Simulador -*/
+
+.cantidadCuotas{
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.cantidadCuotas input{
+    width: 50%;
+}
+
+.interes{
+    display: flex;
+    align-items: center;
+}
+
+.botonesSimulador{
+    display: flex;
+    gap: 1rem;
+    width: 30%;
+    justify-content: left;
+    align-items: center;
+    align-self: center;
+}
+
+.botonesSimulador button{
+    margin: 0;
+    width: 30%;
+}
+
+
+/*------ CSS de Formulario de Transferencias -----*/
+
+.divContenedorPrincipal{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding-bottom: 1rem;
+    margin-bottom: 1rem;
+}
+
+.transBotonesDiv{
+    display: grid;
+    grid-template-columns: 50% 50%;
+    align-items: center;
+    justify-self: center;
+    gap: 1rem;
+    padding: 1rem;
+    padding-top: 0;
+    padding-bottom: 0;
+    width: 95%;
+}
+
+.transBotones{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 90%;
+    height: 10%;
+    margin: 1rem;
+    padding: 0.75rem 1.5rem;
+    gap: 0.75rem;
+    flex-shrink: 0;
+
+    border-radius: 0.75rem;
+    border: 2px solid #8933F5;
+    background: rgba(137, 51, 245, 0.80);
+
+    color: #FFF;
+    font-family: Poppins;
+    font-size: 0.5rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    /* Para la animacion */
+    transition: 0.5s;
+    cursor: pointer;
+}
+
+/* Para la animacion */
+.transBotones:hover,
+.transSeleccionado{
+    background: #C59BFA;
+}
+
+.transFormulario{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+/*- radio -*/
+.transFormularioRadioDiv{
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.transFormularioSpan label{
+    color: #FFF;
+    font-family: Poppins;
+    font-size: 1.25rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.transFormularioRadio{
+    fill: #8933F5;
+    stroke-width: 1px;
+    stroke: #C59BFA;
+    color: #8933F5;
+}
+
+/*- inputs -*/
+.transInputs{
+    display: flex;
+    width: 90%;
+    padding: 0.75rem 1.5rem;
+    align-items: center;
+    gap: 0.75rem;
+
+    border-radius: 0.75rem;
+    border: 2px solid #8933F5;
+    background-color: rgba(137, 51, 245, 0.05);
+
+    color: #FFF;
+    font-family: Poppins;
+    font-size: 1.25rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.AchicaLetra{
+    font-size: 0.9rem;
+}
+
+.transFormulario select{
+    background-color: rgba(137, 51, 245);
+}
+
+/*------ CSS de cambio de divisas -----*/
+
+.confirmaDivisas{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    padding: 1rem;
+}
+
+.confirmaDivisas h2{
+    color: #8E8E8E;
+    font-family: Poppins;
+    font-size: 0.9375rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.botonDivisas{
+    margin-top: 1rem;
+    padding: 0.75rem 1.5rem;
+    align-items: center;
+    gap: 0.75rem;
+    flex-shrink: 0;
+    align-self: stretch;
+
+    border-radius: 0.75rem;
+    border: 2px solid #8933F5;
+    background: rgba(137, 51, 245, 0.80);
+
+    color: #FFF;
+    font-family: Poppins;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    cursor: pointer;
+}
+
+/* divisas */
+.divisas{
+    align-self: center;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.divisas select{
+    display: flex;
+
+    padding: 0.75rem 1.5rem;
+    align-items: center;
+    gap: 0.75rem;
+
+    border-radius: 0.75rem;
+    border: 2px solid #8933F5;
+    background-color: rgba(137, 51, 245);
+
+    color: #FFF;
+    font-family: Poppins;
+    font-size: 1.25rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.divisas img{
+    width: 70%;
+    align-self: center;
+}
+
+.divisaText{
+    align-self: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+.divisaText input{
+    align-items: center;
+    height: 2.5rem;
+    border-radius: 0.75rem;
+    border: 2px solid #8933F5;
+    background-color: rgba(137, 51, 245, 0.05);
+
+    color: #FFF;
+    font-family: Poppins;
+    font-size: 1.3rem;
+    font-style: normal;
+    line-height: normal;
+}
+
+
+/*----------------------------------------  PARTE RESPOSIVE  Fue diseñado para 1440*900px---------------------------------------------- */
+
+/* Para tablet */
+@media (max-width: 1024px) {
+
+    /*-- menu derecho - elementos internos - Cambia segun la pagina ---*/
+    .tarjeta{
+        border-radius: 0;
+    }
+
+    .menuDerechoElementos{
+        padding-left: 0.5rem;
+    }
+
+    .derechoBoton{
+        padding: 0;
+        padding-left: 5px;
+    }
+
+    .accionesBotonesLetra{
+        font-size: 12px;
+    }
+    
+    /*-- tarjetas ---*/
+    .tarjetasDashboard{
+        gap: 0.5vw;
+    }
+
+    .tarjetasDashboard h1{
+        font-size: 15px;
+    }
+
+    .tarjetas{
+        padding: 0;
+        padding-left: 10px;
+    }
+
+    .tarjetas h2{
+        font-size: 25px;
+        padding: 0;
+        padding-left: 10px;
+    }
+
+    /*-- movimientos ---*/
+    .divMovimientos{
+        padding-left: 5%;
+        padding-right: 5%;
+    }
+}
+
+/* Para celulares */
+@media (max-width: 767px) {
+
+    /*-- menu derecho - elementos internos - Cambia segun la pagina ---*/
+    .tituloTarjeta,
+    .titulo,
+    .tarjeta{
+        display: none;
+    }
+
+    #contenedorBotonesDerecho{
+        grid-column-start: 3;
+        gap: 6em;
+        display: flex;
+        justify-content: end;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    .menuDerecho{
+        align-items: center;
+    }
+
+    .menuDerechoElementos{
+        padding: 0;
+        justify-self: center;
+    }
+
+    .derechoBoton{
+        width: 8rem;
+        height: 3rem;
+        padding: 0.3rem;
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        transform-origin: center center;
+        transform: rotate(270deg);
+    }
+
+    #botonSimular{
+        height: 15%;
+    }
+    #solicitarPrestamo{
+        transform: initial;
+        height: 10%;
+    }
+    .accionesBotonesLetra{
+        font-size: 12px;
+    }
+
+    /*-- tarjetas ---*/
+    .divSaludo{
+        padding-bottom: 1rem;
+    }
+    .tarjetasDashboard{
+        gap: 3vw;
+        overflow-x: auto;
+        height: 4rem;
+    }
+
+    .tarjetas{
+        white-space: nowrap;
+        padding: 0.1rem;
+        height: 80%;
+        margin: 0;
+    }
+
+    .tarjetas h1{
+        margin: 0;
+        font-size: 12px;
+    }
+
+    .tarjetas h2{
+        font-size: 19px;
+    }
+
+    /*-- movimientos ---*/
+    .divMovimientos{
+        padding-left: 5%;
+        padding-right: 5%;
+        height: 100%;
+    }
+
+    .movimientoTexto h2,
+    .movimientoTexto h1{
+        font-size: 1rem;
+    }
+
+    .dialogDivBotones{
+        width: 20%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+    
+}
+
+
