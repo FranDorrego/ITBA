@@ -1,15 +1,25 @@
 import estilosDashboard from '@/styles/styleDashboard.module.css'
 import { useForm } from 'react-hook-form';
 import swal from 'sweetalert';
+import { pidePrestamo } from '../API_Datos_Personales.js'
 
 export function SimuladorPrestamo({interesesAPagar, cuotasDe, totalAPagar, porcentaje, plata}){
 
     const { handleSubmit} = useForm();
-    const onSubmit = (data) =>{
-        swal("Prestamo pedido", "Monto: " + (totalAPagar))
-        console.log(totalAPagar) // ESTO ES PARA QUE VEAS EL VALOR QUE TIRA 
-        // PedirPrestamo(data.monto); // LLAMAR A LA FUNCION
-    }
+
+    const onSubmit = (data) => {
+        if (totalAPagar == "") {
+          return swal("Por favor rellena los datos solicitados", "");
+        }
+    
+        if (pidePrestamo( { Monto: totalAPagar })) {
+          swal("Prestamo pedido", "Monto: " + totalAPagar);
+        } else {
+          return swal("Ocurrio un error, por favor vuelve a intentar", "");
+        }
+      };
+
+
     return(
         <div className={estilosDashboard.divMonto}>
             <form onSubmit={handleSubmit(onSubmit)}>
