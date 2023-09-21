@@ -1,14 +1,3 @@
-.body404 {
-    background-color: black;
-    display: grid;
-    grid-template-columns: 1fr 2fr; /* Divide en dos columnas, 1fr y 2fr */
-    border: 0;
-    padding: 0;
-    width: 100vw;
-    height: 100vh;
-    overflow: hidden;
-}
-
 .texto404 {
     display: flex;
     flex-direction: column;
@@ -52,31 +41,13 @@
     line-height: normal;
 }
 
-.foto404{
-    margin: auto;
-    width: 60%;
-}
-
 
 /*----------------------------------------  PARTE RESPOSIVE  Fue diseñado para 1440*900px---------------------------------------------- */
 
 
 /* Para celulares */
 @media (max-width: 767px) {
-    body {
-        grid-template-columns: 1fr; 
-        grid-template-rows: 1fr 1fr; 
-    }
-
     .texto {
         order: 0; 
     }
-
-    .foto {
-        order: 1; 
-        background-size: contain; 
-        padding: 20px;
-    }
-
-    
 }

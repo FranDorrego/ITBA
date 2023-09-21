@@ -1,17 +1,19 @@
-import styles from '@/styles/stylesLogin.module.css'
-import Image from 'next/image'
+import { Contenido } from '../components/Login/Generales/Contenido';
+import { Logo } from '../components/Login/Generales/Logo.js';
+import { FormLogin } from '../components/Login/Login/FormLogin';
+import { LinkCompuesto } from '../components/Login/Generales/LinkCompuesto';
 
-export default function Home() {
+function Login() {
   return (
-    <div className={styles.grid_login}>
-      <Image
-      
-      >
+          <div>
+            <Contenido>
+              <Logo/>
+              <FormLogin/>
+              <LinkCompuesto textoParrafo="¿No tiene cuenta?" textoLink="Crear cuenta" link="/register"/>
+            </Contenido>
+        </div>
 
-      </Image>
-      <h1>asdasd</h1>
-      <h1>asdasd</h1>
-      <h1>asdasd</h1>
-    </div>
-  )
+  );
 }
+
+export default Login;

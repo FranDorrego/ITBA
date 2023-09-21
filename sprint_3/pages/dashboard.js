@@ -10,8 +10,7 @@ import { General } from '../components/Dashboard/components_dashboard/Principal/
 import estilosPlantilla from '@/styles/stylePlantilla.module.css'
 
 
-
-function Index(){
+function dashboard(){
     return(
             <div className={ estilosPlantilla.gridDashboard }> 
                 <MenuIzquierdo />
@@ -22,4 +21,4 @@ function Index(){
     )
 }
 
-export default Index;
+export default dashboard;
