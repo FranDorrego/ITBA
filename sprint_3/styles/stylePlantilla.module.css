@@ -1,14 +1,14 @@
 /*- Tipografias -*/
 @font-face {
     font-family: 'Poppins';
-    src: url('/fonts/Poppins-Light.ttf') format('truetype');
+    src: url('./poppins/Poppins-Regular.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'Space Grotesk';
-    src: url('/fonts/SpaceGrotesk-Light.ttf') format('truetype');
+    src: url('./Space_Grotesk/SpaceGrotesk-VariableFont_wght.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
@@ -325,7 +325,8 @@
     display: flex;
     flex-direction: column;
     justify-items: center;
-    margin-top: 1rem;
+    margin: 2rem;
+    margin-bottom: 1rem;
     gap: 1rem;
 }
 
@@ -349,6 +350,9 @@
     gap: 1rem;
     grid-column: 3;
 
+    margin: 2rem;
+    margin-bottom: 1rem;
+
     color: #FFF;
     text-align: center;
     font-family: Poppins;
@@ -371,6 +375,10 @@
 .socialFooter img {
     width: 2rem;
     height: 2rem;
+}
+
+.fondoFooter{
+    background-color: black;
 }
   
 /*----------------------------------------  PARTE RESPOSIVE  Fue diseñado para 1440*900px---------------------------------------------- */

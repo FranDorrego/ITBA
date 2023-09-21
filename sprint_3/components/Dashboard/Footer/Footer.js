@@ -1,11 +1,11 @@
 import { ComponenteFooter1 } from './ComponenteFooter1';
 import { ComponenteFooter2 } from './ComponenteFooter2';
 import { ComponenteFooter3 } from './ComponenteFooter3';
-
+import Styles from "@/styles/stylePlantilla.module.css"
 
 export function Footer(){
     return(
-        <footer>
+        <footer className={Styles.fondoFooter}>
             <ComponenteFooter1 text1="Sucursales" text2="Acerca de ITBANK" link1={""} link2={""}/>
             <ComponenteFooter2 text1="© ITBAN Argentina S.A" text2="Centro de Atención al Cliente 0810-777-4444" link1={""} link2={""}/>
             {/* ESTO SE PUEDE HACER MUCHOOOO MEJOR, SEPRANDO EL CONTENDO, CREANDO UN CONTENEDOR PRINCIPAL PARA EL FOOTER DE SOCIALES Y CON 3 COMPONETES SEPARADAS, 

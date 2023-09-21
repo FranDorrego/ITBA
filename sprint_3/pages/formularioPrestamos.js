@@ -6,7 +6,7 @@ import { Footer } from "../components/Dashboard/Footer/Footer";
 
 import estilosPantilla from "@/styles/stylePlantilla.module.css";
 
-import { GeneralFormPrestamos } from "@/components/dashboard/PrincipalFormPrestamos/GeneralFormPrestamos";
+import { GeneralFormPrestamos } from "../../components/dashboard/PrincipalFormPrestamos/GeneralFormPrestamos";
 
 function FormularioPrestamos() {
   return (

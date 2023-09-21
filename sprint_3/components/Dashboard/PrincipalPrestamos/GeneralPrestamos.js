@@ -21,14 +21,20 @@ export function GeneralPrestamos() {
     <div className={estilosPlantilla.general}>
       <Buscador />
       <ContenedorPrincipal>
-        <Saludo texto="Prestamos" />
+
+        <div className={estilosDashboard.ladoALado}>
+          <Saludo texto="Prestamos" />
+          <BotonPrestamo>Solicitar un nuevo prestamo</BotonPrestamo>
+        </div>
+
         <h1 className={estilosDashboard.movimientosTitulo}>
-          Ultimos movimientos {">"}{" "}
+          Ultimos Prestamos {">"}{" "}
         </h1>
+
         <Movimientos>
           <HistorialTarjetas motivo="Prestamo" />
         </Movimientos>
-        <BotonPrestamo>Solicitar prestamo</BotonPrestamo>
+        
         <DialogPrestamo />
       </ContenedorPrincipal>
     </div>
