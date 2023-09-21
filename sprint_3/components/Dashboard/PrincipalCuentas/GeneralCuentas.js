@@ -1,5 +1,6 @@
 import React from "react";
 import estilosPantilla from "@/styles/stylePlantilla.module.css";
+import Style from "./Style.module.css"
 import { Buscador } from "../ContenidoPrincipal/Buscador";
 import { ContenedorPrincipal } from "../ContenidoPrincipal/ContenedorPrincipal";
 import { Saludo } from "../ContenidoPrincipal/Saludo";
@@ -15,7 +16,7 @@ function CuentasPrincipal() {
       <ContenedorPrincipal>
         <Saludo texto="Datos de Tu Cuenta" />
 
-        <div className="tarjeta">
+        <div className={Style.tarjeta}>
           <Renglon titulo="Alias" dato={datos.NombreBase} />
           <Renglon titulo="CBU" dato={datos.CBUBase} />
           <Renglon titulo="Cuenta Nro" dato={datos.CuentaBase} />
