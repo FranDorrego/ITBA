@@ -6,7 +6,7 @@ import { MenuDerecho } from "../components/Dashboard/MenuDerecho/MenuDerecho";
 
 import { Footer } from "../components/Dashboard/Footer/Footer";
 
-import ContenedorPrincipal from "@/components/dashboard/PrincipalTransferencias/GeneralTransferencias";
+import ContenedorPrincipal from "../components/Dashboard/PrincipalTransferencias/GeneralTransferencias";
 
 import estilosPantilla from "@/styles/stylePlantilla.module.css";
 
