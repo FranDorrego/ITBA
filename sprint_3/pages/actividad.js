@@ -1,21 +1,11 @@
-import { MenuIzquierdo } from "../components/Dashboard/MenuDerecho/MenuIzquierdo";
-
-import { MenuDerecho } from "../components/Dashboard/MenuDerecho/MenuDerecho";
-
-import { Footer } from "../components/Dashboard/Footer/Footer";
-
-import estilosPantilla from "@/styles/stylePlantilla.module.css";
-
 import { ContenidoActividad } from "../components/Dashboard/PrincipalActividad/ContenidoActividad";
+import Layout from "@/components/Dashboard/Layout";
 
 function Actividad() {
   return (
-    <div className={estilosPantilla.gridDashboard}>
-      <MenuIzquierdo />
+    <Layout>
       <ContenidoActividad />
-      <MenuDerecho />
-      <Footer />
-    </div>
+    </Layout>
   );
 }
 

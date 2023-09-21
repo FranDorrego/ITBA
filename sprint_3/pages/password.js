@@ -9,7 +9,7 @@ function Password() {
     <Contenido>
       <Logo/>
       <FormPassword/>
-      <LinkCompuesto textoParrafo="¿Ya tiene cuenta?" textoLink="Iniciar Sesión" link="/login"/>
+      <LinkCompuesto textoParrafo="¿Ya tiene cuenta?" textoLink="Iniciar Sesión" link="/"/>
     </Contenido>
   );
 }

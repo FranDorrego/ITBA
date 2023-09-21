@@ -1,21 +1,11 @@
-import { MenuIzquierdo } from "../components/Dashboard/MenuDerecho/MenuIzquierdo";
-
-import { MenuDerecho } from "../components/Dashboard/MenuDerecho/MenuDerecho";
-
-import { Footer } from "../components/Dashboard/Footer/Footer";
-
-import estilosPantilla from "@/styles/stylePlantilla.module.css";
-
-import { GeneralFormPrestamos } from "../../components/dashboard/PrincipalFormPrestamos/GeneralFormPrestamos";
+import { GeneralFormPrestamos } from "@/components/Dashboard/PrincipalFormPrestamos/GeneralFormPrestamos";
+import Layout from "@/components/Dashboard/Layout";
 
 function FormularioPrestamos() {
   return (
-    <div className={estilosPantilla.gridDashboard}>
-      <MenuIzquierdo />
+    <Layout>
       <GeneralFormPrestamos />
-      <MenuDerecho />
-      <Footer />
-    </div>
+    </Layout>
   );
 }
 

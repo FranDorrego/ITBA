@@ -1,21 +1,12 @@
-import { MenuIzquierdo } from "@/components/Dashboard/MenuDerecho/MenuIzquierdo";
-
-import { MenuDerecho } from "@/components/Dashboard/MenuDerecho/MenuDerecho";
-
-import { Footer } from "@/components/Dashboard/Footer/Footer";
-
-import estilosPantilla from "@/styles/stylePlantilla.module.css";
-
 import { GeneralCambioDivisa } from "@/components/Dashboard/PrincipalCambioDivisas/GeneralCambioDivisa";
+import Layout from "@/components/Dashboard/Layout";
 
 function CambioDivisas() {
   return (
-    <div className={estilosPantilla.gridDashboard}>
-      <MenuIzquierdo />
+    <Layout>
       <GeneralCambioDivisa />
-      <MenuDerecho />
-      <Footer />
-    </div>
+    </Layout>
+
   );
 }
 

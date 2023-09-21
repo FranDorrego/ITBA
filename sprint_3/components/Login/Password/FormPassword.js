@@ -35,7 +35,6 @@ export function FormPassword(){
                     validate: validarDni
                 })}
                 />
-                { errors.dni?.type === 'required'  && <LabelErrorLogin>DNI requerido</LabelErrorLogin> }
                 { errors.dni && <LabelErrorLogin>DNI no valido</LabelErrorLogin> }
 
                 <Label>❓ Pregunta de seguridad</Label>
@@ -67,7 +66,6 @@ export function FormPassword(){
                           }
                     }
                 })}      />  
-                { errors.password2?.type === 'required'  && <LabelErrorLogin>Contraseña requerida</LabelErrorLogin> }
                 { errors.password2  && <LabelErrorLogin>Las contraseñas no conciden</LabelErrorLogin> }
                 
 
