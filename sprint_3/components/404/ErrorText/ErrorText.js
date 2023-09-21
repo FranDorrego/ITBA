@@ -2,7 +2,7 @@ import Link from "next/link";
 
 import Image from "next/image";
 
-import styles from "./ErrorText.module.css"
+import styles from "@/styles/error/ErrorText.module.css"
 
 import logo from '../assets/Logo.svg'
 

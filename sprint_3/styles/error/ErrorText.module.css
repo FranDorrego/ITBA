@@ -41,6 +41,12 @@
     line-height: normal;
 }
 
+.botones404:hover{
+    background: rgba(115, 0, 255, 0.8);
+    border: 2px solid rgba(115, 0, 255, 0.8);
+    cursor: pointer;
+
+}
 
 /*----------------------------------------  PARTE RESPOSIVE  Fue diseñado para 1440*900px---------------------------------------------- */
 

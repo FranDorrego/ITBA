@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import copy from './assets/copy.svg'
-import Style from "./Style.module.css"
+import Style from "@/styles/cuentas/Style.module.css"
 import Image from 'next/image';
 
 export function BotonCopiar({ textoACopiar }) {

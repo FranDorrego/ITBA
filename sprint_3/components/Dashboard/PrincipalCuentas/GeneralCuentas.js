@@ -1,6 +1,6 @@
 import React from "react";
 import estilosPantilla from "@/styles/stylePlantilla.module.css";
-import Style from "./Style.module.css"
+import Style from "@/styles/cuentas/Style.module.css"
 import { Buscador } from "../ContenidoPrincipal/Buscador";
 import { ContenedorPrincipal } from "../ContenidoPrincipal/ContenedorPrincipal";
 import { Saludo } from "../ContenidoPrincipal/Saludo";

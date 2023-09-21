@@ -49,8 +49,8 @@ export function FormRegister(){
                     validate: validarUsuario
                 })}
                 />
-                { errors.usuario?.type === 'required'  && <LabelErrorLogin>Usuario requerido</LabelErrorLogin> }
-                { errors.usuario && <LabelErrorLogin>Entre 4 y 15 caracteres</LabelErrorLogin> } 
+                { errors.usuario && <LabelErrorLogin>Usuario no valido, entre 4 y 15 caracteres</LabelErrorLogin> }
+
 
                 <Label>👤 DNI</Label>     
                 <input className={estilosLogin.input_login} type="number" name="dni" id="dni" placeholder="Ej: 99999999"  
@@ -59,7 +59,6 @@ export function FormRegister(){
                     validate: validarDni
                 })}
                 />
-                { errors.dni?.type === 'required'  && <LabelErrorLogin>DNI requerido</LabelErrorLogin> }
                 { errors.dni && <LabelErrorLogin>DNI no valido</LabelErrorLogin> }
 
 
@@ -81,7 +80,6 @@ export function FormRegister(){
                     validate: validarTelefono
                 })}
                 /> 
-                {errors.telefono?.type === 'required' && <LabelErrorLogin>Teléfono requerido</LabelErrorLogin>  } 
                 {errors.telefono && <LabelErrorLogin>Teléfono no valido</LabelErrorLogin>  } 
 
                 <Label>🌍 Ubicación</Label>        
@@ -133,7 +131,6 @@ export function FormRegister(){
                           }
                     }
                 })}      />  
-                { errors.password2?.type === 'required'  && <LabelErrorLogin>Contraseña requerida</LabelErrorLogin> }
                 { errors.password2  && <LabelErrorLogin>Las contraseñas no conciden</LabelErrorLogin> }
 
                 <label className={estilosLogin.parrafo_login}>
