@@ -13,7 +13,7 @@ export function TarjetaMovimientoIngreso({monto, fecha, motivo}){
 
             <span className={estilosDashboard.motivo}>
                 <h1 className={estilosDashboard.ingreso}>Ingreso</h1>
-                <Image className={estilosDashboard.motivoFoto} src='/circle-arrow-down.svg' alt="ingreso" width={20} height={20}/>
+                <Image className={estilosDashboard.motivoFoto} src='/main/circle-arrow-down.svg' alt="ingreso" width={20} height={20}/>
             </span>
             
         </div>

@@ -14,7 +14,7 @@ export function TarjetaMovimientoRetiro({monto, fecha, motivo}){
 
             <span className={estilosDashboard.motivo}>
                 <h1 className={estilosDashboard.retiro}>retiro</h1>
-                <Image className={estilosDashboard.motivoFoto} src='/circle-arrow-up.svg' alt="retiro" width={20} height={20}/>
+                <Image className={estilosDashboard.motivoFoto} src='/main/circle-arrow-up.svg' alt="retiro" width={20} height={20}/>
             </span>
         </div>
     )

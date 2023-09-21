@@ -10,15 +10,15 @@ export function MenuDerecho() {
       <SpanDerecho />
       <ElementosMenuDercho>
         <h1 className="titulo">Acciones rápidas</h1>
-        <BotonDerecho text="Mi CBU" imagen="/CIRCLE-INFO.svg" link="/cuentas" />
+        <BotonDerecho text="Mi CBU" imagen="/menu-derecho/CIRCLE-INFO.svg" link="/cuentas" />
         <BotonDerecho
           text="Prestamos"
-          imagen="/circle-arrow-down-deposito.svg"
+          imagen="/menu-derecho/circle-arrow-down-deposito.svg"
           link="/prestamos"
         />
         <BotonDerecho
           text="Transferencias"
-          imagen="/transferencias.svg"
+          imagen="/menu-derecho/transferencias.svg"
           link="/transferencias"
         />
         <Tarjeta />

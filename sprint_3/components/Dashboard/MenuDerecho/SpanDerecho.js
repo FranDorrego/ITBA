@@ -5,7 +5,7 @@ export function SpanDerecho({id}){
     return(
         <span className={estilosPlantilla.user} >
             <button>
-                <Image src='/notifica.svg' alt="" width={30} height={30}/> 
+                <Image src='/menu-derecho/notifica.svg' alt="" width={30} height={30}/> 
             </button>
             <Image className={estilosPlantilla.userFoto} src='/Avatar.svg' alt="user" id={id} width={30} height={30}/>
         </span>

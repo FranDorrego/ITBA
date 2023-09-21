@@ -1,4 +1,4 @@
-import { MenuIzquierdo } from "@/components/Dashboard/MenuIzquierdo/MenuIzquierdo";
+import { MenuIzquierdo } from "@/components/Dashboard/MenuDerecho/MenuIzquierdo";
 
 import { MenuDerecho } from "@/components/Dashboard/MenuDerecho/MenuDerecho";
 
