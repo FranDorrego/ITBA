@@ -1,5 +1,5 @@
 
-import styles from './404_Global.module.css'
+import styles from '@/styles/error/404_Global.module.css'
 import ErrorText from './ErrorText/ErrorText';
 import ErrorImge from './ErrorImage/ErrorImge';
 

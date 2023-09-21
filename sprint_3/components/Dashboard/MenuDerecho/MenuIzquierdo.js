@@ -1,9 +1,9 @@
 import estilosPlantilla from "@/styles/stylePlantilla.module.css";
 
-import { BotonIzquierdo } from "./BotonIzquierdo";
-import { BotonesFinalMenuIzquierdo } from "./BotonesFinalMenuIzquierdo";
+import { BotonIzquierdo } from "../MenuIzquierdo/BotonIzquierdo";
+import { BotonesFinalMenuIzquierdo } from "../MenuIzquierdo/BotonesFinalMenuIzquierdo";
 import { Titulo } from "../Titulo";
-import { BotonesIzquierdos } from "./BotonesIzquierdos";
+import { BotonesIzquierdos } from "../MenuIzquierdo/BotonesIzquierdos";
 
 import { useState } from "react";
 import { usePathname } from "next/navigation";
@@ -25,7 +25,7 @@ export function MenuIzquierdo(customClass) {
         {/* LA CUSTOMCLASS ES PARA PONERLE EL ESTILO DE SELECCIONADO */}
         <BotonIzquierdo
           text="Inicio"
-          imagen="/home.svg"
+          imagen="/menu-izquierdo/home.svg"
           alt="inicio"
           link="/dashboard"
           isActive={botonActivo === "/dashboard"}
@@ -33,7 +33,7 @@ export function MenuIzquierdo(customClass) {
         />
         <BotonIzquierdo
           text="Actividad"
-          imagen="/circle-dollar.svg"
+          imagen="/menu-izquierdo/circle-dollar.svg"
           alt="actividad"
           link="/actividad"
           isActive={botonActivo === "/actividad"}
@@ -41,7 +41,7 @@ export function MenuIzquierdo(customClass) {
         />
         <BotonIzquierdo
           text="Cuentas"
-          imagen="/bank.svg"
+          imagen="/menu-izquierdo/bank.svg"
           alt="cuentas"
           link="/cuentas"
           isActive={botonActivo === "/cuentas"}
@@ -49,7 +49,7 @@ export function MenuIzquierdo(customClass) {
         />
         <BotonIzquierdo
           text="Cambio de divisas"
-          imagen="/cambio.svg"
+          imagen="/menu-izquierdo/cambio.svg"
           alt="cambio_divisas"
           link="/cambioDivisas"
           isActive={botonActivo === "/cambioDivisas"}
@@ -57,7 +57,7 @@ export function MenuIzquierdo(customClass) {
         />
         <BotonIzquierdo
           text="Mi CBU"
-          imagen="/CIRCLE-INFO.svg"
+          imagen="/menu-derecho/CIRCLE-INFO.svg"
           id={estilosPlantilla.botonesAuxIzquierda}
           link="/cuentas"
           isActive={botonActivo === "/cbu"}
@@ -65,7 +65,7 @@ export function MenuIzquierdo(customClass) {
         />
         <BotonIzquierdo
           text="Prestamos"
-          imagen="/circle-arrow-down-deposito.svg"
+          imagen="/menu-derecho/circle-arrow-down-deposito.svg"
           id={estilosPlantilla.botonesAuxIzquierda}
           link="/prestamos"
           isActive={botonActivo === "/prestamos"}
@@ -73,7 +73,7 @@ export function MenuIzquierdo(customClass) {
         />
         <BotonIzquierdo
           text="Transferencias"
-          imagen="/transferencias.svg"
+          imagen="/menu-derecho/transferencias.svg"
           id={estilosPlantilla.botonesAuxIzquierda}
           link="/transferencias"
           isActive={botonActivo === "/transferencias"}
@@ -86,12 +86,15 @@ export function MenuIzquierdo(customClass) {
         />
       </BotonesIzquierdos>
       <BotonesFinalMenuIzquierdo>
-        <BotonIzquierdo text="Ayuda" imagen="/ayuda.svg" alt="ayuda" />
+        <BotonIzquierdo 
+          text="Ayuda" 
+          imagen="/menu-derecho/ayuda.svg" 
+          alt="ayuda" />
         <BotonIzquierdo
           text="Cerrar sesión"
-          imagen="/cerrar_sesion.svg"
+          imagen="/menu-derecho/cerrar_sesion.svg"
           alt="cerrarSesion"
-          link="/login"
+          link="/"
         />
       </BotonesFinalMenuIzquierdo>
     </div>

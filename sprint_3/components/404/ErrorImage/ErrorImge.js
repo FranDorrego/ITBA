@@ -1,4 +1,4 @@
-import style from "./ErrorImage.module.css"
+import style from "@/styles/error/ErrorImage.module.css"
 
 import fotoError from '../assets/404.svg'
 

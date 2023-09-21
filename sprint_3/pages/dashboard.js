@@ -1,21 +1,13 @@
-import { MenuIzquierdo } from "../components/Dashboard/MenuIzquierdo/MenuIzquierdo";
-
-import { MenuDerecho } from "../components/Dashboard/MenuDerecho/MenuDerecho";
-
-import { Footer } from "../components/Dashboard/Footer/Footer";
 
 import { General } from "../components/Dashboard/ContenidoPrincipal/General";
 
-import estilosPlantilla from "@/styles/stylePlantilla.module.css";
+import Layout from "@/components/Dashboard/Layout";
 
 function dashboard() {
   return (
-    <div className={estilosPlantilla.gridDashboard}>
-      <MenuIzquierdo />
+    <Layout>
       <General />
-      <MenuDerecho />
-      <Footer />
-    </div>
+    </Layout>
   );
 }
 

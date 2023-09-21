@@ -1,5 +1,5 @@
 import React from 'react';
-import Style from "./Style.module.css"
+import Style from "@/styles/cuentas/Style.module.css"
 import { BotonCopiar } from './BotonCopiar.js';
 
 export function Renglon ({ titulo, dato }){

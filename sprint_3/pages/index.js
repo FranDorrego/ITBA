@@ -8,14 +8,11 @@ import { LinkCompuesto } from '../components/Login/Generales/LinkCompuesto';
 
 function Login() {
   return (
-          <div>
-            <Contenido>
-              <Logo/>
-              <FormLogin/>
-              <LinkCompuesto textoParrafo="¿No tiene cuenta?" textoLink="Crear cuenta" link="/register"/>
-            </Contenido>
-        </div>
-
+        <Contenido>
+          <Logo/>
+          <FormLogin/>
+          <LinkCompuesto textoParrafo="¿No tiene cuenta?" textoLink="Crear cuenta" link="/register"/>
+        </Contenido>
   );
 }
 

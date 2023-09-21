@@ -2,8 +2,6 @@ import React, { useState } from 'react';
 
 import estilosDashboard from '@/styles/styleDashboard.module.css'
 
-import cerrarSesion from '@/public/cerrar_sesion.svg'
-
 
 export function TransBotones () {
     const [seleccionado, setSeleccionado] = useState('transferir_nueva');
@@ -35,7 +33,7 @@ const TransBoton = ({ id, texto, onClick, activo }) => {
 
     return (
         <button className={claseBoton} id={id} onClick={onClick}>
-            <img src={cerrarSesion} alt="" />
+            <img src="/menu-derecho/cerrar_sesion.svg" alt="" />
             <h1>{texto}</h1>
         </button>
     );

@@ -11,7 +11,7 @@ function Register() {
     <Contenido>
       <Logo/>
       <FormRegister/>
-      <LinkCompuesto textoParrafo="¿Ya tiene cuenta?" textoLink="Iniciar Sesión" link="/login"/>
+      <LinkCompuesto textoParrafo="¿Ya tiene cuenta?" textoLink="Iniciar Sesión" link="/"/>
     </Contenido>
   );
 }

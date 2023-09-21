@@ -11,9 +11,9 @@ export function Footer(){
             {/* ESTO SE PUEDE HACER MUCHOOOO MEJOR, SEPRANDO EL CONTENDO, CREANDO UN CONTENEDOR PRINCIPAL PARA EL FOOTER DE SOCIALES Y CON 3 COMPONETES SEPARADAS, 
             POR AHORA LO DEJO ASI */}
             <ComponenteFooter3
-                logo1='/facebook.png' link1="https://www.facebook.com/" alt1="logo-facebook"
-                logo2='/x.png' link2="https://www.twitter.com/" al2="logo-twitter"
-                logo3='/instagram.png' link3="https://www.instagram.com/" alt3="logo-instagram"
+                logo1='/footer/facebook.png' link1="https://www.facebook.com/" alt1="logo-facebook"
+                logo2='/footer/x.png' link2="https://www.twitter.com/" al2="logo-twitter"
+                logo3='/footer/instagram.png' link3="https://www.instagram.com/" alt3="logo-instagram"
                 />
         </footer>
     )

@@ -32,8 +32,7 @@ export function FormLogin(){
                     validate: validarUsuario
                 })}
                 />
-                { errors.usuario?.type === 'required'  && <LabelErrorLogin>Usuario requerido</LabelErrorLogin> }
-                { errors.usuario && <LabelErrorLogin>Entre 4 y 15 caracteres</LabelErrorLogin> }
+                { errors.usuario && <LabelErrorLogin>Usuario no valido, entre 4 y 15 caracteres</LabelErrorLogin> }
                 <Label>👤 DNI</Label>
                 <input className={estilosLogin.input_login} type="number" name="dni" id="dni" text="DNI" placeholder="Ej: 99999999" 
                 {...register('dni',{
@@ -41,7 +40,6 @@ export function FormLogin(){
                     validate: validarDni
                 })}
                 />
-                { errors.dni?.type === 'required'  && <LabelErrorLogin>DNI requerido</LabelErrorLogin> }
                 { errors.dni && <LabelErrorLogin>DNI no valido</LabelErrorLogin> }
                 
                 <Label>🔒 Contraseña</Label>
@@ -51,8 +49,7 @@ export function FormLogin(){
                     minLength: 8
                 })}
                 /> 
-                { errors.password?.type === 'required'  && <LabelErrorLogin>Contraseña requerida</LabelErrorLogin> }
-                { errors.password?.type === 'minLength' && <LabelErrorLogin>Más de 8 caracteres</LabelErrorLogin> } 
+                { errors.password  && <LabelErrorLogin>Contraseña no valida, más de 8 caracteres</LabelErrorLogin> }
                 <Boton value="Iniciar Sesión" id="boton_inicio_sesion">
 
                 </Boton>
