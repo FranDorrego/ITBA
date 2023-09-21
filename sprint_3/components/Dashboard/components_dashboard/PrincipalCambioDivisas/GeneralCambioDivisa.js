@@ -1,7 +1,7 @@
 import estilosPlantilla from '@/styles/stylePlantilla.module.css'
-import { Buscador } from '../Principal/Buscador';
-import { ContenedorPrincipal } from '../Principal/ContenedorPrincipal';
-import { Saludo } from '../Principal/Saludo';
+import { Buscador } from '../ContenidoPrincipal/Buscador';
+import { ContenedorPrincipal } from '../ContenidoPrincipal/ContenedorPrincipal';
+import { Saludo } from '../ContenidoPrincipal/Saludo';
 import { ContenedorMonto } from './ContenedorMonto';
 import { ConfirmarDivisas } from './ConfirmarDivisas';
 import { SpanCambioDivisas } from './SpanCambioDivisas';

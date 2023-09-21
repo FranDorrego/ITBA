@@ -1,4 +1,4 @@
-import estilosDashboard from '../../styleDashboard.module.css'
+import estilosDashboard from '@/styles/styleDashboard.module.css'
 import logoMonedas from '../../assets/Ilustración.png'
 import arrow from '../../assets/arrow-right.svg'
 import Link from 'next/link';

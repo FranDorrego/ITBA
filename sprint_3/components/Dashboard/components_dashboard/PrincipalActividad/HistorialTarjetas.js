@@ -1,6 +1,6 @@
 
-import { TarjetaMovimientoIngreso } from '../Principal/TarjetaMovimientoIngreso';
-import { TarjetaMovimientoRetiro } from '../Principal/TarjetaMovimientoRetiro';
+import { TarjetaMovimientoIngreso } from '../ContenidoPrincipal/TarjetaMovimientoIngreso';
+import { TarjetaMovimientoRetiro } from '../ContenidoPrincipal/TarjetaMovimientoRetiro';
 import { Historial } from '../API_Datos_Personales.js'
 
 export function HistorialTarjetas({motivo = null}){

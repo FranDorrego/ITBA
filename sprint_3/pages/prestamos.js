@@ -1,16 +1,13 @@
 
-import { MenuIzquierdo } from '../components_dashboard/MenuIzquierdo/MenuIzquierdo';
+import { MenuIzquierdo } from '@/components/Dashboard/components_dashboard/MenuIzquierdo/MenuIzquierdo';
 
-import { MenuDerecho } from '../components_dashboard/MenuDerecho/MenuDerecho';
+import { MenuDerecho } from '@/components/Dashboard/components_dashboard/MenuDerecho/MenuDerecho';
 
-import { Footer } from '../components_dashboard/Footer/Footer';
+import { Footer } from '@/components/Dashboard/components_dashboard/Footer/Footer';
 
-import { General } from '../components_dashboard/Principal/General';
+import estilosPantilla from '../styles/stylePlantilla.module.css'
 
-
-
-import estilosPantilla from '../../assets-globales/stylePlantilla.module.css'
-import { GeneralPrestamos } from '../components_dashboard/PrincipalPrestamos/GeneralPrestamos';
+import { GeneralPrestamos } from '../components/Dashboard/components_dashboard/PrincipalPrestamos/GeneralPrestamos';
 
 
 function Prestamos(){
@@ -20,8 +17,6 @@ function Prestamos(){
             <GeneralPrestamos />
             <MenuDerecho />
             <Footer />
-
-
         </div>
     )
 }

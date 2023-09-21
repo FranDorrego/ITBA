@@ -1,11 +1,19 @@
 import React from 'react';
-import estilosDashboard from '../../styleDashboard.module.css'
-import { Saludo } from '../Principal/Saludo';
+
+import estilosDashboard from '@/styles/stylePlantilla.module.css'
+
+import { Saludo } from '../ContenidoPrincipal/Saludo';
+
 import swal from 'sweetalert'
+
 import { useForm } from 'react-hook-form'
+
 import { LabelErrorLogin } from '../../../Login/Generales/LabelErrorLogin';
+
 import { validarImporte } from './validate/validarImporte';
+
 import { EnviaTransferencia } from '../API_Datos_Personales';
+
 // import { validarCBU } from './validate/validarCBU';
 
 // Componente para el formulario de transferencia

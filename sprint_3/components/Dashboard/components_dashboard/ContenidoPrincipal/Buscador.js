@@ -1,11 +1,11 @@
 import estilosPlantilla from '@/styles/stylePlantilla.module.css'
-
+import Image from 'next/image'
 
 export function Buscador(){
     return(
     <div className={estilosPlantilla.membrete}>
         <div className={estilosPlantilla.buscador}>
-            <img src='/search.svg' alt="buscador" /> 
+            <Image src='/search.svg' alt="buscador" width={15} height={15}/> 
             <input type="text" placeholder="Buscar" />
         </div>
     </div>

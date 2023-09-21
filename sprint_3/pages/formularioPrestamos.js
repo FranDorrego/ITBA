@@ -1,17 +1,12 @@
 
-import { MenuIzquierdo } from '../components_dashboard/MenuIzquierdo/MenuIzquierdo';
+import { MenuIzquierdo } from '../components/Dashboard/components_dashboard/MenuIzquierdo/MenuIzquierdo';
 
-import { MenuDerecho } from '../components_dashboard/MenuDerecho/MenuDerecho';
+import { MenuDerecho } from '../components/Dashboard/components_dashboard/MenuDerecho/MenuDerecho';
 
-import { Footer } from '../components_dashboard/Footer/Footer';
-
-import { General } from '../components_dashboard/Principal/General';
-
-
+import { Footer } from '../components/Dashboard/components_dashboard/Footer/Footer';
 
 import estilosPantilla from '../../assets-globales/stylePlantilla.module.css'
-import { FormPrestamos } from '../components_dashboard/PrincipalFormPrestamos/FormPrestamos';
-import { SimuladorPrestamo } from '../components_dashboard/PrincipalFormPrestamos/SimuladorPrestamo';
+
 import { GeneralFormPrestamos } from '../components_dashboard/PrincipalFormPrestamos/GeneralFormPrestamos';
 
 

@@ -415,6 +415,12 @@
     border: none;
 }
 
+.motivoFoto{
+    display: flex;
+    margin-left: auto;
+    align-self: center; 
+}
+
 .motivoTexto{
     display: flex;
     margin-left: auto; /* Empuja el elemento hacia la derecha */

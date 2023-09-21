@@ -1,5 +1,6 @@
 import tarjetaCompleta from '../../assets/tarjeta-completa.svg'
 import estilosDashboard from '@/styles/styleDashboard.module.css'
+import Image from 'next/image'
 
 export function Tarjeta(){
     return(
@@ -9,7 +10,7 @@ export function Tarjeta(){
                 </span>
                 <span className={estilosDashboard.tarjeta}> 
                     <div>
-                        <img className={estilosDashboard.fondo} src={tarjetaCompleta} alt="tarjeta" />
+                        <Image className={estilosDashboard.fondo} src={tarjetaCompleta} alt="tarjeta" />
                     </div>
                 </span> 
             </div>

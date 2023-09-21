@@ -1,11 +1,17 @@
 import React from 'react';
-import estilosDashboard from '../../styleDashboard.module.css'
-import estilosPlantilla from '../../../assets-globales/stylePlantilla.module.css'
-import { Buscador } from '../Principal/Buscador';
-import { ContenedorPrincipal } from '../Principal/ContenedorPrincipal';
-import { Saludo } from '../Principal/Saludo';
+
+import estilosPlantilla from '@/styles/stylePlantilla.module.css'
+
+import { Buscador } from '../ContenidoPrincipal/Buscador';
+
+import { ContenedorPrincipal } from '../ContenidoPrincipal/ContenedorPrincipal';
+
+import { Saludo } from '../ContenidoPrincipal/Saludo';
+
 import { TransBotones } from './TransBotones.js';
+
 import { TransFormulario } from './Formulario.js';
+
 
 // Componente principal
 const DivContenedorPrincipal = () => {

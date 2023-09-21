@@ -5,7 +5,7 @@ import { MenuDerecho } from '../components/Dashboard/components_dashboard/MenuDe
 
 import { Footer } from '../components/Dashboard/components_dashboard/Footer/Footer';
 
-import { General } from '../components/Dashboard/components_dashboard/Principal/General';
+import { General } from '../components/Dashboard/components_dashboard/ContenidoPrincipal/General';
 
 import estilosPlantilla from '@/styles/stylePlantilla.module.css'
 

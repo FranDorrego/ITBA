@@ -1,8 +1,8 @@
 import estilosPlantilla from '@/styles/stylePlantilla.module.css'
 import estilosDashboard from '@/styles/styleDashboard.module.css'
-import { Buscador } from '../Principal/Buscador';
-import { ContenedorPrincipal } from '../Principal/ContenedorPrincipal';
-import { Movimientos } from '../Principal/Movimientos';
+import { Buscador } from '../ContenidoPrincipal/Buscador';
+import { ContenedorPrincipal } from '../ContenidoPrincipal/ContenedorPrincipal';
+import { Movimientos } from '../ContenidoPrincipal/Movimientos';
 import { HistorialTarjetas } from './HistorialTarjetas.js'
 
 

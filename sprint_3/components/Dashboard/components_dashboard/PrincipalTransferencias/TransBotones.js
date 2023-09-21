@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
-import estilosDashboard from '../../styleDashboard.module.css'
-import cerrarSesion from '../../../assets-globales/assets/cerrar_sesion.svg'
+
+import estilosDashboard from '@/styles/styleDashboard.module.css'
+
+import cerrarSesion from '@/public/cerrar_sesion.svg'
+
 
 export function TransBotones () {
     const [seleccionado, setSeleccionado] = useState('transferir_nueva');
