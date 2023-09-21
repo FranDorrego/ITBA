@@ -1,0 +1,268 @@
+
+/*ELEMENTOS DEL BODY*/
+/* body{
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-image: url("./assets-login/Background-color-globe.png");
+    
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}  */
+  
+  @font-face {
+    font-family: Poppins;
+    src: url("/fonts/Poppins-Light.ttf");
+    font-display: swap;
+  }
+  
+  
+  /* ::placeholder { color: white; } */
+  
+  .formulario_login{
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 1.25em;
+    align-self: stretch;
+  }
+  
+  .grid_login{
+    display: grid;
+    justify-content: end;
+    margin: 3%;
+  }
+  
+  .input_login{
+    font-size: 14px;
+  
+    border-radius: 1.5em;
+    background: rgba(255, 255, 255, 0.40);
+    backdrop-filter: blur(0.188em);
+    display: flex;
+    height: 2.25em;
+    padding: 0.375em 0.75em;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: stretch;
+    align-self: stretch;
+    color: white;
+  }
+  
+  .contenido_login{
+    font-size: 20px;
+    display: flex;
+    width: 45em;
+    /* height: 50em; */
+    padding: 1.5em;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 8.75em;
+    flex-shrink: 0;
+    font-size: 14px;
+    margin-right: 7em;
+  }
+  
+  .titulo_login{
+    width: 13.891em/*222.25px*/;
+    height: 2.924em/*46.789px*/;
+    flex-shrink: 0;
+  }
+  
+  .subtitulo_login{
+    color: #FFF;
+    text-align: center;
+    font-family: Poppins;
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal; 
+  }
+  
+  .link_login{
+    align-self: stretch;
+    color: #C59BFA;
+    text-align: center;
+    font-family: Poppins;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    text-decoration-line: underline; 
+    cursor: pointer;
+  }
+  
+  .parrafo_login{
+    color: #FFF;
+    text-align: center;
+    font-family: Poppins;
+    font-size: 14px;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+  }
+  
+
+
+  .label_login{
+    color: #FFF;
+    text-align: left;
+    font-family: Poppins;
+    font-size: 14px;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+  }
+
+  .labelErrorLogin{
+    color: #fc3535;
+    text-align: left;
+    font-family: Poppins;
+    font-size: 14px;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+  }
+  
+  .boton_login{
+    border-radius: 1.5em;
+    background: #8933F5;
+    color: white;
+    text-align: center;
+    cursor: pointer;
+    transition: 0.5s;
+    width: 100%;
+    
+  }
+  
+  /*Animación*/
+  .boton_login:hover{
+    background-color: #C59BFA;
+    color: black;
+  }
+  
+  
+  .dialog_login{
+    background-color: black;
+    border-radius: 2%;
+    width: 50%;
+  }
+  
+  .btn_abrir{
+    background-color: transparent;
+    border: none;
+  }
+  
+  .btn_cerrar{
+    border-radius: 1.5em;
+    background: #8933F5;
+    color: white;
+    text-align: center;
+    cursor: pointer;
+  }
+
+  /* LAPTOPS */
+  @media (max-width: 1024px){
+    /* body{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    } */
+  
+    .grid_login{
+        display: flex;
+        margin: 0 auto 0 auto;
+        justify-content: center;
+        align-items: center;
+    }
+  
+    .contenido_login{
+        font-size: 14px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0 auto 0 auto;
+        width: 35em;
+    }
+  
+    .input_login,
+    .parrafo_login,
+    .link_login{
+        font-size: 15px;
+    }
+  }
+  
+  /* CELULARES */
+  @media (max-width: 480px){
+  
+    .contenido_login{
+        font-size: 14px;
+        height: auto;
+        width: 21rem;
+        /* margin-left: 1em; */
+    }
+  
+    .formulario_login{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1em;
+    }
+  
+    .input_login{
+        font-size: 13px;
+        height: auto;
+        padding: 0.462em 0.923em;
+    }
+  
+    .parrafo_login,
+    .link_login{
+        font-size: 13px;
+    }
+  
+    .subtitulo_login{
+  
+        font-size: 21px;
+    }
+  }
+  
+  /* Celulares  con pantalla mas chica que a la promedio*/
+  @media (max-width: 350px){
+    .contenido_login{
+        width: 18em;
+    }
+  
+    .input_login,
+    .parrafo_login,
+    .link_login{
+        font-size: 12px;
+    }
+  
+    .subtitulo_login{
+        font-size: 20px;
+    }
+    
+  }
+  
+  /* Monitores de una resolucion mayor a la promedio*/
+  @media (min-width: 3840px){
+    .contenido_login{
+        font-size: 32px;
+    }
+  
+    .subtitulo_login{
+        font-size: 60px;
+    }
+  
+    .input_login,
+    .parrafo_login,
+    .link_login{
+        font-size: 35px;
+    }
+  }
