@@ -1,27 +1,24 @@
-import React from 'react';
+import React from "react";
 
-import { MenuIzquierdo } from '../components/Dashboard/components_dashboard/MenuIzquierdo/MenuIzquierdo';
+import { MenuIzquierdo } from "../components/Dashboard/MenuIzquierdo/MenuIzquierdo";
 
-import { MenuDerecho } from '../components/Dashboard/components_dashboard/MenuDerecho/MenuDerecho';
+import { MenuDerecho } from "../components/Dashboard/MenuDerecho/MenuDerecho";
 
-import { Footer } from '../components/Dashboard/components_dashboard/Footer/Footer';
+import { Footer } from "../components/Dashboard/Footer/Footer";
 
-import DivContenedorPrincipal  from '@/components/dashboard/components_dashboard/PrincipalTransferencias/GeneralTransferencias';
+import ContenedorPrincipal from "@/components/dashboard/PrincipalTransferencias/GeneralTransferencias";
 
-import estilosPantilla from '@/styles/stylePlantilla.module.css'
+import estilosPantilla from "@/styles/stylePlantilla.module.css";
 
-
-function Transferencias(){
-    return(
-        <div className={ estilosPantilla.gridDashboard }> 
-            <MenuIzquierdo />
-            <DivContenedorPrincipal/>
-            <MenuDerecho />
-            <Footer />
-
-
-        </div>
-    )
+function Transferencias() {
+  return (
+    <div className={estilosPantilla.gridDashboard}>
+      <MenuIzquierdo />
+      <ContenedorPrincipal />
+      <MenuDerecho />
+      <Footer />
+    </div>
+  );
 }
 
 export default Transferencias;
