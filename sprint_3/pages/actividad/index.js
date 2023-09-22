@@ -1,4 +1,4 @@
-import { ContenidoActividad } from "../components/Dashboard/PrincipalActividad/ContenidoActividad";
+import { ContenidoActividad } from "../../components/Dashboard/PrincipalActividad/ContenidoActividad";
 import Layout from "@/components/Dashboard/Layout";
 
 function Actividad() {

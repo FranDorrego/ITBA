@@ -56,6 +56,22 @@ export function MenuIzquierdo(customClass) {
           onClick={() => cambiarBotonActivo("/cambioDivisas")}
         />
         <BotonIzquierdo
+          text="Tarjeta Credito"
+          imagen="/menu-izquierdo/cambio.svg"
+          alt="tarjeta_credito"
+          link="/credito"
+          isActive={botonActivo === "/credito"}
+          onClick={() => cambiarBotonActivo("/credito")}
+        />
+        <BotonIzquierdo
+          text="Facturas"
+          imagen="/menu-izquierdo/cambio.svg"
+          alt="facturas"
+          link="/facturas"
+          isActive={botonActivo === "/facturas"}
+          onClick={() => cambiarBotonActivo("/facturas")}
+        />
+        <BotonIzquierdo
           text="Mi CBU"
           imagen="/menu-derecho/CIRCLE-INFO.svg"
           id={estilosPlantilla.botonesAuxIzquierda}

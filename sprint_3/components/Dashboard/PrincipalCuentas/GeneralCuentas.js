@@ -5,11 +5,11 @@ import { Buscador } from "../ContenidoPrincipal/Buscador";
 import { ContenedorPrincipal } from "../ContenidoPrincipal/ContenedorPrincipal";
 import { Saludo } from "../ContenidoPrincipal/Saludo";
 import { Renglon } from "./RenglonDatos.js";
-import { Nombre } from "../API_Datos_Personales.js";
+import { datos_personales } from "../API_Datos_Personales.js";
 
 // Componente principal
 function CuentasPrincipal() {
-  let datos = Nombre();
+  let datos = datos_personales();
   return (
     <div className={estilosPantilla.general}>
       <Buscador />

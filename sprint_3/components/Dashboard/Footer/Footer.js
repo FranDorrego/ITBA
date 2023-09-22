@@ -12,7 +12,7 @@ export function Footer(){
             POR AHORA LO DEJO ASI */}
             <ComponenteFooter3
                 logo1='/footer/facebook.png' link1="https://www.facebook.com/" alt1="logo-facebook"
-                logo2='/footer/x.png' link2="https://www.twitter.com/" al2="logo-twitter"
+                logo2='/footer/x.png' link2="https://www.twitter.com/" alt2="logo-twitter"
                 logo3='/footer/instagram.png' link3="https://www.instagram.com/" alt3="logo-instagram"
                 />
         </footer>

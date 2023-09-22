@@ -24,4 +24,4 @@ Este es el inicio de toda la APP, El usuario admitido es:
 
 ## <h1>Documentación del sprint 2</h1>
 
-**![Documentación](./sprint_2/README.md)**
+**![Documentación](./sprint_2/README_Sprint_2.md)**
