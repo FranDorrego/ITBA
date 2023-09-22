@@ -1,5 +1,7 @@
 
 import estilosPlantilla from "@/styles/stylePlantilla.module.css";
+import Style from "@/styles/cuentas/Style.module.css"
+
 import { Buscador } from "@/components/Dashboard/ContenidoPrincipal/Buscador";
 import { ContenedorPrincipal } from "@/components/Dashboard/ContenidoPrincipal/ContenedorPrincipal";
 import { Saludo } from "@/components/Dashboard/ContenidoPrincipal/Saludo.js";
@@ -18,9 +20,11 @@ export default function FormCuenta(props) {
                 <Buscador />
                 <ContenedorPrincipal>
                     <Saludo texto="Se transferira a: " />
-                    <Renglon titulo="Alias" dato={cuenta.alias} />
-                    <Renglon titulo="CBU" dato={cuenta.cbu} />
-                    <Renglon titulo="Cuenta Nro" dato={cuenta.nro_cuenta} />
+                    <div className={`${Style.tarjeta} ${Style.margin_1_px}`}>
+                        <Renglon titulo="Alias" dato={cuenta.alias} />
+                        <Renglon titulo="CBU" dato={cuenta.cbu} />
+                        <Renglon titulo="Cuenta Nro" dato={cuenta.nro_cuenta} />
+                    </div>
                     <FormularioCuentas />
                 </ContenedorPrincipal>
             </div>
