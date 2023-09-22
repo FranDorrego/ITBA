@@ -247,7 +247,6 @@
 }
 
 .buscador img{
-    height: 50%;
     align-self: flex-start;
     margin: auto;
     margin-left: 1%;
@@ -346,7 +345,7 @@
 .footerTercerDiv{
     display: flex;
     flex-direction: row;
-    justify-content: end;
+    justify-content: flex-end;
     align-items: center;
     justify-items: center;
     gap: 1rem;

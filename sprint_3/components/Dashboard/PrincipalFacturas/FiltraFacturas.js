@@ -6,28 +6,28 @@ import { useState } from "react";
 import { useMyContext } from "./GeneralFacturas";
 
 export function FiltraFacturas() {
-    const [filtro, setFiltro] = useState(null);
+    const { data, setData } = useMyContext();
 
     return (
       <>
         <div className={style.filtroDivBotones}>
           <Saludo texto={"Filtra:"} />
           <button
-            className={filtro === false || filtro === null ? style.botonSelecionado : style.botonDivisas}
-            onClick={() => setFiltro(false)}
+            className={data.filtro === false || data.filtro === null ? style.botonSelecionado : style.botonDivisas}
+            onClick={() => setData({ ...data, filtro: false })}
           >
             Para Pagar
           </button>
           <button
-            className={filtro === true || filtro === null ? style.botonSelecionado : style.botonDivisas}
-            onClick={() => setFiltro(true)}
+            className={data.filtro === true || data.filtro === null ? style.botonSelecionado : style.botonDivisas}
+            onClick={() => setData({ ...data, filtro: true })}
           >
             Ya pagadas
           </button>
         </div>
   
         <Movimientos>
-          <HistorialFacturas pago={filtro} />
+          <HistorialFacturas pago={data.filtro} />
         </Movimientos>
       </>
     );

@@ -108,6 +108,19 @@ export async function facturas_crea({ nombreFactura, montoPagar, fechaVencimient
     });
 }
 
+export async function facturas_marcaPagada({ ID }) {
+  return fetch(`https://itbank.pythonanywhere.com/pagafacturas/${ID}`)
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error('Error al realizar la solicitud');
+      }
+      return response.json(); 
+    })
+    .catch((error) => {
+      return { error: 'Ocurrió un error al procesar la solicitud' };
+    });
+}
+
 // Con esta funcion devuelvo el dinero que tiene la cuenta dentro
 export function TotalDineroCuenta() {
 

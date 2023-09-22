@@ -10,7 +10,7 @@ export function Tarjeta(){
         </span>
         <span className={estilosDashboard.tarjeta}> 
             <div>
-                <Image className={estilosDashboard.fondo} src="/menu-derecho/tarjeta-completa.svg" alt="tarjeta" quality={5} width={200} height={130} unoptimized />
+                <Image className={estilosDashboard.fondo} src="/menu-derecho/tarjeta-completa.svg" alt="tarjeta" quality={5} width={200} height={130} priority={true} />
             </div>
         </span> 
     </Link>

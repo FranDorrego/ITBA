@@ -1,24 +1,40 @@
 import estilosDashboard from "@/styles/styleDashboard.module.css";
+import styles from "./PrincipalFacturas.module.css";
 import Image from "next/image";
 import Link from "next/link";
+import { facturas_marcaPagada } from "../API_Datos_Personales";
+import { useRouter } from "next/router";
+
+const DATA = {
+  filtro: null,
+  estado: true,
+  nombreFactura: '', 
+  montoPagar: '',
+  fechaVencimiento: '',
+}
+
 
 export default function TarjetaFactura({ ID, monto, fecha, motivo, pagado }) {
   return (
-    <Link className={estilosDashboard.movimientosTarjeta} href={`facturas/${ID}`}
-    >
-      <span className={estilosDashboard.movimientoTexto}>
-        <h1>${monto}</h1>
-        <h2>Vence: {fecha}</h2>
-      </span>
+    <div className={estilosDashboard.movimientosTarjeta}>
+      <Link href={`facturas/${ID}`}>
+        <span className={estilosDashboard.movimientoTexto}>
+          <h1>${monto}</h1>
+          <h2>Vence: {fecha}</h2>
+        </span>
+      </Link>
 
-      <h2 className={estilosDashboard.motivoTexto}>{motivo}</h2>
+      <h2 className={estilosDashboard.motivoTexto}>
+        <Link href={`facturas/${ID}`}>{motivo}</Link>{" "}
+      </h2>
 
-      {pagado ? <ImageNoPagado /> : <ImagePagado />}
-    </Link>
+      {pagado ? <ImagePagado /> : <ImageNOPagado ID={ID} />}
+    </div>
   );
 }
 
-function ImagePagado() {
+function ImageNOPagado({ ID }) {
+  const router = useRouter();
   return (
     <span className={estilosDashboard.motivo}>
       <h1 className={estilosDashboard.retiro}>No Pagado</h1>
@@ -29,11 +45,21 @@ function ImagePagado() {
         width={20}
         height={20}
       />
+      <button
+        className={styles.botonDivisasChico}
+        onClick={async () => {
+          await facturas_marcaPagada({ID});
+          router.reload();
+        }}
+      >
+        {" "}
+        Marcar Como pagada{" "}
+      </button>
     </span>
   );
 }
 
-function ImageNoPagado() {
+function ImagePagado() {
   return (
     <span className={estilosDashboard.motivo}>
       <h1 className={estilosDashboard.ingreso}>Pagado</h1>

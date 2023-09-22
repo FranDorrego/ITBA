@@ -18,7 +18,7 @@ export function TableroFacturas() {
         className={data.estado ? style.botonDivisas : style.botonSelecionado}
         onClick={handleToggleEstado}
       >
-        + Registra una Factura a Pagar
+        {data.estado ? "+ Registra una Factura a Pagar" : " - Cancelar"}
       </button>
     </div>
   );

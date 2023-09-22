@@ -14,8 +14,9 @@ export function useMyContext() {
 
 export default function Facturas() {
   const [data, setData] = useState({
+    filtro: null,
     estado: true,
-    nombreFactura: '', // Inicializa con valores por defecto
+    nombreFactura: '', 
     montoPagar: '',
     fechaVencimiento: '',
   });

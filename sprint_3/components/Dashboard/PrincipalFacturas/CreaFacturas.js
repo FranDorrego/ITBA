@@ -20,6 +20,14 @@ export function CreaFacturas() {
       swal("Todos los campos son obligatorios", "");
       return;
     }
+  
+    // Expresión regular para validar el formato de fecha dd/mm/aaaa
+    const fechaRegex = /^\d{2}\-\d{2}\-\d{4}$/;
+  
+    if (!fechaRegex.test(data.fechaVencimiento)) {
+      swal("Formato de fecha incorrecto (dd-mm-aaaa)", "");
+      return;
+    }
 
     try {
       const result = await facturas_crea(data);
@@ -50,7 +58,7 @@ export function CreaFacturas() {
       />
       <Datos
         tipo={"Fecha de Vencimiento"}
-        comentario={"dd/mm/aaaa"}
+        comentario={"dd-mm-aaaa"}
         name="fechaVencimiento"
         onChange={handleInputChange}
       />
