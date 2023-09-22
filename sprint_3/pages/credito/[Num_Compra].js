@@ -10,12 +10,11 @@ function NumeroComponente({data}) {
 }
 
 export async function getServerSideProps(context) {
-    const { Num_Movimiento } = context.query; // Accede a los parámetros de la ruta desde context.query
+    const { Num_Compra } = context.query; // Accede a los parámetros de la ruta desde context.query
     
     try {
-        const res = await fetch(`https://itbank.pythonanywhere.com/movimiento/${Num_Movimiento}`);
+        const res = await fetch(`https://itbank.pythonanywhere.com/movimiento/${Num_Compra}`);
         const data = await res.json();
-        console.log(data)
         return { props: { data } }; // Retorna los datos dentro del objeto props
     } catch (error) {
         console.error(error);

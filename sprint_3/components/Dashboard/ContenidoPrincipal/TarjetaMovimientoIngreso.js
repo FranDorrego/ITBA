@@ -5,7 +5,7 @@ import Link from 'next/link';
 
 export function TarjetaMovimientoIngreso({ID, monto, fecha, motivo}){
     return(
-        <Link className={estilosDashboard.movimientosTarjeta} href={`movimientos/${ID}`}>
+        <Link className={estilosDashboard.movimientosTarjeta} href={`actividad/${ID}`}>
             <span className={estilosDashboard.movimientoTexto}>
                 <h1>${monto}</h1>
                 <h2>{fecha}</h2>
