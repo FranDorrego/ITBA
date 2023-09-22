@@ -15,7 +15,6 @@ body {
   padding: 0;
 }
 
-input::placeholder { color: white; }
 
 option {
   color: black;

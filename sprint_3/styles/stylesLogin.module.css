@@ -50,6 +50,7 @@
     align-self: stretch;
     color: white;
   }
+  .input_login::placeholder { color: white; } 
   
   .contenido_login{
     font-size: 20px;

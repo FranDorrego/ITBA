@@ -105,7 +105,12 @@ export function MenuIzquierdo(customClass) {
         <BotonIzquierdo 
           text="Ayuda" 
           imagen="/menu-derecho/ayuda.svg" 
-          alt="ayuda" />
+          alt="ayuda" 
+          link="/ayuda"
+          isActive={botonActivo === "/ayuda"}
+          onClick={() => cambiarBotonActivo("/ayuda")}
+          />
+          
         <BotonIzquierdo
           text="Cerrar sesión"
           imagen="/menu-derecho/cerrar_sesion.svg"
