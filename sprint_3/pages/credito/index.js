@@ -1,10 +1,10 @@
-import { ContenidoActividad } from "@/components/Dashboard/PrincipalActividad/ContenidoActividad";
 import Layout from "@/components/Dashboard/Layout";
+import TarjetaCredito from "@/components/Dashboard/PrincipalTarjetaCredito/TarjetaCredito";
 
 function Actividad() {
   return (
     <Layout>
-      <ContenidoActividad />
+      <TarjetaCredito />
     </Layout>
   );
 }

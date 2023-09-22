@@ -3,6 +3,8 @@ import useSWR from 'swr';
 
 const ERROR_DATOS = {"NombreBase": "", "CBUBase": "", "CuentaBase": ""}
 const ERROR_STATUS = {"total_dinero" : 0,"retiros_totales" : 0, "ingresos_totales" : 0}
+const ERROR_CREDITO = {"saldo": 0, "gasto_mensual": 0, "fecha_cierre": 0}
+
 const fetcher = (url) => fetch(url).then((res) =>res.json());
 
 // Paso de milisigundos a fecha
@@ -17,6 +19,15 @@ function milisegundosADDMMAAAA(milisegundos) {
 
   return `${dia}/${mes}/${año} ${hora}:${minuto} hs`;
 }
+// formateardor de miles
+function formateador(numero){
+  const num = numero.toLocaleString(undefined, {
+    minimumFractionDigits: 0,
+    maximumFractionDigits: 2,
+    useGrouping: true,
+  });
+  return num;
+}
 
 export function Historial() {
   // Devuelve el historial de la cuenta en movimientos
@@ -28,8 +39,9 @@ export function Historial() {
   if (!data){ return []}
 
   const historialFormateado = data.map( (fecha) => { return {...fecha, fecha: milisegundosADDMMAAAA(fecha.fecha)} ; })
-  
-  return historialFormateado
+  const historialFormateadoMiles = historialFormateado.map( (monto) => { return {...monto, monto: formateador(monto.monto)} ; })
+
+  return historialFormateadoMiles
 }
 
 function status_general_cuenta(){
@@ -54,6 +66,20 @@ export function datos_personales() {
   return data
 }
 
+export function datos_tarjeta_credito() {
+  // Devuelve los datos personales en un objeto como ERROR_DATOS (Primera cosnt declarada en esta hoja)
+
+  const {data, error} = useSWR( 'https://itbank.pythonanywhere.com/credito' , fetcher )
+
+  if (error){ return ERROR_CREDITO}
+
+  if (!data){ return ERROR_CREDITO}
+
+  const fecha_cierre = milisegundosADDMMAAAA(data.fecha_cierre)
+
+  return {"saldo": formateador(data.saldo), "gasto_mensual": formateador(data.gasto_mensual), "fecha_cierre": fecha_cierre}
+}
+
 // Con esta funcion devuelvo el dinero que tiene la cuenta dentro
 export function TotalDineroCuenta() {
 
@@ -63,23 +89,11 @@ export function TotalDineroCuenta() {
     let ingresos = registros.ingresos_totales;
 
     // Formatear los valores con 2 decimales y formato de miles
-    const formattedTotal = total.toLocaleString(undefined, {
-        minimumFractionDigits: 2,
-        maximumFractionDigits: 2,
-        useGrouping: true,
-    });
+    const formattedTotal = formateador(total)
 
-    const formattedIngresos = ingresos.toLocaleString(undefined, {
-        minimumFractionDigits: 2,
-        maximumFractionDigits: 2,
-        useGrouping: true,
-    });
+    const formattedIngresos = formateador(ingresos)
 
-    const formattedRetiros = retiros.toLocaleString(undefined, {
-        minimumFractionDigits: 2,
-        maximumFractionDigits: 2,
-        useGrouping: true,
-    });
+    const formattedRetiros = formateador(retiros)
     
     return {"total": formattedTotal, "ingresos": formattedIngresos, "retiros": formattedRetiros};
 }
