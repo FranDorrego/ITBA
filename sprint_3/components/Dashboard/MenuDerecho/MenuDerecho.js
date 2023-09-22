@@ -3,13 +3,14 @@ import { SpanDerecho } from "./SpanDerecho";
 import { ElementosMenuDercho } from "./ElementosMenuDerecho";
 import { BotonDerecho } from "./BotonDerecho";
 import { Tarjeta } from "./Tarjeta";
+import { Saludo } from "../ContenidoPrincipal/Saludo";
 
 export function MenuDerecho() {
   return (
     <div className={estilosPlantilla.menuDerecho}>
       <SpanDerecho />
       <ElementosMenuDercho>
-        <h1 className="titulo">Acciones rápidas</h1>
+        <Saludo texto={"Acciones rápidas"}/>
         <BotonDerecho text="Mi CBU" imagen="/menu-derecho/CIRCLE-INFO.svg" link="/cuentas" />
         <BotonDerecho
           text="Prestamos"

@@ -3,10 +3,11 @@ import HistorialFacturas from "./historialFacturas";
 import style from "./PrincipalFacturas.module.css";
 import { Saludo } from "../ContenidoPrincipal/Saludo";
 import { useState } from "react";
+import { useMyContext } from "./GeneralFacturas";
 
 export function FiltraFacturas() {
     const [filtro, setFiltro] = useState(null);
-  
+
     return (
       <>
         <div className={style.filtroDivBotones}>
@@ -15,13 +16,13 @@ export function FiltraFacturas() {
             className={filtro === false || filtro === null ? style.botonSelecionado : style.botonDivisas}
             onClick={() => setFiltro(false)}
           >
-            Ya Pagadas
+            Para Pagar
           </button>
           <button
             className={filtro === true || filtro === null ? style.botonSelecionado : style.botonDivisas}
             onClick={() => setFiltro(true)}
           >
-            Para Pagar
+            Ya pagadas
           </button>
         </div>
   

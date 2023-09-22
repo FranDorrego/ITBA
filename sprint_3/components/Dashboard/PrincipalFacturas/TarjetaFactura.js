@@ -13,7 +13,7 @@ export default function TarjetaFactura({ ID, monto, fecha, motivo, pagado }) {
 
       <h2 className={estilosDashboard.motivoTexto}>{motivo}</h2>
 
-      {pagado ? <ImagePagado /> : <ImageNoPagado />}
+      {pagado ? <ImageNoPagado /> : <ImagePagado />}
     </Link>
   );
 }

@@ -95,6 +95,19 @@ export function Facturas() {
   return historialFormateadoMiles
 }
 
+export async function facturas_crea({ nombreFactura, montoPagar, fechaVencimiento }) {
+  return fetch(`https://itbank.pythonanywhere.com/creafacturas/${nombreFactura}/${montoPagar}/${fechaVencimiento}`)
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error('Error al realizar la solicitud');
+      }
+      return response.json(); 
+    })
+    .catch((error) => {
+      return { error: 'Ocurrió un error al procesar la solicitud' };
+    });
+}
+
 // Con esta funcion devuelvo el dinero que tiene la cuenta dentro
 export function TotalDineroCuenta() {
 
