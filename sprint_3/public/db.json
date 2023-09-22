@@ -1,0 +1,20 @@
+[
+    {
+     "alias": "alias 1",
+     "cbu": "cbu 1",
+     "nro_cuenta": "nro_cuenta 1",
+     "id": "1"
+    },
+    {
+     "alias": "alias 2",
+     "cbu": "cbu 2",
+     "nro_cuenta": "nro_cuenta 2",
+     "id": "2"
+    },
+    {
+     "alias": "alias 3",
+     "cbu": "cbu 3",
+     "nro_cuenta": "nro_cuenta 3",
+     "id": "3"
+    }
+]

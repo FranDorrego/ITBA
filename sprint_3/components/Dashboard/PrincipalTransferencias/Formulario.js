@@ -1,5 +1,7 @@
 import estilosDashboard from '@/styles/styleDashboard.module.css'
-import { Saludo } from "../ContenidoPrincipal/Saludo"
+import RadioDiv from './RadioDiv'
+import ImporteDiv from './ImporteDiv'
+import MotivoDiv from './MotivoDiv'
 import swal from 'sweetalert'
 import { useForm } from 'react-hook-form'
 import { LabelErrorLogin } from "@/components/Login/Generales/LabelErrorLogin";
@@ -66,7 +68,6 @@ export function TransFormulario (){
           />
         </ImporteDiv>
 
-        { errors.importe?.type === 'required'  && <LabelErrorLogin>Importe requerido</LabelErrorLogin> }
         { errors.importe && <LabelErrorLogin>Importe no valido</LabelErrorLogin> }
         <MotivoDiv />
         <button type="submit" className={estilosDashboard.transBotones} id="boton-transferir" >
@@ -75,42 +76,8 @@ export function TransFormulario (){
       </form>
     );
   };
-  
-// Componente para las opciones de radio
-const RadioDiv = ({children}) => {
-return (
-    <div className={estilosDashboard.transFormularioRadioDiv}>
-      {children}
-    </div>
-);
-};
 
 
-// Componente para el importe
-const ImporteDiv = ({children}) => {
-return (
-    <div className={estilosDashboard.transFormulario}>
-    <Saludo texto="Importe*" />
-    {children}
-    <h1 className={estilosDashboard.AchicaLetra}>
-        *El importe mínimo a transferir es de $ 1 y el máximo es de de dos salarios mínimos vitales y
-        móviles.
-    </h1>
-    </div>
-);
-};
+
 
 // Componente para el motivo
-const MotivoDiv = () => {
-return (
-    <div className={estilosDashboard.transFormulario}>
-    <Saludo titulo="Motivo" />
-    <select name="motivo" id="motivo" className={estilosDashboard.transInputs}>
-        <option value="varios">Varios</option>
-        <option value="compra">Compra</option>
-        <option value="p2p">Comercio P2P</option>
-        <option value="gasto">Division de gastos / Gastos grupales</option>
-    </select>
-    </div>
-);
-};
