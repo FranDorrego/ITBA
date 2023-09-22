@@ -7,6 +7,7 @@ import { HistorialTarjetas } from "../PrincipalActividad/HistorialTarjetas";
 import { ContenedorPrincipal } from "../ContenidoPrincipal/ContenedorPrincipal";
 import style from "./TarjetaCredito.module.css"
 import { TableroResumen } from "./TableroResumen";
+import { Saludo } from "../ContenidoPrincipal/Saludo";
 
 export default function TarjetaCredito(){
     return(
@@ -14,10 +15,14 @@ export default function TarjetaCredito(){
             <Buscador />
             <ContenedorPrincipal>
 
+                <Saludo texto={"Resumen Tarjeta de Credito"}/>
+
                 <div className={style.resumen}>
                     <Tarjeta/>
                     <TableroResumen/>
                 </div>
+
+                <Saludo texto={"Historial de consumos"}/>
 
                 <Movimientos>
                     <HistorialTarjetas motivo={"Consumo con Tarjeta de Credito"} />
