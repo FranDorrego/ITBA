@@ -259,6 +259,15 @@
     line-height: normal;
 }
 
+.saludoAyuda{
+    color: #FFF;
+    font-family: Poppins;
+    font-size: 1.2rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
 /*------ tarjetas dashboard -----*/
 .tarjetasDashboard{
     display: flex;
@@ -325,6 +334,13 @@
     border: 2px solid rgba(255, 255, 255, 0.20);
     background: rgba(255, 255, 255, 0.05);
 }
+
+.divAyuda{
+    display: flex;
+    flex-direction: column;
+    row-gap: 2em;
+}
+
 
 /*------ Tiulo de ultimos movimientos -----*/
 .movimientosTitulo{
@@ -696,6 +712,8 @@
     font-weight: 500;
     line-height: normal;
 }
+
+
 
 .AchicaLetra{
     font-size: 0.9rem;
