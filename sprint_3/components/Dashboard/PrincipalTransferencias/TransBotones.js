@@ -3,11 +3,12 @@ import React, { useState } from 'react';
 import estilosDashboard from '@/styles/styleDashboard.module.css'
 
 
-export function TransBotones () {
-    const [seleccionado, setSeleccionado] = useState('transferir_nueva');
-
+export function TransBotones ({ onBotonSeleccionado }) {
+    const [seleccionado, setSeleccionado] = useState('');
+    const [mostrado, setMostrado] = useState();
     const handleClick = (id) => {
         setSeleccionado(id);
+        onBotonSeleccionado(id);
     }
 
     return (
