@@ -80,6 +80,21 @@ export function datos_tarjeta_credito() {
   return {"saldo": formateador(data.saldo), "gasto_mensual": formateador(data.gasto_mensual), "fecha_cierre": fecha_cierre}
 }
 
+export function Facturas() {
+  // Devuelve el historial de la cuenta en movimientos
+
+  const {data, error} = useSWR( 'https://itbank.pythonanywhere.com/facturas' , fetcher )
+
+  if (error){ return []}
+
+  if (!data){ return []}
+
+  const historialFormateado = data.map( (fecha) => { return {...fecha, fecha: milisegundosADDMMAAAA(fecha.fecha)} ; })
+  const historialFormateadoMiles = historialFormateado.map( (monto) => { return {...monto, monto: formateador(monto.monto)} ; })
+
+  return historialFormateadoMiles
+}
+
 // Con esta funcion devuelvo el dinero que tiene la cuenta dentro
 export function TotalDineroCuenta() {
 

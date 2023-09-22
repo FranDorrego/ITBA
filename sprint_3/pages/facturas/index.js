@@ -1,12 +1,12 @@
-import { ContenidoActividad } from "@/components/Dashboard/PrincipalActividad/ContenidoActividad";
+import Facturas from "@/components/Dashboard/PrincipalFacturas/GeneralFacturas";
 import Layout from "@/components/Dashboard/Layout";
 
-function Actividad() {
+function facturas() {
   return (
     <Layout>
-      <ContenidoActividad />
+      <Facturas/>
     </Layout>
   );
 }
 
-export default Actividad;
+export default facturas;
