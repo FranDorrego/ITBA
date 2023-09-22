@@ -12,6 +12,7 @@ export function HistorialTarjetas({ motivo = null }) {
         return (
           <TarjetaMovimientoIngreso
             key={index}
+            ID = {movimiento.ID}
             monto={movimiento.monto}
             fecha={movimiento.fecha}
             motivo={movimiento.motivo}
@@ -21,6 +22,7 @@ export function HistorialTarjetas({ motivo = null }) {
         return (
           <TarjetaMovimientoRetiro
             key={index}
+            ID = {movimiento.ID}
             monto={movimiento.monto}
             fecha={movimiento.fecha}
             motivo={movimiento.motivo}
