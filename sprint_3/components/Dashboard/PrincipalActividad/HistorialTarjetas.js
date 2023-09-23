@@ -6,8 +6,16 @@ export function HistorialTarjetas({ motivo = null }) {
   let historial = Historial();
 
   return historial
-    .filter((movimiento) => motivo === null || motivo === movimiento.motivo)
+    .filter((movimiento) => motivo === null || movimiento.motivo.includes(motivo))
     .map((movimiento, index) => {
+
+      var linkRedireccion = "actividad";
+      if ( movimiento.motivo.includes("Tarjeta de Credito") ){
+        var linkRedireccion = "credito";
+      }else if (movimiento.motivo.includes("Factura")){
+        var linkRedireccion = "facturas";
+      }
+
       if (movimiento.ingreso) {
         return (
           <TarjetaMovimientoIngreso
@@ -16,6 +24,7 @@ export function HistorialTarjetas({ motivo = null }) {
             monto={movimiento.monto}
             fecha={movimiento.fecha}
             motivo={movimiento.motivo}
+            link={linkRedireccion}
           />
         );
       } else {
@@ -26,6 +35,7 @@ export function HistorialTarjetas({ motivo = null }) {
             monto={movimiento.monto}
             fecha={movimiento.fecha}
             motivo={movimiento.motivo}
+            link={linkRedireccion}
           />
         );
       }

@@ -7,9 +7,9 @@ export function TableroResumen(){
 
     return(
         <div className={style.resumenDatos}>
-            <h1>Gasto del mes :  $ {props.gasto_mensual}</h1>
-            <h1>Saldo Disponible :  $ {props.saldo}</h1>
-            <h1>Fecha de cierre :   {props.fecha_cierre}</h1>
+            <span> <h1>Gasto del mes : </h1> <h2> $ {props.gasto_mensual} </h2> </span>
+            <span> <h1>Saldo Disponible : </h1> <h2> $ {props.saldo} </h2> </span>
+            <span> <h1>Fecha de cierre : </h1> <h2> {props.fecha_cierre} </h2>  </span>
         </div>
     )
 }
