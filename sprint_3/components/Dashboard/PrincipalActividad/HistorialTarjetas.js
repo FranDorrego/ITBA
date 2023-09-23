@@ -5,7 +5,6 @@ import { Historial } from "../API_Datos_Personales.js";
 export function HistorialTarjetas({ motivo = null }) {
   let historial = Historial();
 
-  
   return historial
     .filter((movimiento) => motivo === null || movimiento.motivo.includes(motivo))
     .map((movimiento, index) => {

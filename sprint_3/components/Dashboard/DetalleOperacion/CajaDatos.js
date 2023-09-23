@@ -2,6 +2,7 @@
 import Image from "next/image";
 import style from "./DetalleOperacion.module.css"
 import { BotonPagarFactura } from "../PrincipalFacturas/BotonPagar";
+
 export function CajaDatos({Icono, Texto, dato}){
   return(
     <div className={style.CajaDatos}>
@@ -41,9 +42,7 @@ export function CajaDatosFactura({CuotasPagadas, CuotasTotales, Empresa}){
         <Image src={"/detalle-actividad/pagoCredito.svg"} width={64} height={64} alt={"Detalle"}/>
         <h1 className={style.tituloText}>Cuota {CuotasPagadas} de {CuotasTotales}</h1>
       </div>
-
-      <button className={style.botonDivisasChico} onClick={async () => await pagar({ ID })} > Pagar </button>
-
+      <DetallesPersonales nombre={Empresa}/>
     </div>
   )
 }

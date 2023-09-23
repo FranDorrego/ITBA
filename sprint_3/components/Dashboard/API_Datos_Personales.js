@@ -1,3 +1,4 @@
+import { list } from "postcss";
 import { useEffect, useState } from "react";
 import useSWR from "swr";
 
@@ -13,6 +14,11 @@ const fetcher = (url) => fetch(url).then((res) => res.json());
 
 // Paso de milisigundos a fecha
 export function milisegundosADDMMAAAA(milisegundos, sinHora = false) {
+  //La base de datos retorna una lista con el milisgundo dentro, por eso este IF
+  if (Array.isArray(milisegundos)) {
+    milisegundos = milisegundos[0];
+  }
+
   const fecha = new Date(milisegundos);
 
   const hora = fecha.getHours().toString().padStart(2, "0"); // Obtiene la hora y lo formatea a dos dígitos
@@ -22,7 +28,9 @@ export function milisegundosADDMMAAAA(milisegundos, sinHora = false) {
   const año = fecha.getFullYear();
 
   if (dia !== "NaN") {
-    return sinHora ? `${dia}-${mes}-${año}` :`${dia}/${mes}/${año} ${hora}:${minuto} hs`;
+    return sinHora
+      ? `${dia}-${mes}-${año}`
+      : `${dia}/${mes}/${año} ${hora}:${minuto} hs`;
   } else {
     return milisegundos;
   }
@@ -173,8 +181,15 @@ export async function facturas_crea({
     });
 }
 
-export async function facturas_marcaPagada({ ID }) {
-  return fetch(`https://itbank.pythonanywhere.com/pagafacturas/${ID}`)
+export async function facturas_marcaPagada(props) {
+  let link = `https://itbank.pythonanywhere.com/pagafacturas/${props.ID}`;
+  if (props.cuota) {
+    link = `https://itbank.pythonanywhere.com/pagacuota/${props.ID}`;
+  }
+
+  console.log(props);
+  console.log(link);
+  return fetch(link)
     .then((response) => {
       if (!response.ok) {
         return false;
