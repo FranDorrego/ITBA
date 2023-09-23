@@ -13,13 +13,17 @@ export function TableroFacturas() {
 
   return (
     <div className={style.resumenDatos}>
-      <Saludo texto={"Registra y paga aquí tus facturas >"} />
+
+      <Saludo texto={"Paga tus cuentas y servicios"} />
+
       <button
         className={data.estado ? style.botonDivisas : style.botonSelecionado}
         onClick={handleToggleEstado}
       >
         {data.estado ? "+ Registra una Factura a Pagar" : " - Cancelar"}
+
       </button>
+
     </div>
   );
 }

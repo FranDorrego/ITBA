@@ -27,7 +27,6 @@ function DetalleOperacion({ props }) {
           <CajaDatosFactura CuotasPagadas={props.cuotas_pagadas} CuotasTotales={props.cuotas_totales} Empresa={props.motivo} />
         }
         
-      
         <button className={style.boton} onClick={()=>{window.history.back()} }>Volver</button>
       </div>
 
