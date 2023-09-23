@@ -1,5 +1,6 @@
 import Layout from "@/components/Dashboard/Layout";
 import DetalleOperacion from "@/components/Dashboard/DetalleOperacion/DetalleOperacion";
+import { milisegundosADDMMAAAA} from "@/components/Dashboard/API_Datos_Personales";
 
 function NumeroComponente({data}) {
     return (
@@ -14,7 +15,8 @@ export async function getServerSideProps(context) {
     
     try {
         const res = await fetch(`https://itbank.pythonanywhere.com/movimiento/${Num_Movimiento}`);
-        const data = await res.json();
+        let data = await res.json();
+        data.fecha = milisegundosADDMMAAAA(data.fecha)
         return { props: { data } }; // Retorna los datos dentro del objeto props
     } catch (error) {
         console.error(error);

@@ -3,15 +3,15 @@ import copy from './assets/copy.svg'
 import Style from "@/styles/cuentas/Style.module.css"
 import Image from 'next/image';
 
-export function BotonCopiar({ textoACopiar }) {
-  const [textoBoton, setTextoBoton] = useState("Copiar");
+export function BotonCopiar({ textoACopiar , texto = "Copiar"}) {
+  const [textoBoton, setTextoBoton] = useState(texto);
 
   const copiarAlPortapapeles = () => {
     navigator.clipboard.writeText(textoACopiar)
       .then(() => {
-        setTextoBoton("OK");
+        setTextoBoton(" Copiado!");
         setTimeout(() => {
-          setTextoBoton("Copiar");
+          setTextoBoton(texto);
         }, 1500);
       })
       .catch((err) => {

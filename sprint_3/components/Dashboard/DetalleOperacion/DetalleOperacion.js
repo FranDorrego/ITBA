@@ -1,32 +1,35 @@
-
-import Loading from "@/components/loading";
 import estilosPlantilla from "@/styles/stylePlantilla.module.css";
+import style from "./DetalleOperacion.module.css"
 import { Buscador } from "../ContenidoPrincipal/Buscador";
+import { Saludo } from "../ContenidoPrincipal/Saludo";
+import { FechayNumero } from "./FechaYNumero";
+import { CajaDatosPersonales, CajaDatos } from "./CajaDatos";
+import { formateador } from "../API_Datos_Personales";
 
 function DetalleOperacion({ props }) {
-
-  if (!props) {
-    return (
-        <div className={estilosPlantilla.general}>
-            <Buscador />
-            <Loading />;
-        </div>
-    )}
 
   return (
     <div className={estilosPlantilla.general}>
       <Buscador />
-      <div>
-        <h1>movimiento</h1>
-        <h1>{props.id}</h1>
-        <h1>{props.monto}</h1>
-        <h1>{props.fecha}</h1>
-        <h1>{props.motivo}</h1>
+
+      <div className={style.detalles}>
+
+        <span>
+          <Saludo texto={"Detalles del movimiento"}/>
+          <FechayNumero props={props}/>
+        </span>
+
+        <CajaDatos Icono={"/detalle-actividad/monedero.svg"} Texto={"Monto de "} dato={`$ ${formateador(props.monto)}`}/>
+        <CajaDatos Icono={"/detalle-actividad/ok.svg"} Texto={"Estado"} dato={ props.motivo ? "Aprobado" : "Rechazado"}/>
+
+        <CajaDatosPersonales TextoTitulo={props.motivo} nombre={props.destinatario} CBU={`CBU ${props.CBU}`}/>
+      
+        <button className={style.boton} onClick={()=>{window.history.back()} }>Volver</button>
       </div>
+
     </div>
   );
 }
-
 
 export default DetalleOperacion;
 

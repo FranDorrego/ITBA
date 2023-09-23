@@ -56,8 +56,8 @@ export function MenuIzquierdo(customClass) {
           onClick={() => cambiarBotonActivo("/cambioDivisas")}
         />
         <BotonIzquierdo
-          text="Tarjeta Credito"
-          imagen="/menu-izquierdo/cambio.svg"
+          text="Tarjetas"
+          imagen="/menu-izquierdo/tarjeta.svg"
           alt="tarjeta_credito"
           link="/credito"
           isActive={botonActivo === "/credito"}
@@ -65,7 +65,7 @@ export function MenuIzquierdo(customClass) {
         />
         <BotonIzquierdo
           text="Facturas"
-          imagen="/menu-izquierdo/cambio.svg"
+          imagen="/menu-izquierdo/factura.svg"
           alt="facturas"
           link="/facturas"
           isActive={botonActivo === "/facturas"}

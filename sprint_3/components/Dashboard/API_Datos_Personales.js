@@ -8,7 +8,7 @@ const ERROR_CREDITO = {"saldo": 0, "gasto_mensual": 0, "fecha_cierre": 0}
 const fetcher = (url) => fetch(url).then((res) =>res.json());
 
 // Paso de milisigundos a fecha
-function milisegundosADDMMAAAA(milisegundos) {
+export function milisegundosADDMMAAAA(milisegundos) {
   const fecha = new Date(milisegundos);
 
   const hora = fecha.getHours().toString().padStart(2, '0'); // Obtiene la hora y lo formatea a dos dígitos
@@ -20,7 +20,7 @@ function milisegundosADDMMAAAA(milisegundos) {
   return `${dia}/${mes}/${año} ${hora}:${minuto} hs`;
 }
 // formateardor de miles
-function formateador(numero){
+export function formateador(numero){
   const num = numero.toLocaleString(undefined, {
     minimumFractionDigits: 0,
     maximumFractionDigits: 2,
