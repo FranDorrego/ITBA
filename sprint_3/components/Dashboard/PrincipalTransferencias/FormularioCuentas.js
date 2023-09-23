@@ -11,18 +11,28 @@ export default function FormularioCuentas() {
 
     const {register, formState: { errors }, handleSubmit} = useForm();
 
-    const onSubmit = (data) =>{
-
-        if (data.importe == "") {
+    const onSubmit = async (data) => {
+      console.log(data)
+      if (data.importe == "") {
           swal("Por favor rellena los datos solicitados", "");
-        }
-        else if (enviaTransferencia( { Monto: parseFloat(data.importe) })) {
-          swal("Transferencia realizada", "Monto: " + data.importe);
-        } else {
-          swal("Ocurrio un error, por favor vuelve a intentar", "");
-        }
-        
+      } else {
+          try {
+              const transferenciaResultado = await enviaTransferencia({ Monto: parseFloat(data.importe), destinatario: "Tus otras Cuentas", CBU: "Cuenta Propia" });
+              if (transferenciaResultado === 100) {
+                swal("No tenes fondos suficientes para enviar la transferencia","");
+              }
+              else if (transferenciaResultado === true) {
+                swal("Transferencia realizada", "Monto: " + data.importe);
+              } else {
+                  swal("Ocurrio un error, por favor vuelve a intentar", "");
+              }
+          } catch (error) {
+              console.error('Error al realizar la transferencia:', error);
+              swal("Ocurrio un error, por favor vuelve a intentar", "");
+          }
+      }
     }
+
   return (
     <form action="" className={estilosDashboard.transFormulario} onSubmit={handleSubmit(onSubmit)}>
                 <ImporteDiv>

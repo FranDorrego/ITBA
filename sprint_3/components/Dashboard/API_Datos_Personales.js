@@ -21,12 +21,16 @@ export function milisegundosADDMMAAAA(milisegundos) {
 }
 // formateardor de miles
 export function formateador(numero){
-  const num = numero.toLocaleString(undefined, {
-    minimumFractionDigits: 0,
-    maximumFractionDigits: 2,
-    useGrouping: true,
-  });
-  return num;
+  try{
+    const num = numero.toLocaleString(undefined, {
+      minimumFractionDigits: 0,
+      maximumFractionDigits: 2,
+      useGrouping: true,
+    });
+    return num;
+  }catch{
+    return numero;
+  }
 }
 
 export function Historial() {

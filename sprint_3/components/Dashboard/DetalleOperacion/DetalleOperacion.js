@@ -20,7 +20,7 @@ function DetalleOperacion({ props }) {
         </span>
 
         <CajaDatos Icono={"/detalle-actividad/monedero.svg"} Texto={"Monto de "} dato={`$ ${formateador(props.monto)}`}/>
-        <CajaDatos Icono={"/detalle-actividad/ok.svg"} Texto={"Estado"} dato={ props.motivo ? "Aprobado" : "Rechazado"}/>
+        <CajaDatos Icono={"/detalle-actividad/ok.svg"} Texto={"Estado"} dato={ props.estado }/>
 
         <CajaDatosPersonales TextoTitulo={props.motivo} nombre={props.destinatario} CBU={`CBU ${props.CBU}`}/>
       
