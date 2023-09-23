@@ -322,6 +322,12 @@
     justify-items: center;
 }
 
+.footerNegrita{
+    font-family: Poppins;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
 .footerPrimerDiv{
     display: flex;
     flex-direction: column;
@@ -493,5 +499,8 @@
     .footerText{
         margin: 0;
         margin-left: 1rem;
+    }
+    .footerNegrita{
+        font-size: 16px;
     }
 }

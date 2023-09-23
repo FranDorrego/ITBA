@@ -3,7 +3,7 @@ import DetalleOperacion from "@/components/Dashboard/DetalleOperacion/DetalleOpe
 
 function NumeroComponente({data}) {
     return (
-        <Layout>
+        <Layout titulo="ITBAK - Factura" descripcion="Detalle de la factura">
             <DetalleOperacion props={data}/>
         </Layout>
     );

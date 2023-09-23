@@ -1,12 +1,13 @@
 import Layout from "@/components/Dashboard/Layout";
 import TarjetaCredito from "@/components/Dashboard/PrincipalTarjetaCredito/TarjetaCredito";
+import Head from "next/head";
 
-function Actividad() {
+function Tarjetas() {
   return (
-    <Layout>
-      <TarjetaCredito />
+    <Layout titulo="ITBAK - Tarjetas" descripcion="Administracion de trajetas en nuestro Home Banking">
+        <TarjetaCredito />
     </Layout>
   );
 }
 
-export default Actividad;
+export default Tarjetas;

@@ -4,12 +4,17 @@ import { MenuDerecho } from "./MenuDerecho/MenuDerecho";
 import { Footer } from "./Footer/Footer";
 
 import estilosPlantilla from "@/styles/stylePlantilla.module.css";
+import Head from "next/head";
 
 
 
-export default function Layout({children}) {
+export default function Layout({children, titulo, descripcion}) {
     return (
         <div className={estilosPlantilla.gridDashboard}>
+            <Head>
+                <title>{titulo}</title>
+                <meta name="description" content={descripcion} />
+            </Head>
             <MenuIzquierdo />
             {children}
             <MenuDerecho />
@@ -17,3 +22,9 @@ export default function Layout({children}) {
         </div>
     )
   }
+
+  Layout.defaultProps = {
+    titulo: "ITBANK",
+    descripcion: "Descripcion default"
+ 
+  };

@@ -3,7 +3,7 @@ import Layout from "@/components/Dashboard/Layout";
 
 function Cuentas() {
   return (
-    <Layout>
+    <Layout titulo="ITBAK - Cuentas" descripcion="Seccion para ver cuentas">
       <CuentasPrincipal />
     </Layout>
   );

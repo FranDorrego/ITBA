@@ -21,7 +21,7 @@ export function BotonCopiar({ textoACopiar , texto = "Copiar"}) {
 
   return (
     <div className={Style.button} onClick={copiarAlPortapapeles}>
-      <Image src={copy} alt="Icono de copiar"/>
+      <Image src={copy} alt="Icono-de-copiar"/>
       <h1 className={Style.copiar}>{textoBoton}</h1>
     </div>
   );
