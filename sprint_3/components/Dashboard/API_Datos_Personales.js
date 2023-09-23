@@ -190,14 +190,14 @@ export function pidePrestamo({ Monto }) {
 
 
 // Pide un prestamo, si da false es porque no se dio el pretamo
-export function enviaTransferencia({Monto}) {
+export async function enviaTransferencia({Monto, destinatario, CBU}) {
     const fecha = new Date().getTime();
     
     if (Monto == ""){
         return false
     }
 
-    return fetch(`https://itbank.pythonanywhere.com/transfiere/${Monto}/${fecha}`)
+    return fetch(`https://itbank.pythonanywhere.com/transfiere/${Monto}/${fecha}/${destinatario}/${CBU}`)
 
       .then((response) => {
         if (!response.ok) {
@@ -205,11 +205,6 @@ export function enviaTransferencia({Monto}) {
         }
         return response.json();
       })
-
-      .then((data) => {
-        return data.datos || false;
-      })
-
       .catch((error) => {
         console.error('Error:', error);
         return false;

@@ -14,17 +14,25 @@ export function TransFormulario (){
 
     const {register, formState: { errors }, handleSubmit} = useForm();
 
-    const onSubmit = (data) =>{
-
-        if (data.importe == "") {
+    const onSubmit = async (data) => {
+      if (data.importe == "") {
           swal("Por favor rellena los datos solicitados", "");
-        }
-        else if (enviaTransferencia( { Monto: parseFloat(data.importe) })) {
-          swal("Transferencia realizada", "Monto: " + data.importe);
-        } else {
-          swal("Ocurrio un error, por favor vuelve a intentar", "");
-        }
-        
+      } else {
+          try {
+              const transferenciaResultado = await enviaTransferencia({ Monto: parseFloat(data.importe), destinatario: data.cbuAlias, CBU: data.cbuAlias });
+              if (transferenciaResultado === 100) {
+                swal("No tenes fondos suficientes para enviar la transferencia","");
+              }
+              else if (transferenciaResultado === true) {
+                swal("Transferencia realizada", "Monto: " + data.importe);
+              } else {
+                  swal("Ocurrio un error, por favor vuelve a intentar", "");
+              }
+          } catch (error) {
+              console.error('Error al realizar la transferencia:', error);
+              swal("Ocurrio un error, por favor vuelve a intentar", "");
+          }
+      }
     }
 
     return (
