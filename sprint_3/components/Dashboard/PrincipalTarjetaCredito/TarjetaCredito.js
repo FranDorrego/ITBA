@@ -17,7 +17,7 @@ export default function TarjetaCredito(){
                 <Saludo texto={"Resumen Tarjeta de Credito"}/>
 
                 <div className={style.resumen}>
-                    <Tarjeta/>
+                    < Tarjeta sinTitulo={true}/>
                     <TableroResumen/>
                 </div>
 
