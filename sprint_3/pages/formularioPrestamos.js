@@ -3,7 +3,7 @@ import Layout from "@/components/Dashboard/Layout";
 
 function FormularioPrestamos() {
   return (
-    <Layout>
+    <Layout titulo="ITBAK - Formulario de Prestamos" descripcion="Formulario para sacar un prestamo">
       <GeneralFormPrestamos />
     </Layout>
   );

@@ -8,7 +8,7 @@ import { Saludo } from "@/components/Dashboard/ContenidoPrincipal/Saludo.js";
 import Layout from "@/components/Dashboard/Layout";
 import FormularioCuentas from "@/components/Dashboard/PrincipalTransferencias/FormularioCuentas";
 import { Renglon } from "@/components/Dashboard/PrincipalCuentas/RenglonDatos";
-
+import Head from "next/head";
 
 export default function FormCuenta(props) {
 
@@ -16,6 +16,9 @@ export default function FormCuenta(props) {
 
     return(
         <Layout>
+            <Head>
+                <title>ITBANK - Transferencias</title>
+            </Head>
             <div className={estilosPlantilla.general}>
                 <Buscador />
                 <ContenedorPrincipal>

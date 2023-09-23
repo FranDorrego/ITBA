@@ -1,10 +1,11 @@
 import Layout from "@/components/Dashboard/Layout";
 import DetalleOperacion from "@/components/Dashboard/DetalleOperacion/DetalleOperacion";
 import { milisegundosADDMMAAAA} from "@/components/Dashboard/API_Datos_Personales";
+import Head from "next/head";
 
 function NumeroComponente({data}) {
     return (
-        <Layout>
+        <Layout titulo="ITBAK - Movimiento" descripcion="Detalle del movimiento realizado">
             <DetalleOperacion props={data}/>
         </Layout>
     );

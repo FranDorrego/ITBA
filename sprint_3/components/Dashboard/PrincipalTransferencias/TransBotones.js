@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 
 import estilosDashboard from '@/styles/styleDashboard.module.css'
+import Image from 'next/image';
 
 
 export function TransBotones ({ onBotonSeleccionado }) {
@@ -34,7 +35,7 @@ const TransBoton = ({ id, texto, onClick, activo }) => {
 
     return (
         <button className={claseBoton} id={id} onClick={onClick}>
-            <img src="/menu-derecho/cerrar_sesion.svg" alt="" />
+            <Image src="/menu-derecho/cerrar_sesion.svg" alt="cerrar-sesion" height={20} width={22}/>
             <h1>{texto}</h1>
         </button>
     );

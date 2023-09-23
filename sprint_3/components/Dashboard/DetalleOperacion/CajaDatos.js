@@ -17,7 +17,7 @@ export function CajaDatosPersonales({TextoTitulo, nombre, CBU}){
     <div className={style.CajaDatosPersonales}>
 
       <div className={style.titulo}>
-        <Image src={"/detalle-actividad/detalle.svg"} width={64} height={64} alt={"UserSilueta"}/>
+        <Image src={"/detalle-actividad/detalle.svg"} width={64} height={64} alt="UserSilueta"/>
         <h1 className={style.tituloText}>{TextoTitulo}</h1>
       </div>
 
@@ -31,7 +31,7 @@ function DetallesPersonales({nombre, CBU}){
     return(
         <>
         <div className={style.titulo2}>
-            <Image src={"/detalle-actividad/UserSilueta.svg"} width={64} height={64} alt={"UserSilueta"}/>
+            <Image src={"/detalle-actividad/UserSilueta.svg"} width={64} height={64} alt="UserSilueta"/>
             <h1 className={style.tituloText}>{nombre}</h1>
         </div>
 

@@ -1,9 +1,10 @@
 import Layout from "@/components/Dashboard/Layout";
 import DetalleOperacion from "@/components/Dashboard/DetalleOperacion/DetalleOperacion";
+import Head from "next/head";
 
 function NumeroComponente({data}) {
     return (
-        <Layout>
+        <Layout titulo="ITBAK - Credito" descripcion="Credito en nuestro Home Banking">
             <DetalleOperacion props={data}/>
         </Layout>
     );

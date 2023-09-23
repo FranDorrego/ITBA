@@ -74,6 +74,7 @@ export function MenuIzquierdo(customClass) {
         <BotonIzquierdo
           text="Mi CBU"
           imagen="/menu-derecho/CIRCLE-INFO.svg"
+          alt="cbu"
           id={estilosPlantilla.botonesAuxIzquierda}
           link="/cuentas"
           isActive={botonActivo === "/cbu"}
@@ -82,6 +83,7 @@ export function MenuIzquierdo(customClass) {
         <BotonIzquierdo
           text="Prestamos"
           imagen="/menu-derecho/circle-arrow-down-deposito.svg"
+          alt="prestamos"
           id={estilosPlantilla.botonesAuxIzquierda}
           link="/prestamos"
           isActive={botonActivo === "/prestamos"}
@@ -90,6 +92,7 @@ export function MenuIzquierdo(customClass) {
         <BotonIzquierdo
           text="Transferencias"
           imagen="/menu-derecho/transferencias.svg"
+          alt="transferencias"
           id={estilosPlantilla.botonesAuxIzquierda}
           link="/transferencias"
           isActive={botonActivo === "/transferencias"}
@@ -97,6 +100,7 @@ export function MenuIzquierdo(customClass) {
         />
         <BotonIzquierdo
           id={estilosPlantilla.botonesAuxIzquierda}
+          alt="avatar"
           imagen="/Avatar.svg"
           link="/dashboard"
         />
