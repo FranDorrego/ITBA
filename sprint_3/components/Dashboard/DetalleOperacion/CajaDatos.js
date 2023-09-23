@@ -17,11 +17,26 @@ export function CajaDatosPersonales({TextoTitulo, nombre, CBU}){
     <div className={style.CajaDatosPersonales}>
 
       <div className={style.titulo}>
-        <Image src={"/detalle-actividad/detalle.svg"} width={64} height={64} alt={"UserSilueta"}/>
+        <Image src={"/detalle-actividad/detalle.svg"} width={64} height={64} alt={"Detalle"}/>
         <h1 className={style.tituloText}>{TextoTitulo}</h1>
       </div>
 
       {TextoTitulo === "Envia Transferencia" ? <DetallesPersonales nombre={nombre} CBU={CBU}/> : null}
+
+    </div>
+  )
+}
+
+export function CajaDatosFactura({CuotasPagadas, CuotasTotales, Empresa}){
+  return(
+    <div className={style.CajaDatosPersonales}>
+
+      <div className={style.titulo}>
+        <Image src={"/detalle-actividad/pagoCredito.svg"} width={64} height={64} alt={"Detalle"}/>
+        <h1 className={style.tituloText}>Cuota {CuotasPagadas} de {CuotasTotales}</h1>
+      </div>
+
+      <DetallesPersonales nombre={Empresa} CBU={""}/>
 
     </div>
   )

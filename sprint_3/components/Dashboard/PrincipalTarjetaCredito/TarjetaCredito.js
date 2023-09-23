@@ -1,6 +1,5 @@
 import { Buscador } from "../ContenidoPrincipal/Buscador"
 import estilosPlantilla from "@/styles/stylePlantilla.module.css";
-import estilosDashboard from "@/styles/styleDashboard.module.css";
 import { Tarjeta } from "../MenuDerecho/Tarjeta";
 import { Movimientos } from "../ContenidoPrincipal/Movimientos";
 import { HistorialTarjetas } from "../PrincipalActividad/HistorialTarjetas";
@@ -25,7 +24,7 @@ export default function TarjetaCredito(){
                 <Saludo texto={"Historial de consumos"}/>
 
                 <Movimientos>
-                    <HistorialTarjetas motivo={"Consumo con Tarjeta de Credito"} />
+                    <HistorialTarjetas motivo={"Tarjeta de Credito"} />
                 </Movimientos>
 
             </ContenedorPrincipal>
