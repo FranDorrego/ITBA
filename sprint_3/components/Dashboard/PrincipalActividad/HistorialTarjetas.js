@@ -7,7 +7,7 @@ export function HistorialTarjetas({ motivo = null }) {
 
   
   return historial
-    .filter((movimiento) => motivo === null || motivo === movimiento.motivo)
+    .filter((movimiento) => motivo === null || movimiento.motivo.includes(motivo))
     .map((movimiento, index) => {
 
       var linkRedireccion = "actividad";
