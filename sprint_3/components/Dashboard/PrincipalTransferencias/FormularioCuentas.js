@@ -8,7 +8,7 @@ import { validarImporte } from '@/components/Dashboard/PrincipalTransferencias/v
 import { enviaTransferencia } from '../API_Datos_Personales'
 
 import Alert from "@/components/Alert/Alert";
-import { ERROR, PagoRECHAZADO, PagoEXITOSO } from "@/components/Alert/Alert";
+import { ERROR, PagoRECHAZADO, TransferenciaEXITOSA } from "@/components/Alert/Alert";
 import { useRef } from "react";
 
 export default function FormularioCuentas() {
@@ -26,7 +26,7 @@ export default function FormularioCuentas() {
         if (transferenciaResultado === 100) {
           alertRef.current.muestraContenido(PagoRECHAZADO());
         } else if (transferenciaResultado === true) {
-          alertRef.current.muestraContenido( PagoEXITOSO("Transferiste $ " + data.importe) );
+          alertRef.current.muestraContenido( TransferenciaEXITOSA("Transferiste $ " + data.importe) );
         } else {
           alertRef.current.muestraContenido(ERROR());
         }

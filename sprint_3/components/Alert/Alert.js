@@ -25,7 +25,7 @@ alertRef.current.muestraContenido( Podes pasar una componente y lo renderiza )
 Ya hay componentes pre-armados al final de la pagina 
 
 4- Se tiene que colocar en el render 
-<Alert ref={alertRef}
+<Alert ref={alertRef}/>
 */
 
 var cargaBandera = false;
@@ -108,6 +108,38 @@ export function PagoEXITOSO(detalle) {
       />
       <h2>{detalle}</h2>
       <h2>Despreocupate... Ya esta todo listo</h2>
+    </div>
+  );
+}
+
+export function TransferenciaEXITOSA(detalle) {
+  return (
+    <div className={styles.modal}>
+      <h1>¡Transferencia Exitosa!</h1>
+      <Image
+        src={"/alert/transferenciaExitosa.svg"}
+        width={200}
+        height={200}
+        alt="foto Problema"
+      />
+      <h2>{detalle}</h2>
+      <h2>Despreocupate... <br/>Ya esta todo listo</h2>
+    </div>
+  );
+}
+
+export function CambioEXITOSO(detalle) {
+  return (
+    <div className={styles.modal}>
+      <h1>¡Cambio de Moneda Exitoso!</h1>
+      <Image
+        src={"/alert/transferenciaExitosa.svg"}
+        width={200}
+        height={200}
+        alt="foto Problema"
+      />
+      <h2>{detalle}</h2>
+      <h2>Despreocupate... <br/>Ya esta todo listo</h2>
     </div>
   );
 }

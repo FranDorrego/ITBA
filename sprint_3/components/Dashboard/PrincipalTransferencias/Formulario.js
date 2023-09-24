@@ -9,7 +9,7 @@ import { validarImporte } from "./validate/validarImporte";
 import { enviaTransferencia } from "../API_Datos_Personales";
 
 import Alert from "@/components/Alert/Alert";
-import { ERROR, PagoRECHAZADO, PagoEXITOSO } from "@/components/Alert/Alert";
+import { ERROR, PagoRECHAZADO, TransferenciaEXITOSA } from "@/components/Alert/Alert";
 import { useRef } from "react";
 
 // Componente para el formulario de transferencia
@@ -27,8 +27,7 @@ export function TransFormulario() {
         if (transferenciaResultado === 100) {
           alertRef.current.muestraContenido(PagoRECHAZADO());
         } else if (transferenciaResultado === true) {
-          alertRef.current.muestraContenido( PagoEXITOSO("Transferiste $ " + data.importe)
-          );
+          alertRef.current.muestraContenido( TransferenciaEXITOSA("Transferiste $ " + data.importe) );
         } else {
           alertRef.current.muestraContenido(ERROR());
         }
