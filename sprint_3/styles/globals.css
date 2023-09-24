@@ -15,6 +15,21 @@ body {
   padding: 0;
 }
 
+body::-webkit-scrollbar {
+  width: 10px; /* Ancho de la barra de desplazamiento */
+  height: 0px;
+  background-color: rgba(0, 0, 0, 1);
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: rgba(137, 51, 245, 0.80); /* Cambia el color del pulgar de la barra */
+  border-radius: 5px; /* Bordes redondeados para el pulgar */
+}
+
+body::-webkit-scrollbar-track {
+  background-color: rgba(255, 0, 0, 0.05); /* Cambia el color de la pista de la barra */
+}
+
 
 option {
   color: black;
