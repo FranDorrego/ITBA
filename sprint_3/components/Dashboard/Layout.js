@@ -14,6 +14,7 @@ export default function Layout({children, titulo, descripcion}) {
             <Head>
                 <title>{titulo}</title>
                 <meta name="description" content={descripcion} />
+                <link rel="icon" href="/favicon.ico" />
             </Head>
             <MenuIzquierdo />
             {children}

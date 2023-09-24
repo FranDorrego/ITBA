@@ -1,9 +1,9 @@
 import style from "./TarjetaCredito.module.css"
-import { datos_tarjeta_credito } from "../API_Datos_Personales"
+import { Datos_tarjeta_credito } from "../API_Datos_Personales"
 
 export function TableroResumen(){
 
-    const props = datos_tarjeta_credito()
+    const props = Datos_tarjeta_credito()
 
     return(
         <div className={style.resumenDatos}>

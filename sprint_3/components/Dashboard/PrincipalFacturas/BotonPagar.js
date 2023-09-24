@@ -5,14 +5,13 @@ import swal from "sweetalert";
 
 export function BotonPagarFactura({ ID }) {
   var props = {};
-
+  const router = useRouter();
+  
   if (ID === undefined) {
-    const router = useRouter();
     let routeDIR = router.query;
     ID = routeDIR.Num_Compra;
 
     props.cuota = routeDIR.Numero_Factura !== undefined ? false : true;
-    console.log(ID);
   }
   props.ID = ID;
   return (

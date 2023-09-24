@@ -1,5 +1,5 @@
-import { list } from "postcss";
-import { useEffect, useState } from "react";
+'use-client'
+
 import useSWR from "swr";
 
 const ERROR_DATOS = { NombreBase: "", CBUBase: "", CuentaBase: "" };
@@ -75,7 +75,7 @@ export function Historial() {
   return historialFormateadoMiles;
 }
 
-function status_general_cuenta() {
+function Status_general_cuenta() {
   const { data, error } = useSWR(
     "https://itbank.pythonanywhere.com/status",
     fetcher
@@ -92,7 +92,7 @@ function status_general_cuenta() {
   return data;
 }
 
-export function datos_personales() {
+export function Datos_personales() {
   // Devuelve los datos personales en un objeto como ERROR_DATOS (Primera cosnt declarada en esta hoja)
 
   const { data, error } = useSWR(
@@ -111,7 +111,7 @@ export function datos_personales() {
   return data;
 }
 
-export function datos_tarjeta_credito() {
+export function Datos_tarjeta_credito() {
   // Devuelve los datos personales en un objeto como ERROR_DATOS (Primera cosnt declarada en esta hoja)
 
   const { data, error } = useSWR(
@@ -204,7 +204,7 @@ export async function facturas_marcaPagada(props) {
 
 // Con esta funcion devuelvo el dinero que tiene la cuenta dentro
 export function TotalDineroCuenta() {
-  let registros = status_general_cuenta(); // Asegúrate de que esto devuelva un array
+  let registros = Status_general_cuenta(); // Asegúrate de que esto devuelva un array
   let total = registros.total_dinero;
   let retiros = registros.retiros_totales;
   let ingresos = registros.ingresos_totales;
