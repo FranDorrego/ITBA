@@ -51,7 +51,6 @@ function Notificacion(props, ref) {
 
   if (!isVisible) return null;
 
-  try{ useEffect( () => {console.log("UseEffe")} ) } catch {}
 
   return (
     <div className={`${styles.overlay}`} onClick={() => closeAlert()}>
