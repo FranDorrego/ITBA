@@ -1,10 +1,11 @@
 import TarjetaFactura from "./TarjetaFactura.js";
 import { Facturas } from "../API_Datos_Personales.js";
+import styles from "./PrincipalFacturas.module.css";
 
 export default function HistorialFacturas({ pago = null }) {
   var historial = Facturas();
 
-  return historial
+  const render = historial
     .filter((movimiento) => pago === null || pago === movimiento.pagado)
     .map((movimiento, index) => {
       return (
@@ -18,4 +19,6 @@ export default function HistorialFacturas({ pago = null }) {
         />
       );
     });
+
+  return render.length ? render : <h1 className={styles.tituloHistorial}> No hay datos para mostrar </h1>
 }
