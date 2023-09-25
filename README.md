@@ -26,7 +26,7 @@ Este es el inicio de toda la APP, El usuario admitido es:
 
 diseñamos la app web para que sea lo mas eficaz posible, siguiendo las buenas practicas de programación para cargar imágenes y scripts. Las estadísticas de rendimiento son optimas:
 
-**![](./docs/rendiminento.png)**
+**![](./docs/rendimineto.png)**
 
 ## <h1>SEO</h1>
 
