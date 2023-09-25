@@ -26,7 +26,7 @@ Este es el inicio de toda la APP, El usuario admitido es:
 
 diseñamos la app web para que sea lo mas eficaz posible, siguiendo las buenas practicas de programación para cargar imágenes y scripts. Las estadísticas de rendimiento son optimas:
 
-**![](./docs/rendimiento.png)**
+**![](./docs/rendiminento.png)**
 
 ## <h1>SEO</h1>
 
@@ -56,11 +56,46 @@ Para esta parte se coloco una lista de facturas pagas y no pagas, También se pu
 
 Luego se utilizaron paginas dinámicas para mostrar el detalle de la factura, ya sea que este paga o no. Si no lo esta te da la opcion de pagarla.
 
+**![](./docs/pagoFacturas.png)**
+
+También se pueden crear las facturas a pagar por su botón de agregar facturas.
+
+##  Tarjetas de Crédito
+
+Para esta parte se creo una pagina dinámica el cual te muestra los consumos y te da la opcion de pago. Si ingresas al detalle podes ver el detalle y las cuotas ya pagas. 
+
+**![](./docs/credito.png)**
+
+
+##  Ayuda o Consultas
+
+Se creo un formulario el cual toma tus datos y te da el lugar a consultar. Cuando se envía te da una confirmación al mail. 
+
+**![](./docs/consulta.png)**
+
+##  <h1>Generación de paginas</h1>
+
+Para generar las paginas dinámicas organizamos la carpeta page en sub carpetas y utilizamos el ID de cada elemento en particular para identificarlo. Para las paginas dinamicas tenemos: 
+
+- Detalle de actividad **/actividad/Num_Movimiento** generadas con getServerSideProps.
+- Detalle de credito **/credito/Num_Compra** son generadas con getServerSideProps.
+- Detalle de factura **/facturas/Numero_Factura** son generadas con getServerSideProps.
+- Transferencias **/transferencias/cuenta** son generadas con getStaticPaths y getStaticProps.
+
+**![](./docs/paginas.png)**
+
+##  <h1>Llamadas a API o carga de datos</h1>
+
+Para este tema en particular, se creo una única pagina la cual contiene todos los métodos que llaman a la API y devuelven su llamada después de tratar los posibles errores y formatear los datos correspondientes.
+
+Para estas llamadas esta la pagina de **API_Datos_Personales.js** La cual conta de diversos métodos, pero todos en simples palabras usan useSWR para que la demora en tomar los datos sea la primera vez y que luego la navegación sea mas fluida para el usuario.
+
+**![](./docs/API.png)**
 
 
 ##  Manejo de errores
 
-Los errores se manejan así
+Los errores se muestran con un baner mejorar la experiencia de usuario
 
 **![](./docs/Error.png)**
 
