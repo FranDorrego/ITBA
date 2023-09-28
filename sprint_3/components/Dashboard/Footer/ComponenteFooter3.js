@@ -6,7 +6,7 @@ import Image from 'next/image'
 export function ComponenteFooter3({logo1, link1, alt1, logo2, link2, alt2, logo3, link3, alt3,}){
     return(
         <div className={estilosPlantilla.footerTercerDiv}>
-            <label className={estilosPlantilla.footerNegrita}>Seguinos en:</label>
+            <div className={estilosPlantilla.footerNegrita}>Seguinos en:</div>
             <Link className={estilosPlantilla.socialFooter} href={ link1 } target="_blank">
                 <Image src={logo1} alt={alt1} width={20} height={20}/>
             </Link>
