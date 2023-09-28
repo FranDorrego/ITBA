@@ -1,5 +1,5 @@
 import estilosDashboard from '../../styleDashboard.module.css'
-import logoMonedas from '../../assets/Ilustración.png'
+import logoMonedas from '../../assets/Ilustracion.png'
 import arrow from '../../assets/arrow-right.svg'
 import { Link } from 'react-router-dom';
 
