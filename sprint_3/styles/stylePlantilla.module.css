@@ -400,14 +400,12 @@ line-height: normal;
     background-color: rgba(0, 0, 0, 0.2);
     color: white;
     text-align: center;
-    width: 2rem;
-    height: 2rem;
     border-radius: 100%;
 }
 
 .socialFooter img {
-    width: 2rem;
-    height: 2rem;
+    width: auto;
+    height: auto;
 }
 
 .fondoFooter{
