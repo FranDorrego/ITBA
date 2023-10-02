@@ -30,16 +30,14 @@ from os import system as sys
         
 
 # LEE EL ARCHIVO Y A SU VEZ SE ENCARGA DE BUSCAR LOS DNI QUE COINCIDAN, LOS QUE ENCUENTRA LOS AGREGA A LA LISTA Y LOS RETORNA FILTRADOS
-# TENGO UNA DUDA CON ESTE, PQ NO SE SI CUANDO SE FILTRA POR DNI, TENGO Q AGREGAR TMB SI EL DNI ESTA EN ALGUN NUMERO DE CUENTA
-# POR AHORA AGREGA LOS QUE ESTAN EN ALGUN NUMERO DE CUENTA
 def consultaPorDNI(dni):
     cheques = []
     with open("cheques.csv") as c:
-        reader = csv.reader(c, delimiter="\t")
+        reader = csv.reader(c, delimiter=",")
         encabezado = next(reader)
         cheques.append(encabezado)
         for row in reader:
-            if(row[8] == dni or row[3] == dni or row[4] == dni):
+            if(row[8] == dni):
                 cheques.append(row)
     if len(cheques) == 1:
         return "No se encontraron cheques asociados a este DNI"
@@ -103,7 +101,7 @@ def generarCSV(datos, dni):
     now = dt.datetime.now()
     nowString = now.strftime("%Y%m%d%H%M%S")
     with open(f"{dni}_{nowString}.csv", mode="w", newline='\n') as c:
-        writer = csv.writer(c, delimiter="\t", lineterminator='\n')
+        writer = csv.writer(c, delimiter=",", lineterminator='\n')
         for fila in datos:
             writer.writerow(fila)
         print("ejecuto")
@@ -122,23 +120,25 @@ def filtrarPorEstado(datos, estado):
     return datosFiltrados
 
 # FILTRA LOS DATOS SEGUN SI SON EMITIDOS O DEPOSITADOS, TENGO DUDAS SOBRE ESTO, NO SE SI TAMBIEN TIENE QUE MOSTRAR LOS CHEQUES Q LO TENGAN EN EL CAMPO DNI
-def filtrarPorEmitidoODepositado(datos, dni, opcion):
+def filtrarPorEmitidoODepositado(datos, opcion):
     datosFiltrados = [datos[0]]
     for dato in datos:
-        if opcion == "EMITIDO":
-            if dato[3] == dni:
-                datosFiltrados.append(dato)
-        else:
-            if dato[4] == dni:
-                datosFiltrados.append(dato)
+        if dato[10] == opcion:
+            datosFiltrados.append(dato)
     return datosFiltrados
-    
+
+# POSICION 10 = TIPO (DEPOSITADO O EMITIDO)
+# POSICION 9 = ESTADO (PENDIENTE, APROBADO O RECHAZADO)
+# EL TIPO VA A SER UN INT DE ACUERDO A LO QUE SE HAYA INGRESADO
+def filtrado(datos, opcion, tipo):
+    datosFiltrados = [datos[0]]
+    for dato in datos:
+        if dato[tipo] == opcion:
+            datosFiltrados.append(dato)
+    return datosFiltrados
 
 def main():
     # ultimoNumeroDeCheque = ultimoNumeroCheque()
-
-
-
     sys("cls")
     dni = input("Ingrese un DNI para realizar la consulta: ")
     datos = consultaPorDNI(dni)
@@ -150,22 +150,22 @@ def main():
         opcionEmitidoODepositado = menuDosOpciones("EMITIDO", "DEPOSITADO")
         if opcionEmitidoODepositado == 1:
             print("OPCION EMITIDO")
-            datosFiltradosEmitidoODepositado = filtrarPorEmitidoODepositado(datos, dni, "EMITIDO")
+            datosFiltradosEmitidoODepositado = filtrado(datos, "EMITIDO", 10)
         else:
             print("OPCION DEPOSITADO")
-            datosFiltradosEmitidoODepositado = filtrarPorEmitidoODepositado(datos, dni, "DEPOSITADO")
+            datosFiltradosEmitidoODepositado = filtrado(datos, "DEPOSITADO", 10)
 
             
         opcionEstadoCheque = menuEstadoCheque()
         if opcionEstadoCheque == 1:
             print("OPCION PENDIENTE")
-            datosFiltradosPorEstado = filtrarPorEstado(datosFiltradosEmitidoODepositado, "PENDIENTE")
+            datosFiltradosPorEstado = filtrado(datosFiltradosEmitidoODepositado, "PENDIENTE", 9)
         elif opcionEstadoCheque == 2:
             print("OPCION APROBADO")
-            datosFiltradosPorEstado = filtrarPorEstado(datosFiltradosEmitidoODepositado, "APROBADO")
+            datosFiltradosPorEstado = filtrado(datosFiltradosEmitidoODepositado, "APROBADO", 9)
         elif opcionEstadoCheque == 3:
             print("OPCION RECHAZADO")
-            datosFiltradosPorEstado = filtrarPorEstado(datosFiltradosEmitidoODepositado, "RECHAZADO")
+            datosFiltradosPorEstado = filtrado(datosFiltradosEmitidoODepositado, "RECHAZADO", 9)
         else:
             datosFiltradosPorEstado = datosFiltradosEmitidoODepositado
             
