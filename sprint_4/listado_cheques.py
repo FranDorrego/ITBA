@@ -1,34 +1,8 @@
 import csv
 import datetime as dt
 from os import system as sys
-
-# ESTAS DOS FUNCIONES SIRVEN PARA BUSCAR EL ULTIMO NUMERO DE CHEQUE PARA PODER AGREGAR NUEVO CHEQUES Y QUE SIGAN DE FORMA ORDENADA
-# LA PRIMERA BUSCA EL ULTIMO VALOR
-# def ultimoNumeroCheque(): # LEE EL ARCHIVO Y GUARDA EL ULTIMO NUMERO DE CHEQUE
-#     ultimoNumeroDeCheque = 0 # CONTADOR PARA CALCULAR EL PROXIMO NUMERO DE CHEQUE
-#     with open("cheques.csv") as c:
-#         reader = csv.reader(c, delimiter="\t")
-#         encabezado = next(reader)
-#         for row in reader:
-#             ultimoNumeroDeCheque += 1
-#     return ultimoNumeroDeCheque 
-# ESTA FUNCION SE ENCARGA DE PONER EL PROXIMO NUMERO DE CHEQUE CON EL FORMATO QUE USAMOS
-# def calcularProximoNumeroCheque(ultimoNumeroDeCheque):
-#     proximoNumeroCheque = str(ultimoNumeroDeCheque + 1)
-#     if len(proximoNumeroCheque) == 1:
-#         return "0000" + proximoNumeroCheque
-#     elif len(proximoNumeroCheque) == 2:
-#         return "000" + proximoNumeroCheque
-#     elif len(proximoNumeroCheque) == 3:
-#         return "00" + proximoNumeroCheque
-#     elif len(proximoNumeroCheque) == 4:
-#         return "0" + proximoNumeroCheque
-#     elif len(proximoNumeroCheque) == 5:
-#         return proximoNumeroCheque
-#     return proximoNumeroCheque
-
+import argparse
         
-
 # LEE EL ARCHIVO Y A SU VEZ SE ENCARGA DE BUSCAR LOS DNI QUE COINCIDAN, LOS QUE ENCUENTRA LOS AGREGA A LA LISTA Y LOS RETORNA FILTRADOS
 def consultaPorDNI(dni):
     cheques = []
@@ -137,7 +111,16 @@ def filtrado(datos, opcion, tipo):
             datosFiltrados.append(dato)
     return datosFiltrados
 
-def main():
+# LAS FECHAS TIENE QUE ESTAR COMO AAAA-MM-DD
+def filtrarPorRangoDeFechas(datos, fechaInicio, fechaFin):
+    datosFiltrados = [datos[0]]
+    for dato in datos:
+        if dato[6] <= fechaInicio and dato[7] >= fechaFin:
+            print(dato)
+            datosFiltrados.append(dato)
+    return datosFiltrados
+
+def main2():
     # ultimoNumeroDeCheque = ultimoNumeroCheque()
     sys("cls")
     dni = input("Ingrese un DNI para realizar la consulta: ")
@@ -180,4 +163,16 @@ def main():
             generarCSV(datosFiltradosPorEstado, dni)
     print("*************************")
 
-main()
+
+def main():
+    parser = argparse.ArgumentParser()
+    parser.add_argument("archivo", type=str, default="cheques.csv", help="Nombre del archivo", nargs='?')
+    parser.add_argument("dni", type=str, help="DNI para hacer la consulta")
+    parser.add_argument("salida", type=str, help="CSV O PANTALLA", choices=["CSV", "PANTALLA"])
+    parser.add_argument("tipo", type=str, help="EMITIDO o DEPOSITADO", choices=["EMITIDO", "DEPOSITADO"])
+    parser.add_argument("estado", type=str, default="SIN ESTADO", help="PENDIENTE o APROBADO o RECHAZADO (opcional)", 
+                        nargs='?', choices=["PENDIENTE", "APROBADO", "RECHAZADO", "SIN ESTADO"])
+    parser.add_argument("--fecha", "-f", type=str, default="Rango de fechas (opcional)", help="Rango de fechas, debe tener formato de AAAA-MM-DD (opcional)", 
+                        nargs='?')
+    args = parser.parse_args()
+    
