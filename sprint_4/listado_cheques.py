@@ -68,7 +68,7 @@ def verifica_parametros( args : argparse.ArgumentParser ) -> argparse.Namespace:
         exit(1)
 
     # Vemos si el DNI tiene 8 digitos y no es un numero negativo
-    if args.dni < 10000000 or args.dni > 99999999:
+    if args.dni < 1000000 or args.dni > 99999999:
         print("El DNI tiene que ser solo números y de 8 dígitos")
         exit(1)
     
@@ -147,7 +147,7 @@ def formato_correcto(fila):
             return False
 
         # Verificamos si el DNI es un entero de 8 dígitos
-        if len(fila[8]) != 8 or not fila[8].isdigit():
+        if len(fila[8]) != 7 or not fila[8].isdigit():
             print(f"Formato -> DNI  {fila[8]} -> tiene que tener 8 digitos | ", end="")
             return False
 
