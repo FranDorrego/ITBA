@@ -24,7 +24,9 @@ Para ejecutarlo, es el siguiente formato:
  - *SALIDA*: Es por donde se muestran los datos, por PANTALLA o CSV. Si se selecciona CSV se crea un archivo en el directorio en donde esta el script con todos los datos. EJ: *./DNI_TIMESTAMP.CSV*
  -  *TIPO*:  Es el tipo de cheque, solo puede ser EMITIDO o DEPOSITADO
  -  *ESTADO*: Es un dato opcional, solo acepta PENDIENTE, APROBADO, RECHAZADO.
- - *FECHA*: Es un dato opcional, es un rango de fechas, se llama como -f o --fecha, Se coloca en formato AAAA-MM-DD:AAAA-MM-DD
+ - *FECHA*: Es un dato opcional, es un rango de fechas, se llama como -f o --fecha, Se coloca en formato AAAA-MM-DD:AAAA-MM-DD. 
+
+Se toman los dos dias de rango a las 00.00.00hs. Es decir si pasas 2020-05-02:2020-05-03 se va a tomar como rango desde las 00.00hs del 05-02 al 00.00hs del 05-03
 
 Los parámetros tienen que ser en mayúsculas.
 
@@ -75,13 +77,13 @@ Condiciones para que funcionen:
 Para esta parte se asume que existe el archivo, por lo tanto se abre y se lee linea por linea.
 Cuando se esta leyendo se tiene en cuenta si:
 
-- El archivo esta vacío
-- Si la linea que estamos leyendo esta vacía
-- Si la linea que leemos es el titulo o no
-- Si esta en el formato correcto o no de CSV
-- Si esta dentro del rango especificado
-- Si estamos leyendo la información del DNI 
-- Si hay que filtrar por tipo y estado
+- El archivo esta vacío.
+- Si la linea que estamos leyendo esta vacía.
+- Si la linea que leemos es el titulo o no.
+- Si esta en el formato correcto o no de CSV.
+- Si esta dentro del rango de fechas especificado.
+- Si estamos leyendo la información del DNI .
+- Si hay que filtrar por tipo y estado.
 
 Cuando finaliza se agrega el numero de cheque a un registro para evitar que se repitan y se agrega la linea al la lista a devolver. 
 
