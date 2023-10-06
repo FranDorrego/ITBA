@@ -281,8 +281,8 @@ def main():
     parser.add_argument("tipo", type=str, help="EMITIDO o DEPOSITADO", choices=["EMITIDO", "DEPOSITADO"])
 
     # Argumentos opcionales
-    parser.add_argument("--estado", "-e", type=str, default="", help="PENDIENTE | APROBADO | RECHAZADO | (opcional)", choices=["PENDIENTE", "APROBADO", "RECHAZADO"])
-    parser.add_argument("--fecha", "-fc", type=str, default="", help="Fecha comienzo, debe tener formato de AAAA-MM-DD (opcional)")
+    parser.add_argument("estado", type=str, default="", nargs="?", help="PENDIENTE | APROBADO | RECHAZADO | (opcional)", choices=["PENDIENTE", "APROBADO", "RECHAZADO", ""])
+    parser.add_argument("--fecha", "-fc", type=str, default="", nargs="?", help="Fecha comienzo, debe tener formato de AAAA-MM-DD (opcional)")
 
     # Verificamos los datos y convetimos a los datos correctos
     args = verifica_parametros( args= parser.parse_args())
