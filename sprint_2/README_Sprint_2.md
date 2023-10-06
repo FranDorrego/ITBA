@@ -95,4 +95,4 @@ Elegimos utilizar CSS Modules en vez de una librería ya que gran parte de nuest
 
 ## <h1>Documentación del sprint Anterior</h1>
 
-**![Documentación](./sprint_1/README.md)**
+**[Documentación](./sprint_1/README.md)**
