@@ -40,7 +40,7 @@ El proyecto tiene 3 carpetas principales **Login, Dashboard, assets-globales**. 
 
 Esta plantilla se repite en todas las paginas internas del Dashboard, esta contiene un formato de HTML separado de la siguiente forma:
 
-**![](/docs/html.png)**
+**![](/sprint_1/docs/html.png)**
 
 Menu derecho:  
 -   Un div para logo y boton (Es la parte de arriba)
@@ -65,14 +65,14 @@ Esta plantilla es exclusiva de todos los elementos que se repiten. Esta en "asse
 
 **Body**: Use GRID con 3 columnas a lo ancho y 2 filas a lo alto
 
-![](/docs/css.png)
+![](/sprint_1/docs/css.png)
 
 Dentro de ese GRID principal, cada elemento usa GRID nuevamente para organizarse. Internamente de cada elemento vuelve a dividirse según lo que tenga. Pero en este último caso, se maneja con flex.
-![](/docs/grid.png)
+![](/sprint_1/docs/grid.png)
 
 La etiqueta "a" Fue sobre escrita en el CSS principal en estilos ya que se utilizaba muy seguido en todo el proyecto.
 
-![](/docs/a-etiqueta.png)
+![](/sprint_1/docs/a-etiqueta.png)
 
 El resto de componentes están orientados en FLEX están alineados ya sea con -center o con los márgenes del componente.
 
@@ -80,18 +80,18 @@ El resto de componentes están orientados en FLEX están alineados ya sea con -c
 
 Solo se adaptó a desktop, tablet y celular. Para ello se ocultan algunos elementos y se trasladan a otro lado. (Se habla de este tema en HTML)
 
-![](/docs/responsive.png)
+![](/sprint_1/docs/responsive.png)
 
 Además de ello, algunos div se vuelven scrol:
 
-![](/docs/scrol.png)
+![](/sprint_1/docs/scrol.png)
 
 
 ##  <h1>JavaScript</h1>
 
 Para realizar el JS decidimos juntar todos los archivos en una misma carpeta llamada scripts y de esta manera tener todos agrupados en un mismo lugar, para que a la hora de buscarlos sea más cómodo y rápido. A su vez, los nombres de los archivos están asociados a su HTML correspondiente, por ejemplo, prestamos.js está relacionado con el prestamos.html, esto lo realizamos tanto para el Dashboard como para el Login. 
 
-![](/docs//archivos.png)
+![](/sprint_1/docs//archivos.png)
 
 El archivo llamado **CONSTATES.js** lo utilizamos para guardar variables y funciones globales como, por ejemplo, para actualizar el saldo, que si realizamos un préstamo en otra página que esto se vea reflejado y la misma funcionalidad para las transferencias.
 
@@ -103,15 +103,15 @@ Para la parte de **cambio-divisas.js**:
 
 1) Estado Base
 
-![](/docs/arg_dolares.png) 
+![](/sprint_1/docs/arg_dolares.png) 
 
 2) Busco la opción
 
-![](/docs/menu.png) 
+![](/sprint_1/docs/menu.png) 
 
 3) Selecciono y se cambia la bandera
 
-![](/docs/arg_brasil.png)
+![](/sprint_1/docs/arg_brasil.png)
 
 </div>
 
@@ -137,9 +137,9 @@ Por último **transferencias.js**:
    para los botones de “nueva transferencia” y “transferir a mis
    cuentas”.
 
-![](/docs/nuevo_select.png)
+![](/sprint_1/docs/nuevo_select.png)
 
-![](/docs/transfer_select.png)
+![](/sprint_1/docs/transfer_select.png)
 
  - También otro evento que se encarga de atrapar las excepciones y
    comunicar al usuario el problema hallado.
