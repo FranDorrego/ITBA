@@ -5,104 +5,110 @@ El grupo que esta creando ITBANK es **iKnowHow** Conformado por:
   - Franco Nicolás Dorrego
   - Laureano Ibarra
   - Evelyn Gazal
-  - Luciano Hermida
-  - Mauro Joaquin Cena
 
-# Forma de tester
+# Forma de Tester
 
-Para testearlo simplemente ingresa a la carpeta **Sprint_3** y ejecuta en la consola:
+Para testearlo simplemente ingresa con la **consola** a **Sprint_4** y ejecuta las pruebas:
 
-**npm install** 
-**npm run build** 
-**npm start** 
+- cd sprint_4
 
-Este es el inicio de toda la APP, El usuario admitido es:
+Para ejecutarlo, es el siguiente formato:
 
- - **USUARIO:** Cualquiera mayor a 6 letras.
- - **CLAVE:** Cualquiera mayor a 8 Numeros.
- - **DNI :** Cualquiera igual a 8 letras.
- - 
-## <h1>Indicadores de Web Vitals</h1>
+	-  python listado_cheques.py PATH_CSV DNI SALIDA TIPO ESTADO -f FECHA
 
-diseñamos la app web para que sea lo mas eficaz posible, siguiendo las buenas practicas de programación para cargar imágenes y scripts. Las estadísticas de rendimiento son optimas:
+- *PATH_CSV* : Es el directorio donde se busca la información. El mismo tiene que ser delimitados por "," y tener este formato:
 
-**![](./docs/rendimineto.png)**
+		- nroCheque,codigoBanco,codigoSucursal,nroCuentaOrigen,nroCuentaDestino,valor,fechaOrigen,fechaPago,dni,estado,tipo 
+ 
+ - *DNI*: Tiene que ser un numero entre 7 a 8 Dígitos.
+ - *SALIDA*: Es por donde se muestran los datos, por PANTALLA o CSV. Si se selecciona CSV se crea un archivo en el directorio en donde esta el script con todos los datos. EJ: *./DNI_TIMESTAMP.CSV*
+ -  *TIPO*:  Es el tipo de cheque, solo puede ser EMITIDO o DEPOSITADO
+ -  *ESTADO*: Es un dato opcional, solo acepta PENDIENTE, APROBADO, RECHAZADO.
+ - *FECHA*: Es un dato opcional, es un rango de fechas, se llama como -f o --fecha, Se coloca en formato AAAA-MM-DD:AAAA-MM-DD. 
 
-## <h1>SEO</h1>
+Se toman los dos dias de rango a las 00.00.00hs. Es decir si pasas 2020-05-02:2020-05-03 se va a tomar como rango desde las 00.00hs del 05-02 al 00.00hs del 05-03
 
-Para cada pagina utilizamos un Layout el cual le da el formato base. Este Layout contiene una etiqueta de titulo y descripción el cual cambia según la pagina a donde este. Por precaución de que no se le pase las etiquetas se definieron etiquetas por defecto, de esa forma siempre tiene titulo y detalles.
+Los parámetros tienen que ser en mayúsculas.
 
-**![](./docs/SEO.png)**
+## <h1>Diagrama de Flujo</h1>
 
-Luego se cambiaron todas las etiquetas de img a Image igual que los Links para asegurar una carga optima. 
+Diseñamos un diagrama el cual explica como tratamos la información. La idea es tratar la información de una forma ordenada y metódica, anticiparnos a los posibles errores y ser lo mas eficiente posible, por esa razón utilizamos este diagrama para poder sintetizar en si la lógica por un lado y por el otro la parte técnica. 
 
-## <h1>Funcionalidades</h1>
-
-##  Transferencias
-
-En esta parte se usaron paginas estáticas ya cargadas en el servidor para mostrar la lista de cuentas disponibles para transferir. 
-
-**![](./docs/transferencias_1.png)**
-
-Luego para confirmar la transferencia que se esta por realizar se utilizo un baner el cual carga y muestra el estado de la transferencia.
-
-**![](./docs/transferencias_2.png)**
-
-##  Facturas
-
-Para esta parte se coloco una lista de facturas pagas y no pagas, También se pueden agregar facturas con su boton. 
-
-**![](./docs/facturas.png)**
-
-Luego se utilizaron paginas dinámicas para mostrar el detalle de la factura, ya sea que este paga o no. Si no lo esta te da la opcion de pagarla.
-
-**![](./docs/pagoFacturas.png)**
-
-También se pueden crear las facturas a pagar por su botón de agregar facturas.
-
-##  Tarjetas de Crédito
-
-Para esta parte se creo una pagina dinámica el cual te muestra los consumos y te da la opcion de pago. Si ingresas al detalle podes ver el detalle y las cuotas ya pagas. 
-
-**![](./docs/credito.png)**
+**![](./docs/flujo.png)**
 
 
-##  Ayuda o Consultas
+## <h1>Manejo de Fechas</h1>
 
-Se creo un formulario el cual toma tus datos y te da el lugar a consultar. Cuando se envía te da una confirmación al mail. 
+Usamos un método el cual realiza toda la conversión de fechas este único formato:
 
-**![](./docs/consulta.png)**
+		AAAA-MM-DD:hh:mm:ss
 
-##  <h1>Generación de paginas</h1>
+Podemos  tratar las fechas en estos formatos:
+	
+	- AAAA-MM-DD
+	- AAAA-MM-DD:h
+	- AAAA-MM-DD:h:m
+	- AAAA-MM-DD:h:m:s
+	- time_stamp
 
-Para generar las paginas dinámicas organizamos la carpeta page en sub carpetas y utilizamos el ID de cada elemento en particular para identificarlo. Para las paginas dinamicas tenemos: 
+Si se trata de manejar una fecha que no este algún formato especificado, el método devuelve "Error" en su lugar y se trata en la función que lo llamo.
 
-- Detalle de actividad **/actividad/Num_Movimiento** generadas con getServerSideProps.
-- Detalle de credito **/credito/Num_Compra** son generadas con getServerSideProps.
-- Detalle de factura **/facturas/Numero_Factura** son generadas con getServerSideProps.
-- Transferencias **/transferencias/cuenta** son generadas con getStaticPaths y getStaticProps.
+La idea es siempre trabajar en un solo formato de fecha en todo el código.
 
-**![](./docs/paginas.png)**
-
-##  <h1>Llamadas a API o carga de datos</h1>
-
-Para este tema en particular, se creo una única pagina la cual contiene todos los métodos que llaman a la API y devuelven su llamada después de tratar los posibles errores y formatear los datos correspondientes.
-
-Para estas llamadas esta la pagina de **API_Datos_Personales.js** La cual conta de diversos métodos, pero todos en simples palabras usan useSWR para que la demora en tomar los datos sea la primera vez y que luego la navegación sea mas fluida para el usuario.
-
-**![](./docs/API.png)**
+**![](./docs/fecha.png)**
 
 
-##  Manejo de errores
+## <h1>Formato Correcto de parámetros</h1>
 
-Los errores se muestran con un baner mejorar la experiencia de usuario
+Para asegurarnos de que los datos que envían los usuarios son correctos, antes de ejecutar cualquier filtro, los evaluamos. 
 
-**![](./docs/Error.png)**
+Condiciones para que funcionen:
+
+ - Que el archivo CSV exista en la ruta que se dio.
+ - Que el DNI este entre 7 a 8 dígitos.
+ - Que el rango de fechas este en formato correcto
+ 
+ 
+ **![](./docs/formato.png)**
+
+
+## <h1>Filtrado de Datos</h1>
+
+Para esta parte se asume que existe el archivo, por lo tanto se abre y se lee linea por linea.
+Cuando se esta leyendo se tiene en cuenta si:
+
+- El archivo esta vacío.
+- Si la linea que estamos leyendo esta vacía.
+- Si la linea que leemos es el titulo o no.
+- Si esta en el formato correcto o no de CSV.
+- Si esta dentro del rango de fechas especificado.
+- Si estamos leyendo la información del DNI .
+- Si hay que filtrar por tipo y estado.
+
+Cuando finaliza se agrega el numero de cheque a un registro para evitar que se repitan y se agrega la linea al la lista a devolver. 
+
+Seguimos estos pasos para optimizar al máximo los tiempos de ejecución, si ves en detalle cada punto te vas a ir dando cuenta que filtramos desde lo mas general a lo mas especifico, como pueden ser desde las fechas al tipo de cheque.
+
+
+## <h1>Formato de CSV</h1>
+
+Para verificar y acceder a los datos que queremos comparar, primero vemos si la fila de datos que estamos leyendo tiene el formato adecuado. 
+
+**![](./docs/csv.png)**
+
+Tratamos todos los posibles errores que puede llegar a haber a la hora de leer y castear datos externos en este método. 
+
+La función es poder trabajar de forma segura con los datos luego de haberlos revisado, por eso este es el punto es a donde se filtra el formato.
+
 
 ## <h1>Documentación del sprint 1</h1>
 
-**![Documentación](./sprint_1/README.md)**
+**[Documentación](./sprint_1/README.md)**
 
 ## <h1>Documentación del sprint 2</h1>
 
-**![Documentación](./sprint_2/README_Sprint_2.md)**
+**[Documentación](./sprint_2/README_Sprint_2.md)**
+
+## <h1>Documentación del sprint 3</h1>
+
+**[Documentación](./sprint_3/README_Sprint_3.md)**
