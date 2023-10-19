@@ -10,9 +10,9 @@ class Cliente:
 
     def __init__(self, numeroCliente : int, nombre: str, apellido: str, dni: str) -> None:
         """ 
-        Los datos tienen que ser el tipo de dato que aclara y no pueden estar vacios, ser None o ser negativos
-
-        raise: ValueError -> Comenta cual es el error
+            Los datos tienen que ser el tipo de dato que aclara y no pueden estar vacios, ser None o ser negativos
+    
+            raise: ValueError -> Comenta cual es el error
         """
 
         # Validaciones
@@ -63,7 +63,6 @@ class Cliente:
     def __str__(self) -> str:
         return f"Soy un cliente {self.tipo}"
     
-
     ## -------------- HAY QUE REVISAR ESTOS METODOS, TYPE, VALIDAR, PRUEBAS ------------------------ ##
     def calcular_monto_total(self, precioDolar, montoAAdquirir):
         total = precioDolar * montoAAdquirir * (1 + Cliente.IMPUESTO_GANANCIAS) * (1 + Cliente.IMPUESTO_PAIS)

@@ -1,9 +1,9 @@
 class Cuenta:
     def __init__(self, nroCuenta : int, monto : float | int):
         """
-        Los datos tienen que ser el tipo de dato espesificado
-        
-        raise: ValueError -> Comenta cual es el error
+            Los datos tienen que ser el tipo de dato espesificado
+            
+            raise: ValueError -> Comenta cual es el error
         """
 
         # Validaciones
@@ -18,27 +18,27 @@ class Cuenta:
 
 
 class Caja_Ahorro_Pesos(Cuenta):
-    def __init__(self):
-        pass
-
+    def __init__(self, nroCuenta: int, monto: float | int):
+        super().__init__(nroCuenta, monto)
+        
 class Caja_Ahorro_Dolares(Cuenta):
-    def __init__(self):
-        pass
+    def __init__(self, nroCuenta: int, monto: float | int):
+        super().__init__(nroCuenta, monto)
 
 class Cuenta_Corriente_Pesos(Cuenta):
-    def __init__(self):
-        pass
+    def __init__(self, nroCuenta: int, monto: float | int):
+        super().__init__(nroCuenta, monto)
 
 class Cuenta_Corriente_Dolares(Cuenta):
-    def __init__(self):
-        pass
+    def __init__(self, nroCuenta: int, monto: float | int):
+        super().__init__(nroCuenta, monto)
 
 class Cuenta_Inversion(Cuenta):
-    def __init__(self):
-        pass
+    def __init__(self, nroCuenta: int, monto: float | int):
+        super().__init__(nroCuenta, monto)
 
 class Chequeras(Cuenta):
-    def __init__(self):
-        pass
+    def __init__(self, nroCuenta: int, monto: float | int):
+        super().__init__(nroCuenta, monto)
 
 
