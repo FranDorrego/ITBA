@@ -51,4 +51,6 @@ class Transaccion:
         self.monto = monto
         self.fecha = fecha
         self.numero = numero
+
+        
         
