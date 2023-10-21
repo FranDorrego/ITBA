@@ -2,8 +2,8 @@ from cliente.Cliente import Cliente
 
 class Black(Cliente):
 
-    def __init__(self, numeroCliente, nombre, apellido, dni) -> None:
-        super().__init__(numeroCliente, nombre, apellido, dni)
+    def __init__(self, numeroCliente, nombre, apellido, dni, transacciones) -> None:
+        super().__init__(numeroCliente, nombre, apellido, dni, transacciones)
 
         # Limites
         self.limite_tarjetas_debito = 5

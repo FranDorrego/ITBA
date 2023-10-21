@@ -8,7 +8,7 @@ class Cliente:
     IMPUESTO_PAIS      = 0.25
     IMPUESTO_GANANCIAS = 0.35
 
-    def __init__(self, numeroCliente : int, nombre: str, apellido: str, dni: str) -> None:
+    def __init__(self, numeroCliente : int, nombre: str, apellido: str, dni: str, transacciones : list) -> None:
         """ 
             Los datos tienen que ser el tipo de dato que aclara y no pueden estar vacios, ser None o ser negativos
     
@@ -24,12 +24,15 @@ class Cliente:
             raise ValueError("El apellido de Cliente tiene que ser un STR y no puede estar vacio")
         if not isinstance(dni, str) or dni == "":
             raise ValueError("El dni de Cliente tiene que ser un STR y no puede estar vacio")
+        if not isinstance(transacciones, list):
+            raise ValueError("Las tansacciones tiene que ser una lista")
 
         # Datos
         self.numeroCliente = numeroCliente
         self.nombre = nombre
         self.apellido = apellido
         self.dni = dni
+        self.transacciones = transacciones
 
         # Objetos
         self.tarjetas_debito : list(Debito)
@@ -40,7 +43,6 @@ class Cliente:
         self.cuentas_corrientes_dolares : list(Cuenta_Corriente_Dolares)
         self.cuenta_inversion : Cuenta_Inversion
         self.Chequeras : list(Chequeras)
-        self.transacciones : list(Transaccion)
 
         # Limites
         self.limite_tarjetas_debito = 0
@@ -59,9 +61,27 @@ class Cliente:
         self.limite_cuenta_inversion = 0
         self.limite_chequeras = 0
 
+        # Creamos las transacciones
+        # for transaccion in transacciones:
+        #     self.agregar_transaccion(
+        #         estado=transaccion.get("estado"),
+        #         tipo=transaccion.get("tipo"),
+        #         permitidoActualParaTransccion=transaccion.get("permitidoActualParaTransccion"),
+        #         monto=transaccion.get("monto"),
+        #         fecha=transaccion.get("fecha"),
+        #         numero=transaccion.get("numero"),
+        #         )
+
     def __str__(self) -> str:
         return f"Soy un cliente {self.__class__.__name__}"
     
+    def agregar_transaccion(self,estado, tipo, permitidoActualParaTransccion, monto, fecha, numero):
+        """
+            Agrega una transacion al listado, no hace falta pasar un objeto, solo los atributos que se piden
+        """
+        transaccion = Transaccion(self, estado, tipo, permitidoActualParaTransccion, monto, fecha, numero)
+        self.transacciones.append(transaccion)
+
     ## -------------- HAY QUE REVISAR ESTOS METODOS, TYPE, VALIDAR, PRUEBAS ------------------------ ##
     def calcular_monto_total(self, precioDolar, montoAAdquirir):
         total = precioDolar * montoAAdquirir * (1 + Cliente.IMPUESTO_GANANCIAS) * (1 + Cliente.IMPUESTO_PAIS)
@@ -73,5 +93,8 @@ class Cliente:
     def calcular_monto_plazo_fijo(self, monto, porcentaje):
         return monto * porcentaje
     
-
     
+    
+
+    def get_transacciones(self):
+        return self.transacciones
