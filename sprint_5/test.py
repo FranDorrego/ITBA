@@ -6,7 +6,7 @@ class Test_calcular_monto_total(unittest.TestCase):
 
     # Creo una instancia para cada Test
     def setUp(self):
-        self.cliente = Cliente(123,"Juan", "ITBA", "12345678")
+        self.cliente = Cliente(123,"Juan", "ITBA", "12345678", list())
 
     # Comienzo los tets
     def test_numero_conocido(self):

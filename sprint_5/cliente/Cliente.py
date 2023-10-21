@@ -84,7 +84,16 @@ class Cliente:
 
     ## -------------- HAY QUE REVISAR ESTOS METODOS, TYPE, VALIDAR, PRUEBAS ------------------------ ##
     def calcular_monto_total(self, precioDolar, montoAAdquirir):
+
+        # validaciones
+        if not isinstance(precioDolar, int | float) or precioDolar <= 0:
+            raise ValueError("El precio del dolar no puede ser ni negativo ni 0 y tiene que ser un numero")
+        if not isinstance(montoAAdquirir, int | float) or montoAAdquirir <= 0:
+            raise ValueError("El monto a Adquirir no puede ser ni negativo ni 0 y tiene que ser un numero")
+        
+        # Calculos
         total = precioDolar * montoAAdquirir * (1 + Cliente.IMPUESTO_GANANCIAS) * (1 + Cliente.IMPUESTO_PAIS)
+        
         return total
     
     def descontar_comision(self, monto, comision):

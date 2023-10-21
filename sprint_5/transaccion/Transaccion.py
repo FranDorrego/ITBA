@@ -66,8 +66,12 @@ class Transaccion():
         """
 
         self.motivo = None
-
-        print(f"{self.tipo_cliente.__class__.__name__}")
-
         
+        # Sacamos el tipo de cliente
+        tipo_cliente = self.tipo_cliente.__class__.__name__
         
+        # Aprobado == Complio con todos los atributos
+        if self.estado == "APROBADA":
+            self.motivo = "Es correcta la transaccion"
+            return
+ 

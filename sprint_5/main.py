@@ -29,6 +29,6 @@ print(cliente_black)
 # Realizamos operaciones con uno de ellos
 
 """ 
-    Aun falta por realizar 
+  Aun falta por realizar 
 """
 
