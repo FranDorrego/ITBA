@@ -5,9 +5,6 @@ class Gold(Cliente):
     def __init__(self, numeroCliente, nombre, apellido, dni) -> None:
         super().__init__(numeroCliente, nombre, apellido, dni)
 
-        # Tipo
-        self.tipo = "GOLD"
-
         # Limites
         self.limite_tarjetas_debito = 1
         self.limite_caja_ahorro_pesos = 2
@@ -15,11 +12,11 @@ class Gold(Cliente):
         self.cargo_mensual_cuanta_dolares = 0.1
         self.limite_cuenta_corriente_pesos = 1
         self.limite_retiro_efectivo = 20000
-        self.retiro_sin_comiciones = True
+        self.retiro_sin_comisiones = True
         self.limite_tarjeta_credito = 1
         self.limite_pago_tarjeta = 150000
         self.tipo_tarjeta = ["VISA", "MASTERCAD"]
         self.limite_cuotas = 100000
-        self.comiciones= { "transferencia_saliente" : 1 , "transferencia_entrante" : 0.5 }
+        self.comisiones= { "transferencia_saliente" : 1 , "transferencia_entrante" : 0.5 }
         self.limite_cuenta_inversion = 1
         self.limite_chequeras = 1

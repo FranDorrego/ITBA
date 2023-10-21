@@ -4,31 +4,31 @@ class Transaccion:
     """ Es la clase que contiene todos los tipos de movimientos que puede tener un cliente """
 
     TIPO_OPERACIONES = [
-    "RETIRO_EFECTIVO_CAJERO_AUTOMATICO",
-    "RETIRO_EFECTIVO_POR_CAJA",
-    "COMPRA_EN_CUOTAS_TARJETA_CREDITO_<tipo de tarjeta>",
-    "COMPRA_TARJETA_CREDITO_<tipo de tarjeta>",
-    "ALTA_TARJETA_CREDITO_<Tipo de tarjeta>",
-    "ALTA_TARJETA_DEBITO",
-    "ALTA_CHEQUERA",
-    "ALTA_CUENTA_CTE_<Tipo de moneda>",
-    "ALTA_CAJA_DE_AHORRO_<Tipo de moneda>",
-    "ALTA_CUENTA_DE_INVERSION",
-    "COMPRA_DOLAR",
-    "VENTA_DOLAR",
-    "TRANSFERENCIA_ENVIADA_<Tipo moneda>",
-    "TRANSFERENCIA_RECIBIDA_<Tipo moneda>"
+        "RETIRO_EFECTIVO_CAJERO_AUTOMATICO",
+        "RETIRO_EFECTIVO_POR_CAJA",
+        "COMPRA_EN_CUOTAS_TARJETA_CREDITO_<tipo de tarjeta>",
+        "COMPRA_TARJETA_CREDITO_<tipo de tarjeta>",
+        "ALTA_TARJETA_CREDITO_<Tipo de tarjeta>",
+        "ALTA_TARJETA_DEBITO",
+        "ALTA_CHEQUERA",
+        "ALTA_CUENTA_CTE_<Tipo de moneda>",
+        "ALTA_CAJA_DE_AHORRO_<Tipo de moneda>",
+        "ALTA_CUENTA_DE_INVERSION",
+        "COMPRA_DOLAR",
+        "VENTA_DOLAR",
+        "TRANSFERENCIA_ENVIADA_<Tipo moneda>",
+        "TRANSFERENCIA_RECIBIDA_<Tipo moneda>"
     ]
     
     FORMATO_FECHA = r'\d{2}/\d{2}/\d{4} \d{2}:\d{2}:\d{2}'
 
     def __init__(self, estado : ["ACEPTADA","RECHAZADA"], tipo: TIPO_OPERACIONES , permitidoActualParaTransccion : int | float, monto: int | float, fecha: str, numero: int):
         f"""
-        estado:  "ACEPTADA" | "RECHAZADA"
-        tipo: {Transaccion.TIPO_OPERACIONES}
-        fecha: DD/MM/AAAA HH:MM:SS
+            estado:  "ACEPTADA" | "RECHAZADA"
+            tipo: {Transaccion.TIPO_OPERACIONES}
+            fecha: DD/MM/AAAA HH:MM:SS
 
-        raise: ValueError -> Aclara el porque
+            raise: ValueError -> Aclara el porque
         """
         # Validaciones
         if not isinstance(estado, str) or not estado in ["ACEPTADA","RECHAZADA"]:
@@ -51,4 +51,6 @@ class Transaccion:
         self.monto = monto
         self.fecha = fecha
         self.numero = numero
+
+        
         

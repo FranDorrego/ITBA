@@ -3,11 +3,11 @@ import re
 class Tarjeta:
     def __init__(self, empresa : ["VISA", "MASTERCAD", "AMERIAN"], numeroDeTarjeta : int, fechaVencimiento : str, nombre: str, codigoSeguridad: int):
         """ 
-        Los datos tienen que ser el tipo de dato que se aclara.
+            Los datos tienen que ser el tipo de dato que se aclara.
 
-        Empresa: "VISA", "MASTERCAD", "AMERIAN"
+            Empresa: "VISA", "MASTERCAD", "AMERIAN"
 
-        raise: ValueError -> Aclara el porque
+            raise: ValueError -> Aclara el porque
         """
 
         # Validaciones

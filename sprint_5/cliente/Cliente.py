@@ -10,9 +10,9 @@ class Cliente:
 
     def __init__(self, numeroCliente : int, nombre: str, apellido: str, dni: str) -> None:
         """ 
-        Los datos tienen que ser el tipo de dato que aclara y no pueden estar vacios, ser None o ser negativos
-
-        raise: ValueError -> Comenta cual es el error
+            Los datos tienen que ser el tipo de dato que aclara y no pueden estar vacios, ser None o ser negativos
+    
+            raise: ValueError -> Comenta cual es el error
         """
 
         # Validaciones
@@ -30,7 +30,6 @@ class Cliente:
         self.nombre = nombre
         self.apellido = apellido
         self.dni = dni
-        self.tipo = None
 
         # Objetos
         self.tarjetas_debito : list(Debito)
@@ -51,26 +50,28 @@ class Cliente:
         self.limite_cuenta_corriente_pesos = 0
         self.limite_cuenta_corriente_dolares = 0
         self.limite_retiro_efectivo = 0
-        self.retiro_sin_comiciones = 0
+        self.retiro_sin_comisiones = 0
         self.limite_tarjeta_credito = 0
         self.limite_pago_tarjeta = 0
         self.tipo_tarjeta = None
         self.limite_cuotas = 0
-        self.comiciones= { "transferencia_saliente" : 0 , "transferencia_entrante" : 0 }
+        self.comisiones= { "transferencia_saliente" : 0 , "transferencia_entrante" : 0 }
         self.limite_cuenta_inversion = 0
         self.limite_chequeras = 0
 
     def __str__(self) -> str:
-        return f"Soy un cliente {self.tipo}"
+        return f"Soy un cliente {self.__class__.__name__}"
     
-
     ## -------------- HAY QUE REVISAR ESTOS METODOS, TYPE, VALIDAR, PRUEBAS ------------------------ ##
     def calcular_monto_total(self, precioDolar, montoAAdquirir):
         total = precioDolar * montoAAdquirir * (1 + Cliente.IMPUESTO_GANANCIAS) * (1 + Cliente.IMPUESTO_PAIS)
         return total
     
-    def descontar_comicion(self, monto, comicion):
-        return monto * comicion
+    def descontar_comision(self, monto, comision):
+        return monto * comision
     
     def calcular_monto_plazo_fijo(self, monto, porcentaje):
         return monto * porcentaje
+    
+
+    
