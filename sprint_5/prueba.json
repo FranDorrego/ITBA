@@ -1,0 +1,55 @@
+{   
+
+    "clientes":[
+        {
+            "numero": 100001,
+            "nombre": "Nicolas",
+            "apellido": "Gaston",
+            "dni": "29494777",
+            "tipo": "BLACK",
+            "transacciones": [
+                {
+                "estado": "ACEPTADA",
+                "tipo": "RETIRO_EFECTIVO_CAJERO_AUTOMATICO",
+                "cuentaNumero": 190,
+                "permitidoActualParaTransccion": 9000,
+                "monto": 1000,
+                "fecha": "10/10/2022 16: 00: 55",
+                "numero": 1
+                },
+            
+                {
+                "ESTADO": "RECHAZADA",
+                "tipo": "COMPRA_EN_CUOTAS_TARJETA_VISA",
+                "permitidoActualParaTransccion": 9000,
+                "monto": 750000,
+                "fecha": "10/10/2022 16: 14: 35",
+                "numero": 2
+                }
+            ]
+        },
+        {
+            "numero": 100002,
+            "nombre": "Jazmin",
+            "apellido": "Rodriguez",
+            "dni": "42395312",
+            "tipo": "GOLD",
+            "transacciones": [
+                {
+                    "estado": "RECHAZADO",
+                    "tipo": "ALTA_CHEQUERA",
+                    "cuentaNumero": 100,
+                    "permitidoActualParaTransccion": 0,
+                    "monto": 0,
+                    "fecha": "11/11/2023 16: 00: 55",
+                    "numero": 1
+                },
+                {
+
+                }
+            ]
+        }
+    ]
+
+
+} 
