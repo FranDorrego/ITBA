@@ -32,6 +32,7 @@ class Cliente:
         self.nombre = nombre
         self.apellido = apellido
         self.dni = dni
+        self.transacciones = transacciones
 
         # Objetos
         self.tarjetas_debito : list(Debito)
@@ -42,7 +43,6 @@ class Cliente:
         self.cuentas_corrientes_dolares : list(Cuenta_Corriente_Dolares)
         self.cuenta_inversion : Cuenta_Inversion
         self.Chequeras : list(Chequeras)
-        self.transacciones = list()
 
         # Limites
         self.limite_tarjetas_debito = 0
@@ -62,15 +62,15 @@ class Cliente:
         self.limite_chequeras = 0
 
         # Creamos las transacciones
-        for transaccion in transacciones:
-            self.agregar_transaccion(
-                estado=transaccion.get("estado"),
-                tipo=transaccion.get("tipo"),
-                permitidoActualParaTransccion=transaccion.get("permitidoActualParaTransccion"),
-                monto=transaccion.get("monto"),
-                fecha=transaccion.get("fecha"),
-                numero=transaccion.get("numero"),
-                )
+        # for transaccion in transacciones:
+        #     self.agregar_transaccion(
+        #         estado=transaccion.get("estado"),
+        #         tipo=transaccion.get("tipo"),
+        #         permitidoActualParaTransccion=transaccion.get("permitidoActualParaTransccion"),
+        #         monto=transaccion.get("monto"),
+        #         fecha=transaccion.get("fecha"),
+        #         numero=transaccion.get("numero"),
+        #         )
 
     def __str__(self) -> str:
         return f"Soy un cliente {self.__class__.__name__}"
@@ -102,5 +102,8 @@ class Cliente:
     def calcular_monto_plazo_fijo(self, monto, porcentaje):
         return monto * porcentaje
     
-
     
+    
+
+    def get_transacciones(self):
+        return self.transacciones
