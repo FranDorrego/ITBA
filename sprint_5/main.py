@@ -105,7 +105,7 @@ def main():
     # Generamos el HTML
     generar_html(cliente)
 
-ARCHIVO_A_LEER = "sprint_5\prueba.json"
+ARCHIVO_A_LEER = "sprint_5/prueba.json"
 ARCHIVO_A_DEVOLVER = "reporte.html"
 main()
 
