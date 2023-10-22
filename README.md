@@ -25,7 +25,7 @@ Se siguen estos pasos:
  1. Leemos el archivo y lo pasamos a un Json
  2. Con el Json instanciamos un tipo de cliente que sea necesario
  3. Iteramos en la lista de transacciones:
-		 - Creamos un objeto transaccion
+		 - Creamos un objeto transaccion:
 		 - Generamos el motivo
 		 - Generamos el HTML y lo guardamos en una varible de instacia
  4. Agregamos la transaccion al cliente
@@ -42,7 +42,7 @@ Diseñamos dos tipos de clases principales:
 
 ## <h1>Test</h1>
 
-Para ejecutar los test, hay un archivo llado test.py el cual si se ejecuta se realizan todos los test para las 3 funciones de cliente que manejan parametros externos.
+Para ejecutar los test, hay un archivo llamado test.py el cual si se ejecuta se realizan todos los test para las 3 funciones de cliente que manejan parametros externos.
 
 ## <h1>Generacion de Motivos</h1>
 
