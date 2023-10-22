@@ -62,29 +62,35 @@ class Cliente:
     def __str__(self) -> str:
         return f"Soy un cliente {self.__class__.__name__}"
     
-
-    ## -------------- HAY QUE REVISAR ESTOS METODOS, TYPE, VALIDAR, PRUEBAS ------------------------ ##
     def calcular_monto_total(self, precioDolar, montoAAdquirir):
 
         # validaciones
-        if not isinstance(precioDolar, int | float) or precioDolar <= 0:
+        if not isinstance(precioDolar, int | float) or not precioDolar > 0:
             raise ValueError("El precio del dolar no puede ser ni negativo ni 0 y tiene que ser un numero")
-        if not isinstance(montoAAdquirir, int | float) or montoAAdquirir <= 0:
+        if not isinstance(montoAAdquirir, int | float) or not montoAAdquirir > 0:
             raise ValueError("El monto a Adquirir no puede ser ni negativo ni 0 y tiene que ser un numero")
         
         # Calculos
         total = precioDolar * montoAAdquirir * (1 + Cliente.IMPUESTO_GANANCIAS) * (1 + Cliente.IMPUESTO_PAIS)
-        
         return total
     
     def descontar_comision(self, monto, comision):
-        return monto * comision
+
+        # validaciones
+        if not isinstance(monto, int | float) or monto <= 0:
+            raise ValueError("El monto no puede ser ni negativo ni 0 y tiene que ser un numero")
+        if not isinstance(comision, int | float) or not ( comision > 0 and comision < 1 ):
+            raise ValueError("La comision tiene que estar entre 0 y 1. Tiene que ser un numero")
+        
+        return monto * (1 - comision)
     
     def calcular_monto_plazo_fijo(self, monto, porcentaje):
-        return monto * porcentaje
-    
-    
-    
 
-    def get_transacciones(self):
-        return self.transacciones
+        # validaciones
+        if not isinstance(monto, int | float) or monto <= 0:
+            raise ValueError("El monto no puede ser ni negativo ni 0 y tiene que ser un numero")
+        if not isinstance(porcentaje, int | float) or not ( porcentaje > 0 and porcentaje < 1 ):
+            raise ValueError("La porcentaje tiene que estar entre 0 y 1. Tiene que ser un numero")
+        
+        return monto * (1 + porcentaje)
+    
