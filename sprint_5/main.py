@@ -1,58 +1,66 @@
-from cliente.Black import *
-from cliente.Gold import *
-from cliente.Classic import *
+from cliente.Black import Black
+from cliente.Gold import Gold
+from cliente.Classic import Classic
+from cliente.Cliente import Cliente
 from transaccion.Transaccion import Transaccion
 import json
+import os
 
+def leer_json(nombre_archivo) -> json:
+    """ Lee el archivo que le pasas y lo deja como un Json  -> raise: ValueError(Descibre el error) """
 
+    # Preguntamos si existe
+    if not os.path.exists(nombre_archivo):
+        raise ValueError(" El archivo no existe ")
+    
+    nombre_archivo = os.path.abspath(nombre_archivo)
 
-# Declaramos 3 Clientes
-# cliente_classic = Classic(1,"Manuel", "Arturias", "12345678", [])
-# cliente_gold = Gold(1,"juana", "alverto", "147852", [] )
-# cliente_black = Black(1,"Lute", "Lenovo", "369258", [])
+    with open(nombre_archivo, "r") as json_file:
 
-# # Imprimimos esos 3 Clientes
-# print(cliente_classic)
-# print(cliente_gold)
-# print(cliente_black)
+        try:
+            datos = json.load(json_file)
+        except Exception as e:
+            raise ValueError(f" Ocurrio un error al leer el Json, asegurate que esta en el formato correcto. {e} ")
 
-# Realizamos operaciones con uno de ellos
+    return datos
 
-""" 
-  Aun falta por realizar 
-"""
+def intanciar_clases(datos : json) -> Cliente:
+    """ Recibe un Json y luego los intancia en la case correspondiente """
 
-# GENERACION DE HTML
+    # Creamos el cliente dependiendo que tipo sea
+    if datos.get("tipo") == "CLASSIC":
+        cliente = Classic(datos["numero"], datos["nombre"], datos["apellido"], datos["dni"])
+    elif datos.get("tipo") == "GOLD":
+        cliente = Gold(datos["numero"], datos["nombre"], datos["apellido"], datos["dni"])
+    elif datos.get("tipo") == "BLACK":
+        cliente = Black(datos["numero"], datos["nombre"], datos["apellido"], datos["dni"])
+    else:
+        raise ValueError("No se encontro el tipo de cliente correcto, solo puede ser BLACK, GOLD o CLASSIC")
 
-def generar_columnas(clientes):
-    contenido_columnas = ""
-    for cliente in clientes:
-        contenido_columnas = contenido_columnas + f"""
-            <tr>
-                <th>{cliente.numeroCliente}</th>
-                <th>{cliente.nombre}</th>
-                <th>{cliente.apellido}</th>
-                <th>{cliente.dni}</th>
-            </tr>
-        """
-    return contenido_columnas
-def generar_columnas_transaccion(transacciones):
-    contenido_columnas = ""
-    for transaccion in transacciones:
-        contenido_columnas = contenido_columnas + f"""
-            <tr>
-                <th>{transaccion.numero}</th>
-                <th>{transaccion.estado}</th>
-                <th>{transaccion.tipo}</th>
-                <th>{transaccion.permitidoActualParaTransccion}</th>
-                <th>{transaccion.monto}</th>
-                <th>{transaccion.fecha}</th>
-                <th>{transaccion.cuentaNumero}</th>
-            </tr>
-        """
-    return contenido_columnas
+    # Instanciamos sus transacciones
+    for transaccion in datos.get("transacciones"):
+
+        instancia = Transaccion(
+                        transaccion.get("estado"), 
+                        transaccion.get("tipo"), 
+                        transaccion.get("permitidoActualParaTransccion"),
+                        transaccion.get("monto"),
+                        transaccion.get("fecha"),
+                        transaccion.get("numero"),
+                        transaccion.get("cuentaNumero")
+                        )
+        
+        # Creamos motivo, HTML y Agregamos al cliente
+        instancia.motivo(cliente)
+        instancia.generar_columna_html()
+        cliente.transacciones.append(instancia)
+
+    return cliente
+
 def generar_html(cliente):
-    transacciones = cliente.get_transacciones()
+    """ Crea un archivo con los datos del cliente que le pases """
+
+    # Tomamos el formato clasico de un HTML y le agregamos los datos
     contenido = f"""
     <!DOCTYPE html>
     <html lang="en">
@@ -74,52 +82,33 @@ def generar_html(cliente):
                 <th>Monto</th>
                 <th>Fecha</th>
                 <th>Cuenta Numero</th>
+                <th>Motivo</th>
             </tr>
-            {generar_columnas_transaccion(transacciones)}
+            {Transaccion.HTML_COLUMNAS}
         </table>
     </body>
     </html>
     """
 
-    nombre_archivo = "reporte.html"
-
-    with open(nombre_archivo, "w") as arch:
+    with open(ARCHIVO_A_DEVOLVER, "w") as arch:
         arch.write(contenido)
         
-    print(f"Se genero el archivho {nombre_archivo}")
-    return
+    print(f"Se genero el archivho {ARCHIVO_A_DEVOLVER}")
+
+def main():
+    # Leemos los datos
+    datos = leer_json(ARCHIVO_A_LEER)
+
+    # Pasamos de Json a instancias de clases
+    cliente = intanciar_clases(datos)
+
+    # Generamos el HTML
+    generar_html(cliente)
+
+ARCHIVO_A_LEER = "sprint_5\prueba.json"
+ARCHIVO_A_DEVOLVER = "reporte.html"
+main()
 
 
-def leer_json(nombre_archivo):
-    with open(nombre_archivo, "r") as json_file:
-        datos = json.load(json_file)
-        
-    return datos
-
-def intanciar_clases(datos):
-    transacciones = []
-    for transaccion in datos["transacciones"]:
-        t = Transaccion(transaccion["estado"], 
-                        transaccion["tipo"], 
-                        transaccion["permitidoActualParaTransccion"],
-                        transaccion["monto"],
-                        transaccion["fecha"],
-                        transaccion["numero"],
-                        transaccion["cuentaNumero"])
-        transacciones.append(t)
-    if datos["tipo"] == "CLASSIC":
-
-        cliente = Classic(datos["numero"], datos["nombre"], datos["apellido"], datos["dni"], transacciones)
-        return cliente
-    elif datos["tipo"] == "GOLD":
-        cliente = Gold(datos["numero"], datos["nombre"], datos["apellido"], datos["dni"], transacciones)
-        return cliente
-    elif datos["tipo"] == "BLACK":
-        cliente = Black(datos["numero"], datos["nombre"], datos["apellido"], datos["dni"], transacciones)
-        return cliente
-    
-datos = leer_json("prueba.json")
-cliente = intanciar_clases(datos)
-generar_html(cliente)
 
         
