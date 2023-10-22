@@ -29,11 +29,11 @@ def intanciar_clases(datos : json) -> Cliente:
 
     # Creamos el cliente dependiendo que tipo sea
     if datos.get("tipo") == "CLASSIC":
-        cliente = Classic(datos["numero"], datos["nombre"], datos["apellido"], datos["dni"])
+        cliente = Classic(datos.get("numero"), datos.get("nombre"), datos.get("apellido"), datos.get("dni"))
     elif datos.get("tipo") == "GOLD":
-        cliente = Gold(datos["numero"], datos["nombre"], datos["apellido"], datos["dni"])
+        cliente = Gold(datos.get("numero"), datos.get("nombre"), datos.get("apellido"), datos.get("dni"))
     elif datos.get("tipo") == "BLACK":
-        cliente = Black(datos["numero"], datos["nombre"], datos["apellido"], datos["dni"])
+        cliente = Black(datos.get("numero"), datos.get("nombre"), datos.get("apellido"), datos.get("dni"))
     else:
         raise ValueError("No se encontro el tipo de cliente correcto, solo puede ser BLACK, GOLD o CLASSIC")
 
