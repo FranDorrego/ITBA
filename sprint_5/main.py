@@ -51,7 +51,7 @@ def intanciar_clases(datos : json) -> Cliente:
                         )
         
         # Creamos motivo, HTML y Agregamos al cliente
-        instancia.motivo(cliente)
+        instancia.generar_motivo(cliente)
         instancia.generar_columna_html()
         cliente.transacciones.append(instancia)
 

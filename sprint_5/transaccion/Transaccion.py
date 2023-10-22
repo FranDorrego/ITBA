@@ -108,7 +108,7 @@ class Transaccion:
                                         </tr>
                                     """
         
-    def motivo(self, cliente):
+    def generar_motivo(self, cliente):
         """
         Agrega el atributo motivo, el cual explica porque una operacion es rechasada o aprobada.
         Se tiene en cuenta los atributos del padre para esto.
@@ -123,8 +123,65 @@ class Transaccion:
         tipo_cliente = cliente.__class__.__name__
 
         # Aprobado == Complio con todos los atributos
-        if self.estado == "APROBADA":
-            self.motivo = "Es correcta la transaccion"
-            return
+        if self.estado == "ACEPTADA":
+            self.motivo = "Es correcta la transaccion" 
+        
+        # El monto permitido es menor al del movimiento
+        elif self.permitidoActualParaTransccion < self.monto:
+            self.motivo = "No tienes limite suficiente para operar con esta transaccion"
+        
+        # Compra en Cuotas de trajetas de credito
+        elif "COMPRA_EN_CUOTAS_TARJETA_CREDITO" in self.motivo:
+            self.motivo = "No tiene fondos suficientes"
+            if tipo_cliente == "CLASSIC" :
+                self.motivo = "No tiene tarjeta de credito"
 
-  
+        # Compra en trajetas de credito
+        elif "COMPRA_TARJETA_CREDITO" in self.motivo:
+            self.motivo = "No tiene fondos suficientes"
+            if tipo_cliente == "CLASSIC" :
+                self.motivo = "No tiene tarjeta de credito"
+
+        # Si intenta comprar dolares
+        elif self.monto == "COMPRA_DOLAR":
+            self.motivo = "No tiene fondos suficientes"
+            if tipo_cliente == "CLASSIC" :
+                self.motivo = "No tiene caja de ahorro en dolares"
+            
+        # Si intenta vender dolares
+        elif self.monto == "VENTA_DOLAR":
+            self.motivo = "No tiene suficientes dolares"
+            if tipo_cliente == "CLASSIC" :
+                self.motivo = "No tiene caja de ahorro en dolares"
+
+        # Si tener una tarjeta de credito
+        elif "ALTA_TARJETA_CREDITO" in self.motivo:
+            self.motivo = "Alcanzo su limite de tarjetas de credito"
+            if tipo_cliente == "CLASSIC" :
+                self.motivo = "No puede tener tarjetas de credito"
+
+        # Si tener una tarjeta de debito
+        elif "ALTA_TARJETA_DEBITO" in self.motivo:
+            self.motivo = "Alcanzo su limite de tarjetas de debito"
+
+        # Si tener una chequera
+        elif "ALTA_CHEQUERA" == self.motivo:
+            self.motivo = "Alcanzo su limite de chequeras"
+            if tipo_cliente == "CLASSIC" :
+                self.motivo = "No puede tener chequereas"
+        
+        # Si tener una cuenta corriente en dolares
+        elif "ALTA_CUENTA_CTE_DOLARES" == self.motivo:
+            self.motivo = "No puede tener Cuenta corriente en dolares"
+            if tipo_cliente == "BLACK" :
+                self.motivo = "Alcanzo su limite de cuentas corrientes en dolares"
+        
+        # Si tener una cuenta corriente en pesos
+        elif "ALTA_CUENTA_CTE_PESOS" == self.motivo:
+            self.motivo = "Alcanzo su limite de cuentas corrientes en pesos"
+        
+        # Si tener una cuenta inversion
+        elif "ALTA_CUENTA_DE_INVERSION" == self.motivo:
+            self.motivo = "Alcanzo su limite de cuentas de inversion"
+            if tipo_cliente == "CLASSIC" :
+                self.motivo = "No puede tener cuenta de inversion"
