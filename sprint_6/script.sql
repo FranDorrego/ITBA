@@ -5,6 +5,17 @@ DROP TABLE IF EXISTS tarjeta;
 DROP TABLE IF EXISTS marca_tarjeta;
 DROP TABLE IF EXISTS tipo_tarjeta;
 DROP TABLE IF EXISTS direccion;
+DROP TABLE IF EXISTS tipo_cuenta;
+
+-- DROP DE COLUMNAS
+-- ALTER TABLE cuenta
+-- DROP COLUMN tipo_cuenta_id;
+
+-- ALTER TABLE cliente
+-- DROP COLUMN direccion_id;
+
+-- ALTER TABLE sucursal
+-- DROP COLUMN direccion_id;
 
 -- CREACION DE TABLAS
 CREATE TABLE tipo_cliente(
@@ -44,6 +55,11 @@ CREATE TABLE direccion(
     pais VARCHAR(100) NOT NULL
 );
 
+CREATE TABLE tipo_cuenta(
+    id INT IDENTITY(1, 1) PRIMARY KEY,
+    tipo_cuenta VARCHAR(100) NOT NULL
+);
+
 -- INSERTADO DE VALORES
 INSERT INTO tipo_cliente (id ,tipo_cliente) VALUES 
 (1, "classic"),
@@ -58,6 +74,15 @@ INSERT INTO marca_tarjeta (id, marca_tarjeta) VALUES
 (1, "AMEX"),
 (2, "MASTER"),
 (3, "VISA");
+
+INSERT INTO tipo_cuenta (id, tipo_cuenta) VALUES
+(1, "caja ahorro en pesos"),
+(2, "caja ahorro en dolares"),
+(3, "cuenta corriente en pesos"),
+(4, "cuenta corriente en dolares"),
+(5, "cuenta inversion");
+
+
 
 INSERT INTO `tarjeta` (`id`,`numero`,`cvv`,`fecha_otorgamiento`,`fecha_exipracion`,`tipo_tarjeta_id`,`marca_tarjeta_id`)
 VALUES
@@ -1065,4 +1090,31 @@ VALUES
   (499,"102-5936 Ipsum St.","Cajamarca","932754","Australia"),
   (500,"809-3818 Velit. Av.","Dresden","355653","Peru");
 
+
+
+-- 
+ 
+-- COLUMNAS NUEVAS
+
+ALTER TABLE cuenta
+ADD COLUMN tipo_cuenta_id INT;
+
+ALTER TABLE cliente
+ADD COLUMN direccion_id INT;
+
+ALTER TABLE sucursal
+ADD COLUMN direccion_id INT;
+
+-- UPDATE
+UPDATE cuenta
+SET tipo_cuenta_id = (1 + abs(random()) % (SELECT MAX(id) FROM tipo_cuenta));
+
+UPDATE sucursal
+SET direccion_id = (1 + abs(random()) % (SELECT MAX(id) FROM direccion));
+
+-- ESTA COMENTADO PQ YA LO EJECUTE, PERO EN LA ENTREGA FINAL HAY Q SACAR EL COMENTARIO
+-- UPDATE empleado
+-- SET employee_hire_date = substr(employee_hire_date, 7, 4) || '-' ||
+--                         substr(employee_hire_date, 4, 2) || '-' ||
+--                         substr(employee_hire_date, 1, 2);
 
