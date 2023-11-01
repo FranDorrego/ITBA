@@ -20,9 +20,17 @@ FROM vista_cliente
 WHERE customer_name LIKE '%Anne' OR customer_name LIKE '%Tyler'
 ORDER BY edad ASC;
 
+
+-- COMPROBAR QUE SE HAYA HECHO CON EXISTO LA INSERCION, 
+-- BUSCO LOS ULTIMOS 5 CLIENTES
+SELECT * FROM cliente
+ORDER BY customer_id DESC
+LIMIT 5;
+
 -- PARA BORRAR LOS CLIENTE INGRESADO
 -- DELETE FROM cliente
--- WHERE customer_id > 500
+-- WHERE customer_id IN 
+-- (SELECT customer_id FROM cliente ORDER BY customer_id DESC LIMIT 5);
 
 -- ACTUALIZACION DE 5 CLIENTES
 UPDATE cliente
