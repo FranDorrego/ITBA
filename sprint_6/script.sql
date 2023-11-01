@@ -1103,12 +1103,6 @@ UPDATE sucursal
 SET branch_address_id = (1 + abs(random()) % (SELECT MAX(id) FROM direccion));
 
 UPDATE empleado
-SET employee_hire_date = 
-  CASE
-    WHEN employee_hire_date LIKE '____-__-__'
-    THEN substr(employee_hire_date, 7, 4) || '-' ||
+SET employee_hire_date = substr(employee_hire_date, 7, 4) || '-' ||
          substr(employee_hire_date, 4, 2) || '-' ||
-         substr(employee_hire_date, 1, 2)
-    ELSE employee_hire_date
-  END
-WHERE employee_hire_date NOT LIKE '____-__-__';
+         substr(employee_hire_date, 1, 2);
