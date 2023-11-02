@@ -1110,7 +1110,6 @@ VALUES
   (499,'102-5936 Ipsum St.','Cajamarca','932754','Australia'),
 (500,'809-3818 Velit. Av.','Dresden','355653','Peru');
  
- 
 -- ASOCIO CLIENTES A DIFERENTES DIRECCIONES
 INSERT INTO clientes_direccion(customer_id, id_dirrecion)
     SELECT 
