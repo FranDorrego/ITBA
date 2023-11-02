@@ -57,37 +57,6 @@ CREATE TABLE tarjeta(
     FOREIGN KEY (id_cliente) REFERENCES cliente(customer_id)
 );
 
--- CREAMOS UN TRIGER PARA EVALUAR LAS TARJETAS DE DEBITO
---DROP TRIGGER IF EXISTS limite_tarjetas;
---CREATE TRIGGER limite_tarjetas
---INSTEAD OF INSERT ON tarjeta
---BEGIN
---    -- Verificar si se supera el límite de tarjetas de débito
---    IF (
---        SELECT COUNT(*)
---        FROM tarjeta
---        WHERE id_cliente = NEW.id_cliente
---              AND tipo_tarjeta_id = (SELECT id FROM tipo_tarjeta WHERE tipo_tarjeta = 'debito')
---    ) < (
---        SELECT t.limite_tarjetas_debito
---        FROM cuenta cuent
---        JOIN cliente clien ON clien.customer_id = cuent.customer_id
---        JOIN tipo_cliente t ON cuent.tipo_cuenta_id = t.id 
---        WHERE cuent.customer_id = NEW.id_cliente
---    )
---    THEN
---        -- Lanzar un error y deshacer la inserción
---        INSERT INTO tarjeta VALUES (
---            NEW.id, NEW.numero, NEW.cvv, NEW.fecha_otorgamiento, NEW.fecha_exipracion, NEW.tipo_tarjeta_id, NEW.marca_tarjeta_id, NULL
---        );
---    ELSE
---        -- Permitir la inserción de la tarjeta
---        INSERT INTO tarjeta VALUES (
---            NEW.id, NEW.numero, NEW.cvv, NEW.fecha_otorgamiento, NEW.fecha_exipracion, NEW.tipo_tarjeta_id, NEW.marca_tarjeta_id, NEW.id_cliente
---        );
---    END IF;
---END;
-
 CREATE TABLE direccion(
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     calle VARCHAR(100) NOT NULL,
@@ -1161,8 +1130,9 @@ VALUES
 (500,'809-3818 Velit. Av.','Dresden','355653','Peru');
  
 -- ASOCIO TARJETAS DE DEBITO CON CLIENTES
-
-
+--------------------------------------------------------------
+-- AUN FALTA
+--------------------------------------------------------------
 
 -- ASOCIO CLIENTES A DIFERENTES DIRECCIONES
 INSERT INTO clientes_direccion(customer_id, id_dirrecion)
@@ -1193,6 +1163,15 @@ LIMIT (SELECT COUNT(employee_id) FROM empleado);
 -- ASOCIO SUCURSALES CON DIRECCIONES
 UPDATE sucursal
 SET branch_address_id = (1 + abs(random()) % (SELECT COUNT(id) FROM direccion));
+
+
+-- ALTER TABLE cliente DROP COLUMN tipo_cliente_id;
+ALTER TABLE cliente ADD COLUMN tipo_cliente_id INT;
+
+-- ASOCIO TIPOS DE CLIENTE CON CLIENTES
+UPDATE  cliente
+SET tipo_cliente_id = (1 + abs(random()) % (SELECT COUNT(id) FROM tipo_cliente));
+
 
 -- AMPLIO LA TABLA CUENTA
 -- ALTER TABLE cuenta DROP COLUMN tipo_cuenta_id;
