@@ -1,3 +1,4 @@
+
 DROP VIEW IF EXISTS vista_cliente; 
 
 CREATE VIEW vista_cliente AS 
@@ -41,9 +42,13 @@ WHERE customer_id in (
        LIMIT 5
 );
 
+-- SELECT 
+
 -- ELIMINACION DEL REGISTRO CORRESPONDIENTE A "Noel David"
 DELETE FROM cliente
 WHERE customer_name = 'Noel' AND customer_surname = 'David';
+
+-- SELECT 
 
 -- CONSULTA DEL TIPO DE PRESTAMO DE MAYOR IMPORTE
 SELECT loan_type

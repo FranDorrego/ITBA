@@ -7,7 +7,7 @@ WHERE balance < 0;
 -- SELECIONO CLIENTES QUE TIENE Z
 SELECT customer_name, customer_surname, edad
 FROM vista_cliente
-WHERE customer_surname LIKE '%Z%';  
+WHERE customer_surname LIKE '%Z%';  -- z y Z
 
 -- SELECIONO LAS SUCURSALES DE BRENDAN
 SELECT v.customer_name, v.customer_surname, v.edad, s.branch_name
@@ -16,7 +16,8 @@ JOIN sucursal s ON v.branch_id = s.branch_id
 WHERE v.customer_name = 'Brendan'
 ORDER BY s.branch_name;  
 
--- PRESTAMOS MAYORES A $80.000
+-- PRESTAMOS MAYORES A $80.000 
+-- CREIDITO > $80.000 UNION PRENDARIO
 SELECT *
 FROM prestamo
 WHERE loan_type = 'PRENDARIO' AND loan_total > 8000000; 
@@ -36,7 +37,7 @@ SELECT COUNT(customer_id) as Cantidad_clientes_menores_50_años
 FROM vista_cliente
 WHERE edad < 50;
 
--- 5 PRIMERAS CUENTAS MAYORES A $8.000
+-- 5 PRIMERAS CUENTAS MAYORES A $8.000 
 SELECT *
 FROM cuenta
 WHERE balance > 800000 -- tiene 2 ceros de mas porque no tiene coma

@@ -1,4 +1,3 @@
-
 -- DROP DE TABLA PARA CREAR TODO CON SOLO CORRER EL SCRIPT
 DROP TABLE IF EXISTS tipo_cliente;
 DROP TABLE IF EXISTS tarjeta;
@@ -72,7 +71,7 @@ CREATE TABLE tipo_cuenta(
 
 CREATE TABLE clientes_direccion(
     customer_id INTEGER ,
-    id_dirrecion INTEGER,
+    id_dirrecion INTEGER, -- ID compuesto de los dos
 
     FOREIGN KEY (customer_id)
         REFERENCES cliente(customer_id)
@@ -87,7 +86,7 @@ CREATE TABLE clientes_direccion(
 
 CREATE TABLE empleado_direccion(
     employee_id INTEGER ,
-    id_dirrecion INTEGER,
+    id_dirrecion INTEGER, -- ID compuesto de los dos
 
     FOREIGN KEY (employee_id)
         REFERENCES empleado(employee_id)
@@ -1129,6 +1128,7 @@ VALUES
   (499,'102-5936 Ipsum St.','Cajamarca','932754','Australia'),
 (500,'809-3818 Velit. Av.','Dresden','355653','Peru');
  
+
 -- ASOCIO TARJETAS DE DEBITO CON CLIENTES
 --------------------------------------------------------------
 -- AUN FALTA

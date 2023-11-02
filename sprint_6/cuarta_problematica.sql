@@ -21,9 +21,9 @@ WITH EmpleadosPorSucursal AS (
 )
 
 SELECT
-    (COUNT(c.customer_id) * 1.0 / eps.CANTIDAD_EMPLEADOS) AS CANTIDAD_DE_EMPLEADOS_POR_CLIENTE,
+    (eps.CANTIDAD_EMPLEADOS / COUNT(c.customer_id) * 1.0 ) AS CANTIDAD_DE_EMPLEADOS_POR_CLIENTE,
     s.branch_name AS SUCURSAL
-FROM cliente c
+FROM cliente c -- al reves
 JOIN sucursal s ON c.branch_id = s.branch_id
 LEFT JOIN EmpleadosPorSucursal eps ON s.branch_id = eps.branch_id
 GROUP BY s.branch_id, s.branch_name;
@@ -83,10 +83,18 @@ END;
 
 -- RESTO 100 A LAS CUENTAS 10,11,12,13,14
 UPDATE cuenta 
-SET balance = balance - 100
+SET balance = balance - 10000
 WHERE account_id IN (10,11,12,13,14);
 
+-- SELECT
+
 -- INDICE DE CLIENTE.DNI
+
+EXPLAIN QUERY PLAN
+SELECT *
+FROM cliente
+WHERE customer_DNI = '74701370';
+
 DROP INDEX IF EXISTS index_dni;
 CREATE INDEX index_dni
 on cliente(customer_DNI);
@@ -157,18 +165,18 @@ END;
 BEGIN TRANSACTION;
 
     UPDATE cuenta
-    SET balance = balance - 1000
+    SET balance = balance - 100000
     WHERE account_id = 200;
 
     INSERT INTO movimientos(numero_cuenta, monto, id_tipo_operacion)
-    VALUES(200,-1000,(SELECT id FROM tipo_movimientos WHERE tipo = 'TRANSFERENCIA_ENVIADA'));
+    VALUES(200,-100000,(SELECT id FROM tipo_movimientos WHERE tipo = 'TRANSFERENCIA_ENVIADA'));
 
     UPDATE cuenta
-    SET balance = balance + 1000
+    SET balance = balance + 100000
     WHERE account_id = 400;
 
     INSERT INTO movimientos(numero_cuenta, monto, id_tipo_operacion)
-    VALUES(400,+1000,(SELECT id FROM tipo_movimientos WHERE tipo = 'TRANSFERENCIA_RECIBIDA'));
+    VALUES(400,+100000,(SELECT id FROM tipo_movimientos WHERE tipo = 'TRANSFERENCIA_RECIBIDA'));
     
 COMMIT;
 
