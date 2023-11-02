@@ -17,7 +17,7 @@ ORDER BY customer_DNI DESC;
 -- CONSULTA PARA CLIENTES Anne y Tyler Y ORDENADOS POR EDAD
 SELECT customer_id, customer_DNI, customer_name, edad
 FROM vista_cliente
-WHERE customer_name LIKE '%Anne' OR customer_name LIKE '%Tyler'
+WHERE customer_name = 'Anne' OR customer_name = 'Tyler'
 ORDER BY edad ASC;
 
 
@@ -35,7 +35,11 @@ LIMIT 5;
 -- ACTUALIZACION DE 5 CLIENTES
 UPDATE cliente
 SET branch_id = 10
-WHERE customer_id > 500;
+WHERE customer_id in (
+       SELECT customer_id FROM cliente
+       ORDER BY customer_id DESC
+       LIMIT 5
+);
 
 -- ELIMINACION DEL REGISTRO CORRESPONDIENTE A "Noel David"
 DELETE FROM cliente
@@ -44,5 +48,7 @@ WHERE customer_name = 'Noel' AND customer_surname = 'David';
 -- CONSULTA DEL TIPO DE PRESTAMO DE MAYOR IMPORTE
 SELECT loan_type
 FROM prestamo 
-WHERE loan_total = (SELECT MAX(loan_total) AS total_maximo 
-                   FROM prestamo);
+WHERE loan_total = (
+       SELECT MAX(loan_total) AS total_maximo 
+       FROM prestamo
+);

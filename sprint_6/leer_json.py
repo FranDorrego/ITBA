@@ -18,13 +18,10 @@ def insertar_cliente(data):
         print("Se ingreso un valor")
 
 
-
-
 if __name__ == '__main__':
     conn = sqlite3.connect("itbank.db")
     cursor = conn.cursor()
 
-    
     data = leer_json() 
     insertar_cliente(data)
         

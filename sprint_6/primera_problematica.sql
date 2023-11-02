@@ -1115,11 +1115,11 @@ VALUES
 INSERT INTO clientes_direccion(customer_id, id_dirrecion)
     SELECT 
         c.customer_id, 
-        COALESCE( d.fila_random, abs(random()) % (SELECT COUNT(*) FROM direccion) ) AS id
+        COALESCE( d.fila_random, abs(random()) % (SELECT COUNT(id) FROM direccion) ) AS id
     FROM 
         cliente c
     LEFT JOIN (
-        SELECT id, 1 + abs(random()) % (SELECT COUNT(*) FROM direccion) as fila_random
+        SELECT id, 1 + abs(random()) % (SELECT COUNT(id) FROM direccion) as fila_random
         FROM direccion
     ) d ON c.customer_id = d.id
 LIMIT (SELECT COUNT(customer_id) FROM cliente);
@@ -1128,34 +1128,29 @@ LIMIT (SELECT COUNT(customer_id) FROM cliente);
 INSERT INTO empleado_direccion(employee_id, id_dirrecion)
     SELECT 
         e.employee_id, 
-        COALESCE( d.fila_random, abs(random()) % (SELECT COUNT(*) FROM direccion) ) AS id
+        COALESCE( d.fila_random, abs(random()) % (SELECT COUNT(id) FROM direccion) ) AS id
     FROM 
         empleado e
     LEFT JOIN (
-        SELECT id, 1 + abs(random()) % (SELECT COUNT(*) FROM direccion) as fila_random
+        SELECT id, 1 + abs(random()) % (SELECT COUNT(id) FROM direccion) as fila_random
         FROM direccion
     ) d ON e.employee_id = d.id
-LIMIT (SELECT COUNT(*) FROM empleado);
+LIMIT (SELECT COUNT(employee_id) FROM empleado);
 
 
 -- COLUMNAS NUEVAS
 ALTER TABLE cuenta
 ADD COLUMN tipo_cuenta_id INT;
 
-ALTER TABLE cliente
-ADD COLUMN direccion_id INT;
-
 -- DROP DE COLUMNAS
 -- ALTER TABLE cuenta DROP COLUMN tipo_cuenta_id;
 
--- ALTER TABLE cliente DROP COLUMN direccion_id;
-
 -- UPDATE
 UPDATE cuenta
-SET tipo_cuenta_id = (1 + abs(random()) % (SELECT MAX(id) FROM tipo_cuenta));
+SET tipo_cuenta_id = (1 + abs(random()) % (SELECT COUNT(id) FROM tipo_cuenta));
 
 UPDATE sucursal
-SET branch_address_id = (1 + abs(random()) % (SELECT MAX(id) FROM direccion));
+SET branch_address_id = (1 + abs(random()) % (SELECT COUNT(id) FROM direccion));
 
 UPDATE empleado
 SET employee_hire_date = substr(employee_hire_date, 7, 4) || '-' ||
