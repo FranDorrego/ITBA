@@ -7,6 +7,8 @@ DROP TABLE IF EXISTS tipo_tarjeta;
 DROP TABLE IF EXISTS direccion;
 DROP TABLE IF EXISTS tipo_cuenta;
 DROP TABLE IF EXISTS clientes_x_direcciones;
+DROP TABLE IF EXISTS clientes_direccion;
+DROP TABLE IF EXISTS empleado_direccion;
 
 -- CREACION DE TABLAS
 CREATE TABLE tipo_cliente(
@@ -23,7 +25,6 @@ CREATE TABLE marca_tarjeta(
     id INTEGER PRIMARY KEY AUTOINCREMENT, 
     marca_tarjeta NVARCHAR(100) NOT NULL
 );
-
 
 CREATE TABLE tarjeta(
     id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -49,6 +50,36 @@ CREATE TABLE direccion(
 CREATE TABLE tipo_cuenta(
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     tipo_cuenta VARCHAR(100) NOT NULL
+);
+
+CREATE TABLE clientes_direccion(
+    customer_id INTEGER ,
+    id_dirrecion INTEGER,
+
+    FOREIGN KEY (customer_id)
+        REFERENCES cliente(customer_id)
+            ON DELETE NO ACTION
+            ON UPDATE NO ACTION,
+
+    FOREIGN KEY (id_dirrecion)
+        REFERENCES direccion(id)
+            ON DELETE NO ACTION
+            ON UPDATE NO ACTION
+);
+
+CREATE TABLE empleado_direccion(
+    employee_id INTEGER ,
+    id_dirrecion INTEGER,
+
+    FOREIGN KEY (employee_id)
+        REFERENCES empleado(employee_id)
+            ON DELETE NO ACTION
+            ON UPDATE NO ACTION,
+
+    FOREIGN KEY (id_dirrecion)
+        REFERENCES direccion(id)
+            ON DELETE NO ACTION
+            ON UPDATE NO ACTION
 );
 
 -- INSERTADO DE VALORES
@@ -574,7 +605,7 @@ VALUES
   (497,'347575773859973','945','Feb 23, 2023','Aug 8 2024',1,3),
   (498,'512774 9836346188','653','Feb 24, 2024','Oct 28 2024',1,3),
   (499,'549579 853446 8574','944','May 31, 2023','Jan 11 2023',1,1),
-  (500,'471628 497722 9886','453','Feb 20, 2023','Jan 16 2023',2,2);
+(500,'471628 497722 9886','453','Feb 20, 2023','Jan 16 2023',2,2);
 
 INSERT INTO `direccion` (`id`,`calle`,`ciudad`,`codigo_postal`,`pais`)
 VALUES
@@ -1077,10 +1108,36 @@ VALUES
   (497,'P.O. Box 394, 4330 Eleifend Av.','Tarakan','675273','Australia'),
   (498,'Ap #390-3980 Consectetuer Rd.','Garzón','83358','Philippines'),
   (499,'102-5936 Ipsum St.','Cajamarca','932754','Australia'),
-  (500,'809-3818 Velit. Av.','Dresden','355653','Peru');
-
--- 
+(500,'809-3818 Velit. Av.','Dresden','355653','Peru');
  
+ 
+-- ASOCIO CLIENTES A DIFERENTES DIRECCIONES
+INSERT INTO clientes_direccion(customer_id, id_dirrecion)
+    SELECT 
+        c.customer_id, 
+        COALESCE( d.fila_random, abs(random()) % (SELECT COUNT(*) FROM direccion) ) AS id
+    FROM 
+        cliente c
+    LEFT JOIN (
+        SELECT id, 1 + abs(random()) % (SELECT COUNT(*) FROM direccion) as fila_random
+        FROM direccion
+    ) d ON c.customer_id = d.id
+LIMIT (SELECT COUNT(customer_id) FROM cliente);
+
+-- ASOCIO EMPLEADOS A DIFERENTES DIRECCIONES
+INSERT INTO empleado_direccion(employee_id, id_dirrecion)
+    SELECT 
+        e.employee_id, 
+        COALESCE( d.fila_random, abs(random()) % (SELECT COUNT(*) FROM direccion) ) AS id
+    FROM 
+        empleado e
+    LEFT JOIN (
+        SELECT id, 1 + abs(random()) % (SELECT COUNT(*) FROM direccion) as fila_random
+        FROM direccion
+    ) d ON e.employee_id = d.id
+LIMIT (SELECT COUNT(*) FROM empleado);
+
+
 -- COLUMNAS NUEVAS
 ALTER TABLE cuenta
 ADD COLUMN tipo_cuenta_id INT;
@@ -1089,11 +1146,9 @@ ALTER TABLE cliente
 ADD COLUMN direccion_id INT;
 
 -- DROP DE COLUMNAS
--- ALTER TABLE cuenta
--- DROP COLUMN tipo_cuenta_id;
+-- ALTER TABLE cuenta DROP COLUMN tipo_cuenta_id;
 
--- ALTER TABLE cliente
--- DROP COLUMN direccion_id;
+-- ALTER TABLE cliente DROP COLUMN direccion_id;
 
 -- UPDATE
 UPDATE cuenta
