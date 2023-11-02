@@ -13,7 +13,23 @@ DROP TABLE IF EXISTS empleado_direccion;
 -- CREACION DE TABLAS
 CREATE TABLE tipo_cliente(
     id INTEGER PRIMARY KEY AUTOINCREMENT,
-    tipo_cliente NVARHCAR(100) NOT NULL
+    tipo_cliente NVARCHAR(100) NOT NULL,
+    limite_tarjetas_debito INTEGER DEFAULT 0,
+    limite_caja_ahorro_pesos INTEGER DEFAULT 0,
+    limite_caja_ahorro_dolares INTEGER DEFAULT 0,
+    cargo_mensual_cuanta_dolares INTEGER DEFAULT 0,
+    limite_cuenta_corriente_pesos INTEGER DEFAULT 0,
+    limite_cuenta_corriente_dolares INTEGER DEFAULT 0,
+    limite_retiro_efectivo INTEGER DEFAULT 0,
+    retiro_sin_comisiones INTEGER DEFAULT 0,
+    limite_tarjeta_credito INTEGER DEFAULT 0,
+    limite_pago_tarjeta INTEGER DEFAULT 0,
+    tipo_tarjeta TEXT DEFAULT '0',
+    limite_cuotas INTEGER DEFAULT 0,
+    transferencia_saliente INTEGER DEFAULT 0,
+    transferencia_entrante INTEGER DEFAULT 0,
+    limite_cuenta_inversion INTEGER DEFAULT 0,
+    limite_chequeras INTEGER DEFAULT 0
 );
 
 CREATE TABLE tipo_tarjeta(
@@ -34,10 +50,43 @@ CREATE TABLE tarjeta(
     fecha_exipracion DATETIME NOT NULL,
     tipo_tarjeta_id INT NOT NULL,
     marca_tarjeta_id INT NOT NULL,
+    id_cliente INT DEFAULT 0,
 
     FOREIGN KEY (marca_tarjeta_id) REFERENCES marca_tarjeta(id),
     FOREIGN KEY (tipo_tarjeta_id) REFERENCES tipo_tarjeta(id)
+    FOREIGN KEY (id_cliente) REFERENCES cliente(customer_id)
 );
+
+-- CREAMOS UN TRIGER PARA EVALUAR LAS TARJETAS DE DEBITO
+--DROP TRIGGER IF EXISTS limite_tarjetas;
+--CREATE TRIGGER limite_tarjetas
+--INSTEAD OF INSERT ON tarjeta
+--BEGIN
+--    -- Verificar si se supera el límite de tarjetas de débito
+--    IF (
+--        SELECT COUNT(*)
+--        FROM tarjeta
+--        WHERE id_cliente = NEW.id_cliente
+--              AND tipo_tarjeta_id = (SELECT id FROM tipo_tarjeta WHERE tipo_tarjeta = 'debito')
+--    ) < (
+--        SELECT t.limite_tarjetas_debito
+--        FROM cuenta cuent
+--        JOIN cliente clien ON clien.customer_id = cuent.customer_id
+--        JOIN tipo_cliente t ON cuent.tipo_cuenta_id = t.id 
+--        WHERE cuent.customer_id = NEW.id_cliente
+--    )
+--    THEN
+--        -- Lanzar un error y deshacer la inserción
+--        INSERT INTO tarjeta VALUES (
+--            NEW.id, NEW.numero, NEW.cvv, NEW.fecha_otorgamiento, NEW.fecha_exipracion, NEW.tipo_tarjeta_id, NEW.marca_tarjeta_id, NULL
+--        );
+--    ELSE
+--        -- Permitir la inserción de la tarjeta
+--        INSERT INTO tarjeta VALUES (
+--            NEW.id, NEW.numero, NEW.cvv, NEW.fecha_otorgamiento, NEW.fecha_exipracion, NEW.tipo_tarjeta_id, NEW.marca_tarjeta_id, NEW.id_cliente
+--        );
+--    END IF;
+--END;
 
 CREATE TABLE direccion(
     id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -83,10 +132,11 @@ CREATE TABLE empleado_direccion(
 );
 
 -- INSERTADO DE VALORES
-INSERT INTO tipo_cliente (id ,tipo_cliente) VALUES 
-(1, 'classic'),
-(2, 'gold'),
-(3, 'black');
+INSERT INTO tipo_cliente (id, tipo_cliente, limite_tarjetas_debito, limite_caja_ahorro_pesos, limite_caja_ahorro_dolares, cargo_mensual_cuanta_dolares, limite_retiro_efectivo, retiro_sin_comisiones, limite_cuenta_corriente_pesos, limite_cuenta_corriente_dolares, limite_tarjeta_credito, limite_pago_tarjeta, tipo_tarjeta, limite_cuotas, transferencia_saliente, transferencia_entrante, limite_cuenta_inversion, limite_chequeras)
+VALUES
+(1, 'classic', 1, 1, 1, 0.1, 10000, 5, 0, 0, 0, 0, NULL, 0, 1, 0.5, 0, 0),
+(2, 'gold', 1, 2, 1, 0.1, 20000, 1, 0, 0, 1, 150000, 'VISA,MASTERCAD', 100000, 1, 0.5, 1, 1),
+(3, 'black', 5, 5, 5, 0.1, 100000, 1, 3, 3, 1, 500000, 'VISA,MASTERCAD,AMERIAN', 600000, 0, 0, 1, 2);
 
 INSERT INTO tipo_tarjeta (id, tipo_tarjeta) VALUES
 (1, 'debito'),
@@ -1110,6 +1160,10 @@ VALUES
   (499,'102-5936 Ipsum St.','Cajamarca','932754','Australia'),
 (500,'809-3818 Velit. Av.','Dresden','355653','Peru');
  
+-- ASOCIO TARJETAS DE DEBITO CON CLIENTES
+
+
+
 -- ASOCIO CLIENTES A DIFERENTES DIRECCIONES
 INSERT INTO clientes_direccion(customer_id, id_dirrecion)
     SELECT 
@@ -1136,22 +1190,22 @@ INSERT INTO empleado_direccion(employee_id, id_dirrecion)
     ) d ON e.employee_id = d.id
 LIMIT (SELECT COUNT(employee_id) FROM empleado);
 
-
--- COLUMNAS NUEVAS
-ALTER TABLE cuenta
-ADD COLUMN tipo_cuenta_id INT;
-
--- DROP DE COLUMNAS
--- ALTER TABLE cuenta DROP COLUMN tipo_cuenta_id;
-
--- UPDATE
-UPDATE cuenta
-SET tipo_cuenta_id = (1 + abs(random()) % (SELECT COUNT(id) FROM tipo_cuenta));
-
+-- ASOCIO SUCURSALES CON DIRECCIONES
 UPDATE sucursal
 SET branch_address_id = (1 + abs(random()) % (SELECT COUNT(id) FROM direccion));
 
+-- AMPLIO LA TABLA CUENTA
+-- ALTER TABLE cuenta DROP COLUMN tipo_cuenta_id;
+ALTER TABLE cuenta ADD COLUMN tipo_cuenta_id INT;
+
+-- ASOCIO TIPOS CON CUENTA
+UPDATE cuenta
+SET tipo_cuenta_id = (1 + abs(random()) % (SELECT COUNT(id) FROM tipo_cuenta));
+
+-- FORMATO FECHA DE EMPLEADO
 UPDATE empleado
 SET employee_hire_date = substr(employee_hire_date, 7, 4) || '-' ||
          substr(employee_hire_date, 4, 2) || '-' ||
          substr(employee_hire_date, 1, 2);
+
+

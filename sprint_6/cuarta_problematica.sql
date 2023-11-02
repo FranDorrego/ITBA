@@ -12,10 +12,22 @@ FROM empleado e
 JOIN sucursal s ON e.branch_id = s.branch_id
 GROUP BY s.branch_id;
 
--- PUNTO 2:
-------------------------------------------------------------------------
--- CANTIDAD DE EMPLEADOS POR CLIENTE FALTA ASOCIAR CLIENTE CON EMPLEADO
------------------------------------------------------------------------
+-- CANTIDAD DE EMPLEADOS POR CLIENTE EN CADA SUCURSAL
+WITH EmpleadosPorSucursal AS (
+    SELECT s.branch_id, COUNT(e.employee_id) AS CANTIDAD_EMPLEADOS
+    FROM empleado e
+    JOIN sucursal s ON e.branch_id = s.branch_id
+    GROUP BY s.branch_id
+)
+
+SELECT
+    (COUNT(c.customer_id) * 1.0 / eps.CANTIDAD_EMPLEADOS) AS CANTIDAD_DE_EMPLEADOS_POR_CLIENTE,
+    s.branch_name AS SUCURSAL
+FROM cliente c
+JOIN sucursal s ON c.branch_id = s.branch_id
+LEFT JOIN EmpleadosPorSucursal eps ON s.branch_id = eps.branch_id
+GROUP BY s.branch_id, s.branch_name;
+
 
 -- PUNTO 3:
 ------------------------------------------------------------------------
