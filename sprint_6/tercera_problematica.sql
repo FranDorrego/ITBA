@@ -16,11 +16,14 @@ JOIN sucursal s ON v.branch_id = s.branch_id
 WHERE v.customer_name = 'Brendan'
 ORDER BY s.branch_name;  
 
--- PRESTAMOS MAYORES A $80.000 
--- CREIDITO > $80.000 UNION PRENDARIO
+-- PRESTAMOS MAYORES A $80.000 UNION PRESTAMOS PRENDARIOS
 SELECT *
 FROM prestamo
-WHERE loan_type = 'PRENDARIO' AND loan_total > 8000000; 
+WHERE loan_total > 8000000
+UNION 
+SELECT * 
+FROM prestamo
+WHERE loan_type = 'PRENDARIO';
 -- tiene 2 ceros de mas porque no tiene coma
 
 
@@ -53,4 +56,4 @@ ORDER BY loan_total;
 -- TOTAL EN PRESTAMOS POR TIPO
 SELECT loan_type, SUM(loan_total) as loan_total_accu
 FROM prestamo
-GROUP BY loan_type
+GROUP BY loan_type;

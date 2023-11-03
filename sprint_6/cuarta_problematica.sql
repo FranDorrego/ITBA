@@ -29,10 +29,14 @@ LEFT JOIN EmpleadosPorSucursal eps ON s.branch_id = eps.branch_id
 GROUP BY s.branch_id, s.branch_name;
 
 
--- PUNTO 3:
-------------------------------------------------------------------------
--- CANTIDAD DE TIPO DE TARJETAS POR SUCURSAL: FALTA ASOCIAR CLIENTES A TARJETAS
-------------------------------------------------------------------------
+-- CANTIDAD DE TARJETAS DE CREDITO POR SUCURSAL
+SELECT branch_name, COUNT(t.tipo_tarjeta_id)  AS cantidad_tarjetas_de_credito
+FROM tarjeta t
+JOIN cliente c ON c.customer_id = t.id_cliente
+JOIN sucursal s  ON c.branch_id = s.branch_id
+WHERE tipo_tarjeta_id = 2 -- ES IGUAL A 2 PQ ESE ES EL VALOR DEL ID DE CREDITO
+GROUP BY branch_name
+ORDER BY branch_name;
 
 -- PROMEDIO DE $$ EN CREDITOS POR SUCURSAL 
 SELECT contador.cantidad/contador.prestamos AS promedio_en_prestamos, s.branch_name
@@ -81,12 +85,18 @@ CREATE TRIGGER AUDITORIA_CUENTA_TRIGER
         );
 END;
 
+SELECT account_id, balance 
+FROM cuenta
+WHERE account_id IN (10,11,12,13,14);
+
 -- RESTO 100 A LAS CUENTAS 10,11,12,13,14
 UPDATE cuenta 
 SET balance = balance - 10000
 WHERE account_id IN (10,11,12,13,14);
 
--- SELECT
+SELECT account_id, balance 
+FROM cuenta
+WHERE account_id IN (10,11,12,13,14);
 
 -- INDICE DE CLIENTE.DNI
 

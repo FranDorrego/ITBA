@@ -1,6 +1,7 @@
 
 DROP VIEW IF EXISTS vista_cliente; 
 
+-- CREACION DE TABLA
 CREATE VIEW vista_cliente AS 
 SELECT customer_id, branch_id, customer_name, 
        customer_surname, customer_DNI, 
@@ -21,18 +22,13 @@ FROM vista_cliente
 WHERE customer_name = 'Anne' OR customer_name = 'Tyler'
 ORDER BY edad ASC;
 
-
 -- COMPROBAR QUE SE HAYA HECHO CON EXISTO LA INSERCION, 
 -- BUSCO LOS ULTIMOS 5 CLIENTES
 SELECT * FROM cliente
 ORDER BY customer_id DESC
 LIMIT 5;
 
--- PARA BORRAR LOS CLIENTE INGRESADO
--- DELETE FROM cliente
--- WHERE customer_id IN 
--- (SELECT customer_id FROM cliente ORDER BY customer_id DESC LIMIT 5);
-
+-- COMPROBACION ANTERIOR
 -- ACTUALIZACION DE 5 CLIENTES
 UPDATE cliente
 SET branch_id = 10
@@ -42,13 +38,22 @@ WHERE customer_id in (
        LIMIT 5
 );
 
--- SELECT 
+-- COMPROBACION POSTERIOR
+SELECT * FROM cliente
+ORDER BY customer_id DESC
+LIMIT 5;
+
+-- COMPROBACION DE NOEL DAVID ANTERIOR
+SELECT * FROM cliente
+WHERE customer_name = 'Noel' AND customer_surname = 'David';
 
 -- ELIMINACION DEL REGISTRO CORRESPONDIENTE A "Noel David"
 DELETE FROM cliente
 WHERE customer_name = 'Noel' AND customer_surname = 'David';
 
--- SELECT 
+-- COMPROBACION DE NOEL DAVID POSTERIOR
+SELECT * FROM cliente
+WHERE customer_name = 'Noel' AND customer_surname = 'David';
 
 -- CONSULTA DEL TIPO DE PRESTAMO DE MAYOR IMPORTE
 SELECT loan_type
