@@ -1,7 +1,7 @@
 import sqlite3
 import json
 
-URL = "datos.json"
+URL = "sprint_6/datos.json"
 
 def leer_json():
     with open(URL) as file:
@@ -19,7 +19,7 @@ def insertar_cliente(data):
 
 
 if __name__ == '__main__':
-    conn = sqlite3.connect("itbank.db")
+    conn = sqlite3.connect("sprint_6/itbank.db")
     cursor = conn.cursor()
 
     data = leer_json() 
