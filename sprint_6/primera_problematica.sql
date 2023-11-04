@@ -1176,7 +1176,7 @@ SET tipo_cliente_id = (1 + abs(random()) % (SELECT COUNT(id) FROM tipo_cliente))
 -- ALTER TABLE cuenta DROP COLUMN tipo_cuenta_id;
 
 -- Comentar esta linea si ya existe la columna
---ALTER TABLE cuenta ADD COLUMN tipo_cuenta_id INT; 
+ALTER TABLE cuenta ADD COLUMN tipo_cuenta_id INT; 
 
 -- ASOCIO TIPOS CON CUENTA
 UPDATE cuenta

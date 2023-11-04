@@ -8,56 +8,61 @@ El grupo que esta creando ITBANK es **iKnowHow** Conformado por:
 
 # Forma de Tester
 
-Para testearlo simplemente ingresa con la **consola** a **Sprint_5** y ejecuta las pruebas:
+Para testearlo solo hay que tomar los archivos que están en la carpeta Sprint6:
 
-- cd sprint_5
+	   - primera_problematica.sql 
 
-Luego de puede ejecutar entrando al archivo main.py correrlo. 
+Y asociar la Base de datos que está disponible en la misma carpeta:
 
-Para ejecutarlo se le tiene que aclarar la dirrecion del Json de donde salen los datos, esto se define el la varible que esta en main llamada 
-**ARCHIVO_A_LEER**, si no existe emite en ValueError. Si se le quiere aclarar el archivo de salida solo se modifica la variable **ARCHIVO_A_DEVOLVER**.
+	    itbank.db
 
+Se se ejecuta la Query completa, va a dar un error ya que nosotros agregamos columnas y estas van a estar repetidas. Por ello si se ejecuta completa hay que comentar estas líneas:
 
-## <h1>Diagrama de Flujo</h1>
+	    1168- ALTER  TABLE  cliente  ADD  COLUMN  tipo_cliente_id  INT;
+	    1179- ALTER  TABLE  cuenta  ADD  COLUMN  tipo_cuenta_id  INT;
 
-Se siguen estos pasos: 
+Luego funciona correctamente. 
 
- 1. Leemos el archivo y lo pasamos a un Json
- 2. Con el Json instanciamos un tipo de cliente que sea necesario
- 3. Iteramos en la lista de transacciones:
-		 - Creamos un objeto transaccion:
-		 - Generamos el motivo
-		 - Generamos el HTML y lo guardamos en una varible de instacia
- 4. Agregamos la transaccion al cliente
- 5. Genramos el HTML y le pasamos la variable de instancia.
+Para las demás Query no es necesario nada más, excepto para la Query número 3 en donde se nos pide pasar de un JSON a la base de datos. Para esto formamos un Script de Python que explicamos en la sección de "Manejo de JSON" que está más abajo.
 
 
-## <h1>Diagrama de Clases</h1>
+## <h1>Diagrama de relaciones</h1>
 
-Diseñamos dos tipos de clases principales:
+Diseñamos un diagrama el cual explica como tratamos la información. La idea es tratar la información de una forma ordenada y metódica, anticiparnos a los posibles errores y ser lo mas eficiente posible.
 
- **![](./docs/cliente.png)**
+Como se puede ver hay una tabla central de todo que es cliente, esta tabla es la mas delicada a la hora de tratarla ya que tiene muchas relaciones y otras tablas apuntándola con el customer_id
 
- **![](./docs/transaccion.png)**
+**![](./docs/flujo.png)**
 
-## <h1>Test</h1>
 
-Para ejecutar los test, hay un archivo llamado test.py el cual si se ejecuta se realizan todos los test para las 3 funciones de cliente que manejan parametros externos.
+## <h1>Manejo de JSON</h1>
 
-## <h1>Generacion de Motivos</h1>
+Para la problemática 3, se nos pedía pasar un Json a datos en la DB. Para ello nosotros utilizamos un script de Python el cual:
 
-Esta parte es bastante arbitraria ya que la consiga era confusa. Por eso nosotros adopatamos la sigiente logica:
+ - Se conecta a la base de datos
+ - Lee el Json
+ - Inserta los datos
+ - Genera un comit y cierra la conexión 
 
-- Si la transaccion esta Aprobada, el motivo es:
-	- "Es correcta la transaccion"
-- Si el permitido por operacion es menor al monto a operar:
-	- "No tienes limite suficiente para operar con esta transaccion"
-- Si no esta aprobada, se valida segun el tipo de accion, la gran mayoria de las veces si el cliente es classic, sale que no tiene acceso a esa funcion. Si es Black o Gold, esta figura sin fondos.
+ **![](./docs/py.png)**
 
-Esta funcion solo agrega el motivo, no valida que la accion sea correcta. 
-Es decir si el cliente classic pidio una tarjeta y el sistma anterior el cual general el Json se la aprobo, nosotros solo agregamos que esta bien, ya que como se aclara en la consiga, el sistema anterior que genera el Json es el encargado de validar y aprobar las operaciones, nosotros solo de aclarar el porque.
+A este Script es necesario acalorarle algunas partes: 
 
-Esta funcion esta en la clase Transaccion.
+ 1. URL: es la path a donde se encuentra el archivo Json.
+ 2. BASE: es la path a donde se encuentra la base de datos.
+
+Dependiendo donde se ejecute estos pueden dar error ya que varia el directorio. Controla esta parte antes de ejecutarlo.
+
+## <h1>Tipos de movimientos</h1>
+
+Para el Trigger de Auditoria de cuentas, se nos pedía vincular el movimiento con una descripción de la operación, para ello tomamos una tabla y colocamos todas las posibles operaciones y las asociamos a un ID. Este ID es el que une las dos tablas.
+
+ **![](./docs/movimientos.png)**
+
+Los movimientos permitidos son:
+
+ **![](./docs/tipos_moviminetos.png)**
+
 
 
 ## <h1>Documentación del sprint 1</h1>
@@ -68,6 +73,7 @@ Esta funcion esta en la clase Transaccion.
 
 **[Documentación](./sprint_2/README_Sprint_2.md)**
 
+
 ## <h1>Documentación del sprint 3</h1>
 
 **[Documentación](./sprint_3/README_Sprint_3.md)**
@@ -75,3 +81,7 @@ Esta funcion esta en la clase Transaccion.
 ## <h1>Documentación del sprint 4</h1>
 
 **[Documentación](./sprint_4/README.md)**
+
+## <h1>Documentación del sprint 5</h1>
+
+**[Documentación](./sprint_5/README.md)**
