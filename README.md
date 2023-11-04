@@ -34,6 +34,8 @@ Como se puede ver hay una tabla central de todo que es cliente, esta tabla es la
 
 **![](./docs/flujo.png)**
 
+Tambien pueden ver todo mas en detalle en este  **[link](https://www.figma.com/file/mTLGphDg9EWaycGL1EaiJN/Untitled?type=whiteboard&node-id=0-1&t=KH8TAK1QJExl1xzR-0)**
+
 
 ## <h1>Manejo de JSON</h1>
 
@@ -52,6 +54,8 @@ A este Script es necesario acalorarle algunas partes:
  2. BASE: es la path a donde se encuentra la base de datos.
 
 Dependiendo donde se ejecute estos pueden dar error ya que varia el directorio. Controla esta parte antes de ejecutarlo.
+
+No se validaron datos ni se válida el formato del Json. Corrobora manualmente que esté correcto si no da error.
 
 ## <h1>Tipos de movimientos</h1>
 
