@@ -21,9 +21,9 @@ WITH EmpleadosPorSucursal AS (
 )
 
 SELECT
-    (eps.CANTIDAD_EMPLEADOS / COUNT(c.customer_id) * 1.0 ) AS CANTIDAD_DE_EMPLEADOS_POR_CLIENTE,
+    CAST(eps.CANTIDAD_EMPLEADOS AS REAL) / CAST(COUNT(c.customer_id) AS REAL) AS CANTIDAD_DE_EMPLEADOS_POR_CLIENTE,
     s.branch_name AS SUCURSAL
-FROM cliente c -- al reves
+FROM cliente c 
 JOIN sucursal s ON c.branch_id = s.branch_id
 LEFT JOIN EmpleadosPorSucursal eps ON s.branch_id = eps.branch_id
 GROUP BY s.branch_id, s.branch_name;
@@ -34,7 +34,7 @@ SELECT branch_name, COUNT(t.tipo_tarjeta_id)  AS cantidad_tarjetas_de_credito
 FROM tarjeta t
 JOIN cliente c ON c.customer_id = t.id_cliente
 JOIN sucursal s  ON c.branch_id = s.branch_id
-WHERE tipo_tarjeta_id = 2 -- ES IGUAL A 2 PQ ESE ES EL VALOR DEL ID DE CREDITO
+WHERE tipo_tarjeta_id = 2 -- ES IGUAL A 2 PORQUE ESE ES EL VALOR DEL ID DE CREDITO
 GROUP BY branch_name
 ORDER BY branch_name;
 
@@ -73,7 +73,7 @@ CREATE TRIGGER AUDITORIA_CUENTA_TRIGER
             old_balance, new_balance,
             old_iban, new_iban,
             old_tipe, new_tipe,
-            user_action , -- QUE VA EN USER ACTION?
+            user_action,
             created_at
         )
         VALUES(

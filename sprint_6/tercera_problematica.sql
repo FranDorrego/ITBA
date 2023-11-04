@@ -7,7 +7,7 @@ WHERE balance < 0;
 -- SELECIONO CLIENTES QUE TIENE Z
 SELECT customer_name, customer_surname, edad
 FROM vista_cliente
-WHERE customer_surname LIKE '%Z%';  -- z y Z
+WHERE customer_surname LIKE '%Z%' OR customer_surname LIKE '%z%' ;  -- z y Z
 
 -- SELECIONO LAS SUCURSALES DE BRENDAN
 SELECT v.customer_name, v.customer_surname, v.edad, s.branch_name
