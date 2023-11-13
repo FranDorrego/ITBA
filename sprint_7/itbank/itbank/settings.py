@@ -40,12 +40,11 @@ INSTALLED_APPS = [
     'login',
     'prestamos',
     'tarjetas',
-    'transferencias',
     'home',
     'cuenta',
-    'cambioDivisas',
     'actividad',
     'facturas',
+    'forms_prestamos',
 ]
 
 MIDDLEWARE = [

@@ -25,6 +25,7 @@ import cuenta.views as cuenta
 import tarjetas.views as tarjeta
 import facturas.views as facturas
 import prestamos.views as prestamos
+import forms_prestamos.views as forms_prestamos
 
 
 urlpatterns = [
@@ -35,22 +36,25 @@ urlpatterns = [
     path('register', login.register, name="register"),
 
     # Home | Dashboard
-    path('home', home.home, name="home"),
+    path('home/', home.home, name="home"),
 
     # Actividad
-    path('actividad', actividad.actividad, name="actividad"),
+    path('actividad/', actividad.actividad, name="actividad"),
 
     # Cuentas
-    path('cuentas', cuenta.cuenta, name="cuentas"),
+    path('cuentas/', cuenta.cuenta, name="cuentas"),
 
     # Tarjetas
-    path('credito', tarjeta.tarjeta, name="credito"),
+    path('credito/', tarjeta.tarjeta, name="credito"),
 
     # Facturas
-    path('facturas', facturas.facturas, name="facturas"),
+    path('facturas/', facturas.facturas, name="facturas"),
 
     # Prestamos
-    path('prestamos', prestamos.prestamos, name="prestamos"),
+    path('prestamos/', prestamos.prestamos, name="prestamos"),
+
+    # Formulario
+    path('forms_prestamos/', forms_prestamos.forms_prestamos, name="forms_prestamos"),
 
     # Admin
     path('admin/', admin.site.urls),
