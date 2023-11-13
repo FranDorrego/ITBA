@@ -24,6 +24,8 @@ import actividad.views as actividad
 import cuenta.views as cuenta
 import tarjetas.views as tarjeta
 import facturas.views as facturas
+import prestamos.views as prestamos
+
 
 urlpatterns = [
 
@@ -46,6 +48,9 @@ urlpatterns = [
 
     # Facturas
     path('facturas', facturas.facturas, name="facturas"),
+
+    # Prestamos
+    path('prestamos', prestamos.prestamos, name="prestamos"),
 
     # Admin
     path('admin/', admin.site.urls),

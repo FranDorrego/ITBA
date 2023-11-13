@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prestamos</title>
+</head>
+<body>
+    <h3>Ultimos prestamos</h3>
+    <ul>
+      {% for item in historial %}
+
+      <li>
+        <h2>{{ item.fecha }}</h2>
+        <h2>{{ item.tipo }}</h2>
+        <h2>{{ item.motivo }}</h2>
+        <h2>{{ item.cantidad }}</h2>
+      </li>
+
+      {% endfor %}
+    </ul>
+</body>
+</html>
