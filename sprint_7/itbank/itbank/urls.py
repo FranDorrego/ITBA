@@ -16,11 +16,14 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+
+# Apps
 import login.views as login
 import home.views as home
 import actividad.views as actividad
 import cuenta.views as cuenta
 import tarjetas.views as tarjeta
+import facturas.views as facturas
 
 urlpatterns = [
 
@@ -40,6 +43,9 @@ urlpatterns = [
 
     # Tarjetas
     path('credito', tarjeta.tarjeta, name="credito"),
+
+    # Facturas
+    path('facturas', facturas.facturas, name="facturas"),
 
     # Admin
     path('admin/', admin.site.urls),

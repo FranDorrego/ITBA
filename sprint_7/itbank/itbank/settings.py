@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'cuenta',
     'cambioDivisas',
     'actividad',
+    'facturas',
 ]
 
 MIDDLEWARE = [
