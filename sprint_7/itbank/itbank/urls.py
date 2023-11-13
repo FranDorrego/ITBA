@@ -20,6 +20,7 @@ import login.views as login
 import home.views as home
 import actividad.views as actividad
 import cuenta.views as cuenta
+import tarjetas.views as tarjeta
 
 urlpatterns = [
 
@@ -36,6 +37,9 @@ urlpatterns = [
 
     # Cuentas
     path('cuentas', cuenta.cuenta, name="cuentas"),
+
+    # Tarjetas
+    path('credito', tarjeta.tarjeta, name="credito"),
 
     # Admin
     path('admin/', admin.site.urls),
