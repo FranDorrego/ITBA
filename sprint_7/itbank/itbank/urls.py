@@ -19,6 +19,7 @@ from django.urls import path
 import login.views as login
 import home.views as home
 import actividad.views as actividad
+import cuenta.views as cuenta
 
 urlpatterns = [
 
@@ -32,6 +33,9 @@ urlpatterns = [
 
     # Actividad
     path('actividad', actividad.actividad, name="actividad"),
+
+    # Cuentas
+    path('cuentas', cuenta.cuenta, name="cuentas"),
 
     # Admin
     path('admin/', admin.site.urls),

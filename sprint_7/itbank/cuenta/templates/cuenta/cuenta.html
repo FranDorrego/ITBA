@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cuentas</title>
+</head>
+<body>
+    <h3>Cuentas</h3>
+    <ul>
+      {% for item in cuenta %}
+
+      <li>
+        <h2>alias: {{ item.alias }}</h2>
+        <h2>CBU: {{ item.CBU }}</h2>
+        <h2>CuentaNumero: {{ item.cuentaNumero }}</h2>
+      </li>
+
+      {% endfor %}
+    </ul>
+</body>
+</html>
