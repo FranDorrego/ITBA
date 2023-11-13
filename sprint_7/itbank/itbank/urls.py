@@ -18,13 +18,21 @@ from django.contrib import admin
 from django.urls import path
 import login.views as login
 import home.views as home
+import actividad.views as actividad
 
 urlpatterns = [
+
+    # Login
     path('', login.login, name=""),
     path('password', login.password, name="password"),
     path('register', login.register, name="register"),
 
+    # Home | Dashboard
     path('home', home.home, name="home"),
 
+    # Actividad
+    path('actividad', actividad.actividad, name="actividad"),
+
+    # Admin
     path('admin/', admin.site.urls),
 ]

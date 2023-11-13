@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Actividad</title>
+</head>
+<body>
+    <h1>Tu actividad es</h1>
+    <h3>Moviminetos</h3>
+    <ul>
+      {% for item in movimientos %}
+
+      <li>
+        <h2>{{ item.fecha }}</h2>
+        <h2>{{ item.tipo }}</h2>
+        <h2>{{ item.motivo }}</h2>
+        <h2>{{ item.cantidad }}</h2>
+      </li>
+
+      {% endfor %}
+    </ul>
+</body>
+</html>
