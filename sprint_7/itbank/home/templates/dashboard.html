@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dashboard</title>
+</head>
+<body>
+    
+    <div>
+        <ul>
+            <li> <a href="{% url 'home' %}">Home</a> </li>
+            <li> <a href="{% url 'actividad' %}">actividad</a> </li>
+            <li> <a href="{% url 'cuentas' %}">cuentas</a> </li>
+            <li> <a href="{% url 'credito' %}">Tarjeta de credito</a> </li>
+            <li> <a href="{% url 'facturas' %}">facturas</a> </li>
+            <li> <a href="{% url 'prestamos' %}">Tus prestamos</a> </li>
+            <li> <a href="{% url 'forms_prestamos' %}">Solicita un prestamo</a> </li>
+        </ul>
+    </div>
+
+    <div>
+        {% block content %}
+        {% endblock %}
+    </div>
+</body>
+</html>

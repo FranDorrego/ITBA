@@ -1,11 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Actividad</title>
-</head>
-<body>
+{% extends "dashboard.html" %}
+
+{% block content %}
     <h1>Tu actividad es</h1>
     <h3>Moviminetos</h3>
     <ul>
@@ -20,5 +15,4 @@
 
       {% endfor %}
     </ul>
-</body>
-</html>
+{% endblock %}

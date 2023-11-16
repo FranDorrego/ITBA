@@ -1,18 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>dashboard</title>
-  </head>
-  <body>
-    <h1>hola! {{ user }}</h1>
+{% extends "dashboard.html" %}
+
+{% block content %}
+    <h1>¡Hola! {{ user }}</h1> 
     
     <h2>Actual en cuenta {{ actualCuenta }}</h2>
     <h2>Ingreso {{ cantidadIngreso }}</h2>
     <h2>Egreso {{ cantidadEgreso }}</h2>
 
-    <h3>Moviminetos</h3>
+    <h3>Movimientos</h3>
     <ul>
       {% for item in movimientos %}
 
@@ -25,6 +20,4 @@
 
       {% endfor %}
     </ul>
-    
-  </body>
-</html>
+{% endblock %}

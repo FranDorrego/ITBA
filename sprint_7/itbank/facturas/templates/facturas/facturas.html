@@ -1,12 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Facturas</title>
-</head>
-<body>
+{% extends "dashboard.html" %}
 
+{% block content %}
     <h3>FActuras por vencer</h3>
     <ul>
       {% for item in por_vencer %}
@@ -34,6 +28,4 @@
 
       {% endfor %}
     </ul>
-
-</body>
-</html>
+{% endblock %}

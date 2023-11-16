@@ -1,11 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tarjetas Credito</title>
-</head>
-<body>
+{% extends "dashboard.html" %}
+
+{% block content %}
     <h1>Gastos del mes: {{ gasto_mes }}</h1>
     <h1>Saldo Disponible: {{ saldo_disponible }}</h1>
     <h1>Fecha de cierre: {{ fecha_cierre }}</h1>
@@ -23,6 +18,4 @@
 
       {% endfor %}
     </ul>
-
-</body>
-</html>
+{% endblock %}
