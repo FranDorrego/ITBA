@@ -1,0 +1,53 @@
+.lista {
+    display: flex;
+    justify-content: space-between;
+    background-color: #333;
+    padding: 10px;
+}
+
+.lista ul {
+    list-style-type: none; /* Elimina los estilos de la lista */
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.lista li {
+    margin-right: 15px; /* Espacio entre elementos de la lista */
+}
+
+.lista a {
+    color: white;
+    text-decoration: none;
+}
+
+
+.content {
+    background-color: #333;
+    color: white;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 20px 0;
+}
+
+/* estilos comunes */
+.content a {
+    color: white;
+    text-decoration: none;
+}
+
+.content ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.content li {
+    margin-right: 15px;
+}
+
+.content li a {
+    color: white;
+    text-decoration: none;
+}

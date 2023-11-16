@@ -30,7 +30,7 @@ import forms_prestamos.views as forms_prestamos
 
 urlpatterns = [
 
-    # Login
+    # Login Esto va por defaut de Django
     path('', login.login, name=""),
     path('password', login.password, name="password"),
     path('register', login.register, name="register"),
