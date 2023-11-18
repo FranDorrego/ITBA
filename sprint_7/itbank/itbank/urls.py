@@ -56,6 +56,10 @@ urlpatterns = [
     # Formulario
     path('forms_prestamos/', forms_prestamos.forms_prestamos, name="forms_prestamos"),
 
+    # transferencias
+    path('transferencia/', forms_prestamos.forms_prestamos, name="transferencia"),
+
+
     # Admin
     path('admin/', admin.site.urls),
 ]

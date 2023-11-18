@@ -12,38 +12,38 @@
 <body>
     <div class="gridDashboard">
         <div class="menu">
-            <a href="/home">
+            <a href="{% url 'home' %}">
                 <div class="menuArriba">
                     <button class="menuButton">☰</button>
                     <img class="menuLogo" src={% static 'assets/logo.svg' %} alt="logo" width={20} height={20}/> 
                 </div>
             </a>
             <div class="divBotones">
-                <a href="/home">
+                <a href="{% url 'home' %}">
                     <button class="botones"> 
                         <img class="botonImage" src={% static 'assets/home.svg' %} alt="inicio"/> 
                         <h1 class="botonLetra">Inicio</h1>  
                     </button> 
                 </a>
-                <a href="/actividad">
+                <a href="{% url 'actividad' %}">
                     <button class="botones"> 
                         <img class="botonImage" src={% static 'assets/circle-dollar.svg' %} alt="actividad"/> 
                         <h1 class="botonLetra">Actividad</h1>  
                     </button> 
                 </a>
-                <a href="/cuentas">
+                <a href="{% url 'cuentas' %}">
                     <button class="botones"> 
                         <img class="botonImage" src={% static 'assets/bank.svg' %} alt="cuentas"/> 
                         <h1 class="botonLetra">Cuentas</h1>  
                     </button> 
                 </a>
-                <a href="/cambio">
+                <a href="{% url 'credito' %}">
                     <button class="botones"> 
                         <img class="botonImage" src={% static 'assets/cambio.svg' %} alt="cambio_divisas"/> 
-                        <h1 class="botonLetra">Cambio de divisas</h1>  
+                        <h1 class="botonLetra">Tarjeta de Credito</h1>  
                     </button> 
                 </a>
-                <a href="/facturas">
+                <a href="{% url 'facturas' %}">
                     <button class="botones"> 
                         <img class="botonImage" src={% static 'assets/factura.svg' %} alt="facturas"/> 
                         <h1 class="botonLetra">Facturas</h1>  
@@ -51,22 +51,16 @@
                 </a>
 
                 {% comment %} BOTONES DEL LADO DERECHO {% endcomment %}
-                <a href="/cuentas">
+                <a href="{% url 'cuentas' %}">
                     <button class="botones" id="botonesAuxIzquierda"> 
                         <img class="botonImage" src={% static 'assets/CIRCLE-INFO.svg' %} alt="cbu"/> 
                         <h1 class="botonLetra">Mi CBU</h1>  
                     </button> 
                 </a>
-                <a href="/prestamos">
+                <a href="{% url 'prestamos' %}">
                     <button class="botones" id="botonesAuxIzquierda"> 
                         <img class="botonImage" src={% static 'assets/circle-arrow-down-deposito.svg' %} alt="prestamos"/> 
                         <h1 class="botonLetra">Prestamos</h1>  
-                    </button> 
-                </a>
-                <a href="/transferencias">
-                    <button class="botones" id="botonesAuxIzquierda"> 
-                        <img class="botonImage" src={% static 'assets/transferencias.svg' %} alt="transferencias"/> 
-                        <h1 class="botonLetra">Transferencias</h1>  
                     </button> 
                 </a>
                 <a href="/home">
@@ -118,25 +112,31 @@
                     <div class="divSaludo">
                         <h1 class="saludo">Hola usuario </h1>
                     </div>
-                    <a href="/cuentas">
+                    <a href="{% url 'cuentas' %}">
                         <button class="derechoBoton botonesAuxIzquierda}" > 
                             <img class="accionesBotonesImage" src={% static 'assets/CIRCLE-INFO.svg' %} alt="cbu"/> 
                             <h1 class="accionesBotonesLetra">Mi CBU</h1>  
                         </button> 
                     </a>
-                    <a href="/prestamos">
+                    <a href="{% url 'prestamos' %}">
                         <button class="derechoBoton botonesAuxIzquierda" > 
                             <img class="accionesBotonesImage" src={% static 'assets/circle-arrow-down-deposito.svg' %} alt="prestamos"/> 
                             <h1 class="accionesBotonesLetra">Prestamos</h1>  
                         </button> 
                     </a>
-                    <a href="/transferencias">
+                    <a href="{% url 'transferencia' %}">
                         <button class="derechoBoton botonesAuxIzquierda" > 
                             <img class="accionesBotonesImage" src={% static 'assets/transferencias.svg' %} alt="transferencias"/> 
                             <h1 class="accionesBotonesLetra">Transferencias</h1>  
                         </button> 
                     </a>
-                    <a href="/credito">    
+                    <a href="{% url 'forms_prestamos' %}">
+                        <button class="derechoBoton botonesAuxIzquierda" > 
+                            <img class="accionesBotonesImage" src={% static 'assets/transferencias.svg' %} alt="transferencias"/> 
+                            <h1 class="accionesBotonesLetra">Solicita un prestamo</h1>  
+                        </button> 
+                    </a>
+                    <a href="{% url 'credito' %}">    
                         <span class="tituloTarjeta"> <h1>Tarjetas</h1> </span> 
                         <span> 
                             <div>
@@ -148,6 +148,8 @@
                 </div>
             </div>
         </div>
+
+        
         {% comment %} FOOTER {% endcomment %}
         <footer class="fondoFooter">
             <div class="footerPrimerDiv">
