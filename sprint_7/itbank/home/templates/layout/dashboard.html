@@ -91,8 +91,20 @@
             </div>
 
         </div>
-        {% block content %}
-        {% endblock  %}
+        <div class="general">
+            <div class="membrete">
+                <div class="buscador">
+                    <img src={% static 'assets/search.svg' %}  alt="buscador" /> 
+                    <input type="text" placeholder="Buscar" id='buscador'/>
+                </div>
+            </div>
+            <div className="divContenedorPrincipal">
+                {% block content %}
+                {% endblock  %}
+            </div>
+
+        </div>
+
         {% comment %} MENU DERECHO {% endcomment %}
         <div class="menuDerecho">
             <span class="user">
