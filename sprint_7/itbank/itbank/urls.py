@@ -56,7 +56,7 @@ urlpatterns = [
     # Formulario
     path('forms_prestamos/', forms_prestamos.forms_prestamos, name="forms_prestamos"),
 
-    # transferencias
+    # transferencias ESTO HAY QUE RENDEREARLO DESDE CERO
     path('transferencia/', forms_prestamos.forms_prestamos, name="transferencia"),
 
 

@@ -1,23 +1,70 @@
 {% extends "layout/dashboard.html" %}
 
+{% load static %}
+
+{% block link %}
+<link rel="stylesheet" href="{% static 'home/css/home.css' %}">
+<title>Home</title>
+{% endblock %}
+
+
 {% block content %}
+<div class="div-saludo">
 
-      
-      <h2>Actual en cuenta {{ actualCuenta }}</h2>
-      <h2>Ingreso {{ cantidadIngreso }}</h2>
-      <h2>Egreso {{ cantidadEgreso }}</h2>
+  <h1 class="saludo">hola! {{ user }}</h1>
 
-      <h3>Movimientos</h3>
-      <ul>
-        {% for item in movimientos %}
+  <div class="tarjetas-dashboard">
 
-        <li>
-          <h2>{{ item.fecha }}</h2>
-          <h2>{{ item.tipo }}</h2>
-          <h2>{{ item.motivo }}</h2>
-          <h2>{{ item.cantidad }}</h2>
-        </li>
+    <span class="tarjetas saldo">
+      <h1>Total en cuenta</h1>
+      <h2 id="saldo-cuenta-valor">${{ actualCuenta }}</h2>
+    </span>
 
-        {% endfor %}
-      </ul>
+    <span class="tarjetas ingreso-tarjeta">
+      <h1>Ingresos</h1>
+      <h2>+ ${{ cantidadIngreso }}</h2>
+    </span>
+
+    <span class="tarjetas retiro-tarjeta">
+      <h1>Retiros</h1>
+      <h2>- $ {{ cantidadEgreso }}</h2>
+    </span>
+
+  </div>
+
+</div>
+
+<h1 class="movimientos-titulo">Ultimos movimientos ></h1>
+
+<div class="div-movimientos">
+
+
+  {% for item in movimientos %}
+
+  <div class="moviminetos-tarjeta">
+
+    <!-- numeros y fechas -->
+    <span class="movimiento-texto">
+      <h1>${{ item.cantidad }}</h1>
+      <h2>{{ item.fecha }}</h2>
+    </span>
+
+    <H1>{{ item.motivo }}</H1>
+
+    <!-- motivo -->
+    <span class="motivo">
+      <h1 class="ingreso">{{ item.tipo }}</h1>
+      <img src="assets/circle-arrow-down.svg" alt="">
+    </span>
+
+  </div>
+
+  {% endfor %}
+
+
+</div>
+
+
+
+
 {% endblock %}
