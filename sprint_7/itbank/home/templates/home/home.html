@@ -1,23 +1,25 @@
-{% extends "dashboard.html" %}
+{% extends "layout/dashboard.html" %}
 
 {% block content %}
-    <h1>¡Hola! {{ user }}</h1> 
-    
-    <h2>Actual en cuenta {{ actualCuenta }}</h2>
-    <h2>Ingreso {{ cantidadIngreso }}</h2>
-    <h2>Egreso {{ cantidadEgreso }}</h2>
+<h1>¡Hola! {{ user }}</h1> 
+  {% comment %} <div>
+      
+      <h2>Actual en cuenta {{ actualCuenta }}</h2>
+      <h2>Ingreso {{ cantidadIngreso }}</h2>
+      <h2>Egreso {{ cantidadEgreso }}</h2>
 
-    <h3>Movimientos</h3>
-    <ul>
-      {% for item in movimientos %}
+      <h3>Movimientos</h3>
+      <ul>
+        {% for item in movimientos %}
 
-      <li>
-        <h2>{{ item.fecha }}</h2>
-        <h2>{{ item.tipo }}</h2>
-        <h2>{{ item.motivo }}</h2>
-        <h2>{{ item.cantidad }}</h2>
-      </li>
+        <li>
+          <h2>{{ item.fecha }}</h2>
+          <h2>{{ item.tipo }}</h2>
+          <h2>{{ item.motivo }}</h2>
+          <h2>{{ item.cantidad }}</h2>
+        </li>
 
-      {% endfor %}
-    </ul>
+        {% endfor %}
+      </ul>
+    <div/>  {% endcomment %}
 {% endblock %}

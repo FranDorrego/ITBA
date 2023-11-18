@@ -1,0 +1,170 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/layout.css' %}">
+    <link rel="stylesheet" href="{% static 'css/globals.css' %}">
+    <title>{{ titulo }}</title>
+</head>
+<body>
+    <div class="gridDashboard">
+        <div class="menu">
+            <a href="/home">
+                <div class="menuArriba">
+                    <button class="menuButton">☰</button>
+                    <img class="menuLogo" src={% static 'assets/logo.svg' %} alt="logo" width={20} height={20}/> 
+                </div>
+            </a>
+            <div class="divBotones">
+                <a href="/home">
+                    <button class="botones"> 
+                        <img class="botonImage" src={% static 'assets/home.svg' %} alt="inicio"/> 
+                        <h1 class="botonLetra">Inicio</h1>  
+                    </button> 
+                </a>
+                <a href="/actividad">
+                    <button class="botones"> 
+                        <img class="botonImage" src={% static 'assets/circle-dollar.svg' %} alt="actividad"/> 
+                        <h1 class="botonLetra">Actividad</h1>  
+                    </button> 
+                </a>
+                <a href="/cuentas">
+                    <button class="botones"> 
+                        <img class="botonImage" src={% static 'assets/bank.svg' %} alt="cuentas"/> 
+                        <h1 class="botonLetra">Cuentas</h1>  
+                    </button> 
+                </a>
+                <a href="/cambio">
+                    <button class="botones"> 
+                        <img class="botonImage" src={% static 'assets/cambio.svg' %} alt="cambio_divisas"/> 
+                        <h1 class="botonLetra">Cambio de divisas</h1>  
+                    </button> 
+                </a>
+                <a href="/facturas">
+                    <button class="botones"> 
+                        <img class="botonImage" src={% static 'assets/factura.svg' %} alt="facturas"/> 
+                        <h1 class="botonLetra">Facturas</h1>  
+                    </button> 
+                </a>
+
+                {% comment %} BOTONES DEL LADO DERECHO {% endcomment %}
+                <a href="/cuentas">
+                    <button class="botones" id="botonesAuxIzquierda"> 
+                        <img class="botonImage" src={% static 'assets/CIRCLE-INFO.svg' %} alt="cbu"/> 
+                        <h1 class="botonLetra">Mi CBU</h1>  
+                    </button> 
+                </a>
+                <a href="/prestamos">
+                    <button class="botones" id="botonesAuxIzquierda"> 
+                        <img class="botonImage" src={% static 'assets/circle-arrow-down-deposito.svg' %} alt="prestamos"/> 
+                        <h1 class="botonLetra">Prestamos</h1>  
+                    </button> 
+                </a>
+                <a href="/transferencias">
+                    <button class="botones" id="botonesAuxIzquierda"> 
+                        <img class="botonImage" src={% static 'assets/transferencias.svg' %} alt="transferencias"/> 
+                        <h1 class="botonLetra">Transferencias</h1>  
+                    </button> 
+                </a>
+                <a href="/home">
+                    <button class="botones" id="botonesAuxIzquierda"> 
+                        <img class="botonImage" src={% static 'assets/Avatar.svg' %} alt="avatar"/> 
+                    </button> 
+                </a>
+                <div class="menuFooter">
+                    <a href="/ayuda">
+                        <button class="botones"> 
+                            <img class="botonImage" src={% static 'assets/ayuda.svg' %} alt="ayuda"/> 
+                            <h1 class="botonLetra">Ayuda</h1>  
+                        </button> 
+                    </a>
+                    <a href="/">
+                        <button class="botones"> 
+                            <img class="botonImage" src={% static 'assets/cerrar_sesion.svg' %} alt="cerrar_sesion"/> 
+                            <h1 class="botonLetra">Cerrar sesión</h1>  
+                        </button> 
+                    </a>
+                </div>
+            </div>
+
+        </div>
+        {% block content %}
+        {% endblock  %}
+        {% comment %} MENU DERECHO {% endcomment %}
+        <div class="menuDerecho">
+            <span class="user">
+                <button>
+                    <img src={% static '/assets/notifica.svg' %} alt="notificacion" width={30} height={30}/> 
+                </button>
+                <img class="userFoto" src={% static 'assets/Avatar.svg' %} alt="user" id="user"/>
+            </span>
+            <div class="menuDerechoElementos">
+                <div id="contenedorBotonesDerecho">
+                    <div class="divSaludo">
+                        <h1 class="saludo">Hola usuario </h1>
+                    </div>
+                    <a href="/cuentas">
+                        <button class="derechoBoton botonesAuxIzquierda}" > 
+                            <img class="accionesBotonesImage" src={% static 'assets/CIRCLE-INFO.svg' %} alt="cbu"/> 
+                            <h1 class="accionesBotonesLetra">Mi CBU</h1>  
+                        </button> 
+                    </a>
+                    <a href="/prestamos">
+                        <button class="derechoBoton botonesAuxIzquierda" > 
+                            <img class="accionesBotonesImage" src={% static 'assets/circle-arrow-down-deposito.svg' %} alt="prestamos"/> 
+                            <h1 class="accionesBotonesLetra">Prestamos</h1>  
+                        </button> 
+                    </a>
+                    <a href="/transferencias">
+                        <button class="derechoBoton botonesAuxIzquierda" > 
+                            <img class="accionesBotonesImage" src={% static 'assets/transferencias.svg' %} alt="transferencias"/> 
+                            <h1 class="accionesBotonesLetra">Transferencias</h1>  
+                        </button> 
+                    </a>
+                    <a href="/credito">    
+                        <span class="tituloTarjeta"> <h1>Tarjetas</h1> </span> 
+                        <span> 
+                            <div>
+                                <img class="fondo" src={% static "assets/tarjeta-completa.svg" %}  alt="tarjeta" />
+                            </div>
+                        </span> 
+                
+                    </a>
+                </div>
+            </div>
+        </div>
+        {% comment %} FOOTER {% endcomment %}
+        <footer class="fondoFooter">
+            <div class="footerPrimerDiv">
+                <a class="footerTexto" href={link1}>Sucursales </a>
+                <a class="footerTexto" href={link2}> © ITBAN Argentina S.A</a>
+            </div>
+            <div class="footerSegundoDiv">
+                <a class="footerTexto">© ITBAN Argentina S.A</a>
+                <a class="footerTexto">Centro de Atención al Cliente 0810-777-4444</a>
+           </div>
+            <ComponenteFooter3
+                logo1='/footer/facebook.png' link1="https://www.facebook.com/" alt1="logo-facebook"
+                logo2='/footer/x.png' link2="https://www.twitter.com/" alt2="logo-twitter"
+                logo3='/footer/instagram.png' link3="https://www.instagram.com/" alt3="logo-instagram"
+                />
+            <div class="footerTercerDiv">
+                <div class="footerNegrita">Seguinos en:</div>
+                    <a class="socialFooter" href="//www.facebook.com/" target="_blank">
+                        <img src={%static "assets/facebook.png"%} alt="facebook"/>
+                    </a>
+                    <a class="socialFooter" href="https://www.linkedin.com/" target="_blank">
+                        <img src={%static "assets/x.png"%} alt="linkedin"/>
+                    </a>
+                    <a class="socialFooter" href=https://www.instagram.com/ target="_blank">
+                        <img src={%static "assets/instagram.png"%} alt="logo-instagram"/>
+                    </a>
+                </div>
+            </div>
+    </footer>
+    </div>
+</body>
+</html>

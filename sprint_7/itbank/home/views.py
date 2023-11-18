@@ -1,4 +1,5 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+
 
 # Create your views here.
 def home(request):
@@ -16,4 +17,18 @@ def home(request):
             }
         ],
         }
-    return render(request, "home/home.html", context)
+    if request.method == 'POST':
+        usuario = request.POST['usuario']
+        dni = request.POST['dni']
+        password = request.POST['password']
+
+        if len(usuario) < 4 or len(dni) < 4 or len(password) < 8:
+            # Realiza las acciones correspondientes si los datos no son válidos
+            
+            return render(request, 'login/login.html', {'mensaje_error': 'Datos no válidos'})
+        else:
+            # Realiza las acciones correspondientes si los datos son válidos
+            return render(request, 'home/home.html', context)
+    else:
+        return render(request, 'home/home.html', context)
+        

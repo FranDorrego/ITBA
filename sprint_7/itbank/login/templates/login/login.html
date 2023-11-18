@@ -1,16 +1,16 @@
 {% extends 'login/base.html' %}
 
 {% block contend %}
-<form action="" class="formulario" id="form">
+<form action="{% url 'home' %}" class="formulario" id="form" method="post">
+    {% csrf_token %}
     <h2 class="subtitulo">¡Te damos la bienvenida!</h2>
 
-    
     <input class="input" type="text" name="usuario" id="usuario" placeholder="👤 Usuario" required>           
     <input class="input" type="number" name="dni" id="dni" placeholder="👤 DNI" required>           
     <input class="input" type="password" name="password" id="password" placeholder="🔒 Contraseña" required>  
 
-
-    <input class="input boton" type="submit" value="Iniciar sesión">                                       
+    <input class="input boton" type="submit" value="Iniciar sesión" >   
+                                        
     <a href="{% url 'password' %}" class="link">Olvide mi contraseña</a>
     <p id="warnings" class="parrafo"></p>
 </form>
