@@ -26,7 +26,7 @@ import tarjetas.views as tarjeta
 import facturas.views as facturas
 import prestamos.views as prestamos
 import forms_prestamos.views as forms_prestamos
-
+import transferencias.views as transferencias
 
 urlpatterns = [
 
@@ -57,7 +57,7 @@ urlpatterns = [
     path('forms_prestamos/', forms_prestamos.forms_prestamos, name="forms_prestamos"),
 
     # transferencias ESTO HAY QUE RENDEREARLO DESDE CERO
-    path('transferencia/', forms_prestamos.forms_prestamos, name="transferencia"),
+    path('transferencia/', transferencias.ver_all_transferencias, name="transferencia"),
 
 
     # Admin

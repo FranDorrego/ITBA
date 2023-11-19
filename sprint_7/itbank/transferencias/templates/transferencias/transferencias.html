@@ -1,0 +1,46 @@
+{% extends "layout/dashboard.html" %}
+
+{% load static %}
+
+{% block link %}
+<link rel="stylesheet" href="{% static 'transferencias/css/transferencias.css' %}">
+<title>Home</title>
+{% endblock %}
+
+{% block content %}
+<h1>Aca va el boton que direije al formulario para hacer una transferencia, esto esta en transferencias.html templates app transferencias</h1>
+
+
+<div class="divSaludo">
+    <h1 class="saludo">Listado de transferencias</h1>
+</div>
+
+<div class="div-movimientos">
+
+
+    {% for item in transferencias %}
+
+    <div class="moviminetos-tarjeta">
+
+        <!-- numeros y fechas -->
+        <span class="movimiento-texto">
+            <h1>${{ item.cantidad }}</h1>
+            <h2>{{ item.fecha }}</h2>
+        </span>
+
+        <h2 class="motivoTexto">{{ item.motivo }}</h2>
+
+        <!-- motivo -->
+        <span class="motivo">
+            <h1 class="ingreso">{{ item.tipo }}</h1>
+            <img src="assets/circle-arrow-down.svg" alt="">
+        </span>
+
+    </div>
+
+    {% endfor %}
+
+
+</div>
+
+{% endblock %}

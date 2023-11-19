@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'actividad',
     'facturas',
     'forms_prestamos',
+    'transferencias'
 ]
 
 MIDDLEWARE = [
