@@ -7,6 +7,17 @@ body{
 
 ::placeholder { color: white; }
 
+
+.labelErrorLogin{
+    color: #fc3535;
+    text-align: left;
+    font-size: 14px;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
 .formulario{
     display: flex;
     flex-direction: column;
