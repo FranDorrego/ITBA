@@ -1,31 +1,60 @@
 {% extends "layout/dashboard.html" %}
 
+
+{% load static %}
+
+{% block link %}
+<link rel="stylesheet" href="{% static 'facturas/css/facturas.css' %}">
+<title>Facturas</title>
+{% endblock %}
+
+
 {% block content %}
-    <h3>FActuras por vencer</h3>
-    <ul>
-      {% for item in por_vencer %}
+<div class="divSaludo">
+  <h1 class="saludo">Facturas por vencer</h1>
+</div>
+<div class="divMovimientos">
+  {% for item in por_vencer %}
 
-      <li>
-        <h2>{{ item.fecha }}</h2>
-        <h2>{{ item.tipo }}</h2>
-        <h2>{{ item.motivo }}</h2>
-        <h2>{{ item.cantidad }}</h2>
-      </li>
+  <div class="movimientosTarjeta">
 
-      {% endfor %}
-    </ul>
+    <span class="movimientoTexto">
+      <h1>$ {{ item.cantidad }}</h1>
+      <h2>{{ item.fecha }}</h2>
+    </span>
 
-    <h3>Historial de Pagos</h3>
-    <ul>
-      {% for item in historial %}
+    <h2 class="motivoTexto">{{ item.motivo }}</h2>
 
-      <li>
-        <h2>{{ item.fecha }}</h2>
-        <h2>{{ item.tipo }}</h2>
-        <h2>{{ item.motivo }}</h2>
-        <h2>{{ item.cantidad }}</h2>
-      </li>
+    <span>
+      <h1 class="ingreso">{{ item.tipo }}</h1>
+    </span>
 
-      {% endfor %}
-    </ul>
+  </div>
+
+  {% endfor %}
+</div>
+
+<div class="divSaludo">
+  <h1 class="saludo">Historial de pagos</h1>
+</div>
+<ul>
+  {% for item in historial %}
+  
+  <div class="movimientosTarjeta">
+
+    <span class="movimientoTexto">
+      <h1>$ {{ item.cantidad }}</h1>
+      <h2>{{ item.fecha }}</h2>
+    </span>
+
+    <h2 class="motivoTexto">{{ item.motivo }}</h2>
+
+    <span>
+      <h1 class="ingreso">{{ item.tipo }}</h1>
+    </span>
+
+  </div>
+
+  {% endfor %}
+</ul>
 {% endblock %}

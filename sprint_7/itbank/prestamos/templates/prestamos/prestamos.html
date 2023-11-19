@@ -1,17 +1,35 @@
 {% extends "layout/dashboard.html" %}
 
+{% load static %}
+
+{% block link %}
+<link rel="stylesheet" href="{% static 'prestamos/css/prestamos.css' %}">
+<title>Facturas</title>
+{% endblock %}
+
 {% block content %}
-    <h3>Ultimos prestamos</h3>
-    <ul>
-      {% for item in historial %}
+<div class="divSaludo">
+  <h1 class="saludo">Uiltimos prestamos</h1>
+</div>
 
-      <li>
-        <h2>{{ item.fecha }}</h2>
-        <h2>{{ item.tipo }}</h2>
-        <h2>{{ item.motivo }}</h2>
-        <h2>{{ item.cantidad }}</h2>
-      </li>
+<div class="divMovimientos">
+  {% for item in historial %}
 
-      {% endfor %}
-    </ul>
+  <div class="movimientosTarjeta">
+
+    <span class="movimientoTexto">
+      <h1>$ {{ item.cantidad }}</h1>
+      <h2>{{ item.fecha }}</h2>
+    </span>
+
+    <h2 class="motivoTexto">{{ item.motivo }}</h2>
+
+    <span>
+      <h1 class="ingreso">{{ item.tipo }}</h1>
+    </span>
+
+  </div>
+
+  {% endfor %}
+</div>
 {% endblock %}

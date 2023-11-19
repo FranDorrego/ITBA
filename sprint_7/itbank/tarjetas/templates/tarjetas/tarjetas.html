@@ -1,21 +1,39 @@
 {% extends "layout/dashboard.html" %}
 
-{% block content %}
-    <h1>Gastos del mes: {{ gasto_mes }}</h1>
-    <h1>Saldo Disponible: {{ saldo_disponible }}</h1>
-    <h1>Fecha de cierre: {{ fecha_cierre }}</h1>
+{% load static %}
 
-    <h3>Historial de Consumo</h3>
-    <ul>
+{% block link %}
+<link rel="stylesheet" href="{% static 'tarjetas/css/tarjetas.css' %}">
+<title>Facturas</title>
+{% endblock %}
+
+{% block content %}
+    <div class="resumenDatos">
+      <span> <h1>Gastos del mes:</h1><h2> $ {{ gasto_mes }}</h2> </span>
+      <span> <h1>Saldo Disponible:</h1><h2> $ {{ saldo_disponible }}</h2> </span>
+      <span> <h1>Fecha de cierre:</h1><h2> $ {{ fecha_cierre }}</h2> </span>
+    </div>
+
+    <div class="divSaludo"> <h1 class="saludo"> Historial de Consumo </h1> </div>
+    
+    <div class="divMovimientos">
       {% for item in historial %}
 
-      <li>
-        <h2>{{ item.fecha }}</h2>
-        <h2>{{ item.tipo }}</h2>
-        <h2>{{ item.motivo }}</h2>
-        <h2>{{ item.cantidad }}</h2>
-      </li>
+      <div class="movimientosTarjeta">
+
+        <span class="movimientoTexto">
+          <h1>$ {{ item.cantidad }}</h1>
+          <h2>{{ item.fecha }}</h2>
+        </span>
+        
+        <h2 class="motivoTexto">{{ item.motivo }}</h2>
+        
+        <span >
+          <h1 class="ingreso">{{ item.tipo }}</h1>
+        </span>
+
+      </div>
 
       {% endfor %}
-    </ul>
+    </div>
 {% endblock %}

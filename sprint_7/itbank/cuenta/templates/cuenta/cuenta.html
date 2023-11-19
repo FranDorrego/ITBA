@@ -1,16 +1,36 @@
 {% extends "layout/dashboard.html" %}
 
+{% load static %}
+
+{% block link %}
+<link rel="stylesheet" href="{% static 'cuenta/css/cuenta.css' %}">
+<title>Cuenta</title>
+{% endblock %}
+
 {% block content %}
-    <h3>Cuentas</h3>
-    <ul>
-      {% for item in cuenta %}
+<h3>Cuentas</h3>
 
-      <li>
-        <h2>alias: {{ item.alias }}</h2>
-        <h2>CBU: {{ item.CBU }}</h2>
-        <h2>CuentaNumero: {{ item.cuentaNumero }}</h2>
-      </li>
+{% for item in cuenta %}
 
-      {% endfor %}
-    </ul>
+<div class="tarjeta">
+
+  <div class="renglon">
+    <h1 class="titulo">alias</h1>
+    <h1 class="titulo">{{ item.alias }}</h1>
+  </div>
+
+  <div class="renglon">
+    <h1 class="titulo">CBU</h1>
+    <h1 class="titulo">{{ item.CBU }}</h1>
+  </div>
+
+  <div class="renglon">
+    <h1 class="titulo">CuentaNumero</h1>
+    <h1 class="titulo">{{ item.cuentaNumero }}</h1>
+  </div>
+
+</div>
+
+{% endfor %}
+
 {% endblock %}
