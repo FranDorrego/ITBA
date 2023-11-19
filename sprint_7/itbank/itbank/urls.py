@@ -62,6 +62,8 @@ urlpatterns = [
     # transferencias ESTO HAY QUE RENDEREARLO DESDE CERO
     path('transferencia/', transferencias.ver_all_transferencias, name="transferencia"),
 
+    path('realizaTransferencia/', transferencias.realizar_transferencia, name="realizaTransferencia"),
+    
     # Admin
     path('admin/', admin.site.urls),
 ]
