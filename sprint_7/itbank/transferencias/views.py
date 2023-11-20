@@ -1,10 +1,12 @@
 from django.shortcuts import render, HttpResponse
 from .forms import formlarioTransferencia
+from django.contrib.auth.decorators import login_required
 from .models import *
 from django.db import transaction
 import random
 
 # Create your views here.
+@login_required(login_url='/')
 def ver_all_transferencias(request):
     user = request.user.id
     cliente = Cliente.objects.get(user_id = user)
@@ -28,7 +30,7 @@ def ver_all_transferencias(request):
     
     return render(request, "transferencias/transferencias.html", context)
 
-
+@login_required(login_url='/')
 def realizar_transferencia(request):
 
     estado = ''
@@ -42,7 +44,6 @@ def realizar_transferencia(request):
                 # Obtener datos del formulario
                 nombre_cliente = form.cleaned_data['nombre']
                 cantidad = form.cleaned_data['cantidad']
-                motivo = form.cleaned_data['motivo']
 
                 # Obtener cuenta de origen (adaptar según tu lógica)
                 try:

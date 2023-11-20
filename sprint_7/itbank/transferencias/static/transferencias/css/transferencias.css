@@ -1,0 +1,36 @@
+.formulario-transferencia form {
+    width: 100%;
+    max-width: 400px;
+    margin: auto; /* Esto centrará horizontalmente el formulario */
+    padding: 20px; /* Añadir un relleno para mejorar la apariencia */
+    box-sizing: border-box; /* Incluir el relleno en el tamaño total del formulario */
+}
+
+/* Estilos para el contenedor del select */
+.formulario-transferencia select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+}
+
+/* Estilos para el input de cantidad */
+.formulario-transferencia input[type="number"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+}
+
+/* Estilos para el botón de enviar */
+.formulario-transferencia button {
+    background-color: #4caf50;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+/* Cambiar color del botón al pasar el ratón por encima */
+.formulario-transferencia button:hover {
+    background-color: #45a049;
+}

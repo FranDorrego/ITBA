@@ -9,13 +9,16 @@ class ClienteChoiceField(forms.ModelChoiceField):
 
 
 class formlarioTransferencia(forms.Form):
-
-    nombre = ClienteChoiceField(queryset=Cliente.objects.all(), to_field_name="customer_id", empty_label=None)
-
-    cantidad = forms.DecimalField(
-        decimal_places=2, max_digits=10, 
-        min_value=0,  # Valida que sea positivo
-        widget=forms.NumberInput(attrs={'step': '0.01'}),  # Define el paso para admitir dos decimales
+    nombre = ClienteChoiceField(
+        queryset=Cliente.objects.all(),
+        to_field_name="customer_id",
+        empty_label=None,
+        widget=forms.Select(attrs={'class': 'formulario'}),
     )
 
-    motivo = forms.CharField(max_length=50)
+    cantidad = forms.DecimalField(
+        decimal_places=2,
+        max_digits=10,
+        min_value=0,
+        widget=forms.NumberInput(attrs={'step': '0.01', 'class': 'formulario'}),
+    )
