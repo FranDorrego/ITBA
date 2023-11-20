@@ -24,6 +24,12 @@ def home(request):
     cantidadIngreso = 0
     cantidadEgreso = 0
     
+    for movimiento in movimientos:
+        if movimiento.monto > 0:
+            cantidadIngreso += movimiento.monto
+        elif movimiento.monto < 0: 
+            cantidadEgreso += movimiento.monto
+
     diccionario = {
         'cliente': cliente,
         'cuenta': cuenta,
@@ -31,11 +37,5 @@ def home(request):
         'cantidadEgreso': cantidadEgreso,
         'cantidadIngreso': cantidadIngreso
     }
-        
-    for movimiento in movimientos:
-        if movimiento.monto > 0:
-            cantidadIngreso += movimiento.monto
-        elif movimiento.monto < 0: 
-            cantidadEgreso += movimiento.monto
     return render(request, 'home/home.html', diccionario)
         

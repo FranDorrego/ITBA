@@ -2,26 +2,30 @@ from django.shortcuts import render, HttpResponse
 from .forms import formlarioTransferencia
 from .models import *
 from django.db import transaction
+import random
 
 # Create your views here.
 def ver_all_transferencias(request):
+    user = request.user.id
+    cliente = Cliente.objects.get(user_id = user)
+   
+    try:
+        cuenta = Cuenta.objects.filter(customer_id=cliente.customer_id).first()
+    except Cuenta.DoesNotExist:
+        cuenta = Cuenta.objects.create(customer_id=cliente.customer_id, 
+                                       balance=random.randrange(-10000000, 10000001),
+                                       tipo_cuenta_id=random.randint(1, 5),
+                                       iban='IBAN_ALEATORIO')
+        
+    cuenta = Cuenta.objects.filter(customer_id = cliente.customer_id).first()
+    movimientos = Movimientos.objects.filter(numero_cuenta=cuenta.account_id)
+    movimientos = list(movimientos)
+
     context={
-        "transferencias": [
-            {
-                "fecha": "12/11/12",
-                "tipo": "enviada",
-                "motivo": "VARIOS",
-                "cantidad": 123456,
-            },
-            {
-                "fecha": "12/10/12",
-                "tipo": "Ingreso",
-                "motivo": "VARIOS",
-                "cantidad": 123456,
-            }
-        ],
+        "transferencias": movimientos,
     }
 
+    
     return render(request, "transferencias/transferencias.html", context)
 
 
