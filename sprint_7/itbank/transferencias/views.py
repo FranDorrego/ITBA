@@ -36,11 +36,11 @@ def realizar_transferencia(request):
     estado = ''
     
     if request.method == 'POST':
-            user = request.user.id
-            cliente = Cliente.objects.get(user_id = user)
-            form = formlarioTransferencia(request.POST)
-            form.is_valid()
+        form = formlarioTransferencia(request.POST)
+        if form.is_valid():
             with transaction.atomic():
+                user = request.user.id
+                cliente = Cliente.objects.get(user_id = user)
                 # Obtener datos del formulario
                 nombre_cliente = form.cleaned_data['nombre']
                 cantidad = form.cleaned_data['cantidad']
@@ -74,9 +74,12 @@ def realizar_transferencia(request):
                 Movimientos.objects.create(numero_cuenta=cuenta_destino, monto=cantidad, id_tipo_operacion=tipo_movimiento_recibida)
 
             # Aquí puedes redirigir a una página de éxito o realizar otras acciones después de la transacción
-            context = { 'form': form, 'estado' : "¡Transferencia enviada con exito!" }
+            context = { 'form': formlarioTransferencia(), 'estado' : "¡Transferencia enviada con exito!" }
             return render(request, "transferencias/realizaTransferencia.html", context)
-
+        else:
+            context = { 'form': formlarioTransferencia(), 'estado' : "La cantidad tiene que ser menor a 10 cifras" }
+            return render(request, "transferencias/realizaTransferencia.html", context)
+        
     context = {
         'form': formlarioTransferencia(),
         'estado' : estado
