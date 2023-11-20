@@ -10,27 +10,27 @@
 {% block content %}
 <h3>Cuentas</h3>
 
-{% for item in cuenta %}
+{% comment %} {% for item in cuenta %} {% endcomment %}
 
 <div class="tarjeta">
 
   <div class="renglon">
-    <h1 class="titulo">alias</h1>
-    <h1 class="titulo">{{ item.alias }}</h1>
+    <h1 class="titulo">Alias</h1>
+    <h1 class="titulo">{{ cliente.customer_name }} {{cliente.customer_surname}}</h1>
   </div>
 
   <div class="renglon">
-    <h1 class="titulo">CBU</h1>
-    <h1 class="titulo">{{ item.CBU }}</h1>
+    <h1 class="titulo">DNI</h1>
+    <h1 class="titulo">{{ cliente.customer_dni}}</h1>
   </div>
 
   <div class="renglon">
     <h1 class="titulo">CuentaNumero</h1>
-    <h1 class="titulo">{{ item.cuentaNumero }}</h1>
+    <h1 class="titulo">{{ cuenta.iban }}</h1>
   </div>
 
 </div>
 
-{% endfor %}
+{% comment %} {% endfor %} {% endcomment %}
 
 {% endblock %}

@@ -11,13 +11,13 @@
 {% block content %}
 <div class="div-saludo">
 
-  <h1 class="saludo">hola! {{ user }}</h1>
+  <h1 class="saludo">Hola,  {{ cliente.customer_name }}</h1>
 
   <div class="tarjetas-dashboard">
 
     <span class="tarjetas saldo">
       <h1>Total en cuenta</h1>
-      <h2 id="saldo-cuenta-valor">${{ actualCuenta }}</h2>
+      <h2 id="saldo-cuenta-valor">${{ cuenta.balance }}</h2>
     </span>
 
     <span class="tarjetas ingreso-tarjeta">
@@ -45,15 +45,15 @@
 
     <!-- numeros y fechas -->
     <span class="movimiento-texto">
-      <h1>${{ item.cantidad }}</h1>
-      <h2>{{ item.fecha }}</h2>
+      <h1>${{ item.monto }}</h1>
+      <h2>Hora: {{ item.hora }}</h2>
     </span>
 
-    <h2 class="motivoTexto">{{ item.motivo }}</h2>
-
+    <h2 class="motivoTexto">{{ item.id_tipo_operacion.tipo }}</h2>
     <!-- motivo -->
     <span class="motivo">
-      <h1 class="ingreso">{{ item.tipo }}</h1>
+      <h1 class="{% if item.monto > 0 %}ingreso{% else %}retiro{% endif %}">
+        {% if item.monto > 0 %}Ingreso{% else %}Salida{% endif %}</h1>
       <img src="assets/circle-arrow-down.svg" alt="">
     </span>
 

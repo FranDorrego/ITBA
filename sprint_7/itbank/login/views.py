@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required 
 from django.contrib.auth import login as auth_login, logout as logout_user, authenticate
 from django.apps import apps
-
+from .forms import FormLogin
 # Create your views here.
 def login(request):
 
@@ -20,12 +20,15 @@ def login(request):
             print(f"Modelo: {model.__name__}, App: {app_config.name}")
     
     if request.method == 'GET':
-        return render(request, 'login/login.html')
+        return render(request, 'login/login.html', {
+            'form': FormLogin()
+        })
     else:
         user = authenticate(request, username=request.POST['username'], password = request.POST['password'])
         if user is None:
             return render(request, 'login/login.html',{
-                'error': "Usuario o contraseña no valido/os"
+                'error': "Usuario o contraseña no valido/os",
+                'form': FormLogin()
             }) 
         else:
             auth_login(request, user)

@@ -1,5 +1,5 @@
 from django.db import models
-
+from django.contrib.auth.models import User
 
 class AuditoriaCuenta(models.Model):
     old_id = models.IntegerField()
@@ -26,6 +26,7 @@ class Cliente(models.Model):
     dob = models.TextField(blank=True, null=True)
     branch_id = models.IntegerField()
     tipo_cliente_id = models.IntegerField(blank=True, null=True)
+    user_id = models.IntegerField()
 
     class Meta:
         managed = False

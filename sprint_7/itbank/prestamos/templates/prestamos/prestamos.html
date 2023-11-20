@@ -13,19 +13,19 @@
 </div>
 
 <div class="divMovimientos">
-  {% for item in historial %}
+  {% for item in prestamos %}
 
   <div class="movimientosTarjeta">
 
     <span class="movimientoTexto">
-      <h1>$ {{ item.cantidad }}</h1>
-      <h2>{{ item.fecha }}</h2>
+      <h1>$ {{ item.loan_total }}</h1>
+      <h2>{{ item.loan_date }}</h2>
     </span>
 
-    <h2 class="motivoTexto">{{ item.motivo }}</h2>
+    <h2 class="motivoTexto">{{ item.loan_type }}</h2>
 
     <span>
-      <h1 class="ingreso">{{ item.tipo }}</h1>
+      <h1 class="ingreso">Prestamo</h1>
     </span>
 
   </div>
