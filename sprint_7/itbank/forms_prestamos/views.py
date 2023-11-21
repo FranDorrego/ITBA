@@ -57,7 +57,7 @@ def forms_prestamos(request):
                 'cantidad_prestamo' : cantidad,
                 'estado': 'Ocurrio un error, valida los datos ingresados'
             }
-            l
+            
     else:
         prestamos = Prestamo.objects.filter(customer_id=cliente.customer_id)
         total = sum(prestamo.loan_total for prestamo in prestamos)
