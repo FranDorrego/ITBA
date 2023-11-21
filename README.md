@@ -56,7 +56,7 @@ Y de la misma forma con las demás.
 
 ## <h1>Autenticación y Login</h1>
 
-**![](./docs/autenticacion.png)**
+**![](./docs/autenticacion.PNG)**
 
 Primero, la vista se encarga de ver si solomente hay que mostrar el formulario o si se quiere ingresar al home del Homebanking. Para el segundo caso se realiza la autenticación de los datos ingresados mediante la funcion "authenticate". Estos datos son contrastados con la tabla "auth_user" en la base de datos, en la cual estan todos los usuarios autenticados. En caso que los datos ingresados sean incorrectos, esta funcion devuelve un "None". Si esto sucede, se muestra un mensaje en la página indicando que los datos son incorrectos. En la situación contrario, que los datos sean validos, se almacena el inicio de sesión en una cookie mediante la función "login". En nuestro caso se llama auth_login porque cambiamos su nombre por problemas con el nombre de la vista. Y por último, nos redirecciona al login con la cookie guardada.
 
