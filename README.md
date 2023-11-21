@@ -7,29 +7,28 @@ El grupo que esta creando ITBANK es **iKnowHow** Conformado por:
 
 # Forma de Tester
 
-Primero que nada, crea un entorno virtual o instala en tu computadora Django.
- 
-			pip install django
-			
-Luego, una vez creado y activado el entorno, ingresa a la carpeta
+Primero que nada, ingrese a la siguiente carpeta:
 
-	   cd sprint_7
-	   cd itbank
-	    
+	cd sprint_7
+	cd itbank
+				
+Luego, crea un entorno virtual y activelo, dentro del entorno ejecutar el siguiente comando
 
-Luego empieza a correr el codigo
+	pip install -r requirement.txt
 
-		    python -b manage.py runserver
+Luego empieza a correr el servidor
+
+	python -b manage.py runserver
 
 Aca se activa el servidor y una vez que ingreses te va a pedir que te autentiques.
 
 Para esto podes usar cualquier usuario desde el 1 al 500, sus usuarios son:
 		
-			user_1
+	user_1
 
 y la clave para todos es:
 
-		password
+	password
 
 Luego, una vez que ingreses, puedes ver todas las apps sin problema.
 
@@ -55,6 +54,7 @@ transferencias: se encarga de mostrar las transferencias y ademas de gestionar e
 
 Y de la misma forma con las demás. 
 
+## <h1>Autenticación</h1>
 
 ## <h1>Documentación del sprint 1</h1>
 
