@@ -4,29 +4,36 @@ Es el proyecto de una Aplicación web de Home Banking renovado para ser simple y
 El grupo que esta creando ITBANK es **iKnowHow** Conformado por: 
   - Franco Nicolás Dorrego
   - Laureano Ibarra
-  - Evelyn Gazal
 
 # Forma de Tester
 
-Para testearlo solo hay que tomar los archivos que están en la carpeta Sprint6:
+Primero que nada, crea un entorno virtual o instala en tu computadora Django.
+ 
+			pip install django
+			
+Luego, una vez creado y activado el entorno, ingresa a la carpeta
 
-	   - primera_problematica.sql 
+	   cd sprint_7
+	   cd itbank
+	    
 
-Y asociar la Base de datos que está disponible en la misma carpeta:
+Luego empieza a correr el codigo
 
-	    itbank.db
+		    python -b manage.py runserver
 
-Se se ejecuta la Query completa, va a dar un error ya que nosotros agregamos columnas y estas van a estar repetidas. Por ello si se ejecuta completa hay que comentar estas líneas:
+Aca se activa el servidor y una vez que ingreses te va a pedir que te autentiques.
 
-	    1168- ALTER  TABLE  cliente  ADD  COLUMN  tipo_cliente_id  INT;
-	    1179- ALTER  TABLE  cuenta  ADD  COLUMN  tipo_cuenta_id  INT;
+Para esto podes usar cualquier usuario desde el 1 al 500, sus usuarios son:
+		
+			user_1
 
-Luego funciona correctamente. 
+y la clave para todos es:
 
-Para las demás Query no es necesario nada más, excepto para la Query número 3 en donde se nos pide pasar de un JSON a la base de datos. Para esto formamos un Script de Python que explicamos en la sección de "Manejo de JSON" que está más abajo.
+		password
 
+Luego, una vez que ingreses, puedes ver todas las apps sin problema.
 
-## <h1>Diagrama de relaciones</h1>
+## <h1>Diagrama de la base</h1>
 
 Diseñamos un diagrama el cual explica como tratamos la información. La idea es tratar la información de una forma ordenada y metódica, anticiparnos a los posibles errores y ser lo mas eficiente posible.
 
@@ -37,36 +44,16 @@ Como se puede ver hay una tabla central de todo que es cliente, esta tabla es la
 Tambien pueden ver todo mas en detalle en este  **[link](https://www.figma.com/file/mTLGphDg9EWaycGL1EaiJN/Untitled?type=whiteboard&node-id=0-1&t=KH8TAK1QJExl1xzR-0)**
 
 
-## <h1>Manejo de JSON</h1>
+## <h1>APPS</h1>
 
-Para la problemática 3, se nos pedía pasar un Json a datos en la DB. Para ello nosotros utilizamos un script de Python el cual:
+Nosotros para hacer este sprint, lo que hicimos fue tomar como base el sprint 3 y ver que datos era lo que usaba el font de la base de datos, Nombres, saldos, movimientos.... etc.
 
- - Se conecta a la base de datos
- - Lee el Json
- - Inserta los datos
- - Genera un comit y cierra la conexión 
+Cada app es un conjunto de operaciones que muestran los datos al font. 
 
- **![](./docs/py.png)**
+Home: se encarga de la vista de home y todas sus subvistas 
+transferencias: se encarga de mostrar las transferencias y ademas de gestionar el formulario para transferir.
 
-A este Script es necesario acalorarle algunas partes: 
-
- 1. URL: es la path a donde se encuentra el archivo Json.
- 2. BASE: es la path a donde se encuentra la base de datos.
-
-Dependiendo donde se ejecute estos pueden dar error ya que varia el directorio. Controla esta parte antes de ejecutarlo.
-
-No se validaron datos ni se válida el formato del Json. Corrobora manualmente que esté correcto si no da error.
-
-## <h1>Tipos de movimientos</h1>
-
-Para el Trigger de Auditoria de cuentas, se nos pedía vincular el movimiento con una descripción de la operación, para ello tomamos una tabla y colocamos todas las posibles operaciones y las asociamos a un ID. Este ID es el que une las dos tablas.
-
- **![](./docs/movimientos.png)**
-
-Los movimientos permitidos son:
-
- **![](./docs/tipos_moviminetos.png)**
-
+Y de la misma forma con las demás. 
 
 
 ## <h1>Documentación del sprint 1</h1>
@@ -89,3 +76,7 @@ Los movimientos permitidos son:
 ## <h1>Documentación del sprint 5</h1>
 
 **[Documentación](./sprint_5/README.md)**
+
+## <h1>Documentación del sprint 6</h1>
+
+**[Documentación](./sprint_6/README.md)**
