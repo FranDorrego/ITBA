@@ -1,0 +1,65 @@
+.tarjeta{
+    display: flex;
+    padding: 1rem;
+    margin: 5rem;
+    margin-top: 3rem;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.875rem;
+    border-radius: 1.5rem;
+    border: 1px solid #F0F0F0;
+}
+
+.margin_1_px{
+    margin: 1px;
+}
+
+.renglon{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1rem;
+    justify-content: space-between;
+    border-bottom: 1px solid #8E8E8E;
+    width: 100%;
+}
+
+.titulo{
+    height: 1.625rem;
+    color: #ffffff;
+    font-family: Poppins;
+    font-size: 1.2rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.button{
+    display: flex;
+    width: 4.875rem;
+    justify-content: space-between;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.copiar{
+    color: #ffffff;
+    font-family: Poppins;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    cursor: pointer;
+}
+
+/* Para tablet */
+@media (max-width: 1024px) {
+    .tarjeta{
+        margin: 0;
+    }
+    .copiar,
+    .titulo{
+        font-size: 0.8rem;
+    }
+
+}

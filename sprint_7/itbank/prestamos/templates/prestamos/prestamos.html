@@ -1,0 +1,35 @@
+{% extends "layout/dashboard.html" %}
+
+{% load static %}
+
+{% block link %}
+<link rel="stylesheet" href="{% static 'prestamos/css/prestamos.css' %}">
+<title>Facturas</title>
+{% endblock %}
+
+{% block content %}
+<div class="divSaludo">
+  <h1 class="saludo">Uiltimos prestamos</h1>
+</div>
+
+<div class="divMovimientos">
+  {% for item in prestamos %}
+
+  <div class="movimientosTarjeta">
+
+    <span class="movimientoTexto">
+      <h1>$ {{ item.loan_total }}</h1>
+      <h2>{{ item.loan_date }}</h2>
+    </span>
+
+    <h2 class="motivoTexto">{{ item.loan_type }}</h2>
+
+    <span>
+      <h1 class="ingreso">Prestamo</h1>
+    </span>
+
+  </div>
+
+  {% endfor %}
+</div>
+{% endblock %}
