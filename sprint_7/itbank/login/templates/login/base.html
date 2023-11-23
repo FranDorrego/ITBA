@@ -1,0 +1,28 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="{% static 'login/css/styles.css' %}">
+        <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+        <title>ITBANK</title>
+    </head>
+
+    <body style="background-image: url('{% static 'login/assets/Background-color-globe.png' %}')">
+        <div class="grid">
+            <div class="contenido">
+                <a href="{% url '' %}"> <img src="{% static 'login/assets/Logo_ITBANK.png' %}" alt="logo_ITBANK" class="titulo"> </a>
+
+                {% block contend %}
+
+                {% endblock %}
+
+            </div>
+        </div>
+          {% comment %} <script src="{% static 'login/js/login.js' %}"></script> {% endcomment %}
+    </body>
+
+</html>

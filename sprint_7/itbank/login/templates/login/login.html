@@ -1,0 +1,28 @@
+{% extends 'login/base.html' %}
+
+{% block contend %}
+{% comment %} action="{% url 'home' %}" {% endcomment %}
+<form  class="formulario" id="form" method="post">
+    {% csrf_token %}
+    <h2 class="subtitulo">¡Te damos la bienvenida!</h2>
+
+    <input class="input" type="text" name="username" id="username" placeholder="👤 Usuario" required>           
+    <input class="input" type="password" name="password" id="password" placeholder="🔒 Contraseña" required>  
+    <span class="labelErrorLogin"
+    style="color: red;   
+    {% comment %} 
+    LOS ESTILOS ESTAN ACA PQ NO TENGO NI IDEA PQ NO ME LOS TRAE DEL CSS, YA ABRI Y 
+    CERRE EL SERVER, EL VS, TODO. NO TENGO NI IDEA, LO PONGO ACA Y FUE {% endcomment %}
+    text-align: left; 
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;">{{error}}</span>
+    <input class="input boton" type="submit" value="Iniciar sesión" >    
+    
+    <a href="{% url 'password' %}" class="link">Olvide mi contraseña</a>
+    <p id="warnings" class="parrafo"></p>
+</form>
+
+<p class="parrafo">¿No tiene cuenta? <a href="{% url 'register' %}" class="link">Crear cuenta</a></p>
+{% endblock %}

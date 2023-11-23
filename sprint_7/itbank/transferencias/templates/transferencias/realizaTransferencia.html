@@ -1,0 +1,21 @@
+{% extends "layout/dashboard.html" %}
+
+{% load static %}
+
+{% block link %}
+<link rel="stylesheet" href="{% static 'home/css/home.css' %}">
+<title>Home</title>
+{% endblock %}
+
+{% block content %}
+<div class="formulario-transferencia">
+    <form method="post" action="{% url 'realizaTransferencia' %}" >
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Enviar</button>
+        {{ estado }}
+    </form>
+</div>
+
+
+{% endblock %}
