@@ -1,0 +1,55 @@
+@font-face {
+    font-family: 'Poppins';
+    src: url('/fonts/Poppins-Light.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+.resumen{
+    display: flex;
+
+    gap: 10rem;
+    width: 90%;
+
+    align-items: center;
+    justify-content: center;
+    align-self: center;
+
+}
+
+
+.resumenDatos{
+
+    border-radius: 0.75rem;
+    border: 2px solid rgba(255, 255, 255, 0.20);
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.resumenDatos span{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    border-bottom: 0.0625rem solid #8E8E8E;
+
+    margin: 0.5rem;
+}
+
+.resumenDatos h1{
+     color: #FFF;
+    font-family: Poppins;
+    font-size: 1.25rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.resumenDatos h2{
+    color: #8E8E8E;
+    font-family: Poppins;
+    font-size: 1.25rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}

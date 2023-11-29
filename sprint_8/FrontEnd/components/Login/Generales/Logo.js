@@ -1,0 +1,13 @@
+import Link from 'next/link'
+import estilosLogin from '@/styles/stylesLogin.module.css'
+
+import Image from 'next/image'
+
+
+export function Logo(){
+    return(
+        <Link href="/"> 
+            <Image src='/login/Logo_ITBANK.webp' alt="logo_ITBANK" className={estilosLogin.titulo_login} width='500' height='500' quality='100'/> 
+        </Link>
+    )
+}
