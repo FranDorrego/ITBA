@@ -1,0 +1,18 @@
+.body404 {
+    background-color: black;
+    display: grid;
+    grid-template-columns: 1fr 2fr; /* Divide en dos columnas, 1fr y 2fr */
+    border: 0;
+    padding: 0;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* Para celulares */
+@media (max-width: 767px) {
+    .body {
+        grid-template-columns: 1fr; 
+        grid-template-rows: 1fr 1fr; 
+    }
+}

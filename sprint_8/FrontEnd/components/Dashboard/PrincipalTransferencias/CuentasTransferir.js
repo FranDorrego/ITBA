@@ -27,8 +27,8 @@ export function CuentasTransferir (){
         <Saludo texto="Seleccione una cuenta (presionando en su tarjeta)" />
         {cuentas.map((datos) => (
           <Link href={`/transferencias/${datos.id}`} className={Style.tarjeta} key={datos.id}>
-            <Renglon titulo="Alias" dato={datos.alias} />
-            <Renglon titulo="CBU" dato={datos.cbu} />
+            <Renglon titulo="Nombre" dato={datos.alias} />
+            <Renglon titulo="DNI" dato={datos.cbu} />
             <Renglon titulo="Cuenta Nro" dato={datos.nro_cuenta} />
           </Link>
       ))}

@@ -17,9 +17,9 @@ function CuentasPrincipal() {
         <Saludo texto="Datos de Tu Cuenta" />
 
         <div className={Style.tarjeta}>
-          <Renglon titulo="Alias" dato={datos.NombreBase} />
-          <Renglon titulo="CBU" dato={datos.CBUBase} />
-          <Renglon titulo="Cuenta Nro" dato={datos.CuentaBase} />
+          <Renglon titulo="Nombre" dato={datos.NombreBase} />
+          <Renglon titulo="DNI" dato={datos.CBUBase} />
+          <Renglon titulo="IBAN" dato={datos.CuentaBase} />
         </div>
       </ContenedorPrincipal>
     </div>

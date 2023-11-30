@@ -7,8 +7,7 @@ export default function ImporteDiv({children}) {
         <Saludo texto="Importe*" />
         {children}
         <h1 className={estilosDashboard.AchicaLetra}>
-            *El importe mínimo a transferir es de $ 1 y el máximo es de de dos salarios mínimos vitales y
-            móviles.
+            *El importe mínimo a transferir es de $ 1 y maximo_disponible_cliente.
         </h1>
     </div>
   )

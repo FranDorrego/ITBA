@@ -26,21 +26,13 @@ export function FormLogin(){
             <form  className={estilosLogin.formulario_login} id="form" onSubmit={handleSubmit(onSubmit)}>
                 <Subtitulo>¡Te damos la bienvenida!</Subtitulo>
                 <Label>👤 Usuario</Label>
-                <input className={estilosLogin.input_login} type="text" name="usuario" id="usuario" text="Usuario" placeholder="Ej: UserName123"
+                <input className={estilosLogin.input_login} type="text" name="username" id="username" text="username" placeholder="Ej: UserName123"
                 {...register('usuario', {
                     required:true,
                     validate: validarUsuario
                 })}
                 />
                 { errors.usuario && <LabelErrorLogin>Usuario no valido, entre 4 y 15 caracteres</LabelErrorLogin> }
-                <Label>👤 DNI</Label>
-                <input className={estilosLogin.input_login} type="number" name="dni" id="dni" text="DNI" placeholder="Ej: 99999999" 
-                {...register('dni',{
-                    required: true,
-                    validate: validarDni
-                })}
-                />
-                { errors.dni && <LabelErrorLogin>DNI no valido</LabelErrorLogin> }
                 
                 <Label>🔒 Contraseña</Label>
                 <input className={estilosLogin.input_login} type="password" name="password" id="password" placeholder="**********" text="Contraseña"
