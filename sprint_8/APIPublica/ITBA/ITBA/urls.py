@@ -16,7 +16,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from public import views as publicViews
+from sucursales import views as publicViews
 from cliente import urls as clienteUrls
 from empleado import views as EmpleadoViews
 
