@@ -1,0 +1,63 @@
+/* @tailwind base;
+@tailwind components;
+@tailwind utilities; */
+
+
+body {
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-image: url("/Background-color-globe.webp");
+  
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body::-webkit-scrollbar {
+  width: 10px; /* Ancho de la barra de desplazamiento */
+  height: 0px;
+  background-color: rgba(0, 0, 0, 1);
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: rgba(137, 51, 245, 0.80); /* Cambia el color del pulgar de la barra */
+  border-radius: 5px; /* Bordes redondeados para el pulgar */
+}
+
+body::-webkit-scrollbar-track {
+  background-color: rgba(255, 0, 0, 0.05); /* Cambia el color de la pista de la barra */
+}
+
+
+option {
+  color: black;
+}
+
+a {
+  text-decoration: none;  /* Elimina el subrayado */
+  color: inherit;  /* Hereda el color del texto del elemento padre */
+  background-color: transparent;  /* Fondo transparente */
+  cursor: pointer;  /* Cambia el cursor a "mano" al pasar el ratón por encima */
+  outline: none;  /* Elimina el contorno que se muestra al hacer clic en el enlace */
+  border: none;  /* Elimina cualquier borde */
+  padding: 0;  /* Elimina el relleno */
+  margin: 0;  /* Elimina los márgenes */
+  font-size: inherit;  /* Hereda el tamaño de fuente del elemento padre */
+  font-family: inherit;  /* Hereda la familia de fuentes del elemento padre */
+}
+
+footer{
+  grid-row-start: 3;
+  grid-column-start: 1;
+  grid-column-end: 4;
+
+  border-top: 0.0625rem solid rgba(255, 255, 255, 0.20);
+
+  margin-top: 0rem;
+
+  display: grid;
+  grid-template-columns: 33% 33% 34%;
+  align-items: center;
+}

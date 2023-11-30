@@ -69,6 +69,18 @@ export function TransFormulario() {
           />
           <label>ALIAS</label>
         </span>
+        <span className={estilosDashboard.transFormularioSpan}>
+          <input
+            type="radio"
+            id="alias"
+            className={estilosDashboard.transFormularioRadio}
+            name="opcion-radio"
+            {...register("cbuAliasRadio", {
+              required: true,
+            })}
+          />
+          <label>DNI</label>
+        </span>
       </RadioDiv>
       {errors.cbuAliasRadio?.type === "required" && (
         <LabelErrorLogin>CBU/CVU/ALIAS/ requerido</LabelErrorLogin>
