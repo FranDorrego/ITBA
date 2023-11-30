@@ -18,3 +18,13 @@ class Cliente(models.Model):
         managed = False
         db_table = "cliente"
 
+class Cuenta(models.Model):
+    account_id = models.AutoField(primary_key=True)
+    customer_id = models.IntegerField()
+    balance = models.IntegerField()
+    iban = models.TextField()
+    tipo_cuenta_id = models.IntegerField(blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = "cuenta"

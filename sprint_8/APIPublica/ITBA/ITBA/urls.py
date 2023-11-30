@@ -23,6 +23,6 @@ from empleado import views as EmpleadoViews
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('sucursales/', publicViews.SucursalesView.as_view()),
-    path('cliente/', include(clienteUrls)),
+    path('', include(clienteUrls)),
     path('empleado/', publicViews.SucursalesView.as_view()),
 ]
