@@ -28,3 +28,12 @@ class Cuenta(models.Model):
     class Meta:
         managed = False
         db_table = "cuenta"
+
+
+class TipoCuenta(models.Model):
+    tipo_cuenta = models.CharField(max_length=150)
+
+    class Meta:
+        managed = False
+        db_table = "tipo_cuenta"
+

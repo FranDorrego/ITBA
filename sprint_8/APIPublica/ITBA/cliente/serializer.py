@@ -1,5 +1,10 @@
 from rest_framework import serializers
-from .models import Cliente, Cuenta
+from .models import Cliente, Cuenta, TipoCuenta
+
+class TipoCuentaSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = TipoCuenta
+        fields = ['tipo_cuenta']  
 
 class ClienteSerializer(serializers.ModelSerializer):
     class Meta:
@@ -10,5 +15,5 @@ class ClienteSerializer(serializers.ModelSerializer):
 class CuentaSerializer(serializers.ModelSerializer):
     class Meta:
         model = Cuenta
-        fields = '__all__'
+        fields = ['balance', 'tipo_cuenta_id']
         read_oly_fields = '__all__'
