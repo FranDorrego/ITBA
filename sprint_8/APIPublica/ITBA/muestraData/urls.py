@@ -1,6 +1,6 @@
 from django.urls import path, include
 from rest_framework.routers import DefaultRouter
-from cliente import views
+from muestraData import views
 
 router = DefaultRouter()
 router.register('cliente', views.ClienteViews, basename='cliente')
