@@ -25,3 +25,9 @@ class PrestamosSerializer(serializers.ModelSerializer):
         model = Prestamo
         fields = ['loan_type', 'loan_total']
         read_oly_fields = '__all__'
+
+class PrestamosAllSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Prestamo
+        fields = '__all__'
+        read_oly_fields = '__all__'

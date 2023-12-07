@@ -9,4 +9,5 @@ router.register('prestamos', views.PrestamosViews, basename='prestamos')
 
 urlpatterns =[
     path('', include(router.urls)),
+    path('prestamos/sucursales/<int:id>', views.PrestamosSucursalesViews.as_view())
 ]
