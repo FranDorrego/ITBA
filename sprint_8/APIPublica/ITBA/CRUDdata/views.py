@@ -2,6 +2,8 @@ from django.shortcuts import render
 from rest_framework.views import APIView, Response
 from rest_framework import viewsets, permissions, status, authentication
 from .models import *
+from muestraData.serializer import *
+from .serializer import *
 
 # Create your views here.
 class generaPrestamo(APIView):
@@ -15,7 +17,7 @@ class generaPrestamo(APIView):
         
         tipo = 'PERSONAL'
         total = 2500
-        id_cliente = 50
+        id_cliente = 51
 
         try:
             # Creamos el prestamo
@@ -25,7 +27,7 @@ class generaPrestamo(APIView):
             # Numero de operacion
             tipo_operacion = TipoMovimientos.objects.filter(tipo='PRESTAMO').first()
             # Creamos el movimiento
-            movimiento = Movimientos.objects.create(numero_cuenta = cuenta.account_id, monto = total, id_tipo_operacion = tipo_operacion.id )
+            movimiento = Movimientos.objects.create(numero_cuenta = cuenta, monto = total, id_tipo_operacion = tipo_operacion )
             # Acreditamos en la cuenta
             cuenta.balance += total
             # Guardamos todo
@@ -33,10 +35,15 @@ class generaPrestamo(APIView):
             cuenta.save()
             movimiento.save()
 
-            return Response({'Se creo el prestamo'}, status=status.HTTP_201_CREATED)
+            # Serializo para mostrar informacion
+            prestamo = PrestamosAllSerializer(prestamo).data
+            cuenta = CuentaSerializer(cuenta).data
+            movimiento = MovimientoSerializer(movimiento).data
+
+            return Response({'Se creo el prestamo' : 'ok','prestamo' : prestamo , 'cuenta' : cuenta,  'movimiento' : movimiento}, status=status.HTTP_201_CREATED)
         
         except Exception as e:
-            return Response({f'Ocurrrio un error, intenta nuevamente, {e}'}, status=status.HTTP_408_REQUEST_TIMEOUT)
+            return Response({f'Ocurrrio un error, intenta nuevamente : {e}'}, status=status.HTTP_408_REQUEST_TIMEOUT)
         
 
         
