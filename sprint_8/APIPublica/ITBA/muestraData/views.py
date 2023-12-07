@@ -62,7 +62,12 @@ class PrestamosSucursalesViews(APIView):
             for cliente in clientes:
                 prestamos = Prestamo.objects.filter(customer_id = cliente.customer_id)
                 if prestamos:
-                    prestamos_lista.append(PrestamosAllSerializer(prestamos.first()).data)
+                    if isinstance(prestamos_lista, list):
+                        for prestamo in prestamos:
+                            prestamos_lista.append(PrestamosAllSerializer(prestamo).data)
+                    else:
+                        prestamos_lista.append(PrestamosAllSerializer(prestamos.first()).data)
+
             # Serializo todo y meustro en lista
             return Response(prestamos_lista, status=status.HTTP_200_OK)
         else:
