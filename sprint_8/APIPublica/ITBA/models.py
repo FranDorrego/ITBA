@@ -7,21 +7,7 @@
 # Feel free to rename the models, but don't rename db_table values or field names.
 from django.db import models
 from ITBA.muestraData.models import *
-
-class Empleado(models.Model):
-    employee_id = models.AutoField(primary_key=True)
-    employee_name = models.TextField()
-    employee_surname = models.TextField()
-    employee_hire_date = models.TextField()
-    employee_dni = models.TextField(
-        db_column="employee_DNI"
-    )  # Field name made lowercase.
-    branch_id = models.IntegerField()
-
-    class Meta:
-        managed = False
-        db_table = "empleado"
-
+from ITBA.CRUDdata.models import *
 
 class EmpleadoDireccion(models.Model):
     employee = models.ForeignKey(Empleado, models.DO_NOTHING, blank=True, null=True)
