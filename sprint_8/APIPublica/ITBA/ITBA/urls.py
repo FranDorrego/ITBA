@@ -18,9 +18,11 @@ from django.contrib import admin
 from django.urls import path, include
 from sucursales import views as sucursalesViews
 from muestraData import urls as muestraDataViews
+from CRUDdata import urls as CRUDdataViews
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('sucursales/', sucursalesViews.SucursalesView.as_view()),
     path('', include(muestraDataViews)),
+    path('', include(CRUDdataViews)),
 ]

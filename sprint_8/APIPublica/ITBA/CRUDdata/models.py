@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from muestraData.models import *
 
 # Create your models here.
 class Empleado(models.Model):
@@ -16,3 +17,21 @@ class Empleado(models.Model):
     class Meta:
         managed = False
         db_table = "empleado"
+
+class Movimientos(models.Model):
+    numero_cuenta = models.ForeignKey( Cuenta, models.DO_NOTHING, db_column="numero_cuenta" )
+    monto = models.IntegerField()
+    id_tipo_operacion = models.ForeignKey( "TipoMovimientos", models.DO_NOTHING, db_column="id_tipo_operacion" )
+    hora = models.DateTimeField(blank=True, null=True, auto_now=True)
+
+    class Meta:
+        managed = False
+        db_table = "movimientos"
+
+class TipoMovimientos(models.Model):
+    id = models.IntegerField(primary_key=True)
+    tipo = models.TextField()
+
+    class Meta:
+        managed = False
+        db_table = "tipo_movimientos"

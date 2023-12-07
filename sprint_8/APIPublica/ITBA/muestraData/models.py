@@ -48,8 +48,8 @@ class Cuenta(models.Model):
 
 class Prestamo(models.Model):
     loan_id = models.AutoField(primary_key=True)
-    loan_type = models.TextField()
-    loan_date = models.TextField()
+    loan_type = models.TextField(max_length=100)
+    loan_date = models.DateField(auto_now=True)
     loan_total = models.IntegerField()
     customer_id = models.IntegerField()
 

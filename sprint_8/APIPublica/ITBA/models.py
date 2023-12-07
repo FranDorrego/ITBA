@@ -20,24 +20,6 @@ class EmpleadoDireccion(models.Model):
         db_table = "empleado_direccion"
 
 
-
-class Movimientos(models.Model):
-    numero_cuenta = models.ForeignKey(
-        Cuenta, models.DO_NOTHING, db_column="numero_cuenta"
-    )
-    monto = models.IntegerField()
-    id_tipo_operacion = models.ForeignKey(
-        "TipoMovimientos", models.DO_NOTHING, db_column="id_tipo_operacion"
-    )
-    hora = models.IntegerField(blank=True, null=True)
-
-    class Meta:
-        managed = False
-        db_table = "movimientos"
-
-
-
-
 class TipoCliente(models.Model):
     tipo_cliente = models.TextField()  # This field type is a guess.
     limite_tarjetas_debito = models.IntegerField(blank=True, null=True)
@@ -62,12 +44,7 @@ class TipoCliente(models.Model):
         db_table = "tipo_cliente"
 
 
-class TipoMovimientos(models.Model):
-    tipo = models.TextField()
 
-    class Meta:
-        managed = False
-        db_table = "tipo_movimientos"
 
 
 
