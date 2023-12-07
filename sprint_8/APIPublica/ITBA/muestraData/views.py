@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from rest_framework import viewsets
 from rest_framework.views import APIView, Response
-from .models import Cliente, Cuenta, Prestamo
+from .models import *
 from .serializer import *
 from rest_framework import viewsets, permissions, status, authentication
 from sucursales.models import Sucursal
@@ -46,9 +46,10 @@ class PrestamosSucursalesViews(APIView):
     permission_classes = [permissions.IsAuthenticated]
 
     def get(self, requets, id, **kwargs):
+
         # Si tiene permisos, salta un error
         if not requets.user.has_perm('muestraData.empleado'):
-            return Response({'No tienes permiso'}, status=status.HTTP_401_UNAUTHORIZED) 
+            return Response({'No tienes permiso'}, status=status.HTTP_401_UNAUTHORIZED)
         
         # Saco la sucursal
         sucursal = Sucursal.objects.filter(branch_id=id)
@@ -66,3 +67,25 @@ class PrestamosSucursalesViews(APIView):
             return Response(prestamos_lista, status=status.HTTP_200_OK)
         else:
             return Response({'error': 'not id'}, status=status.HTTP_400_BAD_REQUEST) 
+
+class TarjetasClienteViews(APIView):
+    authentication_classes= [authentication.BasicAuthentication]
+    permission_classes = [permissions.IsAuthenticated]
+
+    def get(self, requets, id, **kwargs):
+        
+        # Si tiene permisos, salta un error
+        if not requets.user.has_perm('muestraData.empleado'):
+            return Response({'No tienes permiso'}, status=status.HTTP_401_UNAUTHORIZED) 
+        
+        # Saco el cliente
+        cliente = Cliente.objects.filter(customer_id=id)
+
+        if cliente:
+            # Traigo las tarjetas de ese cliente
+            tarjetas = Tarjeta.objects.filter(id_cliente = id)
+            # Serializo todo y meustro en lista
+            return Response(TarjetaSerializer(tarjetas.first()).data, status=status.HTTP_200_OK)
+        
+        else:
+            return Response({'error': 'not cliente con ese id'}, status=status.HTTP_400_BAD_REQUEST) 

@@ -1,6 +1,5 @@
 from rest_framework import serializers
-from .models import Cliente, Cuenta, TipoCuenta, Prestamo
-
+from .models import *
 
 class ClienteSerializer(serializers.ModelSerializer):
     class Meta:
@@ -29,5 +28,11 @@ class PrestamosSerializer(serializers.ModelSerializer):
 class PrestamosAllSerializer(serializers.ModelSerializer):
     class Meta:
         model = Prestamo
+        fields = '__all__'
+        read_oly_fields = '__all__'
+
+class TarjetaSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Tarjeta
         fields = '__all__'
         read_oly_fields = '__all__'

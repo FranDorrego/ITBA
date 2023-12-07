@@ -67,3 +67,32 @@ class Direccion(models.Model):
         managed = False
         db_table = "direccion"
 
+
+class MarcaTarjeta(models.Model):
+    marca_tarjeta = models.TextField(max_length=120)  # This field type is a guess.
+
+    class Meta:
+        managed = False
+        db_table = "marca_tarjeta"
+
+class TipoTarjeta(models.Model):
+    tipo_tarjeta = models.TextField(max_length=150)  # This field type is a guess.
+
+    class Meta:
+        managed = False
+        db_table = "tipo_tarjeta"
+
+class Tarjeta(models.Model):
+    numero = models.CharField(max_length=300, unique=True, blank=True, null=True)
+    cvv = models.IntegerField()
+    fecha_otorgamiento = models.DateTimeField()
+    fecha_exipracion = models.DateTimeField()
+    tipo_tarjeta = models.ForeignKey(TipoTarjeta, models.DO_NOTHING)
+    marca_tarjeta = models.ForeignKey(MarcaTarjeta, models.DO_NOTHING)
+    id_cliente = models.ForeignKey(
+        Cliente, models.DO_NOTHING, db_column="id_cliente", blank=True, null=True
+    )
+
+    class Meta:
+        managed = False
+        db_table = "tarjeta"

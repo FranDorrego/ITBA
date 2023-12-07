@@ -20,13 +20,6 @@ class EmpleadoDireccion(models.Model):
         db_table = "empleado_direccion"
 
 
-class MarcaTarjeta(models.Model):
-    marca_tarjeta = models.TextField()  # This field type is a guess.
-
-    class Meta:
-        managed = False
-        db_table = "marca_tarjeta"
-
 
 class Movimientos(models.Model):
     numero_cuenta = models.ForeignKey(
@@ -43,20 +36,6 @@ class Movimientos(models.Model):
         db_table = "movimientos"
 
 
-class Tarjeta(models.Model):
-    numero = models.CharField(unique=True, blank=True, null=True)
-    cvv = models.IntegerField()
-    fecha_otorgamiento = models.DateTimeField()
-    fecha_exipracion = models.DateTimeField()
-    tipo_tarjeta = models.ForeignKey("TipoTarjeta", models.DO_NOTHING)
-    marca_tarjeta = models.ForeignKey(MarcaTarjeta, models.DO_NOTHING)
-    id_cliente = models.ForeignKey(
-        Cliente, models.DO_NOTHING, db_column="id_cliente", blank=True, null=True
-    )
-
-    class Meta:
-        managed = False
-        db_table = "tarjeta"
 
 
 class TipoCliente(models.Model):
@@ -91,9 +70,4 @@ class TipoMovimientos(models.Model):
         db_table = "tipo_movimientos"
 
 
-class TipoTarjeta(models.Model):
-    tipo_tarjeta = models.TextField()  # This field type is a guess.
 
-    class Meta:
-        managed = False
-        db_table = "tipo_tarjeta"
