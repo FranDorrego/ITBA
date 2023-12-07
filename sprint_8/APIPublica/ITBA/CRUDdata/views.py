@@ -93,3 +93,55 @@ class administraPrestamo(APIView):
         except Exception as e:
             return Response({f'Ocurrrio un error, intenta nuevamente : {e}'}, status=status.HTTP_408_REQUEST_TIMEOUT)
         
+class NewDirrecion(APIView):
+    authentication_classes= [authentication.BasicAuthentication]
+    permission_classes = [permissions.IsAuthenticated]
+
+    def put(self, requets, **kwargs):
+        
+        cliente = requets.headers.get('cliente')
+        if not id: return Response({f'Falta Heder -> "cliente" bool 1|0: {cliente}'}, status=status.HTTP_406_NOT_ACCEPTABLE)
+
+        try: cliente= bool(cliente) 
+        except: return Response({f'Falta Heder -> "cliente" bool 1|0: {cliente}'}, status=status.HTTP_406_NOT_ACCEPTABLE)
+
+        id = requets.headers.get('id')
+        if not id: return Response({f'Falta Heder -> "id" int : {id}'}, status=status.HTTP_406_NOT_ACCEPTABLE)
+
+        try: id= int(id) 
+        except: return Response({f'Falta Heder -> "id" int : {id}'}, status=status.HTTP_406_NOT_ACCEPTABLE)
+
+        calle = requets.headers.get('calle')
+        if not id: return Response({f'Falta Heder -> "calle" str : {calle}'}, status=status.HTTP_406_NOT_ACCEPTABLE)
+
+        cuidad = requets.headers.get('cuidad')
+        if not id: return Response({f'Falta Heder -> "cuidad" str : {cuidad}'}, status=status.HTTP_406_NOT_ACCEPTABLE)
+
+        codigopostal = requets.headers.get('codigopostal')
+        if not id: return Response({f'Falta Heder -> "codigopostal" str : {codigopostal}'}, status=status.HTTP_406_NOT_ACCEPTABLE)
+
+        pais = requets.headers.get('pais')
+        if not id: return Response({f'Falta Heder -> "pais" str : {pais}'}, status=status.HTTP_406_NOT_ACCEPTABLE)
+
+
+        try:
+            # Creamos la dirrecion
+            dirrecion = Direccion.objects.create(calle=calle, ciudad=cuidad,codigo_postal=codigopostal, pais=pais)
+
+            # Vemos que es, cliente o empleado
+            if cliente:
+                cliente = Cliente.objects.filter(customer_id=id)
+                if not cliente: 
+                    return Response({'El id no fue encontrado'}, status=status.HTTP_204_NO_CONTENT)
+                clienteDirrecion = ClientesDireccion.objects.create(cliente,dirrecion.id)
+                clienteDirrecion.save()
+
+
+            # Vinculamos el cliente con el id
+
+            return Response({'se cambio la dirrecion'}, status=status.HTTP_201_CREATED)
+        
+        except Exception as e:
+            return Response({f'Ocurrrio un error, intenta nuevamente : {e}'}, status=status.HTTP_408_REQUEST_TIMEOUT)
+        
+    

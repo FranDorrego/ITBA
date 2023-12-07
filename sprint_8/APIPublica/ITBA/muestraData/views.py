@@ -3,6 +3,7 @@ from rest_framework import viewsets
 from rest_framework.views import APIView, Response
 from .models import *
 from .serializer import *
+from .permissions import *
 from rest_framework import viewsets, permissions, status, authentication
 from sucursales.models import Sucursal
 

@@ -9,16 +9,6 @@ from django.db import models
 from ITBA.muestraData.models import *
 from ITBA.CRUDdata.models import *
 
-class EmpleadoDireccion(models.Model):
-    employee = models.ForeignKey(Empleado, models.DO_NOTHING, blank=True, null=True)
-    id_dirrecion = models.ForeignKey(
-        Direccion, models.DO_NOTHING, db_column="id_dirrecion", blank=True, null=True
-    )
-
-    class Meta:
-        managed = False
-        db_table = "empleado_direccion"
-
 
 class TipoCliente(models.Model):
     tipo_cliente = models.TextField()  # This field type is a guess.

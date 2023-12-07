@@ -58,6 +58,7 @@ class Prestamo(models.Model):
         db_table = "prestamo"
 
 class Direccion(models.Model):
+    id=models.IntegerField(primary_key=True)
     calle = models.CharField(max_length=150)
     ciudad = models.CharField(max_length=150)
     codigo_postal = models.CharField(max_length=150)

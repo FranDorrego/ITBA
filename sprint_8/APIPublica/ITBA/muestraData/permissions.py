@@ -1,5 +1,3 @@
-from django.contrib.auth.models import Permission
-from django.contrib.contenttypes.models import ContentType
 from django.db import models
 
 class Empleado(models.Model):
@@ -8,3 +6,9 @@ class Empleado(models.Model):
             ('empleado','empleado')
         ]
 
+class ClientePermiso(models.Model):
+    class Meta:
+        permissions = [
+            ('cliente','cliente')
+        ]
+        

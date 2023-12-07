@@ -2,6 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 from muestraData.models import *
 
+
 # Create your models here.
 class Empleado(models.Model):
     employee_id = models.AutoField(primary_key=True)
@@ -17,6 +18,18 @@ class Empleado(models.Model):
     class Meta:
         managed = False
         db_table = "empleado"
+
+
+class EmpleadoDireccion(models.Model):
+    employee = models.ForeignKey(Empleado, models.DO_NOTHING, blank=True, null=True)
+    id_dirrecion = models.ForeignKey(
+        Direccion, models.DO_NOTHING, db_column="id_dirrecion", blank=True, null=True
+    )
+
+    class Meta:
+        managed = False
+        db_table = "empleado_direccion"
+
 
 class Movimientos(models.Model):
     numero_cuenta = models.ForeignKey( Cuenta, models.DO_NOTHING, db_column="numero_cuenta" )
