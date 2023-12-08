@@ -92,7 +92,19 @@ class administraPrestamo(APIView):
         
         except Exception as e:
             return Response({f'Ocurrrio un error, intenta nuevamente : {e}'}, status=status.HTTP_408_REQUEST_TIMEOUT)
-        
+    
+    def get(self, request, *args, **kwargs):
+        return self.forbidden_response()
+
+    def post(self, request, *args, **kwargs):
+        return self.forbidden_response()
+
+    def patch(self, request, *args, **kwargs):
+        return self.forbidden_response()
+
+    def forbidden_response(self):
+        return Response({'detail': 'Acceso prohibido.'}, status=status.HTTP_403_FORBIDDEN)
+    
 class NewDirrecion(APIView):
     authentication_classes= [authentication.BasicAuthentication]
     permission_classes = [permissions.IsAuthenticated]
@@ -158,4 +170,18 @@ class NewDirrecion(APIView):
         except Exception as e:
             return Response({f'Ocurrrio un error, intenta nuevamente : Error: {e}, id: {id}, User: {user}, dirrecion: {userdirrecion}'}, status=status.HTTP_408_REQUEST_TIMEOUT)
         
+    def get(self, request, *args, **kwargs):
+        return self.forbidden_response()
+
+    def post(self, request, *args, **kwargs):
+        return self.forbidden_response()
+
+    def patch(self, request, *args, **kwargs):
+        return self.forbidden_response()
+
+    def delete(self, request, *args, **kwargs):
+        return self.forbidden_response()
+    
+    def forbidden_response(self):
+        return Response({'detail': 'Acceso prohibido.'}, status=status.HTTP_403_FORBIDDEN)
     
