@@ -6,3 +6,7 @@ ALTER TABLE movimientos ADD hora DATETIME;
 
 INSERT INTO tipo_movimientos VALUES (15,'PRESTAMO');
 INSERT INTO tipo_movimientos VALUES (16,'CANCELO_PRESTAMO');
+
+
+ALTER TABLE empleado_direccion 
+ADD id int;

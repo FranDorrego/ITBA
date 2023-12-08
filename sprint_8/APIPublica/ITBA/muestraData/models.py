@@ -19,6 +19,7 @@ class Cliente(models.Model):
         db_table = "cliente"
 
 class ClientesDireccion(models.Model):
+    id = models.IntegerField(primary_key=True)
     customer = models.ForeignKey(Cliente, models.DO_NOTHING, blank=True, null=True)
     id_dirrecion = models.ForeignKey(
         "Direccion", models.DO_NOTHING, db_column="id_dirrecion", blank=True, null=True
@@ -58,7 +59,7 @@ class Prestamo(models.Model):
         db_table = "prestamo"
 
 class Direccion(models.Model):
-    id=models.IntegerField(primary_key=True)
+    id=models.AutoField(primary_key=True)
     calle = models.CharField(max_length=150)
     ciudad = models.CharField(max_length=150)
     codigo_postal = models.CharField(max_length=150)
