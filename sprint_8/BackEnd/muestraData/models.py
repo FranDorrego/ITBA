@@ -69,7 +69,6 @@ class Direccion(models.Model):
         managed = False
         db_table = "direccion"
 
-
 class MarcaTarjeta(models.Model):
     marca_tarjeta = models.TextField(max_length=120)  # This field type is a guess.
 
