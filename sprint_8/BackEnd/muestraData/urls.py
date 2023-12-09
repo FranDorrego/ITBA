@@ -15,4 +15,5 @@ urlpatterns = [
     path('movimientos/', views.movimientosViews.as_view()),
     path('tarjeta/', views.tarjetaViews.as_view()),
     path('cuenta/', views.cuentasViews.as_view()),
+    path('status/', views.statusViews.as_view()),
 ]

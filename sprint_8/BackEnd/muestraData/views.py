@@ -206,6 +206,56 @@ class cuentasViews(APIView):
     def forbidden_response(self):
         return Response({'detail': 'Acceso prohibido.'}, status=status.HTTP_403_FORBIDDEN)
 
+class statusViews(APIView):
+    authentication_classes= [authentication.BasicAuthentication]
+    permission_classes = [permissions.IsAuthenticated]
+
+    def get(self, requets, **kwargs): 
+        # Saco el cliente
+        user = self.request.user
+        cliente = Cliente.objects.filter(user_id= user.id)
+
+        if cliente:
+            # Traigo las cuentas de ese cliente
+            cuentas = Cuenta.objects.filter(customer_id= cliente.first().customer_id)
+
+            # traigo movimientos
+            saldo = 0
+            ingreso = 0
+            egreso = 0
+
+            for cuenta in cuentas:
+                saldo += cuenta.balance
+                movimientos = Movimientos.objects.filter(numero_cuenta = cuenta.account_id)
+                
+                for movimiento in movimientos:
+                    if movimiento.monto > 0: ingreso += movimiento.monto
+                    else: egreso += movimiento.monto
+
+            # Ordeno todo y muestro
+            data = {
+                "total" : saldo,
+                "ingresos" : ingreso,
+                "retiros" : egreso
+            }
+
+            return Response(data, status=status.HTTP_200_OK)
+        else:
+            return Response({'error': 'not cliente con ese id'}, status=status.HTTP_400_BAD_REQUEST) 
+        
+    def put(self, request, *args, **kwargs):
+        return self.forbidden_response()
+
+    def post(self, request, *args, **kwargs):
+        return self.forbidden_response()
+
+    def patch(self, request, *args, **kwargs):
+        return self.forbidden_response()
+
+    def forbidden_response(self):
+        return Response({'detail': 'Acceso prohibido.'}, status=status.HTTP_403_FORBIDDEN)
+
+
 class tarjetaViews(APIView):
     authentication_classes= [authentication.BasicAuthentication]
     permission_classes = [permissions.IsAuthenticated]

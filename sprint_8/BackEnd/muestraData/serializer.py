@@ -48,8 +48,28 @@ class TarjetaSerializer(serializers.ModelSerializer):
         fields = '__all__'
         read_oly_fields = '__all__'
 
+class TipoMovimientosSerialarzer(serializers.ModelSerializer):
+    class Meta:
+        model = TipoMovimientos
+        fields = ['tipo']
+        read_oly_fields = '__all__'
+
 class MovimientoSerializer(serializers.ModelSerializer):
+    motivo = TipoMovimientosSerialarzer(read_only=True)
+
     class Meta:
         model = Movimientos
-        fields = '__all__'
-        read_oly_fields = '__all__'
+        fields = ['id', 'monto', 'hora', 'motivo', 'id_tipo_operacion']
+
+    def to_representation(self, instance):
+        representation = super().to_representation(instance)
+
+        # Obtén el objeto TipoMovimiento y serialízalo
+        tipo_movimiento = TipoMovimientos.objects.get(id=representation['id_tipo_operacion'])
+        tipo_movimiento_serializer = TipoMovimientosSerialarzer(tipo_movimiento)
+
+        # Agrega la representación serializada de TipoMovimiento a la respuesta
+        representation['motivo'] = tipo_movimiento_serializer.data
+        representation['motivo'] = str(representation['motivo'].get('tipo')).replace('_', ' ').capitalize()
+
+        return representation

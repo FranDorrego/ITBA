@@ -1,12 +1,10 @@
-'use-client'
-
 import useSWR from "swr";
 
 const ERROR_DATOS = { NombreBase: "", CBUBase: "", CuentaBase: "" };
 const ERROR_STATUS = {
-  total_dinero: 0,
-  retiros_totales: 0,
-  ingresos_totales: 0,
+  total: 0,
+  ingresos: 0,
+  retiros: 0,
 };
 const ERROR_CREDITO = { saldo: 0, gasto_mensual: 0, fecha_cierre: 0 };
 
@@ -49,12 +47,83 @@ export function formateador(numero) {
   }
 }
 
+// Traigo las cookes
+function getCookie(name) {
+  // Verifica si estamos en el lado del cliente antes de acceder a document
+  if (typeof window !== 'undefined') {
+    const cookieString = document.cookie;
+    const cookies = cookieString.split(';');
+
+    for (const cookie of cookies) {
+      const [cookieName, cookieValue] = cookie.trim().split('=');
+      if (cookieName === name) {
+        return decodeURIComponent(cookieValue)+'=';
+      }
+    }
+  }
+
+  return null;
+}
+
+// Para hacer las consultas mas simples usa este metodo con USEswl
+const fetcherWithHeaders = async (url, headers) => {
+  const response = await fetch(url, {
+    headers: headers,
+  });
+
+  if (!response.ok) {
+    throw new Error('Error al cargar los datos');
+  }
+
+  return response.json();
+};
+
+export async function cliente() {
+  // Obtener la cookie del navegador
+  const userCookie = getCookie("user");
+
+  // Verificar si se encontró la cookie
+  if (userCookie) {
+    // Devuelve la información del cliente
+    const apiUrl = "http://127.0.0.1:8000/cliente/";
+
+    try {
+      const response = await fetch(apiUrl, {
+        method: "GET",
+        headers: {
+          Authorization: `Basic ${userCookie}`,
+          "Content-Type": "application/json",
+        },
+      });
+
+      if (response.ok) {
+        let data = await response.json();
+        data = data[0];
+        return data;
+      } else {
+        return null;
+      }
+    } catch (error) {
+      console.error("Error durante la solicitud:", error);
+      return null;
+    }
+  } else {
+    console.error("La cookie del usuario no se encontró");
+    return null;
+  }
+}
+
 export function Historial() {
   // Devuelve el historial de la cuenta en movimientos
+  let userCookie = getCookie('user')
+  let heder = {
+    Authorization: `Basic ${userCookie}`,
+    "Content-Type": "application/json",
+  }
 
   const { data, error } = useSWR(
-    "https://itbank.pythonanywhere.com/historial",
-    fetcher
+    "http://127.0.0.1:8000/movimientos/",
+    (url) => fetcherWithHeaders(url, heder)
   );
 
   if (error) {
@@ -65,10 +134,7 @@ export function Historial() {
     return [];
   }
 
-  const historialFormateado = data.map((fecha) => {
-    return { ...fecha, fecha: milisegundosADDMMAAAA(fecha.fecha) };
-  });
-  const historialFormateadoMiles = historialFormateado.map((monto) => {
+  const historialFormateadoMiles = data.map((monto) => {
     return { ...monto, monto: formateador(monto.monto) };
   });
 
@@ -76,9 +142,18 @@ export function Historial() {
 }
 
 function Status_general_cuenta() {
+  const userCookie = getCookie('user'); // Obtén la cookie llamada 'user'
+
   const { data, error } = useSWR(
-    "https://itbank.pythonanywhere.com/status",
-    fetcher
+    "http://127.0.0.1:8000/status/",
+    (url) =>
+      fetch(url, {
+        method: "GET",
+        headers: {
+          'Authorization': `Basic ${userCookie}`,
+          'Content-Type': 'application/json',
+        },
+      }).then((res) => res.json())
   );
 
   if (error) {
@@ -205,9 +280,9 @@ export async function facturas_marcaPagada(props) {
 // Con esta funcion devuelvo el dinero que tiene la cuenta dentro
 export function TotalDineroCuenta() {
   let registros = Status_general_cuenta(); // Asegúrate de que esto devuelva un array
-  let total = registros.total_dinero;
-  let retiros = registros.retiros_totales;
-  let ingresos = registros.ingresos_totales;
+  let total = registros.total;
+  let retiros = registros.retiros;
+  let ingresos = registros.ingresos;
 
   // Formatear los valores con 2 decimales y formato de miles
   const formattedTotal = formateador(total);
