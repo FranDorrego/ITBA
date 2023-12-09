@@ -9,6 +9,7 @@ import Layout from "@/components/Dashboard/Layout";
 import FormularioCuentas from "@/components/Dashboard/PrincipalTransferencias/FormularioCuentas";
 import { Renglon } from "@/components/Dashboard/PrincipalCuentas/RenglonDatos";
 import Head from "next/head";
+import WithAuth from "@/components/Dashboard/auth";
 
 export default function FormCuenta(props) {
 
@@ -16,6 +17,7 @@ export default function FormCuenta(props) {
 
     return(
         <Layout>
+            <WithAuth />
             <Head>
                 <title>ITBANK - Transferencias</title>
             </Head>

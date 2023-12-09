@@ -1,26 +1,23 @@
-import React, { useEffect, useState } from "react";
-import { Navigate } from "react-router-dom";
+import { useEffect } from "react";
+import { useRouter } from "next/router";
 
 const WithAuth = ({ children }) => {
-    const [shouldRedirect, setShouldRedirect] = useState(false);
+  const router = useRouter();
 
-    useEffect(() => {
-        // Verifica si hay una cookie llamada "user" solo si estamos en el lado del cliente
-        if (typeof window !== "undefined") {
-            const hasUserCookie = document.cookie.includes("user");
-            console.log("se está ejecutando");
+  useEffect(() => {
+    // Verifica si hay una cookie llamada "user" solo si estamos en el lado del cliente
+    if (typeof window !== "undefined") {
+      const hasUserCookie = document.cookie.includes("user");
+      if (!hasUserCookie) {
+        console.log('no está logueado');
+        router.push('/');
+      }
+    }
+  }, [router]);
 
-            // Si no hay una cookie, establece shouldRedirect en true
-            if (!hasUserCookie) {
-                console.log('no está logueado');
-                setShouldRedirect(true);
-            }
-        }
-    }, []);
-
-    // Renderiza los componentes hijos si el usuario está autenticado,
-    // de lo contrario, redirige a la página de inicio
-    return shouldRedirect ? <Navigate to="/" /> : <>{children}</>;
+  return null;
 };
 
 export default WithAuth;
+
+

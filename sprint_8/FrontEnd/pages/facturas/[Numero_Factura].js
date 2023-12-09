@@ -1,10 +1,12 @@
 import Layout from "@/components/Dashboard/Layout";
 import DetalleOperacion from "@/components/Dashboard/DetalleOperacion/DetalleOperacion";
+import WithAuth from "@/components/Dashboard/auth";
 
 function NumeroComponente({data}) {
     return (
         <Layout titulo="ITBAK - Factura" descripcion="Detalle de la factura">
             <DetalleOperacion props={data}/>
+            <WithAuth />
         </Layout>
     );
 }
