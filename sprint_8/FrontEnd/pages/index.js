@@ -7,7 +7,14 @@ import { FormLogin } from '../components/Login/Login/FormLogin';
 import { LinkCompuesto } from '../components/Login/Generales/LinkCompuesto';
 import Head from 'next/head';
 
+import React, { useEffect } from 'react';
+
 function Login() {
+  
+  useEffect(() => {
+    document.cookie = 'user=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+  }, []); 
+
   return (
         <Contenido>
           <Head>

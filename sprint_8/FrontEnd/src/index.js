@@ -14,9 +14,10 @@ import Error from './components/Dashboard/routes/Error'
 import Cuentas from './components/Dashboard/routes/Cuentas'
 import Actividad from './components/Dashboard/routes/Actividad'
 import State from './components/context/State';
+import WithAuth from '@/components/auth';
+
 const router = createBrowserRouter([
-  { /* CONSULLTAR SI ESTO ESTA BIEN, ESTA HECHO PQ CUANDO ARRANCA LA APP SE VA AL "/", PERO QUIERO Q EL MAIN SEA EL LOGIN
-    LA OTRA ES CAMBIAR DONDE SIEMPRE DIGA "/login" POR "/" Y SACAR EL DE ABAJO*/
+  { 
     path:"/",
     element: <Login/>
   },
@@ -34,7 +35,7 @@ const router = createBrowserRouter([
   },
   {
     path:"/dashboard",
-    element: <Index />
+    element:<Index/>
   },
   {
     path:"/prestamos",
