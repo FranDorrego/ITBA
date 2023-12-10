@@ -16,11 +16,14 @@ function CuentasPrincipal() {
       <ContenedorPrincipal>
         <Saludo texto="Datos de Tu Cuenta" />
 
-        <div className={Style.tarjeta}>
-          <Renglon titulo="Nombre" dato={datos.NombreBase} />
-          <Renglon titulo="DNI" dato={datos.CBUBase} />
-          <Renglon titulo="IBAN" dato={datos.CuentaBase} />
-        </div>
+        {datos.map((cuenta, index) => (
+          <div key={index} className={Style.tarjeta}>
+            <Renglon titulo="Tipo de cuenta" dato={cuenta.tipo_cuenta.tipo_cuenta} />
+            <Renglon titulo="ID Cuenta" dato={cuenta.account_id} />
+            <Renglon titulo="IBAN" dato={cuenta.iban} />
+          </div>
+        ))}
+
       </ContenedorPrincipal>
     </div>
   );

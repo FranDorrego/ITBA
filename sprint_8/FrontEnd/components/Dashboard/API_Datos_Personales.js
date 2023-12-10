@@ -1,6 +1,6 @@
 import useSWR from "swr";
 
-const ERROR_DATOS = { NombreBase: "", CBUBase: "", CuentaBase: "" };
+const ERROR_DATOS = [{ account_id: "", balance: "", tipo_cuenta: {"tipo_cuenta":""} }];
 const ERROR_STATUS = {
   total: 0,
   ingresos: 0,
@@ -189,9 +189,15 @@ function Status_general_cuenta() {
 export function Datos_personales() {
   // Devuelve los datos personales en un objeto como ERROR_DATOS (Primera cosnt declarada en esta hoja)
 
+  let userCookie = getCookie('user');
+  let header = {
+    Authorization: `Basic ${userCookie}`,
+    "Content-Type": "application/json",
+  };
+
   const { data, error } = useSWR(
-    "https://itbank.pythonanywhere.com/personal",
-    fetcher
+    "http://127.0.0.1:8000/cuenta",
+    (url) => fetcherWithHeaders(url, header)
   );
 
   if (error) {
