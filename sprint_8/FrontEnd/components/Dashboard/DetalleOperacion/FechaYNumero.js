@@ -9,7 +9,7 @@ export function FechayNumero({props}){
         <h1>Realizada el: {props.fecha} </h1>
       
         <div className={style.fechaYNumeroID}>
-          <h1>Número de operación: {props.ID} </h1>
+          <h1>Número de operación: {props.id} </h1>
           <BotonCopiar textoACopiar={`Número de operación ${props.id}`} texto={""}/>
         </div>
   

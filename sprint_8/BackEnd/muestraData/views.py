@@ -174,11 +174,21 @@ class movimientosViews(APIView):
         return Response({'detail': 'Acceso prohibido.'}, status=status.HTTP_403_FORBIDDEN)
 
 class movimientoDetailViews(APIView):
+    authentication_classes= [authentication.BasicAuthentication]
+    permission_classes = [permissions.IsAuthenticated]
 
-    def get(self, request, id, **kwargs):        
-        try: 
-            movimiento =  Movimientos.objects.get(id = id)
-            return Response(MovimientoSerializer(movimiento).data, status=status.HTTP_200_OK)
+    def get(self, request, id, **kwargs):   
+        try:      
+            user = self.request.user
+            cliente = Cliente.objects.get(user_id= user.id)
+            cuentas = Cuenta.objects.filter(customer_id = cliente.customer_id)
+
+            for cuenta in cuentas:
+                movimiento =  Movimientos.objects.get(id = id, numero_cuenta = cuenta.account_id)
+                return Response(MovimientoSerializer(movimiento).data, status=status.HTTP_200_OK)
+            
+            return Response('No tienes movimientos asociados a esta cuenta', status=status.HTTP_404_NOT_FOUND)
+        
         except: return Response([], status=status.HTTP_200_OK)
        
     def put(self, request, *args, **kwargs):
