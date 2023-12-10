@@ -49,6 +49,9 @@ export function formateador(numero) {
 
 // Traigo las cookes
 export function getCookie(name) {
+  let user = 0;
+  let password = 0;
+
   // Verifica si estamos en el lado del cliente antes de acceder a document
   if (typeof window !== 'undefined') {
     const cookieString = document.cookie;
@@ -56,10 +59,16 @@ export function getCookie(name) {
 
     for (const cookie of cookies) {
       const [cookieName, cookieValue] = cookie.trim().split('=');
-      if (cookieName === name) {
-        return decodeURIComponent(cookieValue)+'=';
+      if (cookieName === 'user') {
+        user = decodeURIComponent(cookieValue);
+      }
+      if (cookieName === 'password') {
+        password = decodeURIComponent(cookieValue);
       }
     }
+    console.log(user)
+    console.log(password)
+    return btoa(`${user}:${password}`)
   }
 
   return null;
@@ -391,4 +400,38 @@ export async function enviaTransferencia({ Monto, destinatario, CBU }) {
       console.error("Error:", error);
       return false;
     });
+}
+
+
+// Realiza el cambio de moneda 
+export  async function CambioMoneda({precio, pesos, dolar}) {
+  // Devuelve el historial de la cuenta en movimientos
+  let userCookie = getCookie('user')
+  let heder = {
+    Authorization: `Basic ${userCookie}`,
+    "Content-Type": "application/json",
+    'precio' : precio,
+    'pesos': pesos,
+    'dolar': dolar
+  }
+  console.log(
+    {'precio' : precio,
+    'pesos': pesos,
+    'dolar': dolar}
+  )
+
+  const { data: movimientosData, error } = useSWR(
+    "http://127.0.0.1:8000/cambiomoneda/",
+    (url) => fetcherWithHeaders(url, heder)
+  );
+  
+  if (error) {
+    return false;
+  }
+
+  if (!movimientosData) {
+    return [];
+  }
+
+  return movimientosData;
 }

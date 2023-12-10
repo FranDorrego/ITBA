@@ -88,7 +88,13 @@ export function GeneralCambioDivisa() {
           amount={toAmount}
           onChangeAmount={handleToAmountChange}
         />
-        <ConfirmarDivisas />
+        <ConfirmarDivisas 
+          data={{
+            pesos: fromCurrency,
+            dolar: exchangeRate,
+            precio: toCurrency,
+          }}
+        />
       </ContenedorPrincipal>
     </div>
   );

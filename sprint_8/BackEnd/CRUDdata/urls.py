@@ -6,4 +6,5 @@ urlpatterns =[
     path('newdirrecion/', views.NewDirrecion.as_view()),
     path('aceptaprestamos/', views.AceptaPrestamo.as_view()),
     path('realizatransferencia/', views.RealizaTransferencia.as_view()),
+    path('cambiomoneda/', views.RealizaCambio.as_view()),
 ]

@@ -345,3 +345,126 @@ class RealizaTransferencia(APIView):
     def forbidden_response(self):
         return Response({'detail': 'Acceso prohibido.'}, status=status.HTTP_403_FORBIDDEN)
 
+
+class RealizaCambio(APIView):
+    authentication_classes= [authentication.BasicAuthentication]
+    permission_classes = [permissions.IsAuthenticated]
+
+
+    def put(self, requets, **kwargs):
+        
+        # Valido los datos
+        pesos = requets.headers.get('pesos')
+        if not pesos: return Response({f'Falta Heder -> "pesos" int : {pesos}'}, status=status.HTTP_406_NOT_ACCEPTABLE)
+        try: pesos = int(pesos)
+        except: return Response({f'Error de tipo -> "pesos" int : {pesos}'}, status=status.HTTP_406_NOT_ACCEPTABLE)
+
+        dolar = requets.headers.get('dolar')
+        if not dolar: return Response({f'Falta Heder -> "dolar" int : {dolar}'}, status=status.HTTP_406_NOT_ACCEPTABLE)
+        try: dolar = int(dolar)
+        except: return Response({f'Error de tipo -> "dolar" int : {dolar}'}, status=status.HTTP_406_NOT_ACCEPTABLE)
+
+        compra = requets.headers.get('compra')
+        if not pesos: return Response({f'Falta Heder -> "compra" int 0 | 1: {compra}'}, status=status.HTTP_406_NOT_ACCEPTABLE)
+        try: compra = int(compra)
+        except: return Response({f'Error de tipo -> "compra" int : 0 | 1 {compra}'}, status=status.HTTP_406_NOT_ACCEPTABLE)
+        if compra > 1 or compra < 0 : return Response({f'Error de tipo -> "compra" int : 0 | 1 {compra}'}, status=status.HTTP_406_NOT_ACCEPTABLE)
+
+        # Realizo el cambio
+        user = self.request.user
+        cliente = Cliente.objects.filter(user_id=user.id)
+
+        if cliente:
+            # Traigo todas las cuentas del cliente
+            cuentas = Cuenta.objects.filter(customer_id=cliente.first().customer_id)
+            
+            # Separo entre pesos y dolar
+            tipos_cuenta_pesos = TipoCuenta.objects.filter(tipo_cuenta__contains='pesos')
+            tipos_cuenta_dolar = TipoCuenta.objects.filter(tipo_cuenta__contains='dolar')
+            pesosCuentas = []
+            dolarCuentas = []
+
+            for tipo in tipos_cuenta_pesos:
+                cuent = cuentas.filter(tipo_cuenta = tipo)
+                for cue in cuent:
+                    pesosCuentas.append(cue)
+            
+            for tipo in tipos_cuenta_dolar:
+                cuent = cuentas.filter(tipo_cuenta = tipo)
+                for cue in cuent:
+                    dolarCuentas.append(cue)
+            
+
+            if not pesosCuentas:
+                return Response({'error': 'No tienes cuenta en pesos'}, status=status.HTTP_406_NOT_ACCEPTABLE)
+            
+            if not dolarCuentas:
+                return Response({'error': 'No tienes cuenta en dolares'}, status=status.HTTP_406_NOT_ACCEPTABLE)
+            
+            # Si voy a comrpar, veo si tiene cuenta en dolares y le resto la cantidad
+            if compra:
+                for cuenta in pesosCuentas:
+                    print(dolarCuentas)
+                    print(pesosCuentas)
+                    if cuenta.balance > pesos:
+                        try:
+                            cuenta.balance -= pesos
+                            dolarCuentas[0].balance += dolar
+                            id_tipo_operacion = TipoMovimientos.objects.get(tipo='COMPRA_DOLAR')
+                            movimientoDescuento = Movimientos.objects.create(numero_cuenta=cuenta, monto=(pesos * -1), id_tipo_operacion=id_tipo_operacion)
+                            movimientoAcredita = Movimientos.objects.create(numero_cuenta=dolarCuentas[0], monto=(dolar), id_tipo_operacion=id_tipo_operacion)
+
+                            cuenta.save()
+                            dolarCuentas[0].save()
+                            movimientoDescuento.save()
+                            movimientoAcredita.save()
+
+                            return Response({'message': 'Operación realizada con éxito'}, status=status.HTTP_200_OK)
+                        except Exception as e:
+                            # Ocurrió un error durante la operación
+                            return Response({'error': f'Ocurrió un error, vuelve a intentar: {e}'}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+                        
+                return Response({'error': 'No tienes fondos suficientes'}, status=status.HTTP_406_NOT_ACCEPTABLE)
+            
+            else:
+                for cuenta in dolarCuentas:
+                    if cuenta.balance > dolar:
+                        try:
+                            cuenta.balance -= dolar
+                            pesosCuentas[0].balance += pesos
+                            id_tipo_operacion = TipoMovimientos.objects.get(tipo='VENTA_DOLAR')
+                            movimientoDescuento = Movimientos.objects.create(numero_cuenta=cuenta, monto=(dolar * -1), id_tipo_operacion=id_tipo_operacion)
+                            movimientoAcredita = Movimientos.objects.create(numero_cuenta=pesosCuentas[0], monto=(pesos), id_tipo_operacion=id_tipo_operacion)
+
+                            cuenta.save()
+                            pesosCuentas[0].save()
+                            movimientoDescuento.save()
+                            movimientoAcredita.save()
+                            
+                            return Response({'message': 'Operación realizada con éxito'}, status=status.HTTP_200_OK)
+                        except Exception as e:
+                            # Ocurrió un error durante la operación
+                            return Response({'error': f'Ocurrió un error, vuelve a intentar: {e}'}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+                        
+                return Response({'error': 'No tienes fondos suficientes'}, status=status.HTTP_406_NOT_ACCEPTABLE)
+            
+        else:
+            # No existe el cliente
+            return Response({'error': 'No existe el cliente'}, status=status.HTTP_404_NOT_FOUND)
+        
+    def get(self, request, *args, **kwargs):
+        return self.forbidden_response()
+
+    def post(self, request, *args, **kwargs):
+        return self.forbidden_response()
+
+    def patch(self, request, *args, **kwargs):
+        return self.forbidden_response()
+
+    def delete(self, request, *args, **kwargs):
+        return self.forbidden_response()
+    
+    def forbidden_response(self):
+        return Response({'detail': 'Acceso prohibido.'}, status=status.HTTP_403_FORBIDDEN)
+
+

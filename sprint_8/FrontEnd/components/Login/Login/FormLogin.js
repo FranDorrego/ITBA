@@ -20,8 +20,9 @@ export function FormLogin() {
   
       if (cuenta) {
         // Guardar las cookies
-        document.cookie = `user=${cuenta.basicAuth}; expires=${getCookieExpiration()}; path=/`;
-        
+        document.cookie = `user=${data.usuario}; expires=${getCookieExpiration()}; path=/`;
+        document.cookie = `password=${data.password}; expires=${getCookieExpiration()}; path=/`;
+
         router.push(`/dashboard?user=${cuenta.customer_name}`);
         swal("Datos válidos, ", `Bienvenido ${cuenta.customer_name}`);
       } else {
