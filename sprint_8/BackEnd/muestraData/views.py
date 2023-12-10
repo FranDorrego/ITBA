@@ -151,9 +151,10 @@ class movimientosViews(APIView):
             # traigo los movimientos de esas cuentas
             movimientos = []
             for cuenta in cuentas:
-                movimiento = Movimientos.objects.filter(numero_cuenta= cuenta.account_id, )
+                movimiento = Movimientos.objects.filter(numero_cuenta=cuenta.account_id).order_by('-hora')
                 for movi in movimiento:
                     movimientos.append(MovimientoSerializer(movi).data)
+
 
             # Serializo todo y meustro en lista
             return Response(movimientos, status=status.HTTP_200_OK)

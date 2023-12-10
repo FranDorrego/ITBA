@@ -16,7 +16,7 @@ export function HistorialTarjetas({ motivo = null }) {
         var linkRedireccion = "facturas";
       }
 
-      if (movimiento.ingreso) {
+      if (movimiento.monto > 0) {
         return (
           <TarjetaMovimientoIngreso
             key={index}

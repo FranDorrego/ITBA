@@ -10,13 +10,15 @@ export function ContenedorMonto(props){
         selectedCurrency,
         onChangeCurrency,
         amount,
-        onChangeAmount
+        onChangeAmount,
+        cambio
     } = props;
+
     return(
         <div className={estilosDashboard.movimientosTarjeta}>
             <span className={`${estilosDashboard.movimientoTexto} ${estilosDashboard.divisaText}`}>
                 <h2>{textPrincipal}</h2>
-                <input type="number" name="origen" id="origen" placeholder={placeholder} value={amount} onChange={onChangeAmount}/>
+                <input type="number" name="origen" id="origen" placeholder={placeholder} value={amount} onChange={(e) => { onChangeAmount(e); cambio(e.target.value);}}/>
             </span>
             
             <div className={estilosDashboard.divisas} onChange={onChangeCurrency}>

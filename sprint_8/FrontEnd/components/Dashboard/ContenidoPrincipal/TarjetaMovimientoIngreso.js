@@ -4,7 +4,6 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 export function TarjetaMovimientoIngreso({id, monto, fecha, motivo, link = "actividad"}){
-    console.log(id)
     return(
         <Link className={estilosDashboard.movimientosTarjeta} href={`${link}/${id}`}>
             <span className={estilosDashboard.movimientoTexto}>

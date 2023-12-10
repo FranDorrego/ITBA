@@ -6,6 +6,7 @@ import { ContenedorPrincipal } from "../ContenidoPrincipal/ContenedorPrincipal";
 import { Saludo } from "../ContenidoPrincipal/Saludo";
 import { Renglon } from "./RenglonDatos.js";
 import { Datos_personales } from "../API_Datos_Personales.js";
+import { formateador } from "../API_Datos_Personales.js";
 
 // Componente principal
 function CuentasPrincipal() {
@@ -21,6 +22,7 @@ function CuentasPrincipal() {
             <Renglon titulo="Tipo de cuenta" dato={cuenta.tipo_cuenta.tipo_cuenta} />
             <Renglon titulo="ID Cuenta" dato={cuenta.account_id} />
             <Renglon titulo="IBAN" dato={cuenta.iban} />
+            <Renglon titulo="Saldo en Su moneda" dato={formateador(cuenta.balance)} />
           </div>
         ))}
 

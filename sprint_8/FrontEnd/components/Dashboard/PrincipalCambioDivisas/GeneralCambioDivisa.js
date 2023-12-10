@@ -12,7 +12,7 @@ export function GeneralCambioDivisa() {
   const [fromCurrency, setFromCurrency] = useState();
   const [toCurrency, setToCurrency] = useState();
 
-  const [exchangeRate, setExchangeRate] = useState();
+  const [exchangeRate, setExchangeRate] = useState(0);
   const [amount, setAmount] = useState(1);
   const [amountInFromCurrency, setAmountInFromCurrency] = useState(true);
 
@@ -26,6 +26,10 @@ export function GeneralCambioDivisa() {
     fromAmount = amount / exchangeRate;
   }
 
+  const [precio, setPrecio] = useState(exchangeRate);
+  const [dolar, setDolar] = useState(amount);
+  const [peso, setPeso] = useState(amount);
+
   useEffect(() => {
     fetch(
       "https://v6.exchangerate-api.com/v6/b33857f0c7a369ed9a5061f0/latest/USD"
@@ -38,6 +42,7 @@ export function GeneralCambioDivisa() {
         setFromCurrency(argCurrecy);
         setToCurrency(firstCurrency);
         setExchangeRate(data.conversion_rates[argCurrecy]);
+        setPrecio(data.conversion_rates[argCurrecy])
       });
   }, []);
 
@@ -47,18 +52,27 @@ export function GeneralCambioDivisa() {
         `https://v6.exchangerate-api.com/v6/b33857f0c7a369ed9a5061f0/latest/${fromCurrency}`
       )
         .then((res) => res.json())
-        .then((data) => setExchangeRate(data.conversion_rates[toCurrency]));
+        .then((data) => {
+          setExchangeRate(data.conversion_rates[toCurrency]);
+          setPrecio(data.conversion_rates[toCurrency]);
+        });
     }
   }, [fromCurrency, toCurrency]);
 
   function handleFromAmountChange(e) {
-    setAmount(e.target.value);
+    const inputValue = e.target.value;
+    setAmount(inputValue);
     setAmountInFromCurrency(true);
+    setPeso(inputValue);
+    setDolar(inputValue * precio);
   }
 
   function handleToAmountChange(e) {
+    const inputValue = e.target.value;
     setAmount(e.target.value);
     setAmountInFromCurrency(false);
+    setDolar(inputValue);
+    setPeso(inputValue / precio);
   }
 
   return (
@@ -66,7 +80,8 @@ export function GeneralCambioDivisa() {
       <Buscador />
       <ContenedorPrincipal>
         <Saludo texto="Cambio de divisas" />
-        <ContenedorMonto
+
+        <ContenedorMonto // ESTE ES EL PRIEMR INPUT A LEER
           textPrincipal="Monto de origen"
           placeholder="Origen"
           currencyOptions={currencyOptions}
@@ -74,12 +89,14 @@ export function GeneralCambioDivisa() {
           onChangeCurrency={(e) => setFromCurrency(e.target.value)}
           amount={fromAmount}
           onChangeAmount={handleFromAmountChange}
+          cambio={setPeso}
         />
+
         <SpanCambioDivisas
           texto={`1 ${fromCurrency} = ${exchangeRate} ${toCurrency}`}
         />
 
-        <ContenedorMonto
+        <ContenedorMonto // ESTE ES EL SEGUNDO
           textPrincipal="Monto de convertido"
           placeholder="Convertido"
           currencyOptions={currencyOptions}
@@ -87,12 +104,14 @@ export function GeneralCambioDivisa() {
           onChangeCurrency={(e) => setToCurrency(e.target.value)}
           amount={toAmount}
           onChangeAmount={handleToAmountChange}
+          cambio={setDolar}
         />
-        <ConfirmarDivisas 
+
+        <ConfirmarDivisas // ESTE ES EL BOTON QUE NECESITA ESOS DATOS
           data={{
-            pesos: fromCurrency,
-            dolar: exchangeRate,
-            precio: toCurrency,
+            pesos: peso,
+            dolar: dolar,
+            precio: precio,
           }}
         />
       </ContenedorPrincipal>

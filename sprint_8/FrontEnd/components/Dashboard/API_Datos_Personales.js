@@ -66,8 +66,7 @@ export function getCookie(name) {
         password = decodeURIComponent(cookieValue);
       }
     }
-    console.log(user)
-    console.log(password)
+    
     return btoa(`${user}:${password}`)
   }
 
@@ -404,7 +403,7 @@ export async function enviaTransferencia({ Monto, destinatario, CBU }) {
 
 
 // Realiza el cambio de moneda 
-export  async function CambioMoneda({precio, pesos, dolar}) {
+export  function CambioMoneda({precio, pesos, dolar}) {
   // Devuelve el historial de la cuenta en movimientos
   let userCookie = getCookie('user')
   let heder = {

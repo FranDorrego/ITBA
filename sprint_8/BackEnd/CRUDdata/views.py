@@ -4,6 +4,7 @@ from rest_framework import viewsets, permissions, status, authentication
 from .models import *
 from muestraData.serializer import *
 from .serializer import *
+import json
 
 # Create your views here.
 class administraPrestamo(APIView):
@@ -351,26 +352,21 @@ class RealizaCambio(APIView):
     permission_classes = [permissions.IsAuthenticated]
 
 
-    def put(self, requets, **kwargs):
-        
-        # Valido los datos
-        pesos = requets.headers.get('pesos')
-        if not pesos: return Response({f'Falta Heder -> "pesos" int : {pesos}'}, status=status.HTTP_406_NOT_ACCEPTABLE)
-        try: pesos = int(pesos)
-        except: return Response({f'Error de tipo -> "pesos" int : {pesos}'}, status=status.HTTP_406_NOT_ACCEPTABLE)
+    def put(self, request, *args, **kwargs):
+        # Obtener datos del cuerpo (body) de la solicitud
+        try:
+            data = json.loads(request.body.decode('utf-8'))
+            pesos = int(data.get('pesos'))
+            dolar = int(data.get('dolar'))
+            precio = int(data.get('precio'))
+            compra = int(data.get('compra'))
+        except (ValueError, TypeError):
+            return Response({'error': 'Datos no válidos en el cuerpo de la solicitud.'}, status=status.HTTP_400_BAD_REQUEST)
 
-        dolar = requets.headers.get('dolar')
-        if not dolar: return Response({f'Falta Heder -> "dolar" int : {dolar}'}, status=status.HTTP_406_NOT_ACCEPTABLE)
-        try: dolar = int(dolar)
-        except: return Response({f'Error de tipo -> "dolar" int : {dolar}'}, status=status.HTTP_406_NOT_ACCEPTABLE)
+        # Validar datos
+        if compra not in (0, 1):
+            return Response({'error': 'El campo "compra" debe ser 0 o 1.'}, status=status.HTTP_400_BAD_REQUEST)
 
-        compra = requets.headers.get('compra')
-        if not pesos: return Response({f'Falta Heder -> "compra" int 0 | 1: {compra}'}, status=status.HTTP_406_NOT_ACCEPTABLE)
-        try: compra = int(compra)
-        except: return Response({f'Error de tipo -> "compra" int : 0 | 1 {compra}'}, status=status.HTTP_406_NOT_ACCEPTABLE)
-        if compra > 1 or compra < 0 : return Response({f'Error de tipo -> "compra" int : 0 | 1 {compra}'}, status=status.HTTP_406_NOT_ACCEPTABLE)
-
-        # Realizo el cambio
         user = self.request.user
         cliente = Cliente.objects.filter(user_id=user.id)
 
