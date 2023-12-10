@@ -1,0 +1,17 @@
+
+.foto404{
+    margin: auto;
+    width: 60%;
+}
+
+
+/* Para celulares */
+@media (max-width: 767px) {
+
+    .foto {
+        order: 1; 
+        background-size: contain; 
+        padding: 20px;
+    }
+    
+}

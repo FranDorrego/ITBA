@@ -1,0 +1,95 @@
+/* Modal.module.css */
+.overlay {
+  position: absolute;
+  bottom: 0;
+  right:0;
+
+  max-width: 20rem;
+  max-height: 2rem;
+
+  display: flex;
+  align-items: self-end;
+  justify-content: flex-end;
+  z-index: 1000; /* Asegurarte de que el z-index es suficientemente alto para superar otros elementos */
+}
+
+.modal {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  white-space: nowrap;
+
+  background: white;
+  padding: 3px 10px;
+  border-radius: 10px;
+  gap: 10%;
+
+  color: #000;
+  text-align: center;
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+.modal h1 {
+  white-space: nowrap;
+  text-align: center;
+  align-self: center;
+  color: #000;
+  font-size: 100%;
+}
+
+.modal h2 {
+  white-space: nowrap;
+  white-space: pre-line;
+  font-size: 100%;
+  text-align: center;
+  align-self: center;
+}
+
+.modal h3 {
+  white-space: nowrap;
+  text-align: center;
+  align-self: center;
+  font-size: 100%;
+  line-height: normal;
+  text-decoration-line: underline;
+}
+
+.modal button{
+    background: transparent;
+    border: 0;
+}
+
+#modalError{
+  background: red;
+}
+
+/*--------------- Boton de carga ----------------*/
+
+.loadingContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.spinner {
+  border: 8px solid rgba(137, 51, 245, 0.80); /* Color de fondo del spinner */
+  border-top: 8px solid #ffffff; /* Color del segmento superior del spinner */
+  border-radius: 50%;
+  width: 15px;
+  height: 15px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

@@ -1,0 +1,59 @@
+.texto404 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #FFF;
+    font-family: Poppins;
+    font-size: 1rem;
+    font-weight: 500;
+    height: 100%;
+    padding: 1rem; /* Añade espacio interior */
+    box-sizing: border-box; /* Incluye el padding en el tamaño total */
+}
+
+.textoH1404{
+    color: #FFF;
+    font-family: Poppins;
+    font-size: 1.5rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    margin-left: 10%;
+}
+
+.botones404{
+    display: flex;
+    width: 20.59375rem;
+    height: 3.375rem;
+    padding: 0.75rem 1.5rem;
+    align-items: center;
+    gap: 0.75rem;
+    flex-shrink: 0;
+    border-radius: 0.75rem;
+    border: 2px solid #8933F5;
+    background: rgba(137, 51, 245, 0.80);
+    color: #FFF;
+    font-family: Poppins;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.botones404:hover{
+    background: rgba(115, 0, 255, 0.8);
+    border: 2px solid rgba(115, 0, 255, 0.8);
+    cursor: pointer;
+
+}
+
+/*----------------------------------------  PARTE RESPOSIVE  Fue diseñado para 1440*900px---------------------------------------------- */
+
+
+/* Para celulares */
+@media (max-width: 767px) {
+    .texto {
+        order: 0; 
+    }
+}
