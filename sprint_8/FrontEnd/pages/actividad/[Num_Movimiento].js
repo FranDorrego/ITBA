@@ -1,30 +1,51 @@
+import { useEffect, useState } from "react";
 import Layout from "@/components/Dashboard/Layout";
 import DetalleOperacion from "@/components/Dashboard/DetalleOperacion/DetalleOperacion";
-import { milisegundosADDMMAAAA} from "@/components/Dashboard/API_Datos_Personales";
-import Head from "next/head";
 import WithAuth from "@/components/Dashboard/auth";
+import { fetcherWithHeaders, getCookie } from "@/components/Dashboard/API_Datos_Personales";
+import { useRouter } from "next/router";
+import useSWR from "swr";
 
-function NumeroComponente({data}) {
-    return (
-        <Layout titulo="ITBAK - Movimiento" descripcion="Detalle del movimiento realizado">
-            <DetalleOperacion props={data}/>
-            <WithAuth />
-        </Layout>
-    );
-}
+function NumeroComponente() {
+  const router = useRouter();
+  const { Num_Movimiento } = router.query;
+  const [userData, setUserData] = useState({
+    id: null,
+    monto: null,
+    hora: "null",
+    id_tipo_operacion: null,
+    motivo: "null",
+  });
 
-export async function getServerSideProps(context) {
-    const { Num_Movimiento } = context.query; // Accede a los parámetros de la ruta desde context.query
-    
-    try {
-        const res = await fetch(`https://itbank.pythonanywhere.com/movimiento/${Num_Movimiento}`);
-        let data = await res.json();
-        data.fecha = milisegundosADDMMAAAA(data.fecha)
-        return { props: { data } }; // Retorna los datos dentro del objeto props
-    } catch (error) {
-        console.error(error);
-        return { props: { data: null } }; // Retorna data como null en caso de error
+  // Utiliza useSWR directamente en tu componente
+  const { data, error } = useSWR(
+    `http://127.0.0.1:8000/movimientos/${Num_Movimiento}`,
+    (url) =>
+      fetch(url, {
+        method: 'GET',
+        headers: {
+          Authorization: `Basic ${getCookie("user")}`,
+          "Content-Type": "application/json",
+        },
+      })
+  );
+
+  // Solo realiza la carga de datos después de que el componente se haya montado en el cliente
+  useEffect(() => {
+    if (data) {
+      setUserData(data);
     }
+  }, [data]);
+
+  return (
+    <Layout
+      titulo="ITBAK - Movimiento"
+      descripcion="Detalle del movimiento realizado"
+    >
+      <DetalleOperacion props={userData} />
+      <WithAuth />
+    </Layout>
+  );
 }
 
 export default NumeroComponente;

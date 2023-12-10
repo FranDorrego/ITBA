@@ -10,7 +10,7 @@ function DetalleOperacion({ props }) {
   return (
     <div className={estilosPlantilla.general}>
       <Buscador />
-
+      {console.log(props)}
       <div className={style.detalles}>
 
         <span>

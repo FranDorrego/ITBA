@@ -48,7 +48,7 @@ export function formateador(numero) {
 }
 
 // Traigo las cookes
-function getCookie(name) {
+export function getCookie(name) {
   // Verifica si estamos en el lado del cliente antes de acceder a document
   if (typeof window !== 'undefined') {
     const cookieString = document.cookie;
@@ -66,7 +66,7 @@ function getCookie(name) {
 }
 
 // Para hacer las consultas mas simples usa este metodo con USEswl
-const fetcherWithHeaders = async (url, headers) => {
+export const fetcherWithHeaders = async (url, headers) => {
   const response = await fetch(url, {
     headers: headers,
   });
@@ -140,6 +140,25 @@ export function Historial() {
 
   return historialFormateadoMiles;
 }
+
+export function infoComprobante(id) {
+  // Devuelve el historial de la cuenta en movimientos
+  let userCookie = getCookie('user');
+  let header = {
+    Authorization: `Basic ${userCookie}`,
+    "Content-Type": "application/json",
+  };
+
+  // Utiliza el hook useSWR en el componente
+  const { data, error } = useSWR(
+    `http://127.0.0.1:8000/movimientos/${id}`,
+    (url) => fetcherWithHeaders(url, header)
+  );
+
+  // No devuelvas directamente los datos aquí
+  return { data, error };
+}
+
 
 function Status_general_cuenta() {
   const userCookie = getCookie('user'); // Obtén la cookie llamada 'user'

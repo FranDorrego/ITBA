@@ -3,9 +3,9 @@ import Image from 'next/image'
 import Link from 'next/link'
 
 
-export function TarjetaMovimientoRetiro({ID, monto, fecha, motivo, link="actividad"}){
+export function TarjetaMovimientoRetiro({id, monto, fecha, motivo, link="actividad"}){
     return(
-        <Link className={estilosDashboard.movimientosTarjeta} href={`${link}/${ID}`}>
+        <Link className={estilosDashboard.movimientosTarjeta} href={`${link}/${id}`}>
             <span className={estilosDashboard.movimientoTexto}>
                 <h1>${monto}</h1>
                 <h2>{fecha}</h2>

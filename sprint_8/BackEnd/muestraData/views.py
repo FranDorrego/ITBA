@@ -172,6 +172,26 @@ class movimientosViews(APIView):
     def forbidden_response(self):
         return Response({'detail': 'Acceso prohibido.'}, status=status.HTTP_403_FORBIDDEN)
 
+class movimientoDetailViews(APIView):
+
+    def get(self, request, id, **kwargs):        
+        try: 
+            movimiento =  Movimientos.objects.get(id = id)
+            return Response(MovimientoSerializer(movimiento).data, status=status.HTTP_200_OK)
+        except: return Response([], status=status.HTTP_200_OK)
+       
+    def put(self, request, *args, **kwargs):
+        return self.forbidden_response()
+
+    def post(self, request, *args, **kwargs):
+        return self.forbidden_response()
+
+    def patch(self, request, *args, **kwargs):
+        return self.forbidden_response()
+
+    def forbidden_response(self):
+        return Response({'detail': 'Acceso prohibido.'}, status=status.HTTP_403_FORBIDDEN)
+
 class cuentasViews(APIView):
     authentication_classes= [authentication.BasicAuthentication]
     permission_classes = [permissions.IsAuthenticated]
@@ -254,7 +274,6 @@ class statusViews(APIView):
 
     def forbidden_response(self):
         return Response({'detail': 'Acceso prohibido.'}, status=status.HTTP_403_FORBIDDEN)
-
 
 class tarjetaViews(APIView):
     authentication_classes= [authentication.BasicAuthentication]
