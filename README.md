@@ -6,59 +6,109 @@ El grupo que esta creando ITBANK es **iKnowHow** Conformado por:
   - Laureano Ibarra
 
 # Forma de Tester
-
-Primero que nada, ingrese a la siguiente carpeta:
-
-	cd sprint_7
-	cd itbank
-				
-Luego, crea un entorno virtual y activelo, dentro del entorno ejecutar el siguiente comando
-
-	pip install -r requirement.txt
-
-Luego empieza a correr el servidor
-
-	python -b manage.py runserver
-
-Aca se activa el servidor y una vez que ingreses te va a pedir que te autentiques.
-
-Para esto podes usar cualquier usuario desde el 1 al 500, sus usuarios son:
+1. Ingresa a sprint_8
+			
+		cd sprint_8
 		
-	user_1
+2.	 Crea un entorno virtual e instala
+		
+			pip install django
+			pip install django-cors-headers
+			
+3. Ingresa a BackEnd
+		
+		cd BackEnd
+
+4. Corre el servidor de BackEnd
+		
+		python manage.py runserver
+
+5. Con una nueva terminal, repite el paso 1
+6.  Ingresa a FrontEnd
+		
+		cd FrontEnd
+7. Instala las dependencias de next necesarias con
+		
+		npm install    
+8. levanta el servidor con
+		
+		npm run dev  
+
+Y ya tienes tus dos servidores corriendo. Recuerda que todo esta configurado para que tus servidores estén en: 
+	 
+		BackEnd: http://127.0.0.1:8000/
+		FrontEnd: http://localhost:3000/
+
+Si no están en esos puertos, puedes tener complicaciones para que coordinen entre si.
+
+Una vez ya todo en orden, puedes ingresar a tu URL de Front en:
+		
+		http://localhost:3000/
+
+Ahi vas a ver el primer render de login, puedes ingresar con cualquier usuario del 1 al 503.
+
+			user_1
 
 y la clave para todos es:
 
-	password
+		password
 
-Luego, una vez que ingreses, puedes ver todas las apps sin problema.
+Luego, una vez que ingreses, puedes ver todas los servicios disponibles.
 
-## <h1>Diagrama de la base</h1>
+Si quieres cambiar puedes salir de la sesión y iniciar con otro usuario. Les aconsejamos probar con varios usuarios para poder ver mejor los cambios entre cada uno.
 
-Diseñamos un diagrama el cual explica como tratamos la información. La idea es tratar la información de una forma ordenada y metódica, anticiparnos a los posibles errores y ser lo mas eficiente posible.
+**![](./docs/cierre.png)**
 
-Como se puede ver hay una tabla central de todo que es cliente, esta tabla es la mas delicada a la hora de tratarla ya que tiene muchas relaciones y otras tablas apuntándola con el customer_id
+## <h1>EndPoint usados en Front</h1>
 
-**![](./docs/flujo.png)**
+Para todas las vistas, se necesita estar logeado. 
 
-Tambien pueden ver todo mas en detalle en este  **[link](https://www.figma.com/file/mTLGphDg9EWaycGL1EaiJN/Untitled?type=whiteboard&node-id=0-1&t=KH8TAK1QJExl1xzR-0)**
+En cada vista usamos GET o PUT Dependiendo la acción necesaria. 
+
+**![](./docs/inicio.png)**
+
+## <h1>EndPoint Especiales</h1>
+
+Se nos pedían unos puntos especiales para testear desde postman.
+
+Para ello los puntos se basaban en Clientes y en Empleados realizando diferentes acciones.
+
+Para esto creamos dos tipos de usuarios
+
+		empleados: emplado_1 (Hasta el 500)
+		usuarios: user_1 (Hasta el 505)
+
+La password para ambos es **password**
+
+Aunque se pueden probar con cualquiera se conseja el usuario 61
+		
+		user_61
+
+Ya que este tiene movimientos para mostrar en la mayoría de las vistas
 
 
-## <h1>APPS</h1>
 
-Nosotros para hacer este sprint, lo que hicimos fue tomar como base el sprint 3 y ver que datos era lo que usaba el font de la base de datos, Nombres, saldos, movimientos.... etc.
+**![](./docs/postman.png)**
 
-Cada app es un conjunto de operaciones que muestran los datos al font. 
+El listado de EndPoint se separan en:
 
-Home: se encarga de la vista de home y todas sus subvistas 
-transferencias: se encarga de mostrar las transferencias y ademas de gestionar el formulario para transferir.
+Clientes: 
 
-Y de la misma forma con las demás. 
+1. /cliente/ : Da los datos del cliente
+2. /saldos/ :  Da los saldos de todas las cuentas de un cliente
+3. /prestamos/ : Da el historial de todos sus prestamos
 
-## <h1>Autenticación y Login</h1>
+Empleados:
 
-**![](./docs/autenticacion.PNG)**
+1. /prestamos/sucursales/< Numero > : Da los prestamos de una sucursal
+2. /tarjeta/cliente/< id_cliente > :  Da las tarjetas de crédito de todo un cliente
+3. PUT: /administraprestamo/ : Crea un préstamo para un cliente. Este en su heder necesita: 
+**![](./docs/administraprestamo.png)**
 
-Primero, la vista se encarga de ver si solomente hay que mostrar el formulario o si se quiere ingresar al home del Homebanking. Para el segundo caso se realiza la autenticación de los datos ingresados mediante la funcion "authenticate". Estos datos son contrastados con la tabla "auth_user" en la base de datos, en la cual estan todos los usuarios autenticados. En caso que los datos ingresados sean incorrectos, esta funcion devuelve un "None". Si esto sucede, se muestra un mensaje en la página indicando que los datos son incorrectos. En la situación contrario, que los datos sean validos, se almacena el inicio de sesión en una cookie mediante la función "login". En nuestro caso se llama auth_login porque cambiamos su nombre por problemas con el nombre de la vista. Y por último, nos redirecciona al login con la cookie guardada.
+4. DELETE: /administraprestamo/ : Elimina un préstamo, para ello necesita en el heder: 
+
+**![](./docs/delete.png)**
+
 
 ## <h1>Documentación del sprint 1</h1>
 
@@ -84,3 +134,7 @@ Primero, la vista se encarga de ver si solomente hay que mostrar el formulario o
 ## <h1>Documentación del sprint 6</h1>
 
 **[Documentación](./sprint_6/README.md)**
+
+## <h1>Documentación del sprint 7</h1>
+
+**[Documentación](./sprint_7/README.md)**
