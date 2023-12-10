@@ -71,6 +71,8 @@ export function FormLogin() {
         {errors.password && <LabelErrorLogin>Contraseña no válida, más de 8 caracteres</LabelErrorLogin>}
   
         <Boton value="Iniciar Sesión" id="boton_inicio_sesion" />
-        <LinkCompuesto textoLink="Olvidé mi contraseña" link="/password" />
+        {
+        //<LinkCompuesto textoLink="Olvidé mi contraseña" link="/password" />
+        }
       </form>
     );}

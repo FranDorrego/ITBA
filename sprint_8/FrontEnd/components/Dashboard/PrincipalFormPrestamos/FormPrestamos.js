@@ -80,8 +80,7 @@ export function FormPrestamos() {
           e.preventDefault();
           setInteresesAPagar(
             Math.round((intereses - 1) * 100).toString() + "%"
-          ); // ESTA PAVADA SOLO PARA PONER 15%, PERO UN FUTURO SE PUEDE
-          // CAMBIAR DEPENDIENDO EL INTERES QUE APLIQUEMOS, POR AHORA SIEMPRE 15%
+          ); 
         }}
         plata={(e) => {
           e.preventDefault();

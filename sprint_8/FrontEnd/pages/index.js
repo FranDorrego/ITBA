@@ -24,7 +24,9 @@ function Login() {
           </Head>
           <Logo/>
           <FormLogin/>
-          <LinkCompuesto textoParrafo="¿No tiene cuenta?" textoLink="Crear cuenta" link="/register"/>
+          {
+            //<LinkCompuesto textoParrafo="¿No tiene cuenta?" textoLink="Crear cuenta" link="/register"/>
+          }
         </Contenido>
   );
 }

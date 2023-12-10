@@ -351,29 +351,32 @@ export function setNombre({ NuevoNombre }) {
 }
 
 // Pide un prestamo, si da false es porque no se dio el pretamo
-export function pidePrestamo({ Monto }) {
-  const fecha = new Date().getTime();
+export async function  pidePrestamo( cantidad ) {
 
-  console.log(Monto);
+  console.log(cantidad);
 
-  if (Monto == "") {
+  if (!cantidad) {
     return false;
   }
 
-  return fetch(`https://itbank.pythonanywhere.com/prestamo/${Monto}/${fecha}`)
+  const userCookie = getCookie("user");
+
+  return await fetch(`http://127.0.0.1:8000/aceptaprestamos/`, {
+    method: 'PUT',
+    headers: {
+      Authorization: `Basic ${userCookie}`,
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({ 'monto' : cantidad }),
+  })
     .then((response) => {
       if (!response.ok) {
         return false;
       }
-      return response.json();
+      return true;
     })
-
-    .then((data) => {
-      return data.datos || false;
-    })
-
     .catch((error) => {
-      console.error("Error:", error);
+      console.error('Error:', error);
       return false;
     });
 }

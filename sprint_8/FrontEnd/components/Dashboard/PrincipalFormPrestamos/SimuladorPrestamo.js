@@ -7,12 +7,13 @@ export function SimuladorPrestamo({interesesAPagar, cuotasDe, totalAPagar, porce
 
     const { handleSubmit} = useForm();
 
-    const onSubmit = (data) => {
+    const onSubmit = async (data)  => {
         if (totalAPagar == "") {
           return swal("Por favor rellena los datos solicitados", "");
         }
-    
-        if (pidePrestamo( { Monto: totalAPagar })) {
+        
+        console.log(totalAPagar)
+        if ( await pidePrestamo( totalAPagar )) {
           swal("Prestamo pedido", "Monto: " + totalAPagar);
         } else {
           return swal("Ocurrio un error, por favor vuelve a intentar", "");

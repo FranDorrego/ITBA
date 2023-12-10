@@ -192,65 +192,44 @@ class AceptaPrestamo(APIView):
     permission_classes = [permissions.IsAuthenticated]
 
     def put(self, requets, **kwargs):
+
+        try: 
+            data = json.loads(requets.body.decode('utf-8'))
+            monto = int(data.get('monto'))
+        except Exception as e:
+            return Response({f'formato incorrecto de body : {e}'}, status=status.HTTP_406_NOT_ACCEPTABLE)
+
+        user = self.request.user
+        cliente = Cliente.objects.get(user_id=user.id)
+
+        if not cliente:
+            return JsonResponse({'error': 'El cliente no existe'}, status=400)
         
-        cliente = requets.headers.get('cliente')
-        try: cliente = int(cliente)
-        except: return Response({f'Formato incorrecto -> "cliente" int 1 = Empleado | 0 = CLiente: {cliente}'}, status=status.HTTP_406_NOT_ACCEPTABLE)
-
-        if cliente < 0 or cliente > 1:
-            return Response({f'Formato incorrecto -> "cliente" int 1 = Empleado | 0 = CLiente: {cliente}'}, status=status.HTTP_406_NOT_ACCEPTABLE)
-        
-        id = requets.headers.get('id')
-        if not id: return Response({f'Falta Heder -> "id" int : {id}'}, status=status.HTTP_406_NOT_ACCEPTABLE)
-
-        try: id= int(id) 
-        except: return Response({f'Falta Heder -> "id" int : {id}'}, status=status.HTTP_406_NOT_ACCEPTABLE)
-
-        calle = requets.headers.get('calle')
-        if not calle: return Response({f'Falta Heder -> "calle" str : {calle}'}, status=status.HTTP_406_NOT_ACCEPTABLE)
-
-        cuidad = requets.headers.get('cuidad')
-        if not cuidad: return Response({f'Falta Heder -> "cuidad" str : {cuidad}'}, status=status.HTTP_406_NOT_ACCEPTABLE)
-
-        codigopostal = requets.headers.get('codigopostal')
-        if not codigopostal: return Response({f'Falta Heder -> "codigopostal" str : {codigopostal}'}, status=status.HTTP_406_NOT_ACCEPTABLE)
-
-        pais = requets.headers.get('pais')
-        if not pais: return Response({f'Falta Heder -> "pais" str : {pais}'}, status=status.HTTP_406_NOT_ACCEPTABLE)
-
         try:
-            # Creamos la dirrecion
-            dirrecion = Direccion.objects.create(calle=calle, ciudad=cuidad,codigo_postal=codigopostal, pais=pais)
-            userdirrecion = ''
+            # Creamos el prestamo
+            prestamo = Prestamo.objects.create(loan_type='PERSONAL', loan_total= monto, customer_id= cliente.customer_id)
+            # Traemos la cuenta
+            cuenta = Cuenta.objects.filter(customer_id = cliente.customer_id).first()
+            # Numero de operacion
+            tipo_operacion = TipoMovimientos.objects.filter(tipo='PRESTAMO').first()
+            # Creamos el movimiento
+            movimiento = Movimientos.objects.create(numero_cuenta = cuenta, monto = monto, id_tipo_operacion = tipo_operacion )
+            # Acreditamos en la cuenta
+            cuenta.balance += monto
+            # Guardamos todo
+            prestamo.save()
+            cuenta.save()
+            movimiento.save()
 
-            # Vemos que es, cliente o empleado
-            if cliente == 0:
-                try: user = Cliente.objects.get(customer_id = id)
-                except: return Response({'El id no fue encontrado'}, status=status.HTTP_204_NO_CONTENT)
+            # Serializo para mostrar informacion
+            prestamo = PrestamosAllSerializer(prestamo).data
+            cuenta = CuentaSerializer(cuenta).data
+            movimiento = MovimientoSerializer(movimiento).data
 
-                try: ClientesDireccion.objects.get(id= id).delete()
-                except: pass
-
-                user = Cliente.objects.get(customer_id = id)
-                userdirrecion = ClientesDireccion.objects.create(customer= user , id_dirrecion = dirrecion, id= id)
-            else:
-                try: user = Empleado.objects.get(employee_id = id)
-                except: return Response({'El id no fue encontrado'}, status=status.HTTP_204_NO_CONTENT)
-
-                try: EmpleadoDireccion.objects.get(id= id).delete()
-                except: pass
-
-                user = Empleado.objects.get(employee_id = id)
-                userdirrecion = EmpleadoDireccion.objects.create(employee= user , id_dirrecion= dirrecion, id = id)
-
-            # guardamos todo
-            dirrecion.save()
-            userdirrecion.save()
-
-            return Response({'se cambio la dirrecion' : cliente}, status=status.HTTP_201_CREATED)
+            return Response({'Se creo el prestamo' : 'ok','prestamo' : prestamo , 'cuenta' : cuenta,  'movimiento' : movimiento}, status=status.HTTP_200_OK)
         
         except Exception as e:
-            return Response({f'Ocurrrio un error, intenta nuevamente : Error: {e}, id: {id}, User: {user}, dirrecion: {userdirrecion}'}, status=status.HTTP_408_REQUEST_TIMEOUT)
+            return Response({f'Ocurrrio un error, intenta nuevamente : {e}'}, status=status.HTTP_408_REQUEST_TIMEOUT)
         
     def get(self, request, *args, **kwargs):
         return self.forbidden_response()
@@ -332,7 +311,6 @@ class RealizaTransferencia(APIView):
     
     def forbidden_response(self):
         return Response({'detail': 'Acceso prohibido.'}, status=status.HTTP_403_FORBIDDEN)
-
 
 class RealizaCambio(APIView):
     authentication_classes= [authentication.BasicAuthentication]
