@@ -30,7 +30,10 @@ export function MenuDerecho() {
           link="/transferencias"
           alt="transferencias"
         />
-        <Tarjeta />
+        {
+          // <Tarjeta />
+        }
+        
       </ElementosMenuDercho>
     </div>
   );

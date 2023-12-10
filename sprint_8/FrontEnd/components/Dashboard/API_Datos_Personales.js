@@ -424,9 +424,6 @@ export async function enviaTransferencia({ Monto, destinatario }) {
   }
 }
 
-
-
-
 // Realiza el cambio de moneda 
 export  function CambioMoneda({precio, pesos, dolar}) {
   // Devuelve el historial de la cuenta en movimientos
