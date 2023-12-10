@@ -7,7 +7,7 @@ import { useForm } from "react-hook-form";
 import { LabelErrorLogin } from "@/components/Login/Generales/LabelErrorLogin";
 import { validarImporte } from "./validate/validarImporte";
 import { enviaTransferencia } from "../API_Datos_Personales";
-
+import { Saludo } from "../ContenidoPrincipal/Saludo";
 import Alert from "@/components/Alert/Alert";
 import { ERROR, PagoRECHAZADO, TransferenciaEXITOSA } from "@/components/Alert/Alert";
 import { useRef } from "react";
@@ -18,16 +18,22 @@ export function TransFormulario() {
   const alertRef = useRef();
 
   const onSubmit = async (data) => {
-    if (data.importe == "") {
+    if (data.importe === "") {
       swal("Por favor rellena los datos solicitados", "");
     } else {
       alertRef.current.carga();
       try {
-        const transferenciaResultado = await enviaTransferencia({ Monto: parseFloat(data.importe), destinatario: data.cbuAlias, CBU: data.cbuAlias, });
-        if (transferenciaResultado === 100) {
-          alertRef.current.muestraContenido(PagoRECHAZADO());
-        } else if (transferenciaResultado === true) {
-          alertRef.current.muestraContenido( TransferenciaEXITOSA("Transferiste $ " + data.importe) );
+        const transferenciaResultado = await enviaTransferencia({
+          Monto: data.importe,
+          destinatario: data.cbuAlias,
+        });
+
+        if (transferenciaResultado.error) {
+          alertRef.current.muestraContenido(ERROR());
+        } else if (transferenciaResultado.message) {
+          alertRef.current.muestraContenido(
+            TransferenciaEXITOSA(`Transferiste $ ${data.importe}`)
+          );
         } else {
           alertRef.current.muestraContenido(ERROR());
         }
@@ -44,51 +50,10 @@ export function TransFormulario() {
       className={estilosDashboard.transFormulario}
       onSubmit={handleSubmit(onSubmit)}
     >
-      <RadioDiv>
-        <span className={estilosDashboard.transFormularioSpan}>
-          <input
-            type="radio"
-            id="cbu"
-            className={estilosDashboard.transFormularioRadio}
-            name="opcion-radio"
-            {...register("cbuAliasRadio", {
-              required: true,
-            })}
-          />
-          <label>CBU / CVU</label>
-        </span>
-        <span className={estilosDashboard.transFormularioSpan}>
-          <input
-            type="radio"
-            id="alias"
-            className={estilosDashboard.transFormularioRadio}
-            name="opcion-radio"
-            {...register("cbuAliasRadio", {
-              required: true,
-            })}
-          />
-          <label>ALIAS</label>
-        </span>
-        <span className={estilosDashboard.transFormularioSpan}>
-          <input
-            type="radio"
-            id="alias"
-            className={estilosDashboard.transFormularioRadio}
-            name="opcion-radio"
-            {...register("cbuAliasRadio", {
-              required: true,
-            })}
-          />
-          <label>DNI</label>
-        </span>
-      </RadioDiv>
-      {errors.cbuAliasRadio?.type === "required" && (
-        <LabelErrorLogin>CBU/CVU/ALIAS/ requerido</LabelErrorLogin>
-      )}
-
+      <Saludo texto="CBU o IBAN*" />
       <input
-        placeholder="Ingrese..."
-        id="cbu_alias"
+        placeholder="Ingrese CBU o IBAN ..."
+        id="cbuAlias"
         type="text"
         className={estilosDashboard.transInputs}
         {...register("cbuAlias", {
@@ -97,13 +62,13 @@ export function TransFormulario() {
         })}
       />
       {errors.cbuAlias?.type === "required" && (
-        <LabelErrorLogin>CBU/CVU/ALIAS/ requerido</LabelErrorLogin>
+        <LabelErrorLogin>CBU/CVU/IBAN requerido</LabelErrorLogin>
       )}
       {/* { errors.cbuAlias && <LabelErrorLogin>CBU/CVU no valido</LabelErrorLogin> } */}
 
       <ImporteDiv>
         <input
-          placeholder="Ingrese..."
+          placeholder="Ingrese Cantidad a transferir ..."
           id="importe"
           type="number"
           className={estilosDashboard.transInputs}
@@ -115,7 +80,7 @@ export function TransFormulario() {
       </ImporteDiv>
 
       {errors.importe && <LabelErrorLogin>Importe no valido</LabelErrorLogin>}
-      <MotivoDiv />
+
       <button
         type="submit"
         className={estilosDashboard.transBotones}
@@ -123,7 +88,8 @@ export function TransFormulario() {
       >
         <h1>Transferir</h1>
       </button>
-      <Alert ref={alertRef}/>
+
+      <Alert ref={alertRef} />
     </form>
   );
 }

@@ -379,27 +379,49 @@ export function pidePrestamo({ Monto }) {
 }
 
 // Pide un prestamo, si da false es porque no se dio el pretamo
-export async function enviaTransferencia({ Monto, destinatario, CBU }) {
+export async function enviaTransferencia({ Monto, destinatario }) {
+  const url = "http://127.0.0.1:8000/realizatransferencia/";
   const fecha = new Date().getTime();
 
-  if (Monto == "") {
-    return false;
+  if (Monto === "") {
+    return { error: "Monto no válido" };
   }
 
-  return fetch(
-    `https://itbank.pythonanywhere.com/transfiere/${Monto}/${fecha}/${destinatario}/${CBU}`
-  )
-    .then((response) => {
-      if (!response.ok) {
-        return false;
-      }
-      return response.json();
-    })
-    .catch((error) => {
-      console.error("Error:", error);
-      return false;
+  const basicAuth = getCookie(); 
+
+  try {
+    const response = await fetch(url, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": `Basic ${basicAuth}`
+      },
+      body: JSON.stringify({
+        iban: destinatario,
+        cantidad: Monto
+      })
     });
+
+    if (!response.ok) {
+      return { error: "Error en la solicitud" };
+    }
+
+    const result = await response.json();
+
+    if (result.message) {
+      return { message: result.message };
+    } else if (result.error) {
+      return { error: result.error };
+    } else {
+      return { error: "Error desconocido" };
+    }
+  } catch (error) {
+    console.error("Error:", error);
+    return { error: "Error en la solicitud" };
+  }
 }
+
+
 
 
 // Realiza el cambio de moneda 

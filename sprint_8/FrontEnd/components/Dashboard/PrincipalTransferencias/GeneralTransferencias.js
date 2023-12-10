@@ -26,8 +26,7 @@ const DivContenedorPrincipal = () => {
       <Buscador />
       <ContenedorPrincipal>
         <Saludo texto="Transferencias" />
-        <TransBotones onBotonSeleccionado={mostrarContenido}/>
-        {contenidoMostrado}
+        <TransFormulario/>
       </ContenedorPrincipal>
     </div>
   );

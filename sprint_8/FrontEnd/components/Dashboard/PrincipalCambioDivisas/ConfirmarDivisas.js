@@ -35,7 +35,8 @@ export function ConfirmarDivisas({ data }) {
       }
   
       const result = await response.json();
-  
+      console.log(result)
+
       if (result.message) {
         // Mostrar mensaje de éxito
         alertRef.current.muestraContenido(CambioEXITOSO(result.message));
@@ -44,12 +45,12 @@ export function ConfirmarDivisas({ data }) {
         alertRef.current.muestraContenido(PagoRECHAZADO());
       } else if (result.error) {
         // Mostrar mensaje de error
-        alertRef.current.muestraContenido(ERROR(result.error));
+        alertRef.current.muestraContenido(ERROR('Ocurrio un error, vuelve a intentar mas tarde.'));
       } 
       
     } catch (error) {
       console.error("Error al realizar la conversión:", error);
-      alertRef.current.muestraContenido(ERROR());
+      alertRef.current.muestraContenido(ERROR('Si no tienes cuenta en dolares, no puedes realizar el cambio.'));
     } finally {
       setLoading(false);
     }

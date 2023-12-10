@@ -5,6 +5,7 @@ from .models import *
 from muestraData.serializer import *
 from .serializer import *
 import json
+from django.http import JsonResponse
 
 # Create your views here.
 class administraPrestamo(APIView):
@@ -270,66 +271,52 @@ class RealizaTransferencia(APIView):
     authentication_classes= [authentication.BasicAuthentication]
     permission_classes = [permissions.IsAuthenticated]
 
-    def put(self, requets, **kwargs):
-        
-        cliente = requets.headers.get('cliente')
-        try: cliente = int(cliente)
-        except: return Response({f'Formato incorrecto -> "cliente" int 1 = Empleado | 0 = CLiente: {cliente}'}, status=status.HTTP_406_NOT_ACCEPTABLE)
-
-        if cliente < 0 or cliente > 1:
-            return Response({f'Formato incorrecto -> "cliente" int 1 = Empleado | 0 = CLiente: {cliente}'}, status=status.HTTP_406_NOT_ACCEPTABLE)
-        
-        id = requets.headers.get('id')
-        if not id: return Response({f'Falta Heder -> "id" int : {id}'}, status=status.HTTP_406_NOT_ACCEPTABLE)
-
-        try: id= int(id) 
-        except: return Response({f'Falta Heder -> "id" int : {id}'}, status=status.HTTP_406_NOT_ACCEPTABLE)
-
-        calle = requets.headers.get('calle')
-        if not calle: return Response({f'Falta Heder -> "calle" str : {calle}'}, status=status.HTTP_406_NOT_ACCEPTABLE)
-
-        cuidad = requets.headers.get('cuidad')
-        if not cuidad: return Response({f'Falta Heder -> "cuidad" str : {cuidad}'}, status=status.HTTP_406_NOT_ACCEPTABLE)
-
-        codigopostal = requets.headers.get('codigopostal')
-        if not codigopostal: return Response({f'Falta Heder -> "codigopostal" str : {codigopostal}'}, status=status.HTTP_406_NOT_ACCEPTABLE)
-
-        pais = requets.headers.get('pais')
-        if not pais: return Response({f'Falta Heder -> "pais" str : {pais}'}, status=status.HTTP_406_NOT_ACCEPTABLE)
-
+    def put(self, request, **kwargs):
         try:
-            # Creamos la dirrecion
-            dirrecion = Direccion.objects.create(calle=calle, ciudad=cuidad,codigo_postal=codigopostal, pais=pais)
-            userdirrecion = ''
+            data = json.loads(request.body.decode('utf-8'))
+            iban = data.get('iban')
+            cantidad = int(data.get('cantidad'))
+            
+            user = self.request.user
+            cliente = Cliente.objects.get(user_id=user.id)
 
-            # Vemos que es, cliente o empleado
-            if cliente == 0:
-                try: user = Cliente.objects.get(customer_id = id)
-                except: return Response({'El id no fue encontrado'}, status=status.HTTP_204_NO_CONTENT)
+            if not cliente:
+                return JsonResponse({'error': 'El cliente no existe'}, status=400)
 
-                try: ClientesDireccion.objects.get(id= id).delete()
-                except: pass
+            # Obtener la cuenta de origen
+            cuenta_origen = Cuenta.objects.filter(customer_id=cliente.customer_id).first()
 
-                user = Cliente.objects.get(customer_id = id)
-                userdirrecion = ClientesDireccion.objects.create(customer= user , id_dirrecion = dirrecion, id= id)
-            else:
-                try: user = Empleado.objects.get(employee_id = id)
-                except: return Response({'El id no fue encontrado'}, status=status.HTTP_204_NO_CONTENT)
+            if not cuenta_origen or cuenta_origen.balance < cantidad:
+                return JsonResponse({'error': 'No tienes fondos suficientes para realizar la transferencia'}, status=406)
 
-                try: EmpleadoDireccion.objects.get(id= id).delete()
-                except: pass
+            # Obtener la cuenta de destino
+            cuenta_destino = Cuenta.objects.filter(iban=iban).first()
 
-                user = Empleado.objects.get(employee_id = id)
-                userdirrecion = EmpleadoDireccion.objects.create(employee= user , id_dirrecion= dirrecion, id = id)
+            if not cuenta_destino:
+                return JsonResponse({'error': 'No se encontró la cuenta de destino'}, status=406)
 
-            # guardamos todo
-            dirrecion.save()
-            userdirrecion.save()
+            # Creamos el movimiento
+            movimiento_recive = TipoMovimientos.objects.get(tipo= 'TRANSFERENCIA_RECIBIDA')
+            movimiento_envia = TipoMovimientos.objects.get(tipo= 'TRANSFERENCIA_ENVIADA')
+            movimientoEnvia = Movimientos.objects.create(numero_cuenta = cuenta_origen, monto = (cantidad*-1), id_tipo_operacion = movimiento_envia )
+            movimientoRecive = Movimientos.objects.create(numero_cuenta = cuenta_destino, monto = (cantidad), id_tipo_operacion = movimiento_recive )
 
-            return Response({'se cambio la dirrecion' : cliente}, status=status.HTTP_201_CREATED)
-        
+            # Realizar la transferencia
+            cuenta_destino.balance += cantidad
+            cuenta_origen.balance -= cantidad
+
+            movimientoRecive.save()
+            movimientoEnvia.save()
+            cuenta_destino.save()
+            cuenta_origen.save()
+
+            return JsonResponse({'message': 'Transferencia realizada con éxito'}, status=200)
+
+        except (ValueError, TypeError) as e:
+            return JsonResponse({'error': f'Datos no válidos en el cuerpo de la solicitud: {e}'}, status=400)
+
         except Exception as e:
-            return Response({f'Ocurrrio un error, intenta nuevamente : Error: {e}, id: {id}, User: {user}, dirrecion: {userdirrecion}'}, status=status.HTTP_408_REQUEST_TIMEOUT)
+            return JsonResponse({'error': f'Ocurrió un error, intenta nuevamente: {e}'}, status=500)
         
     def get(self, request, *args, **kwargs):
         return self.forbidden_response()

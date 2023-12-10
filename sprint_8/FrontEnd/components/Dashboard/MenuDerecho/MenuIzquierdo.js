@@ -63,14 +63,17 @@ export function MenuIzquierdo(customClass) {
           isActive={botonActivo === "/credito"}
           onClick={() => cambiarBotonActivo("/credito")}
         />
-        <BotonIzquierdo
-          text="Facturas"
-          imagen="/menu-izquierdo/factura.svg"
-          alt="facturas"
-          link="/facturas"
-          isActive={botonActivo === "/facturas"}
-          onClick={() => cambiarBotonActivo("/facturas")}
-        />
+        {
+          // <BotonIzquierdo
+          //   text="Facturas"
+          //   imagen="/menu-izquierdo/factura.svg"
+          //   alt="facturas"
+          //   link="/facturas"
+          //   isActive={botonActivo === "/facturas"}
+          //   onClick={() => cambiarBotonActivo("/facturas")}
+          // />
+        }
+        
         <BotonIzquierdo
           text="Mi CBU"
           imagen="/menu-derecho/CIRCLE-INFO.svg"
