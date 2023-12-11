@@ -10,14 +10,14 @@ El grupo que esta creando ITBANK es **iKnowHow** Conformado por:
 			
 		cd sprint_8
 		
-2.	 Crea un entorno virtual e instala
-		
-			pip install django
-			pip install django-cors-headers
-			
-3. Ingresa a BackEnd
+2.	Ingresa a BackEnd 
 		
 		cd BackEnd
+			
+3. Crea un entorno virtual, correlo e instale los siguiente:
+		
+		python -m venv env
+		pip install -r "requirements.txt"
 
 4. Corre el servidor de BackEnd
 		
@@ -27,9 +27,11 @@ El grupo que esta creando ITBANK es **iKnowHow** Conformado por:
 6.  Ingresa a FrontEnd
 		
 		cd FrontEnd
-7. Instala las dependencias de next necesarias con
+
+7. Instala las dependencias de next necesarias con, en caso de tener instalado next omitir este paso
 		
 		npm install    
+
 8. levanta el servidor con
 		
 		npm run dev  
@@ -47,7 +49,7 @@ Una vez ya todo en orden, puedes ingresar a tu URL de Front en:
 
 Ahi vas a ver el primer render de login, puedes ingresar con cualquier usuario del 1 al 503.
 
-			user_1
+		user_1
 
 y la clave para todos es:
 
@@ -57,7 +59,7 @@ Luego, una vez que ingreses, puedes ver todas los servicios disponibles.
 
 Si quieres cambiar puedes salir de la sesión y iniciar con otro usuario. Les aconsejamos probar con varios usuarios para poder ver mejor los cambios entre cada uno.
 
-**![](./docs/cierre.png)**
+**![](./sprint_8/docs/cierre.png)**
 
 ## <h1>EndPoint usados en Front</h1>
 
@@ -65,7 +67,7 @@ Para todas las vistas, se necesita estar logeado.
 
 En cada vista usamos GET o PUT Dependiendo la acción necesaria. 
 
-**![](./docs/inicio.png)**
+**![](./sprint_8/docs/inicio.png)**
 
 ## <h1>EndPoint Especiales</h1>
 
@@ -88,7 +90,7 @@ Ya que este tiene movimientos para mostrar en la mayoría de las vistas
 
 
 
-**![](./docs/postman.png)**
+**![](./sprint_8/docs/postman.png)**
 
 El listado de EndPoint se separan en:
 
@@ -103,11 +105,11 @@ Empleados:
 1. /prestamos/sucursales/< Numero > : Da los prestamos de una sucursal
 2. /tarjeta/cliente/< id_cliente > :  Da las tarjetas de crédito de todo un cliente
 3. PUT: /administraprestamo/ : Crea un préstamo para un cliente. Este en su heder necesita: 
-**![](./docs/administraprestamo.png)**
+**![](./sprint_8/docs/administraprestamo.png)**
 
 4. DELETE: /administraprestamo/ : Elimina un préstamo, para ello necesita en el heder: 
 
-**![](./docs/delete.png)**
+**![](./sprint_8/docs/delete.png)**
 
 
 ## <h1>Documentación del sprint 1</h1>
