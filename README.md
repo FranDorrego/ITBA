@@ -163,6 +163,11 @@ Para cambiar una dirrecion solo se tiene que pasar
 		codigopostal: int --> La codigopostal nueva
 		pais: str --> La pais nueva
 
+**Sucursales**
+
+1. Si entras a /sucursales/ te lista todas las sucursales, no hace falta estar autenticado. 
+
+**Manejo de Errores**
 
 Si envias un metodo que no esta permitido te da un 403.
 
@@ -178,6 +183,9 @@ Este componente es el encargado de ver si tu sesión está activa o no, en el ca
 
 **![](./sprint_8/docs/auth.png)**
 
+
+
+**![](./sprint_8/docs/auth.png)**
 
 
 ## <h1>Documentación del sprint 1</h1>
