@@ -6,8 +6,8 @@
 #   * Remove `managed = False` lines if you wish to allow Django to create, modify, and delete the table
 # Feel free to rename the models, but don't rename db_table values or field names.
 from django.db import models
-from ITBA.muestraData.models import *
-from ITBA.CRUDdata.models import *
+from BackEnd.muestraData.models import *
+from BackEnd.CRUDdata.models import *
 
 
 class TipoCliente(models.Model):

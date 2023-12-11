@@ -86,8 +86,8 @@ class TipoTarjeta(models.Model):
 class Tarjeta(models.Model):
     numero = models.CharField(max_length=300, unique=True, blank=True, null=True)
     cvv = models.IntegerField()
-    fecha_otorgamiento = models.DateTimeField()
-    fecha_exipracion = models.DateTimeField()
+    fecha_otorgamiento = models.CharField(max_length=150)
+    fecha_exipracion = models.CharField(max_length=150)  # Corregido el nombre
     tipo_tarjeta = models.ForeignKey(TipoTarjeta, models.DO_NOTHING)
     marca_tarjeta = models.ForeignKey(MarcaTarjeta, models.DO_NOTHING)
     id_cliente = models.ForeignKey(

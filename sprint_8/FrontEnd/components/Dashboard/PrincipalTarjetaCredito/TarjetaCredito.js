@@ -24,7 +24,7 @@ export default function TarjetaCredito(){
                 <Saludo texto={"Historial de consumos"}/>
 
                 <Movimientos>
-                    <HistorialTarjetas motivo={"Tarjeta de Credito"} />
+                    <HistorialTarjetas motivo={"Compra tarjeta credito"} />
                 </Movimientos>
 
             </ContenedorPrincipal>

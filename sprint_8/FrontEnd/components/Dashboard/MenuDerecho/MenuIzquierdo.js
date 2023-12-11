@@ -55,16 +55,16 @@ export function MenuIzquierdo(customClass) {
           isActive={botonActivo === "/cambioDivisas"}
           onClick={() => cambiarBotonActivo("/cambioDivisas")}
         />
-        {
-          // <BotonIzquierdo
-          // text="Tarjetas"
-          // imagen="/menu-izquierdo/tarjeta.svg"
-          // alt="tarjeta_credito"
-          // link="/credito"
-          // isActive={botonActivo === "/credito"}
-          // onClick={() => cambiarBotonActivo("/credito")}
-          // />
-        }
+        
+        <BotonIzquierdo
+        text="Tarjetas"
+        imagen="/menu-izquierdo/tarjeta.svg"
+        alt="tarjeta_credito"
+        link="/credito"
+        isActive={botonActivo === "/credito"}
+        onClick={() => cambiarBotonActivo("/credito")}
+        />
+
         
         {
           // <BotonIzquierdo

@@ -173,11 +173,48 @@ class movimientosViews(APIView):
     def forbidden_response(self):
         return Response({'detail': 'Acceso prohibido.'}, status=status.HTTP_403_FORBIDDEN)
 
+class creditoDatos(APIView):
+    authentication_classes= [authentication.BasicAuthentication]
+    permission_classes = [permissions.IsAuthenticated]
+
+    def get(self, requets, **kwargs):        
+        # Saco el cliente
+        user = self.request.user
+        cliente = Cliente.objects.filter(user_id= user.id)
+
+        if not cliente:
+            return Response({'error': 'not cliente con ese id'}, status=status.HTTP_400_BAD_REQUEST) 
+
+        # Traigo las cuentas de ese cliente
+        tarjeta = Tarjeta.objects.filter(id_cliente= cliente.first().customer_id)
+        print(tarjeta.first().fecha_exipracion)
+
+        if not tarjeta:
+            return Response({'error': 'Este cliente no tiene tarjeta'}, status=status.HTTP_404_NOT_FOUND) 
+
+        # Serializo todo
+        return Response(TarjetaSerializer(tarjeta.first()).data, status=status.HTTP_200_OK)
+
+            
+    def put(self, request, *args, **kwargs):
+        return self.forbidden_response()
+
+    def post(self, request, *args, **kwargs):
+        return self.forbidden_response()
+
+    def patch(self, request, *args, **kwargs):
+        return self.forbidden_response()
+
+    def forbidden_response(self):
+        return Response({'detail': 'Acceso prohibido.'}, status=status.HTTP_403_FORBIDDEN)
+
+
 class movimientoDetailViews(APIView):
     authentication_classes= [authentication.BasicAuthentication]
     permission_classes = [permissions.IsAuthenticated]
 
-    def get(self, request, id, **kwargs):   
+    def get(self, request, pk, **kwargs):   
+        id = pk
         try:      
             user = self.request.user
             cliente = Cliente.objects.get(user_id= user.id)

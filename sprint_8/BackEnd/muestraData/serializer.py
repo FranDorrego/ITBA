@@ -1,5 +1,6 @@
 from rest_framework import serializers
 from CRUDdata.models import *
+from rest_framework.reverse import reverse
 
 class ClienteSerializer(serializers.ModelSerializer):
     class Meta:
@@ -42,11 +43,20 @@ class PrestamosAllSerializer(serializers.ModelSerializer):
         fields = '__all__'
         read_oly_fields = '__all__'
 
+class marca_tarjetaSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = MarcaTarjeta
+        fields = '__all__'
+        read_oly_fields = '__all__'
+
 class TarjetaSerializer(serializers.ModelSerializer):
+    marca_tarjeta = marca_tarjetaSerializer(read_only=True)
     class Meta:
         model = Tarjeta
         fields = '__all__'
         read_oly_fields = '__all__'
+
+
 
 class TipoMovimientosSerialarzer(serializers.ModelSerializer):
     class Meta:
@@ -54,12 +64,14 @@ class TipoMovimientosSerialarzer(serializers.ModelSerializer):
         fields = ['tipo']
         read_oly_fields = '__all__'
 
+
 class MovimientoSerializer(serializers.ModelSerializer):
     motivo = TipoMovimientosSerialarzer(read_only=True)
+    detalle_url = serializers.SerializerMethodField()
 
     class Meta:
         model = Movimientos
-        fields = ['id', 'monto', 'hora', 'motivo', 'id_tipo_operacion']
+        fields = ['id', 'monto', 'hora', 'motivo', 'id_tipo_operacion', 'detalle_url']
 
     def to_representation(self, instance):
         representation = super().to_representation(instance)
@@ -69,7 +81,10 @@ class MovimientoSerializer(serializers.ModelSerializer):
         tipo_movimiento_serializer = TipoMovimientosSerialarzer(tipo_movimiento)
 
         # Agrega la representación serializada de TipoMovimiento a la respuesta
-        representation['motivo'] = tipo_movimiento_serializer.data
-        representation['motivo'] = str(representation['motivo'].get('tipo')).replace('_', ' ').capitalize()
+        representation['motivo'] = str(tipo_movimiento_serializer.data.get('tipo')).replace('_', ' ').capitalize()
 
         return representation
+
+    def get_detalle_url(self, obj):
+        # Usa la reverse para construir la URL del detalle basada en el nombre de la vista
+        return reverse('movimiento-detail', kwargs={'pk': obj.id}, request=self.context.get('request'))

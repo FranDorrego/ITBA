@@ -69,6 +69,13 @@ En cada vista usamos GET o PUT Dependiendo la acción necesaria.
 
 **![](./sprint_8/docs/inicio.png)**
 
+Hay un endpoint el cual me da los detalles del movimiento. 
+
+este es **/movimiento/< N >**
+
+**![](./sprint_8/docs/movimiento.png)**
+
+
 ## <h1>Aclaraciones para Testear</h1>
 
 En algunas paginas es necesario aclarar algunos puntos.
@@ -99,6 +106,15 @@ Solo vas a poder acceder al préstamo
 
 **![](./sprint_8/docs/error_cambio.png)**
 
+**Datos en la DB**
+
+La base que teníamos tenía inconsistencias en algunos datos, por ejemplo un saldo con un número pero no había movimientos. Por ello fue que todas las cuentas ahora tienen un movimiento de apertura llamado **AJUSTE_CUENTA** que es básicamente el primer movimiento.
+
+**![](./sprint_8/docs/ajuste.png)**
+
+Además de ello, hay **un movimiento por tarjeta de crédito** para simular una compra. 
+
+**![](./sprint_8/docs/tarjeta.png)**
 
 
 ## <h1>EndPoint Especiales</h1>
@@ -142,6 +158,15 @@ Empleados:
 4. DELETE: /administraprestamo/ : Elimina un préstamo, para ello necesita en el heder: 
 
 **![](./sprint_8/docs/delete.png)**
+
+## <h1>Auth / Logeo</h1>
+
+Para asegurarnos de que el usuario esta logeado y así poder utilizar las funciones del banco. En cada pagina renderizamos un componente llamado **WithAuth**.
+
+Este componente es el encargado de ver si tu sesión está activa o no, en el caso de no estarlo, te lleva al inicio donde si o si tenes que logearte. 
+
+**![](./sprint_8/docs/auth.png)**
+
 
 
 ## <h1>Documentación del sprint 1</h1>

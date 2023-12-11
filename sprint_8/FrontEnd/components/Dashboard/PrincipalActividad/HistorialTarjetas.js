@@ -10,7 +10,7 @@ export function HistorialTarjetas({ motivo = null }) {
     .map((movimiento, index) => {
 
       var linkRedireccion = "actividad";
-      if ( movimiento.motivo.includes("Tarjeta de Credito") ){
+      if ( movimiento.motivo.includes("Compra tarjeta credito") ){
         var linkRedireccion = "credito";
       }else if (movimiento.motivo.includes("Factura")){
         var linkRedireccion = "facturas";

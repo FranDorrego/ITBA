@@ -6,7 +6,7 @@ export function FechayNumero({props}){
     return(
       <div className={style.fechaYNumero}>
   
-        <h1>Realizada el: {props.fecha} </h1>
+        <h1>Realizada el: {props.hora} </h1>
       
         <div className={style.fechaYNumeroID}>
           <h1>Número de operación: {props.id} </h1>
