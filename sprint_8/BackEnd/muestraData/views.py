@@ -190,7 +190,7 @@ class creditoDatos(APIView):
 
         # Traigo las cuentas de ese cliente
         tarjeta = Tarjeta.objects.filter(id_cliente= cliente.first().customer_id)
-        print(tarjeta.first().fecha_exipracion)
+        
 
         if not tarjeta:
             return Response({'error': 'Este cliente no tiene tarjeta'}, status=status.HTTP_404_NOT_FOUND) 
