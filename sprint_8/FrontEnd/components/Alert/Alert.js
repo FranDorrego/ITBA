@@ -144,6 +144,22 @@ export function CambioEXITOSO(detalle) {
   );
 }
 
+export function prestamoExistoso(detalle) {
+  return (
+    <div className={styles.modal}>
+      <h1>¡Prestamo Existo!</h1>
+      <Image
+        src={"/alert/transferenciaExitosa.svg"}
+        width={200}
+        height={200}
+        alt="foto Problema"
+      />
+      <h2>{detalle}</h2>
+      <h2>Despreocupate... <br/>Ya esta todo listo</h2>
+    </div>
+  );
+}
+
 export function ERROR(detalle) {
   return (
     <div className={styles.modal}>

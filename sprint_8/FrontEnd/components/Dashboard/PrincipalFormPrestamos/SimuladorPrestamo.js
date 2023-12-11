@@ -2,21 +2,28 @@ import estilosDashboard from '@/styles/styleDashboard.module.css'
 import { useForm } from 'react-hook-form';
 import swal from 'sweetalert';
 import { pidePrestamo } from '../API_Datos_Personales.js'
+import { useRef } from 'react';
+import { ERROR, TransferenciaEXITOSA } from '@/components/Alert/Alert.js';
+import Alert from "@/components/Alert/Alert";
+import { prestamoExistoso } from '@/components/Alert/Alert.js';
 
 export function SimuladorPrestamo({interesesAPagar, cuotasDe, totalAPagar, porcentaje, plata}){
 
     const { handleSubmit} = useForm();
+    const alertRef = useRef();
 
     const onSubmit = async (data)  => {
         if (totalAPagar == "") {
           return swal("Por favor rellena los datos solicitados", "");
         }
-        
-        console.log(totalAPagar)
+        alertRef.current.carga();
+
         if ( await pidePrestamo( totalAPagar )) {
-          swal("Prestamo pedido", "Monto: " + totalAPagar);
+            alertRef.current.muestraContenido(
+                prestamoExistoso(`Se acreditaron $ ${totalAPagar}`)
+              );
         } else {
-          return swal("Ocurrio un error, por favor vuelve a intentar", "");
+            return alertRef.current.muestraContenido(ERROR("Ocurrio un error, por favor vuelve a intentar"));
         }
       };
 
@@ -52,6 +59,7 @@ export function SimuladorPrestamo({interesesAPagar, cuotasDe, totalAPagar, porce
 
 
                 <button className={estilosDashboard.derechoBoton} id={estilosDashboard.solicitarPrestamo} type='submit' >Solicitar el prestamo</button>
+                <Alert ref={alertRef} />
             </form>
         </div>
     )

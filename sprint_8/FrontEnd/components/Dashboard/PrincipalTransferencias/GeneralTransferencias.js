@@ -9,7 +9,7 @@ import { CuentasTransferir } from "./CuentasTransferir";
 
 // Componente principal
 const DivContenedorPrincipal = () => {
-
+ 
   const [contenidoMostrado, setContenidoMostrado] = useState(null);
 
   const mostrarContenido = (botonSeleccionado) => {
