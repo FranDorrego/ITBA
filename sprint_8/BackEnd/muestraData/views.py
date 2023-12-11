@@ -7,6 +7,8 @@ from .permissions import *
 from rest_framework import viewsets, permissions, status, authentication
 from sucursales.models import Sucursal
 import base64
+import random
+from datetime import datetime, timedelta
 from operator import itemgetter
 
 # Create your views here.
@@ -181,6 +183,7 @@ class creditoDatos(APIView):
     permission_classes = [permissions.IsAuthenticated]
 
     def get(self, requets, **kwargs):        
+        
         # Saco el cliente
         user = self.request.user
         cliente = Cliente.objects.filter(user_id= user.id)
@@ -190,15 +193,25 @@ class creditoDatos(APIView):
 
         # Traigo las cuentas de ese cliente
         tarjeta = Tarjeta.objects.filter(id_cliente= cliente.first().customer_id)
-        
+        if len(tarjeta) == 0: # ESTO LO REALIZAMOS ASI PQ NO TENEMOS A TODOS LOS CLIENTES CON ALGUNA TARJETA, HAY CLIENTES SIN TARJETAS
+            fecha_hoy = datetime.now().date()
+            fecha_futura = fecha_hoy + timedelta(days=5*365)
+            tipo_tarjeta = TipoTarjeta.objects.get(pk=random.randint(1, 2))
+            marca_tarjeta = MarcaTarjeta.objects.get(pk=random.randint(1, 3))
+            cliente_instance = Cliente.objects.get(user_id=user.id)
+            tarjeta = Tarjeta.objects.create(numero = random.randint(10000000000000, 99999999999999),
+                                             cvv = random.randint(100, 999),
+                                             fecha_otorgamiento = fecha_hoy,
+                                             fecha_exipracion = fecha_futura,
+                                             tipo_tarjeta = tipo_tarjeta,
+                                             marca_tarjeta = marca_tarjeta,
+                                             id_cliente = cliente_instance)
 
-        if not tarjeta:
-            return Response({'error': 'Este cliente no tiene tarjeta'}, status=status.HTTP_404_NOT_FOUND) 
+            tarjeta = Tarjeta.objects.filter(id_cliente= cliente.first().customer_id)
 
-        # Serializo todo
         return Response(TarjetaSerializer(tarjeta.first()).data, status=status.HTTP_200_OK)
 
-            
+   
     def put(self, request, *args, **kwargs):
         return self.forbidden_response()
 
