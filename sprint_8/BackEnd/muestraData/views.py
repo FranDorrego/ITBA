@@ -7,6 +7,7 @@ from .permissions import *
 from rest_framework import viewsets, permissions, status, authentication
 from sucursales.models import Sucursal
 import base64
+from operator import itemgetter
 
 # Create your views here.
 class ClienteViews(viewsets.ModelViewSet):
@@ -151,10 +152,12 @@ class movimientosViews(APIView):
             # traigo los movimientos de esas cuentas
             movimientos = []
             for cuenta in cuentas:
-                movimiento = Movimientos.objects.filter(numero_cuenta=cuenta.account_id).order_by('-hora')
+                movimiento = Movimientos.objects.filter(numero_cuenta=cuenta.account_id).order_by('-id')
                 for movi in movimiento:
                     movimientos.append(MovimientoSerializer(movi).data)
 
+            # Ordeno la lista de movimientos según el campo 'id' de manera creciente
+            movimientos = sorted(movimientos, key=itemgetter('id'), reverse=True)
 
             # Serializo todo y meustro en lista
             return Response(movimientos, status=status.HTTP_200_OK)
@@ -251,7 +254,7 @@ class cuentasViews(APIView):
 
         if cliente:
             # Traigo las cuentas de ese cliente
-            cuentas = Cuenta.objects.filter(customer_id= cliente.first().customer_id)
+            cuentas = Cuenta.objects.filter(customer_id= cliente.first().customer_id).order_by('tipo_cuenta_id')
 
             # Serializo todo y meustro en lista
             serializers = []

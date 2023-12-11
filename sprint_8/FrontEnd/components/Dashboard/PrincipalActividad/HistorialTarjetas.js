@@ -24,6 +24,7 @@ export function HistorialTarjetas({ motivo = null }) {
             monto={movimiento.monto}
             fecha={movimiento.fecha}
             motivo={movimiento.motivo}
+            cuenta={movimiento.tipo_cuenta}
             link={linkRedireccion}
           />
         );
@@ -35,6 +36,7 @@ export function HistorialTarjetas({ motivo = null }) {
             monto={movimiento.monto}
             fecha={movimiento.fecha}
             motivo={movimiento.motivo}
+            cuenta={movimiento.tipo_cuenta}
             link={linkRedireccion}
           />
         );

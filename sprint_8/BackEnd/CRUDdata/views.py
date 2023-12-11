@@ -367,6 +367,7 @@ class RealizaCambio(APIView):
                 for cuenta in pesosCuentas:
                     print(dolarCuentas)
                     print(pesosCuentas)
+                    
                     if cuenta.balance > pesos:
                         try:
                             cuenta.balance -= pesos

@@ -3,7 +3,7 @@ import estilosDashboard from '@/styles/styleDashboard.module.css';
 import Image from 'next/image';
 import Link from 'next/link';
 
-export function TarjetaMovimientoIngreso({id, monto, fecha, motivo, link = "actividad"}){
+export function TarjetaMovimientoIngreso({id, monto, fecha, motivo, cuenta,link = "actividad"}){
     return(
         <Link className={estilosDashboard.movimientosTarjeta} href={`${link}/${id}`}>
             <span className={estilosDashboard.movimientoTexto}>
@@ -11,7 +11,7 @@ export function TarjetaMovimientoIngreso({id, monto, fecha, motivo, link = "acti
                 <h2>{fecha}</h2>
             </span>     
 
-            <h2 className={estilosDashboard.motivoTexto}>{motivo}</h2>
+            <h2 className={estilosDashboard.motivoTexto}>{motivo} - {cuenta}</h2>
 
             <span className={estilosDashboard.motivo}>
                 <h1 className={estilosDashboard.ingreso}>Ingreso</h1>

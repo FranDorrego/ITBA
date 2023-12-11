@@ -114,6 +114,7 @@ export function GeneralCambioDivisa() {
             precio: precio,
           }}
         />
+
       </ContenedorPrincipal>
     </div>
   );

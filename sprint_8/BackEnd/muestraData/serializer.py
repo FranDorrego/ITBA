@@ -68,10 +68,11 @@ class TipoMovimientosSerialarzer(serializers.ModelSerializer):
 class MovimientoSerializer(serializers.ModelSerializer):
     motivo = TipoMovimientosSerialarzer(read_only=True)
     detalle_url = serializers.SerializerMethodField()
+    tipo_cuenta = serializers.SerializerMethodField()
 
     class Meta:
         model = Movimientos
-        fields = ['id', 'monto', 'hora', 'motivo', 'id_tipo_operacion', 'detalle_url']
+        fields = ['id', 'monto', 'hora', 'motivo', 'id_tipo_operacion', 'detalle_url', 'tipo_cuenta']
 
     def to_representation(self, instance):
         representation = super().to_representation(instance)
@@ -88,3 +89,9 @@ class MovimientoSerializer(serializers.ModelSerializer):
     def get_detalle_url(self, obj):
         # Usa la reverse para construir la URL del detalle basada en el nombre de la vista
         return reverse('movimiento-detail', kwargs={'pk': obj.id}, request=self.context.get('request'))
+
+    def get_tipo_cuenta(self, obj):
+        # Obtiene el número de cuenta desde la relación
+        numero_cuenta = obj.numero_cuenta.tipo_cuenta_id 
+        cuenta = TipoCuenta.objects.get(id = numero_cuenta )
+        return TipoCuentaSerializer(cuenta).data.get('tipo_cuenta')
