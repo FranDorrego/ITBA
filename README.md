@@ -100,11 +100,6 @@ En este cambio solo lo vas a poder realizar si tenes una cuenta en dolares, si n
 
 **![](./sprint_8/docs/error_cambio.png)**
 
-**Prestamos**
-
-Solo vas a poder acceder al préstamo
-
-**![](./sprint_8/docs/error_cambio.png)**
 
 **Datos en la DB**
 
@@ -158,6 +153,22 @@ Empleados:
 4. DELETE: /administraprestamo/ : Elimina un préstamo, para ello necesita en el heder: 
 
 **![](./sprint_8/docs/delete.png)**
+
+Para cambiar una dirrecion solo se tiene que pasar 
+
+		cliente: 1 | 0 --> Si es un cliente o no
+		id: int --> El id del empleado o del cleinte 
+		calle: str --> La calle nueva 
+		cuidad: str --> La cuidad nueva
+		codigopostal: int --> La codigopostal nueva
+		pais: str --> La pais nueva
+
+
+Si envias un metodo que no esta permitido te da un 403.
+
+**![](./sprint_8/docs/denegado.png)**
+
+Se diseñó con el objetivo de facilitar la comprensión de todos los requisitos, aunque no esté destinado al uso de un usuario promedio. La idea es proporcionar mensajes de error que ayuden al programador que esté realizando las solicitudes, ofreciendo siempre una solución o información para abordar dichos errores.
 
 ## <h1>Auth / Logeo</h1>
 
