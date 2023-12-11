@@ -69,6 +69,38 @@ En cada vista usamos GET o PUT Dependiendo la acción necesaria.
 
 **![](./sprint_8/docs/inicio.png)**
 
+## <h1>Aclaraciones para Testear</h1>
+
+En algunas paginas es necesario aclarar algunos puntos.
+
+**Transferencias**
+
+Aca te pide el IBAN y te pide un monto.
+
+IBAN: Es el número único de una cuenta bancaria. En este caso solo te va a aceptar números registrados en la Base de datos. Podes entrar a un usuario cualquiera y copiar su IBAN de la parte de cuentas y utilizarlo para enviar o podes usar alguno de esta lista:
+
+			Usuario 1 : NL24NWHN6414542882
+			Usuario 100: LOGDSFDFD45F8328
+			Usuario 300: 601RELOGDSFDFD45F8328TI601
+
+Y el monto tiene que que estar entre 1 y el saldo de la cuenta. Si tenes saldo negativo, no vas a poder realizar la transferencia. 
+
+**![](./sprint_8/docs/transferencia.png)**
+
+**Cambio de Monedas**
+
+En este cambio solo lo vas a poder realizar si tenes una cuenta en dolares, si no tenes esa cuenta, no vas a poder realizar el cambio.
+
+**![](./sprint_8/docs/error_cambio.png)**
+
+**Prestamos**
+
+Solo vas a poder acceder al préstamo
+
+**![](./sprint_8/docs/error_cambio.png)**
+
+
+
 ## <h1>EndPoint Especiales</h1>
 
 Se nos pedían unos puntos especiales para testear desde postman.
