@@ -803,6 +803,28 @@
     gap: 1rem;
 }
 
+.selectDivisas:disabled {
+    appearance: none;
+    display: flex;
+
+    padding: 0.75rem 1.5rem;
+    align-items: center;
+    gap: 0.75rem;
+
+    border-radius: 0.75rem;
+    border: 2px solid #8933F5;
+    background-color: rgba(137, 51, 245);
+
+    color: #FFF;
+    font-family: Poppins;
+    font-size: 1.25rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    opacity: 1;
+}
+
+
 .divisaText input{
     align-items: center;
     height: 2.5rem;

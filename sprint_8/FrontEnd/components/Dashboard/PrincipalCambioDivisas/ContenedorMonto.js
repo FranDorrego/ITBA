@@ -25,7 +25,7 @@ export function ContenedorMonto(props){
                 <span className={estilosDashboard.motivo}>
                 </span>
                 <span>
-                    <select name="" id="option1" value={selectedCurrency}> 
+                    <select className={estilosDashboard.selectDivisas} name="" id="option1" value={selectedCurrency} disabled> 
                         {currencyOptions.map(option => (
                             <option key={option} value={option}>{option}</option>
                         ) )}
