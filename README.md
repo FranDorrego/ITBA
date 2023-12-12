@@ -248,8 +248,11 @@ Para cerrar, esto fue un proyecto para el Instituto Tecnológico de Buenos Aires
 Podes ver mas sobre los integrantes del grupo en nuestro gitHub o en linkedin. 
 
 Franco Dorrego: https://www.linkedin.com/in/francodorrego/
+
 Laureano Ibarra: 
+
 Evelin Gazal: 
+
 Luciano Hermeda: 
 
 Si bien no todos llegamos a culminar toda la formación, todos aportamos nuestra parte para que termine funcionando. 
