@@ -183,10 +183,76 @@ Este componente es el encargado de ver si tu sesión está activa o no, en el ca
 
 **![](./sprint_8/docs/auth.png)**
 
+## <h1>Implementación de código</h1>
 
+Hay algunos datos para resaltar ya sea código de front como de Back.
 
-**![](./sprint_8/docs/auth.png)**
+**Mensajes de alerta**
 
+Los carteles de cargando y que muestran que se completó una operación, se manejan de un componente en especial que está desde el inicio de la página pero que no se muestra hasta que es necesario. 
+
+Para esto se usa UseRef que básicamente nos permite tener acceso a un componente que se renderizo en otra parte del código, en cualquier lado. 
+
+De esta forma es muy simple colocar los carteles de carga y éxito. 
+
+Además de ello se crearon plantillas en especial para que este tenga un formato en particular. 
+
+**![](./sprint_8/docs/alert.png)**
+
+Los usamos en muchas paginas ya que es fácil de cargar y manipular. 
+
+**Métodos HTTP**
+
+Para los métodos que no estaban implementados, en vez de dar un error, damos un mensaje de acceso prohibido.
+
+**![](./sprint_8/docs/back.png)**
+
+## <h1>Todos los EndPoint</h1>
+
+Todos los EndPoint disponibles son:
+
+1. *admin/* : Es el Root para ingresar a la API.
+2. *sucursales/* : Lista todas las sucursales.
+3. *cliente/* : Muestra los datos del usuario autenticado.
+4. *saldo/* : Muestra los saldos de todas las cuentas del usuario autenticado.
+5. *prestamos/* : Filtra todos los préstamos de un cliente autenticado. 
+6. *prestamo/< int:pk >* : muestra los detalles de un préstamo en especial. Se pasa el ID del préstamo. 
+7. *prestamos/sucursales/< int:id >/*: Muestra todos los préstamos de una sucursal, Se pasa el ID de la sucursal. 
+8. *tarjeta/cliente/< int:id >/* : Lista todas las tarjetas de un cliente. Se pasa el ID del cliente. 
+9. *movimientos/< int:pk >/* : Muestra el detalle de un movimiento. Tenes que pasar su ID y tiene que estar autenticado el cliente. Si pedís un ID de un movimiento que no esta asociado con ese cliente, no te devuelve nada.
+10.  *movimientos/* : Lsita todos los movimientos de un cliente autenticado. 
+11. *creditodatos/* : Muestra los datos de una tarjeta de crédito, Si el cliente no tiene una, se crea una automáticamente. 
+12. *tarjeta/* : Muestro todos las tarjetas de un cliente autenticado.
+13.  *cuenta/* : Muestra todos las cuentas de un cliente autenticado. 
+14. *status/* : Muestra el total de ingreso, el total de egreso y el balance general. 
+15. *administraprestamo/* : 
+			PUT Crea un préstamo
+			DELETE Borra un préstamo
+16. *newdirrecion/* : Cambia la dirección de un cliente o empleado. 
+17. *aceptaprestamos/*  : Un cliente acepta un préstamo. 
+18. *realizatransferencia/* : Un cliente realiza una transferencia a una cuenta. 
+19. *cambiomoneda/* : Realiza el cambio de moneda de una cuenta en Dolares a una en Pesos o viceversa. 
+
+Para la mayoría tenes que estar autenticado como cliente y las demás como empleado. 
+
+Si no estas autenticado. No te deja realizar ninguna operación. 
+
+## <h1>Cierre del Proyecto</h1>
+
+A lo largo de este proyecto vas a ver como fue mutando la aplicación de un simple HTML/CSS/JS a una aplicación funcional con Django y Next.
+
+Esta aplicación esta lista para el uso y podes ver como fueron los pasos para llegar a esto en estas documentaciones anteriores. 
+
+Para cerrar, esto fue un proyecto para el Instituto Tecnológico de Buenos Aires Y fue el proyecto central del programa de Full Stack
+
+Podes ver mas sobre los integrantes del grupo en nuestro gitHub o en linkedin. 
+
+Franco Dorrego: https://www.linkedin.com/in/francodorrego/
+Laureano Ibarra: 
+Evelin Gazal: 
+Luciano Hermeda: 
+
+Si bien no todos llegamos a culminar toda la formación, todos aportamos nuestra parte para que termine funcionando. 
 
 ## <h1>Documentación del sprint 1</h1>
 

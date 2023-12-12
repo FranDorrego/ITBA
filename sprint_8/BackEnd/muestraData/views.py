@@ -46,7 +46,7 @@ class PrestamosViews(viewsets.ModelViewSet):
         cliente = Cliente.objects.filter(user_id=user.id).first()
         cuenta = Prestamo.objects.filter(customer_id=cliente.customer_id)
         return cuenta
-
+    
 class prestamoDetailView(APIView):
     authentication_classes = [authentication.BasicAuthentication]
     permission_classes = [permissions.IsAuthenticated]
@@ -61,7 +61,19 @@ class prestamoDetailView(APIView):
             return Response(PrestamosAllSerializer(prestamo).data, status=status.HTTP_200_OK)
         except Prestamo.DoesNotExist:
             return Response({'error': 'Prestamo no encontrado'}, status=status.HTTP_404_NOT_FOUND)
-     
+
+    def put(self, request, *args, **kwargs):
+        return self.forbidden_response()
+
+    def post(self, request, *args, **kwargs):
+        return self.forbidden_response()
+
+    def patch(self, request, *args, **kwargs):
+        return self.forbidden_response()
+
+    def forbidden_response(self):
+        return Response({'detail': 'Acceso prohibido.'}, status=status.HTTP_403_FORBIDDEN)
+    
 class PrestamosSucursalesViews(APIView):
     authentication_classes= [authentication.BasicAuthentication]
     permission_classes = [permissions.IsAuthenticated]
